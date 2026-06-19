@@ -56,13 +56,58 @@ export const TIDARA_HERO = {
 };
 
 export const TIDARA_INTRO = {
+  eyebrowAr: "المفهوم التصميمي",
+  eyebrowEn: "Design Concept",
   titleAr: "رؤية المشروع",
   titleEn: "Project Vision",
+  quoteAr: "حافة حية بين المدينة والبحر",
+  quoteEn: "A living edge between city and sea",
+  etymologyAr: "Tide + -dara",
+  etymologyDetailAr:
+    "من «Tide» — إيقاع المارينا وحركة الماء — و«-dara» — خطوط متدفقة وأناقة معمارية",
+  etymologyDetailEn:
+    "From “Tide” — marina rhythm and water movement — and “-dara” — flowing lines and architectural elegance",
+  leadAr:
+    "تُصمَّم أبراج تيدارا كبوابة حضرية ساحلية جديدة على مارينا الخبر، حيث تندمج العمارة والمناظر الطبيعية والحياة العامة في تجربة واحدة.",
+  leadEn:
+    "Tidara Towers is envisioned as a new urban waterfront gateway on Al Khobar marina, where architecture, landscape, and public life merge into one experience.",
   bodyAr:
-    "تيدارا اسم مستوحى من «Tide» — حركة الماء وإيقاع المارينا — و«-dara» التي تعكس خطوطاً متدفقة وأناقة معمارية. يُصمَّم المشروع كبوابة حضرية ساحلية جديدة حيث تندمج العمارة والمناظر الطبيعية والحياة العامة في تجربة مشي متصلة، تحوّل الشاطئ من مساحة سلبية إلى حافة مدنية نشطة ومحوراً اجتماعياً يومياً للخبر. يضم المشروع ثلاثة مبانٍ رئيسية — فندقي وإداري وسكني — مرتبطة ببوديوم عام وبرج مركزي أسطواني يمنح إطلالة 360° على الواجهة البحرية.",
+    "يحوّل المشروع الشاطئ من مساحة سلبية إلى حافة مدنية نشطة ومحوراً اجتماعياً يومياً. ثلاثة مبانٍ — فندقي وإداري وسكني — مرتبطة ببوديوم عام وبرج مركزي أسطواني يمنح إطلالة 360° على الخليج.",
   bodyEn:
-    "TIDARA is a coined name from “Tide” — water movement and marina rhythm — and “-dara”, evoking flowing lines and architectural elegance. Envisioned as a new urban waterfront gateway, architecture, landscape, and public life merge into a continuous walkable experience, transforming a passive shoreline into an active civic edge and daily social hub for Al Khobar. The development comprises three primary buildings — hotel, administrative, and residential — linked by a public podium and a central cylindrical tower offering 360° views of the waterfront.",
+    "The development transforms a passive shoreline into an active civic edge and daily social hub. Three buildings — hotel, administrative, and residential — link through a public podium and a central cylindrical tower with 360° Gulf views.",
 };
+
+export type TidaraIntroHighlight = {
+  id: string;
+  titleAr: string;
+  titleEn: string;
+  bodyAr: string;
+  bodyEn: string;
+};
+
+export const TIDARA_INTRO_HIGHLIGHTS: TidaraIntroHighlight[] = [
+  {
+    id: "gateway",
+    titleAr: "بوابة المارينا",
+    titleEn: "Marina Gateway",
+    bodyAr: "وجهة ساحلية تربط الحي الحضري بالمارينا والخليج",
+    bodyEn: "A coastal node linking the urban district to the marina and the Gulf",
+  },
+  {
+    id: "walkable",
+    titleAr: "تجربة مشي متصلة",
+    titleEn: "Walkable Continuum",
+    bodyAr: "ممشى عام ينشّط الواجهة ويحوّلها إلى حياة يومية",
+    bodyEn: "A continuous public promenade that activates the waterfront daily",
+  },
+  {
+    id: "integrated",
+    titleAr: "برج مركزي متكامل",
+    titleEn: "Integrated Landmark",
+    bodyAr: "بوديوم يربط المبانٍ وبرجاً أسطوانياً بإطلالة بانورامية",
+    bodyEn: "A shared podium and cylindrical tower with panoramic views",
+  },
+];
 
 export type TidaraAlternatingSection = {
   id: string;
