@@ -138,7 +138,7 @@ export function FeaturedProjects({
     <section
       id="projects"
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#14110D] py-14 md:py-20 lg:py-28"
+      className="relative overflow-hidden bg-stone-dark py-14 md:py-20 lg:py-28"
       onMouseEnter={() => pauseOnHover && setPaused(true)}
       onMouseLeave={() => pauseOnHover && setPaused(false)}
     >
@@ -212,7 +212,7 @@ export function FeaturedProjects({
                 <div
                   key={`${src}-${depth}`}
                   className={cn(
-                    "deck-card absolute h-[88%] w-[82%] max-w-[420px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#111] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] md:max-w-[460px] lg:h-[90%] lg:max-w-[540px]",
+                    "deck-card stone-surface-dark absolute h-[88%] w-[82%] max-w-[420px] overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] md:max-w-[460px] lg:h-[90%] lg:max-w-[540px]",
                     isTop && "deck-card--top ring-1 ring-[#C9A962]/40 shadow-[0_0_60px_rgba(201,169,98,0.18)]",
                     isTop && !flyOut && drag === 0 && "cursor-grab",
                     isTop && drag !== 0 && "cursor-grabbing",

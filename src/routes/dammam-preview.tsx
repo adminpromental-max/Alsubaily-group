@@ -17,7 +17,7 @@ export const Route = createFileRoute("/dammam-preview")({
 function DammamPreviewPage() {
   const { t } = useLang();
   return (
-    <main className="min-h-screen bg-[#0a0a0a] px-6 pt-32 pb-20 text-white md:px-8">
+    <main className="min-h-screen bg-stone-dark px-6 pt-32 pb-20 text-white md:px-8">
       <div className="mx-auto max-w-5xl">
         <p className="text-xs uppercase tracking-[0.4em] text-[#c9a962]">
           {t("معاينة", "Preview")}

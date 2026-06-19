@@ -69,7 +69,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative bg-[#14110D] py-16 md:py-24">
+    <section id="contact" className="relative bg-stone-dark py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <div
           className={`flex flex-col items-center gap-12 md:items-stretch md:gap-16 ${isRTL ? "md:flex-row" : "md:flex-row-reverse"}`}
@@ -100,7 +100,7 @@ export function ContactSection() {
           <div className="w-full max-w-md flex-1 md:max-w-none">
             <form
               onSubmit={handleSubmit}
-              className="mx-auto w-full max-w-md rounded-2xl border border-[#E0D3C2]/10 bg-[#F5EEE2] p-6 shadow-xl md:max-w-none md:p-8"
+              className="stone-surface-cream mx-auto w-full max-w-md rounded-2xl border border-[#E0D3C2]/10 p-6 shadow-xl md:max-w-none md:p-8"
             >
               <div className="space-y-5">
                 {/* Name */}

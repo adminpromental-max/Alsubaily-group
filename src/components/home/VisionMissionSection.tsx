@@ -55,12 +55,16 @@ export function VisionMissionSection() {
     <section
       ref={sectionRef}
       id="vision-mission"
-      className="relative overflow-hidden px-6 py-20 md:px-8 md:py-28"
-      style={{
-        background:
-          "radial-gradient(ellipse at top, #2a201a 0%, #1d1812 38%, #16120E 72%, #14110D 100%)",
-      }}
+      className="relative overflow-hidden bg-stone-dark px-6 py-20 md:px-8 md:py-28"
     >
+      {/* Depth tint over stone texture */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-90"
+        style={{
+          background:
+            "radial-gradient(ellipse at top, rgba(42,32,26,0.55) 0%, rgba(29,24,18,0.45) 38%, rgba(22,18,14,0.5) 72%, rgba(20,17,13,0.65) 100%)",
+        }}
+      />
       {/* Metallic sheen overlays */}
       <div className="pointer-events-none absolute inset-0">
         <div

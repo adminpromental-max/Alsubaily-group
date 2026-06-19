@@ -6,7 +6,7 @@ export function TaglineSection() {
   return (
     <section
       data-parallax-section
-      className="tagline-section relative overflow-hidden bg-[#FAF8F4]"
+      className="tagline-section relative overflow-hidden bg-stone-cream"
     >
       {/* Top bridge from FeaturedProjects (dark → cream) */}
       <div

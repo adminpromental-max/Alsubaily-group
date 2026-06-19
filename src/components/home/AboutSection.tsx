@@ -16,7 +16,7 @@ export function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative overflow-hidden border-y border-[#E0D3C2]/60 bg-[#F3F0EA] py-20 md:py-28"
+      className="relative overflow-hidden border-y border-[#E0D3C2]/60 bg-stone-cream py-20 md:py-28"
     >
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2 md:gap-16 md:px-8">
         <div className="relative">

@@ -18,7 +18,7 @@ function ProjectPage() {
   const { slug } = Route.useParams();
   const { t } = useLang();
   return (
-    <main className="min-h-screen bg-[#FAFAF8] px-6 pt-32 pb-20 md:px-8">
+    <main className="min-h-screen bg-stone-cream px-6 pt-32 pb-20 md:px-8">
       <div className="mx-auto max-w-4xl">
         <Link
           to="/"

@@ -1,8 +1,12 @@
 import { ReactNode } from "react";
 
+export type SectionTone = "cream" | "dark";
+
 interface StackedSectionProps {
   children: ReactNode;
   index: number;
+  tone?: SectionTone;
+  /** @deprecated Use tone="cream" | "dark" instead */
   background?: string;
   /** Total number of stacked sections — used to invert z-index so later
    *  sections sit visually UNDER earlier ones (layered-cards effect). */
@@ -15,23 +19,19 @@ interface StackedSectionProps {
 
 export function StackedSection({
   children,
-  background = "#F5EEE2",
+  tone = "cream",
   index,
   total = 12,
   className = "",
 }: StackedSectionProps) {
   const isHero = index === 0;
-  // Later sections get LOWER z-index → they appear to slide in *under*
-  // the current section as the user scrolls.
   const zIndex = total - index;
+  const stoneClass = tone === "dark" ? "bg-stone-dark" : "bg-stone-cream";
 
   return (
     <div
-      className={`stacked-section ${isHero ? "stacked-section--hero" : "stacked-section--layer"} ${className}`}
-      style={{
-        background,
-        zIndex,
-      }}
+      className={`stacked-section ${stoneClass} ${isHero ? "stacked-section--hero" : "stacked-section--layer"} ${className}`}
+      style={{ zIndex }}
     >
       {children}
     </div>

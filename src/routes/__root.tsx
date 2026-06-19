@@ -17,7 +17,7 @@ import { SiteFooter } from "../components/layout/SiteFooter";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#FAFAF8] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-stone-cream px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-[#1A1612]">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-[#1A1612]">
@@ -47,7 +47,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#FAFAF8] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-stone-cream px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-[#1A1612]">
           This page didn't load
@@ -100,6 +100,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/assets/Alshubaily-logo.png" },
       { rel: "preload", as: "image", href: "/assets/hero/Hero-1.jpg" },
+      { rel: "preload", as: "image", href: "/assets/textures/stone-cream.png" },
+      { rel: "preload", as: "image", href: "/assets/textures/stone-dark.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -124,7 +126,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="min-h-full bg-[#FAFAF8] font-sans text-foreground antialiased">
+      <body className="min-h-full bg-stone-cream font-sans text-foreground antialiased">
         {children}
         <Scripts />
       </body>

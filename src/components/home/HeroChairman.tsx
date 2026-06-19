@@ -105,7 +105,7 @@ export function HeroChairman() {
   return (
     <section
       id="hero"
-      className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden bg-[#14110D]"
+      className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden bg-stone-dark"
     >
       <HeroCinematic />
 
@@ -134,7 +134,7 @@ export function ChairmanQuote() {
   return (
     <div
       id="chairman"
-      className="relative border-t border-white/10 bg-[#14110D]/95 px-6 py-16 md:px-8 md:py-20"
+      className="relative border-t border-white/10 bg-stone-dark px-6 py-16 md:px-8 md:py-20"
     >
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-[11px] uppercase tracking-[0.4em] text-[#c9a962]">

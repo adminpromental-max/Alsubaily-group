@@ -397,7 +397,7 @@ export function InteractiveMap() {
           >
             <div
               ref={viewportRef}
-              className="map-viewport relative h-full w-full overflow-hidden rounded-[1.25rem] border-2 border-[#6B5B3E]/70 bg-[#EDE8E0] shadow-[0_4px_0_#3A2E1A,0_28px_90px_rgba(26,22,18,0.22)] md:rounded-[1.75rem]"
+              className="map-viewport stone-surface-cream relative h-full w-full overflow-hidden rounded-[1.25rem] border-2 border-[#6B5B3E]/70 shadow-[0_4px_0_#3A2E1A,0_28px_90px_rgba(26,22,18,0.22)] md:rounded-[1.75rem]"
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
               onPointerUp={onPointerUp}
@@ -645,7 +645,7 @@ function ProjectCardContent({
           params={{ slug: project.slug }}
           className={cn(
             buttonVariants({ size: "default" }),
-            "flex-1 rounded-full bg-[#1A1612] text-white hover:bg-[#2A241E]",
+            "flex-1 rounded-full stone-surface-dark text-white hover:opacity-95",
           )}
         >
           {t("عرض المشروع", "View Project")}
@@ -719,7 +719,7 @@ function RegionListContent({
             <button
               type="button"
               onClick={() => onSelect(project)}
-              className="flex w-full items-center gap-3 rounded-xl border border-[#E0D3C2]/70 bg-[#FAFAF8] p-2.5 text-start transition hover:border-[#C9A962]/50 active:scale-[0.98]"
+              className="flex w-full items-center gap-3 rounded-xl border border-[#E0D3C2]/70 stone-surface-cream p-2.5 text-start transition hover:border-[#C9A962]/50 active:scale-[0.98]"
             >
               <span
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white"

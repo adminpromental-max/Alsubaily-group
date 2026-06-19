@@ -34,37 +34,34 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const DARK = "#14110D";
-  const CREAM = "#F5EEE2";
-
   return (
-    <div className="relative min-h-screen bg-[#F5EEE2] text-[#1A1612]">
+    <div className="relative min-h-screen bg-stone-cream text-[#1A1612]">
       <main className="relative z-[2] isolate stacked-sections">
-        <StackedSection index={0} total={7} background={DARK}>
+        <StackedSection index={0} total={7} tone="dark">
           <HeroChairman />
         </StackedSection>
 
-        <StackedSection index={1} total={7} background={DARK}>
+        <StackedSection index={1} total={7} tone="dark">
           <VisionMissionSection />
         </StackedSection>
 
-        <StackedSection index={2} total={7} background={CREAM}>
+        <StackedSection index={2} total={7} tone="cream">
           <LogoMarqueeBanner />
         </StackedSection>
 
-        <StackedSection index={3} total={7} background={CREAM}>
+        <StackedSection index={3} total={7} tone="cream">
           <ProjectTypesSection />
         </StackedSection>
 
-        <StackedSection index={4} total={7} background={DARK}>
+        <StackedSection index={4} total={7} tone="dark">
           <FeaturedProjects />
         </StackedSection>
 
-        <StackedSection index={5} total={7} background={CREAM}>
+        <StackedSection index={5} total={7} tone="cream">
           <InteractiveMapSection />
         </StackedSection>
 
-        <StackedSection index={6} total={7} background={DARK} className="stacked-section--deep">
+        <StackedSection index={6} total={7} tone="dark" className="stacked-section--deep">
           <ContactSection />
         </StackedSection>
       </main>

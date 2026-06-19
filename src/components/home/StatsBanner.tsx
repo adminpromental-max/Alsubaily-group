@@ -116,7 +116,7 @@ export function StatsBanner() {
       id="stats"
       ref={sectionRef}
       data-parallax-section
-      className="relative overflow-hidden border-t border-[#C9A962]/12 bg-[#14110D] py-8 md:py-12"
+      className="relative overflow-hidden border-t border-[#C9A962]/12 bg-stone-dark py-8 md:py-12"
     >
       <div
         data-parallax="bg"

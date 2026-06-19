@@ -18,7 +18,7 @@ export function ProjectTypesSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#F5EEE2] py-16 md:py-24"
+      className="relative overflow-hidden bg-stone-cream py-16 md:py-24"
     >
       <div className="mx-auto w-full max-w-[1100px] px-4 sm:px-6 md:px-10">
         {/* Header */}

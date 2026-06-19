@@ -24,7 +24,7 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   const { t } = useLang();
   return (
-    <main className="min-h-screen bg-[#FAFAF8] px-6 pt-32 pb-20 md:px-8">
+    <main className="min-h-screen bg-stone-cream px-6 pt-32 pb-20 md:px-8">
       <div className="mx-auto max-w-4xl">
         <p className="text-xs uppercase tracking-[0.3em] text-[#9A7B3A]">
           {t("من نحن", "About Us")}

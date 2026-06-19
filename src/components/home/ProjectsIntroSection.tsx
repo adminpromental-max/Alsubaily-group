@@ -12,7 +12,7 @@ export function ProjectsIntroSection() {
     <section
       id="intro"
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#FAFAF8] py-16 md:py-20"
+      className="relative overflow-hidden bg-stone-cream py-16 md:py-20"
     >
       <div className="relative mx-auto max-w-7xl px-4 text-center md:px-8">
         <p
