@@ -3116,13 +3116,65 @@ body.has-custom-cursor button {
     width: 132px;
     height: 132px;
   }
-  .ocg-item--open,
-  .ocg-item:hover,
-  .ocg-item:focus {
-    width: 260px;
-    height: 200px;
-    border-radius: 1rem;
+  /* Hover expand disabled on touch — use lightbox class instead */
+  .tidara-ocg .ocg-item:hover:not(.ocg-item--open),
+  .tidara-ocg .ocg-item:focus:not(.ocg-item--open) {
+    width: 132px;
+    height: 132px;
+    border-radius: 9999px;
+    transform: none;
   }
+  .tidara-ocg .ocg-item--open.ocg-item--lightbox {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+    width: min(100vw, 100dvh) !important;
+    height: min(100vw, 100dvh) !important;
+    margin: 0;
+    border-radius: 0;
+    transform: translate(-50%, -50%) !important;
+    box-shadow:
+      0 0 0 1px rgba(201, 169, 98, 0.35),
+      0 24px 80px rgba(0, 0, 0, 0.45);
+  }
+  .tidara-ocg .ocg-item--lightbox .ocg-img {
+    transform: none;
+    filter: brightness(1) saturate(1.05);
+  }
+}
+
+.ocg-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  border: none;
+  background: rgba(10, 8, 5, 0.88);
+  cursor: pointer;
+  animation: ocg-fade-in 0.3s ease;
+}
+
+.ocg-lightbox-close {
+  position: fixed;
+  top: max(1rem, env(safe-area-inset-top));
+  inset-inline-end: max(1rem, env(safe-area-inset-right));
+  z-index: 110;
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(201, 169, 98, 0.45);
+  background: rgba(14, 11, 8, 0.75);
+  color: #faf8f4;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+@keyframes ocg-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Page corner lift — bottom-end triangle that grows on hover */
