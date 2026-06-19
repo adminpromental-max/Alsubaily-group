@@ -1,4 +1,4 @@
-import { dammamAsset, beachAsset, tidaraAsset } from "@/data/asset-paths";
+import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -66,21 +66,27 @@ export const PROJECTS: Project[] = [
   {
     id: 2,
     slug: "rabia-makkah",
-    nameEn: "Rabia Makkah (1)",
-    nameAr: "رابية مكة (1)",
+    nameEn: "Rabia Makkah Al-Mukarramah",
+    nameAr: "رابية مكة المكرمة",
     region: "mecca",
     regionEn: "Mecca",
     regionAr: "مكة",
-    typeEn: "Residential",
-    typeAr: "سكني",
-    color: "#2E6B8A",
+    typeEn: "Mixed-use · Spiritual",
+    typeAr: "متعدد الاستخدامات · روحي",
+    color: "#8B4513",
     x: 28.5,
     y: 63.5,
     descriptionEn:
-      "Premium residential community offering modern living in the heart of Mecca.",
-    descriptionAr: "مجتمع سكني فاخر يقدم أسلوب حياة عصري في قلب مكة المكرمة.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
+      "An integrated destination blending Islamic heritage grandeur with the finest contemporary living — 230,000 m² in the holy city of Makkah, 6 km from Masjid Al-Haram.",
+    descriptionAr:
+      "وجهة متكاملة تجمع بين عظمة الموروث الإسلامي وأرقى معايير الحياة العصرية — 230,000 م² في مكة المكرمة على بُعد 6 كم من المسجد الحرام.",
+    heroImage: rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.41 PM.jpeg"),
+    gallery: [
+      rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.38 PM.jpeg"),
+      rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.39 PM.jpeg"),
+      rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.41 PM.jpeg"),
+      rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.43 PM.jpeg"),
+    ],
   },
   {
     id: 3,

@@ -26,6 +26,12 @@ export function projectTypeAsset(file: string) {
   return projectAsset(PROJECT_TYPES_DIR, file);
 }
 
+export const RABIA_PROJECT_DIR = "رابية مكه المكرمه";
+
+export function rabiaAsset(file: string) {
+  return projectAsset(RABIA_PROJECT_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

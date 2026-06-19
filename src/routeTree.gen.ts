@@ -13,6 +13,7 @@ import { Route as DammamPreviewRouteImport } from './routes/dammam-preview'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsTidaraTowersRouteImport } from './routes/projects.tidara-towers'
+import { Route as ProjectsRabiaMakkahRouteImport } from './routes/projects.rabia-makkah'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as AdminShowcaseRouteImport } from './routes/admin.showcase'
 import { Route as ApiPublicDriveImageFileIdRouteImport } from './routes/api/public/drive-image.$fileId'
@@ -35,6 +36,11 @@ const IndexRoute = IndexRouteImport.update({
 const ProjectsTidaraTowersRoute = ProjectsTidaraTowersRouteImport.update({
   id: '/projects/tidara-towers',
   path: '/projects/tidara-towers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRabiaMakkahRoute = ProjectsRabiaMakkahRouteImport.update({
+  id: '/projects/rabia-makkah',
+  path: '/projects/rabia-makkah',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
+  '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
 }
 export interface FileRoutesByTo {
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
+  '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
 }
 export interface FileRoutesById {
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
+  '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
 }
 export interface FileRouteTypes {
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/admin/showcase'
     | '/projects/$slug'
     | '/projects/tidara-towers'
+    | '/projects/rabia-makkah'
     | '/api/public/drive-image/$fileId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/admin/showcase'
     | '/projects/$slug'
     | '/projects/tidara-towers'
+    | '/projects/rabia-makkah'
     | '/api/public/drive-image/$fileId'
   id:
     | '__root__'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/admin/showcase'
     | '/projects/$slug'
     | '/projects/tidara-towers'
+    | '/projects/rabia-makkah'
     | '/api/public/drive-image/$fileId'
   fileRoutesById: FileRoutesById
 }
@@ -119,6 +131,7 @@ export interface RootRouteChildren {
   AdminShowcaseRoute: typeof AdminShowcaseRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ProjectsTidaraTowersRoute: typeof ProjectsTidaraTowersRoute
+  ProjectsRabiaMakkahRoute: typeof ProjectsRabiaMakkahRoute
   ApiPublicDriveImageFileIdRoute: typeof ApiPublicDriveImageFileIdRoute
 }
 
@@ -152,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsTidaraTowersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/rabia-makkah': {
+      id: '/projects/rabia-makkah'
+      path: '/projects/rabia-makkah'
+      fullPath: '/projects/rabia-makkah'
+      preLoaderRoute: typeof ProjectsRabiaMakkahRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/$slug': {
       id: '/projects/$slug'
       path: '/projects/$slug'
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminShowcaseRoute: AdminShowcaseRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ProjectsTidaraTowersRoute: ProjectsTidaraTowersRoute,
+  ProjectsRabiaMakkahRoute: ProjectsRabiaMakkahRoute,
   ApiPublicDriveImageFileIdRoute: ApiPublicDriveImageFileIdRoute,
 }
 export const routeTree = rootRouteImport
