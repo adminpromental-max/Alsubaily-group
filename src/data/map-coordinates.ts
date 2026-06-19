@@ -21,4 +21,5 @@ export const NEW_MAP_COORDINATES: Record<number, { x: number; y: number }> = {
   16: { x: 76.5, y: 40.4 },
   17: { x: 79.0, y: 38.4 },
   18: { x: 83.7, y: 56.0 },
+  19: { x: 81.5, y: 49.2 },
 };

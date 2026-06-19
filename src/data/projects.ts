@@ -1,4 +1,4 @@
-import { dammamAsset, beachAsset } from "@/data/asset-paths";
+import { dammamAsset, beachAsset, tidaraAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -408,6 +408,34 @@ export const PROJECTS: Project[] = [
       beachAsset("1.jpg"),
       beachAsset("2.jpg"),
       beachAsset("3.jpg"),
+    ],
+  },
+  {
+    id: 19,
+    slug: "tidara-towers",
+    nameEn: "Tidara Towers",
+    nameAr: "أبراج تيدارا",
+    region: "eastern",
+    regionEn: "Eastern Region",
+    regionAr: "المنطقة الشرقية",
+    typeEn: "Mixed-use Waterfront",
+    typeAr: "متعدد الاستخدامات · واجهة بحرية",
+    color: "#3D5A80",
+    x: 81.0,
+    y: 49.0,
+    descriptionEn:
+      "A fluid waterfront gateway on Al Khobar marina — hotel, admin, and residential towers linked by a public podium and central landmark.",
+    descriptionAr:
+      "بوابة ساحلية متكاملة على مارينا الخبر — أبراج فندقية وإدارية وسكنية مرتبطة ببوديوم عام وبرج مركزي.",
+    heroImage: tidaraAsset("Hero.png"),
+    gallery: [
+      tidaraAsset("Hero.png"),
+      tidaraAsset("walkthrough-1.png"),
+      tidaraAsset("walkthrough-2.png"),
+      tidaraAsset("walkthrough-3.png"),
+      tidaraAsset("walkthrough-4.png"),
+      tidaraAsset("walkthrough-5.png"),
+      tidaraAsset("walkthrough-6.png"),
     ],
   },
 ];

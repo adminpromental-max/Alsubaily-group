@@ -14,6 +14,12 @@ export function beachAsset(file: string) {
   return projectAsset(BEACH_PROJECT_DIR, file);
 }
 
+export const TIDARA_PROJECT_DIR = "Tidara-tower";
+
+export function tidaraAsset(file: string) {
+  return projectAsset(TIDARA_PROJECT_DIR, file);
+}
+
 export const PROJECT_TYPES_DIR = "انواع المشاريع";
 
 export function projectTypeAsset(file: string) {

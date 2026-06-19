@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as DammamPreviewRouteImport } from './routes/dammam-preview'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsTidaraTowersRouteImport } from './routes/projects.tidara-towers'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as AdminShowcaseRouteImport } from './routes/admin.showcase'
 import { Route as ApiPublicDriveImageFileIdRouteImport } from './routes/api/public/drive-image.$fileId'
@@ -29,6 +30,11 @@ const AboutRoute = AboutRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsTidaraTowersRoute = ProjectsTidaraTowersRouteImport.update({
+  id: '/projects/tidara-towers',
+  path: '/projects/tidara-towers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/dammam-preview': typeof DammamPreviewRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
 }
 export interface FileRoutesByTo {
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/dammam-preview': typeof DammamPreviewRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
 }
 export interface FileRoutesById {
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/dammam-preview': typeof DammamPreviewRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
 }
 export interface FileRouteTypes {
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/dammam-preview'
     | '/admin/showcase'
     | '/projects/$slug'
+    | '/projects/tidara-towers'
     | '/api/public/drive-image/$fileId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/dammam-preview'
     | '/admin/showcase'
     | '/projects/$slug'
+    | '/projects/tidara-towers'
     | '/api/public/drive-image/$fileId'
   id:
     | '__root__'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/dammam-preview'
     | '/admin/showcase'
     | '/projects/$slug'
+    | '/projects/tidara-towers'
     | '/api/public/drive-image/$fileId'
   fileRoutesById: FileRoutesById
 }
@@ -106,6 +118,7 @@ export interface RootRouteChildren {
   DammamPreviewRoute: typeof DammamPreviewRoute
   AdminShowcaseRoute: typeof AdminShowcaseRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
+  ProjectsTidaraTowersRoute: typeof ProjectsTidaraTowersRoute
   ApiPublicDriveImageFileIdRoute: typeof ApiPublicDriveImageFileIdRoute
 }
 
@@ -130,6 +143,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/tidara-towers': {
+      id: '/projects/tidara-towers'
+      path: '/projects/tidara-towers'
+      fullPath: '/projects/tidara-towers'
+      preLoaderRoute: typeof ProjectsTidaraTowersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects/$slug': {
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   DammamPreviewRoute: DammamPreviewRoute,
   AdminShowcaseRoute: AdminShowcaseRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
+  ProjectsTidaraTowersRoute: ProjectsTidaraTowersRoute,
   ApiPublicDriveImageFileIdRoute: ApiPublicDriveImageFileIdRoute,
 }
 export const routeTree = rootRouteImport

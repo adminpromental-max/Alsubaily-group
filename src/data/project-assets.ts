@@ -1,5 +1,5 @@
 /** Real asset paths for projects with uploaded media */
-import { dammamAsset, beachAsset } from "@/data/asset-paths";
+import { dammamAsset, beachAsset, tidaraAsset } from "@/data/asset-paths";
 
 export const REAL_PROJECT_ASSETS: Record<
   string,
@@ -37,6 +37,6 @@ export const REAL_PROJECT_ASSETS: Record<
 
 export const FEATURED_SLUGS = [
   "dammam-olympic-city",
-  "alshubaily-high-rise",
+  "tidara-towers",
   "alshubaily-new-beach",
 ];
