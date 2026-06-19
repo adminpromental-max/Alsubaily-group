@@ -14,6 +14,12 @@ export function beachAsset(file: string) {
   return projectAsset(BEACH_PROJECT_DIR, file);
 }
 
+export const PROJECT_TYPES_DIR = "انواع المشاريع";
+
+export function projectTypeAsset(file: string) {
+  return projectAsset(PROJECT_TYPES_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

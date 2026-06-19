@@ -1,3 +1,5 @@
+import { projectTypeAsset } from "@/data/asset-paths";
+
 export type ProjectCategoryId =
   | "residential"
   | "commercial"
@@ -34,10 +36,6 @@ export const PROJECT_CATEGORY_BY_SLUG: Record<string, ProjectCategoryId> = {
   "alshubaily-new-beach": "tourism",
 };
 
-import tourismAsset from "@/assets/tourism.jpg.asset.json";
-import commercialAsset from "@/assets/commercial.png.asset.json";
-import residentialAsset from "@/assets/residential.jpg.asset.json";
-
 export const PROJECT_CATEGORIES: ProjectCategory[] = [
   {
     id: "tourism",
@@ -45,7 +43,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Tourism",
     bioAr: "نصمم وجهات تتجاوز التوقعات، حيث يلتقي الابتكار بالرفاهية لتجربة سياحية فريدة.",
     bioEn: "Destinations that exceed expectations — where innovation meets luxury for a unique experience.",
-    image: tourismAsset.url,
+    image: projectTypeAsset("سياحي.jpg"),
   },
   {
     id: "commercial",
@@ -53,7 +51,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Commercial",
     bioAr: "مساحات تجارية ذكية تعزز كفاءة الأعمال وتخلق بيئة اقتصادية مستدامة ومبهرة.",
     bioEn: "Smart commercial spaces that empower business efficiency and a sustainable economy.",
-    image: commercialAsset.url,
+    image: projectTypeAsset("تجاري.png"),
   },
   {
     id: "residential",
@@ -61,7 +59,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Residential",
     bioAr: "أكثر من مجرد سكن؛ مجتمعات سكنية متكاملة تمنحك الخصوصية والرفاهية التي تستحقها.",
     bioEn: "More than housing — integrated communities offering the privacy and luxury you deserve.",
-    image: residentialAsset.url,
+    image: projectTypeAsset("سكني.jpeg"),
   },
 ];
 
