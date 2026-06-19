@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useLang } from "@/contexts/lang-context";
+import { HeroCinematicVideo } from "@/components/home/HeroCinematicVideo";
 
 export const Route = createFileRoute("/projects/$slug")({
   head: () => ({
@@ -19,7 +20,13 @@ function ProjectPage() {
   const { t } = useLang();
   return (
     <main className="min-h-screen bg-stone-cream px-6 pt-32 pb-20 md:px-8">
-      <div className="mx-auto max-w-4xl">
+      {/* Hero cinematic specific to the project page */}
+      <HeroCinematicVideo
+        poster="/assets/projects/Tidara-tower/Hero.png"
+        mp4={"https://res.cloudinary.com/dfzaghfsv/video/upload/v1781801274/Cinematic_architectural_film__on4pal.mp4"}
+      />
+
+      <div className="mx-auto max-w-4xl mt-8">
         <Link
           to="/"
           className="text-sm text-[#9A7B3A] hover:text-[#1A1612]"
