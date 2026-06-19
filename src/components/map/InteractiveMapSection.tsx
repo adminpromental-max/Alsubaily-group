@@ -15,13 +15,15 @@ export function InteractiveMapSection() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#1A1612]/60 md:text-base">
           {t(
-            "اضغطي على أي رقم على الخريطة لاستكشاف المشروع — يمكنك التكبير والسحب والبحث حسب المنطقة.",
-            "Tap any numbered point on the map to explore a project — zoom, pan, and filter by region.",
+            "اضغطي على أي رقم على الخريطة لاستكشاف المشروع — اضغطي على الخريطة للرجوع.",
+            "Tap any numbered point on the map to explore a project — tap the map to go back.",
           )}
         </p>
       </div>
 
-      <InteractiveMap />
+      <div className="w-full px-3 md:px-6 lg:px-10">
+        <InteractiveMap />
+      </div>
     </section>
   );
 }

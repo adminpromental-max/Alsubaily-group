@@ -344,6 +344,101 @@
   transform: translateY(-1px);
 }
 
+.map-viewport--full {
+  border-radius: clamp(12px, 1.2vw, 20px);
+}
+
+/* Invisible hit targets over baked map numbers */
+.map-hit-target {
+  z-index: 12;
+  width: 2.75rem;
+  height: 2.75rem;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  transition: opacity 0.35s ease;
+}
+
+.map-hit-target.is-active {
+  z-index: 40;
+}
+
+.map-hit-target.is-dimmed {
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.map-hit-core {
+  position: absolute;
+  inset: 0.85rem;
+  border-radius: 9999px;
+  background: transparent;
+}
+
+.map-hit-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid color-mix(in srgb, var(--pin-color, #c9a962) 75%, white);
+  box-shadow:
+    0 0 0 0 color-mix(in srgb, var(--pin-color, #c9a962) 45%, transparent),
+    0 0 18px color-mix(in srgb, var(--pin-color, #c9a962) 55%, transparent);
+  animation: map-marker-pulse 2.2s ease-in-out infinite;
+}
+
+.map-hit-target.is-active .map-hit-ring {
+  animation: map-marker-active 1.4s ease-in-out infinite;
+  border-width: 2.5px;
+}
+
+.map-hit-target:hover .map-hit-ring {
+  animation-duration: 1.2s;
+}
+
+@keyframes map-marker-pulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@keyframes map-marker-active {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--pin-color, #c9a962) 28%, transparent),
+      0 0 24px color-mix(in srgb, var(--pin-color, #c9a962) 70%, transparent);
+  }
+  50% {
+    transform: scale(1.22);
+    box-shadow:
+      0 0 0 10px color-mix(in srgb, var(--pin-color, #c9a962) 12%, transparent),
+      0 0 32px color-mix(in srgb, var(--pin-color, #c9a962) 85%, transparent);
+  }
+}
+
+.map-project-popup {
+  animation: map-popup-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes map-popup-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 /* Premium project pins */
 .map-pin-premium {
   z-index: 12;

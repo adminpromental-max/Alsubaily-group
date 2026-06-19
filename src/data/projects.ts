@@ -1,4 +1,5 @@
 import { dammamAsset, beachAsset } from "@/data/asset-paths";
+import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
 
@@ -469,11 +470,12 @@ export type RegionCluster = {
 const REGION_IDS = ["mecca", "hail", "riyadh", "eastern"] as const;
 
 export function getRegionClusters(): RegionCluster[] {
+  const coord = (p: Project) => NEW_MAP_COORDINATES[p.id] ?? { x: p.x, y: p.y };
   return REGION_IDS.map((id) => {
     const projects = PROJECTS.filter((p) => p.region === id);
     const region = REGIONS.find((r) => r.id === id)!;
-    const x = projects.reduce((sum, p) => sum + p.x, 0) / projects.length;
-    const y = projects.reduce((sum, p) => sum + p.y, 0) / projects.length;
+    const x = projects.reduce((sum, p) => sum + coord(p).x, 0) / projects.length;
+    const y = projects.reduce((sum, p) => sum + coord(p).y, 0) / projects.length;
     return {
       id,
       x,
