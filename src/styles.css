@@ -103,9 +103,57 @@
   --stone-dark-tint: #14110d;
   --stone-texture-cream: url("/assets/textures/stone-cream.png");
   --stone-texture-dark: url("/assets/textures/stone-dark.png");
+  --texture-slider-stone: url("/assets/textures/slider-stone.png");
+  --texture-background-creamy: url("/assets/textures/background-creamy.png");
   --stone-tile-lg: clamp(300px, 42vw, 560px);
   --stone-tile-md: clamp(220px, 30vw, 400px);
   --stone-tile-sm: clamp(160px, 22vw, 280px);
+  --al-plain-cream: #fafaf8;
+  --al-plain-dark: #14110d;
+}
+
+.bg-plain-cream {
+  background-color: var(--al-plain-cream);
+}
+
+.bg-plain-dark {
+  background-color: var(--al-plain-dark);
+}
+
+.bg-cover-creamy {
+  background-color: var(--al-plain-cream);
+  background-image: var(--texture-background-creamy);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.bg-cover-slider-stone {
+  background-color: var(--stone-dark-base);
+  background-image:
+    linear-gradient(
+      165deg,
+      rgba(20, 17, 13, 0.35) 0%,
+      rgba(8, 7, 6, 0.55) 100%
+    ),
+    var(--texture-slider-stone);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contact-copy-stone {
+  background-color: var(--stone-dark-base);
+  background-image:
+    linear-gradient(
+      160deg,
+      rgba(22, 19, 15, 0.4) 0%,
+      rgba(6, 5, 4, 0.65) 100%
+    ),
+    var(--stone-texture-dark);
+  background-size: var(--stone-tile-md) var(--stone-tile-md);
+  background-repeat: repeat;
+  background-position: center;
 }
 
 .bg-stone-cream {
@@ -2109,18 +2157,18 @@ body.has-custom-cursor button {
 
 .stacked-section--layer {
   /* Responsive overlap: gentler on small screens, deeper on large */
-  margin-top: clamp(-44px, -3.2vw, -20px);
+  margin-top: clamp(-56px, -4.5vw, -28px);
   border-top-left-radius: clamp(20px, 2.4vw, 36px);
   border-top-right-radius: clamp(20px, 2.4vw, 36px);
   /* Softer, wider, lower-opacity shadow + faint gold hairline */
   box-shadow:
-    0 -28px 60px -36px rgba(0, 0, 0, 0.28),
-    0 -10px 28px -22px rgba(0, 0, 0, 0.18),
-    0 -1px 0 0 rgba(201, 169, 98, 0.12);
-  isolation: isolate;
+    0 -32px 70px -38px rgba(0, 0, 0, 0.32),
+    0 -12px 32px -24px rgba(0, 0, 0, 0.2),
+    0 -1px 0 0 rgba(201, 169, 98, 0.14);
+  overflow: hidden;
   animation: layer-rise linear both;
   animation-timeline: view();
-  animation-range: cover 0% cover 45%;
+  animation-range: cover 0% cover 50%;
 }
 
 /* Deeper overlap for dramatic transitions (e.g. cream → dark footer) */
@@ -2133,16 +2181,26 @@ body.has-custom-cursor button {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
-  height: clamp(28px, 5vw, 56px);
+  height: clamp(32px, 5.5vw, 64px);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0) 70%
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0) 72%
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
+}
+
+.stacked-section--layer[data-surface="plain-dark"]::before,
+.stacked-section--layer[data-surface="stone-dark"]::before,
+.stacked-section--layer[data-surface="cover-slider-stone"]::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.22),
+    rgba(0, 0, 0, 0) 72%
+  );
 }
 
 @keyframes layer-rise {

@@ -55,7 +55,7 @@ export function VisionMissionSection() {
     <section
       ref={sectionRef}
       id="vision-mission"
-      className="relative overflow-hidden bg-stone-dark px-6 py-20 md:px-8 md:py-28"
+      className="relative overflow-hidden px-6 py-20 md:px-8 md:py-28"
     >
       {/* Depth tint over stone texture */}
       <div

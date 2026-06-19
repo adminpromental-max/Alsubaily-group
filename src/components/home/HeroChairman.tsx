@@ -105,7 +105,7 @@ export function HeroChairman() {
   return (
     <section
       id="hero"
-      className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden bg-stone-dark"
+      className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden"
     >
       <HeroCinematic />
 

@@ -138,7 +138,7 @@ export function FeaturedProjects({
     <section
       id="projects"
       ref={sectionRef}
-      className="relative overflow-hidden bg-stone-dark py-14 md:py-20 lg:py-28"
+      className="relative overflow-hidden py-14 md:py-20 lg:py-28"
       onMouseEnter={() => pauseOnHover && setPaused(true)}
       onMouseLeave={() => pauseOnHover && setPaused(false)}
     >

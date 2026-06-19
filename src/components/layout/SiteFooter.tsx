@@ -2,7 +2,7 @@ export function SiteFooter() {
   return (
     <footer
       id="contact"
-      className="border-t border-[#E0D3C2]/70 bg-stone-cream px-6 py-14 md:px-8"
+      className="border-t border-[#E0D3C2]/70 bg-plain-cream px-6 py-14 md:px-8"
     >
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
         <div className="flex items-center gap-4">

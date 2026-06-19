@@ -27,7 +27,7 @@ export function LogoMarqueeBanner() {
     <section
       id="group"
       data-parallax-section
-      className="relative overflow-hidden bg-stone-cream py-14 md:py-20"
+      className="relative overflow-hidden py-14 md:py-20"
     >
       {/* Soft gold radial accent */}
       <div

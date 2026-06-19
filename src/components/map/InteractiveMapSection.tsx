@@ -5,7 +5,7 @@ export function InteractiveMapSection() {
   const { t } = useLang();
 
   return (
-    <section id="map" className="relative w-full bg-stone-cream py-16 md:py-24">
+    <section id="map" className="relative w-full py-16 md:py-24">
       <div className="mx-auto mb-8 max-w-4xl px-4 text-center md:mb-12 md:px-6">
         <p className="text-xs uppercase tracking-[0.35em] text-[#8A6A2E]">
           {t("خريطة المشاريع", "Projects Map")}

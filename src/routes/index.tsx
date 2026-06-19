@@ -8,6 +8,7 @@ import { FilmGrain } from "@/components/home/FilmGrain";
 import { StackedSection } from "@/components/home/StackedSection";
 import { InteractiveMapSection } from "@/components/map/InteractiveMapSection";
 import { ContactSection } from "@/components/home/ContactSection";
+import { useStackedLayerScroll } from "@/hooks/useStackedLayerScroll";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,34 +35,41 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  useStackedLayerScroll();
+
   return (
-    <div className="relative min-h-screen bg-stone-cream text-[#1A1612]">
-      <main className="relative z-[2] isolate stacked-sections">
-        <StackedSection index={0} total={7} tone="dark">
+    <div className="relative min-h-screen bg-plain-cream text-[#1A1612]">
+      <main className="stacked-sections relative z-[2]">
+        <StackedSection index={0} total={7} surface="stone-dark">
           <HeroChairman />
         </StackedSection>
 
-        <StackedSection index={1} total={7} tone="dark">
+        <StackedSection index={1} total={7} surface="cover-slider-stone">
           <VisionMissionSection />
         </StackedSection>
 
-        <StackedSection index={2} total={7} tone="cream">
+        <StackedSection index={2} total={7} surface="cover-creamy">
           <LogoMarqueeBanner />
         </StackedSection>
 
-        <StackedSection index={3} total={7} tone="cream">
+        <StackedSection index={3} total={7} surface="plain-cream">
           <ProjectTypesSection />
         </StackedSection>
 
-        <StackedSection index={4} total={7} tone="dark">
+        <StackedSection index={4} total={7} surface="cover-slider-stone">
           <FeaturedProjects />
         </StackedSection>
 
-        <StackedSection index={5} total={7} tone="cream">
+        <StackedSection index={5} total={7} surface="plain-cream">
           <InteractiveMapSection />
         </StackedSection>
 
-        <StackedSection index={6} total={7} tone="dark" className="stacked-section--deep">
+        <StackedSection
+          index={6}
+          total={7}
+          surface="plain-dark"
+          className="stacked-section--deep"
+        >
           <ContactSection />
         </StackedSection>
       </main>

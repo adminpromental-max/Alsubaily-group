@@ -102,6 +102,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preload", as: "image", href: "/assets/hero/Hero-1.jpg" },
       { rel: "preload", as: "image", href: "/assets/textures/stone-cream.png" },
       { rel: "preload", as: "image", href: "/assets/textures/stone-dark.png" },
+      { rel: "preload", as: "image", href: "/assets/textures/slider-stone.png" },
+      { rel: "preload", as: "image", href: "/assets/textures/background-creamy.png" },
+      { rel: "preload", as: "image", href: "/assets/new-map.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -126,7 +129,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="min-h-full bg-stone-cream font-sans text-foreground antialiased">
+      <body className="min-h-full bg-plain-cream font-sans text-foreground antialiased">
         {children}
         <Scripts />
       </body>
