@@ -271,6 +271,38 @@ export function InteractiveMap({
     return () => observer.disconnect();
   }, [fitMap]);
 
+  // Wheel-to-zoom — must be non-passive to call preventDefault()
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const handler = (e: WheelEvent) => {
+      // Only intercept when pointer is over the map; allow page scroll otherwise
+      if (!viewportRef.current?.matches(":hover")) return;
+      e.preventDefault();
+
+      const rect = viewport.getBoundingClientRect();
+      const cx = e.clientX - rect.left;
+      const cy = e.clientY - rect.top;
+      const min = baseScaleRef.current;
+      const max = baseScaleRef.current * MAX_ZOOM_RATIO;
+      const factor = e.deltaY < 0 ? 1.08 : 0.93;
+      const next = Math.min(max, Math.max(min, transformRef.current.scale * factor));
+      if (next === transformRef.current.scale) return;
+
+      const ratio = next / transformRef.current.scale;
+      transformRef.current = {
+        scale: next,
+        x: cx - (cx - transformRef.current.x) * ratio,
+        y: cy - (cy - transformRef.current.y) * ratio,
+      };
+      applyTransform(false);
+    };
+
+    viewport.addEventListener("wheel", handler, { passive: false });
+    return () => viewport.removeEventListener("wheel", handler);
+  }, [applyTransform]);
+
   const zoomFromCenter = (delta: number) => {
     const viewport = viewportRef.current;
     if (!viewport) return;
@@ -320,30 +352,6 @@ export function InteractiveMap({
     setMapMode("project");
     setFilter(project.region);
   }, []);
-
-  const onWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-
-    const rect = viewport.getBoundingClientRect();
-    const cursorX = e.clientX - rect.left;
-    const cursorY = e.clientY - rect.top;
-
-    const min = baseScaleRef.current;
-    const max = baseScaleRef.current * MAX_ZOOM_RATIO;
-    const factor = e.deltaY < 0 ? 1.1 : 0.91;
-    const next = Math.min(max, Math.max(min, transformRef.current.scale * factor));
-    if (next === transformRef.current.scale) return;
-
-    const ratio = next / transformRef.current.scale;
-    transformRef.current = {
-      scale: next,
-      x: cursorX - (cursorX - transformRef.current.x) * ratio,
-      y: cursorY - (cursorY - transformRef.current.y) * ratio,
-    };
-    applyTransform(false);
-  };
 
   const onPointerDown = (e: React.PointerEvent) => {
     const target = e.target as HTMLElement;
@@ -410,7 +418,6 @@ export function InteractiveMap({
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
-          onWheel={onWheel}
         >
           {!hideControls && <div className="map-float-controls pointer-events-none absolute inset-x-0 top-0 z-40 px-3 pt-3 md:px-5 md:pt-4">
             <div className="pointer-events-auto mx-auto max-w-4xl space-y-2">
@@ -511,20 +518,16 @@ export function InteractiveMap({
           </div>
 
           {activeProject && (
-            <>
-              <button
-                type="button"
-                aria-label={t("إغلاق", "Close")}
-                className="map-popup-backdrop absolute inset-0 z-[45] cursor-default bg-[#14110D]/35 backdrop-blur-[2px]"
-                onClick={resetMap}
-              />
+            /* Fixed overlay — breaks out of overflow:hidden, always centered on screen */
+            <div className="fixed inset-0 z-[200]" onClick={resetMap}>
+              <div className="absolute inset-0 bg-[#14110D]/40 backdrop-blur-[2px]" />
               <MapProjectPopup
                 project={activeProject}
                 lang={lang}
                 t={t}
                 onClose={resetMap}
               />
-            </>
+            </div>
           )}
 
           <div className="map-zoom-stack absolute end-3 bottom-3 z-30 md:end-4 md:bottom-4">
@@ -564,7 +567,7 @@ function MapProjectPopup({
 }) {
   return (
     <div
-      className="map-project-popup pointer-events-auto absolute left-1/2 top-[48%] z-50 w-[min(88vw,380px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-white/10 bg-[#14110D] shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
+      className="map-project-popup pointer-events-auto absolute left-1/2 top-1/2 z-50 w-[min(92vw,400px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-white/10 bg-[#14110D] shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="relative aspect-[16/9] overflow-hidden">

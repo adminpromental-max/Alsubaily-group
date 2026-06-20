@@ -430,9 +430,9 @@
 }
 
 .map-project-popup {
-  animation: map-popup-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
-  /* keep fully inside the map viewport */
-  max-height: min(88%, 480px);
+  animation: map-popup-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* fixed inside the viewport overlay, limited height for mobile */
+  max-height: min(85vh, 520px);
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -440,7 +440,7 @@
 @keyframes map-popup-in {
   from {
     opacity: 0;
-    transform: translate(-50%, -44%) scale(0.93);
+    transform: translate(-50%, -46%) scale(0.92);
   }
   to {
     opacity: 1;
