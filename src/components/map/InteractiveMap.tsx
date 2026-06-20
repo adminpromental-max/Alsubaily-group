@@ -374,7 +374,7 @@ export function InteractiveMap({
       <div
         className={cn(
           "relative w-full transition-opacity duration-300",
-          "h-[75vw] min-h-[360px] sm:h-[65vw] md:h-[58vw] lg:h-[54vw] xl:h-[640px]",
+          "h-[56vw] min-h-[420px]",
           ready ? "opacity-100" : "opacity-40",
         )}
       >
