@@ -346,6 +346,8 @@
 
 .map-viewport--full {
   border-radius: 0;
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y;
 }
 
 /* Numbered pin markers */
@@ -429,9 +431,12 @@
   50%       { transform: scale(1.35); opacity: 1; }
 }
 
+.map-popup-portal {
+  isolation: isolate;
+}
+
 .map-project-popup {
   animation: map-popup-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
-  /* fixed inside the viewport overlay, limited height for mobile */
   max-height: min(85vh, 520px);
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -440,11 +445,11 @@
 @keyframes map-popup-in {
   from {
     opacity: 0;
-    transform: translate(-50%, -46%) scale(0.92);
+    transform: scale(0.94);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
   }
 }
 

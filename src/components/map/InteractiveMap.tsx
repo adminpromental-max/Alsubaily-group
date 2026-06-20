@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 import gsap from "gsap";
 import { ArrowLeft, Search, X } from "lucide-react";
 import {
@@ -23,6 +24,7 @@ import { cn } from "@/lib/utils";
 
 const MAP_SRC = "/assets/new-map.png";
 const MAP_DEFAULT = { w: 1392, h: 768 };
+const PAN_DAMPING = 0.62;
 const MAX_ZOOM_RATIO = 3.2;
 const ZOOM_STEP_RATIO = 0.1;
 const MOBILE_BREAKPOINT = 1024;
@@ -129,6 +131,15 @@ export function InteractiveMap({
   const activeProject = activeId
     ? (allProjects.find((p) => p.id === activeId) ?? null)
     : null;
+
+  useEffect(() => {
+    if (!activeProject) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [activeProject]);
 
   const applyTransform = useCallback((animate = false) => {
     const canvas = canvasRef.current;
@@ -271,38 +282,6 @@ export function InteractiveMap({
     return () => observer.disconnect();
   }, [fitMap]);
 
-  // Wheel-to-zoom — must be non-passive to call preventDefault()
-  useEffect(() => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-
-    const handler = (e: WheelEvent) => {
-      // Only intercept when pointer is over the map; allow page scroll otherwise
-      if (!viewportRef.current?.matches(":hover")) return;
-      e.preventDefault();
-
-      const rect = viewport.getBoundingClientRect();
-      const cx = e.clientX - rect.left;
-      const cy = e.clientY - rect.top;
-      const min = baseScaleRef.current;
-      const max = baseScaleRef.current * MAX_ZOOM_RATIO;
-      const factor = e.deltaY < 0 ? 1.08 : 0.93;
-      const next = Math.min(max, Math.max(min, transformRef.current.scale * factor));
-      if (next === transformRef.current.scale) return;
-
-      const ratio = next / transformRef.current.scale;
-      transformRef.current = {
-        scale: next,
-        x: cx - (cx - transformRef.current.x) * ratio,
-        y: cy - (cy - transformRef.current.y) * ratio,
-      };
-      applyTransform(false);
-    };
-
-    viewport.addEventListener("wheel", handler, { passive: false });
-    return () => viewport.removeEventListener("wheel", handler);
-  }, [applyTransform]);
-
   const zoomFromCenter = (delta: number) => {
     const viewport = viewportRef.current;
     if (!viewport) return;
@@ -378,8 +357,8 @@ export function InteractiveMap({
     didPanRef.current = true;
     transformRef.current = {
       ...transformRef.current,
-      x: start.tx + dx,
-      y: start.ty + dy,
+      x: start.tx + dx * PAN_DAMPING,
+      y: start.ty + dy * PAN_DAMPING,
     };
     applyTransform(false);
   };
@@ -517,18 +496,23 @@ export function InteractiveMap({
             </div>
           </div>
 
-          {activeProject && (
-            /* Fixed overlay — breaks out of overflow:hidden, always centered on screen */
-            <div className="fixed inset-0 z-[200]" onClick={resetMap}>
-              <div className="absolute inset-0 bg-[#14110D]/40 backdrop-blur-[2px]" />
-              <MapProjectPopup
-                project={activeProject}
-                lang={lang}
-                t={t}
-                onClose={resetMap}
-              />
-            </div>
-          )}
+          {activeProject &&
+            typeof document !== "undefined" &&
+            createPortal(
+              <div
+                className="map-popup-portal fixed inset-0 z-[300] flex items-center justify-center p-4"
+                onClick={resetMap}
+              >
+                <div className="absolute inset-0 bg-[#14110D]/45 backdrop-blur-[2px]" />
+                <MapProjectPopup
+                  project={activeProject}
+                  lang={lang}
+                  t={t}
+                  onClose={resetMap}
+                />
+              </div>,
+              document.body,
+            )}
 
           <div className="map-zoom-stack absolute end-3 bottom-3 z-30 md:end-4 md:bottom-4">
             <button
@@ -567,7 +551,7 @@ function MapProjectPopup({
 }) {
   return (
     <div
-      className="map-project-popup pointer-events-auto absolute left-1/2 top-1/2 z-50 w-[min(92vw,400px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-white/10 bg-[#14110D] shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
+      className="map-project-popup pointer-events-auto relative z-10 w-[min(92vw,400px)] overflow-hidden rounded-2xl border border-white/10 bg-[#14110D] shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="relative aspect-[16/9] overflow-hidden">
