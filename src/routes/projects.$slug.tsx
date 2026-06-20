@@ -5,6 +5,7 @@ import { useLang } from "@/contexts/lang-context";
 const DEDICATED_ROUTES: Record<string, string> = {
   "tidara-towers": "/projects/tidara-towers",
   "rabia-makkah": "/projects/rabia-makkah",
+  "dammam-olympic-city": "/projects/dammam-olympic-city",
 };
 
 export const Route = createFileRoute("/projects/$slug")({

@@ -2702,6 +2702,53 @@ body.has-custom-cursor button {
   line-height: 1.7;
 }
 
+/* Hero inline stats row */
+.olympic-hero-stats-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+  margin-top: 2rem;
+}
+
+.olympic-hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0 1.25rem;
+}
+
+.olympic-hero-stat:first-child { padding-inline-start: 0; }
+
+.olympic-hero-stat-val {
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.olympic-hero-stat-lbl {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.olympic-hero-stat-sep {
+  width: 1px;
+  height: 2.5rem;
+  background: rgba(201, 169, 98, 0.3);
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .olympic-hero-stats-row {
+    gap: 0.4rem 0;
+  }
+  .olympic-hero-stat { padding: 0 0.85rem; }
+  .olympic-hero-stat-sep { height: 2rem; }
+}
+
 /* Scroll indicator */
 .olympic-hero-scroll {
   position: absolute;
@@ -2950,6 +2997,199 @@ body.has-custom-cursor button {
   0%, 100% { transform: translateY(-50%) translateX(0) rotate(0deg); }
   33% { transform: translateY(-54%) translateX(8px) rotate(1deg); }
   66% { transform: translateY(-48%) translateX(-4px) rotate(-0.5deg); }
+}
+
+/* ── Project Overview Full-Width Banner ── */
+.olympic-pitch-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: stretch;
+}
+
+.olympic-pitch-bg {
+  position: absolute;
+  inset: 0;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.pitch-stripe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(201, 169, 98, 0.15) 30%,
+    rgba(201, 169, 98, 0.15) 70%,
+    transparent 100%
+  );
+}
+.pitch-stripe:nth-child(1) { left: 20%; }
+.pitch-stripe:nth-child(2) { left: 40%; }
+.pitch-stripe:nth-child(3) { left: 60%; }
+.pitch-stripe:nth-child(4) { left: 80%; }
+
+.pitch-center-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #C9A962 20%,
+    #E8C97A 50%,
+    #C9A962 80%,
+    transparent 100%
+  );
+  border-radius: 0;
+}
+
+.pitch-center-line {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(201, 169, 98, 0.04) 50%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.pitch-penalty-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 169, 98, 0.25) 30%,
+    rgba(201, 169, 98, 0.25) 70%,
+    transparent 100%
+  );
+  top: auto;
+  transform: none;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
+.pitch-penalty-box--left { display: none; }
+.pitch-penalty-box--right { display: none; }
+
+.olympic-pitch-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+.olympic-pitch-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 600px) {
+  .olympic-pitch-content { padding: 4rem 3rem; }
+}
+
+@media (min-width: 1024px) {
+  .olympic-pitch-content { padding: 4.5rem 5rem; }
+}
+
+.olympic-pitch-tag {
+  font-size: 0.58rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: #C9A962;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.olympic-pitch-tag::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: #C9A962;
+  opacity: 0.7;
+}
+
+.olympic-pitch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 3rem;
+}
+
+@media (min-width: 640px) {
+  .olympic-pitch-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .olympic-pitch-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+  .olympic-pitch-item + .olympic-pitch-item {
+    border-left: 1px solid rgba(201, 169, 98, 0.15);
+    padding-left: 2.5rem;
+  }
+}
+
+.olympic-pitch-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.olympic-pitch-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(201, 169, 98, 0.55);
+  font-weight: 500;
+}
+
+.olympic-pitch-value {
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-weight: 700;
+  color: #FAFAF8;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.olympic-pitch-desc {
+  font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+  line-height: 1.9;
+  color: rgba(250, 248, 244, 0.5);
+  border-top: 1px solid rgba(201, 169, 98, 0.15);
+  padding-top: 1.5rem;
+  max-width: 700px;
 }
 
 /* ── Video Banner — TV frame ── */

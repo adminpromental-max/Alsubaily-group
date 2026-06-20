@@ -1,13 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useLang } from "@/contexts/lang-context";
+import { DammamSplitScreen } from "@/components/dammam/DammamSplitScreen";
+import { dammamAsset } from "@/data/asset-paths";
 
 export const Route = createFileRoute("/dammam-preview")({
   head: () => ({
     meta: [
-      { title: "مدينة الدمام الأولمبية — مجموعة الشبيلي" },
+      { title: "مدينة الدمام الأولمبية — معاينة تفاعلية | AlShubaily" },
       {
         name: "description",
-        content: "معاينة مشروع مدينة الدمام الأولمبية ضمن محفظة مجموعة الشبيلي.",
+        content:
+          "جولة تفاعلية داخل مشروع مدينة الدمام الأولمبية — تجربة split-screen ومعرض دائري.",
+      },
+      {
+        property: "og:title",
+        content: "Dammam Olympic City — Interactive Preview",
+      },
+      {
+        property: "og:image",
+        content: dammamAsset("Hero.png"),
       },
     ],
   }),
@@ -15,23 +25,9 @@ export const Route = createFileRoute("/dammam-preview")({
 });
 
 function DammamPreviewPage() {
-  const { t } = useLang();
   return (
-    <main className="min-h-screen bg-stone-dark px-6 pt-32 pb-20 text-white md:px-8">
-      <div className="mx-auto max-w-5xl">
-        <p className="text-xs uppercase tracking-[0.4em] text-[#c9a962]">
-          {t("معاينة", "Preview")}
-        </p>
-        <h1 className="mt-4 text-5xl font-semibold md:text-6xl">
-          {t("مدينة الدمام الأولمبية", "Dammam Olympic City")}
-        </h1>
-        <p className="mt-6 max-w-2xl text-white/70">
-          {t(
-            "تجربة المعاينة الكاملة (Split-screen + Olympic Circle Gallery) سيتم نقلها في المرحلة الرابعة مع باقي المكونات السينمائية وخريطة Leaflet.",
-            "The full split-screen and Olympic Circle Gallery experience will be ported in phase 4 alongside the cinematic components and Leaflet map.",
-          )}
-        </p>
-      </div>
+    <main className="min-h-screen bg-[#FAF8F4]">
+      <DammamSplitScreen />
     </main>
   );
 }

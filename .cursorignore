@@ -1,0 +1,59 @@
+# ── Dependencies & build output (indexing these slows every turn) ──
+node_modules/
+.vercel/
+dist/
+dist-ssr/
+.output/
+.nitro/
+.vinxi/
+.tanstack/
+.wrangler/
+
+# ── Logs & local env ──
+*.log
+npm-debug.log*
+.env
+.env.*
+.dev.vars
+
+# ── Heavy binaries — paths live in src/data, no need to read file contents ──
+**/*.pdf
+**/*.mp4
+**/*.mov
+**/*.mp3
+**/*.wav
+**/*.zip
+**/*.7z
+
+# Public media (large; reference by path in code only)
+public/assets/**/*.png
+public/assets/**/*.jpg
+public/assets/**/*.jpeg
+public/assets/**/*.webp
+public/assets/**/*.gif
+public/assets/**/*.svg
+
+# Tidara & project asset folders (~120MB+)
+public/assets/projects/
+
+# Textures & showcase bundles
+public/assets/textures/
+public/assets/showcase/
+public/assets/intro/
+public/assets/Banner-logos/
+public/assets/hero/
+
+# Duplicate / junk files
+public/assets/**/map 2.png
+public/assets/**/Alshubaily-logo 2.png
+
+# ── OS & editor noise ──
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Past agent transcripts (large JSONL history) ──
+agent-transcripts/

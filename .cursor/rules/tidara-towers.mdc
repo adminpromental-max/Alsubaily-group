@@ -1,0 +1,33 @@
+---
+description: Tidara Towers dedicated project page — assets, routes, conventions
+globs:
+  - src/routes/**/*
+  - src/components/**/*
+  - src/data/**/*
+alwaysApply: false
+---
+
+# Tidara Towers page
+
+## Goal
+Build a dedicated cinematic project page for **Tidara Towers** (أبراج تيدارا).
+
+## Assets (do not read binary files — use paths only)
+- Folder: `public/assets/projects/Tidara-tower/`
+- Key files: `Hero.png`, `3D-Tower.png`, `Masterplan.png`, `Elevation:Facade.png`, `Interior 1.png`, `Interior 2.png`, `Walkthrough 1-3.png`, `Cinematic_architectural_film_.mp4`
+- PDF plans: `public/assets/projects/Elshubaily Tidara Towers - Draft Plans - Cube -  ( 01-04-2026).pdf`
+
+## Routing
+- Generic placeholder: `src/routes/projects.$slug.tsx`
+- Prefer dedicated route e.g. `src/routes/projects.tidara-towers.tsx` or `/projects/tidara-towers` if full custom layout is needed
+- Match existing TanStack Start + Tailwind v4 patterns from homepage components
+
+## Stack conventions
+- Arabic RTL default; use `useLang()` from `@/contexts/lang-context`
+- Reuse stone/plain surface classes from `src/styles.css` (`bg-plain-cream`, `bg-cover-slider-stone`, etc.)
+- Asset path helper pattern: see `src/data/asset-paths.ts`
+- Do not commit `.vercel/output`
+
+## Performance
+- Keep changes scoped to Tidara page + its components
+- Avoid loading/indexing asset binaries; reference URLs like `/assets/projects/Tidara-tower/Hero.png`

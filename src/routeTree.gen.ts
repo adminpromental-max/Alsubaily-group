@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsTidaraTowersRouteImport } from './routes/projects.tidara-towers'
 import { Route as ProjectsRabiaMakkahRouteImport } from './routes/projects.rabia-makkah'
+import { Route as ProjectsDammamOlympicCityRouteImport } from './routes/projects.dammam-olympic-city'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as AdminShowcaseRouteImport } from './routes/admin.showcase'
 import { Route as ApiPublicDriveImageFileIdRouteImport } from './routes/api/public/drive-image.$fileId'
@@ -43,6 +44,12 @@ const ProjectsRabiaMakkahRoute = ProjectsRabiaMakkahRouteImport.update({
   path: '/projects/rabia-makkah',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsDammamOlympicCityRoute =
+  ProjectsDammamOlympicCityRouteImport.update({
+    id: '/projects/dammam-olympic-city',
+    path: '/projects/dammam-olympic-city',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   id: '/projects/$slug',
   path: '/projects/$slug',
@@ -66,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/dammam-preview': typeof DammamPreviewRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
@@ -76,6 +84,7 @@ export interface FileRoutesByTo {
   '/dammam-preview': typeof DammamPreviewRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
@@ -87,6 +96,7 @@ export interface FileRoutesById {
   '/dammam-preview': typeof DammamPreviewRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/dammam-preview'
     | '/admin/showcase'
     | '/projects/$slug'
+    | '/projects/dammam-olympic-city'
     | '/projects/rabia-makkah'
     | '/projects/tidara-towers'
     | '/api/public/drive-image/$fileId'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/dammam-preview'
     | '/admin/showcase'
     | '/projects/$slug'
+    | '/projects/dammam-olympic-city'
     | '/projects/rabia-makkah'
     | '/projects/tidara-towers'
     | '/api/public/drive-image/$fileId'
@@ -119,6 +131,7 @@ export interface FileRouteTypes {
     | '/dammam-preview'
     | '/admin/showcase'
     | '/projects/$slug'
+    | '/projects/dammam-olympic-city'
     | '/projects/rabia-makkah'
     | '/projects/tidara-towers'
     | '/api/public/drive-image/$fileId'
@@ -130,6 +143,7 @@ export interface RootRouteChildren {
   DammamPreviewRoute: typeof DammamPreviewRoute
   AdminShowcaseRoute: typeof AdminShowcaseRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
+  ProjectsDammamOlympicCityRoute: typeof ProjectsDammamOlympicCityRoute
   ProjectsRabiaMakkahRoute: typeof ProjectsRabiaMakkahRoute
   ProjectsTidaraTowersRoute: typeof ProjectsTidaraTowersRoute
   ApiPublicDriveImageFileIdRoute: typeof ApiPublicDriveImageFileIdRoute
@@ -172,6 +186,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRabiaMakkahRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/dammam-olympic-city': {
+      id: '/projects/dammam-olympic-city'
+      path: '/projects/dammam-olympic-city'
+      fullPath: '/projects/dammam-olympic-city'
+      preLoaderRoute: typeof ProjectsDammamOlympicCityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/$slug': {
       id: '/projects/$slug'
       path: '/projects/$slug'
@@ -202,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   DammamPreviewRoute: DammamPreviewRoute,
   AdminShowcaseRoute: AdminShowcaseRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
+  ProjectsDammamOlympicCityRoute: ProjectsDammamOlympicCityRoute,
   ProjectsRabiaMakkahRoute: ProjectsRabiaMakkahRoute,
   ProjectsTidaraTowersRoute: ProjectsTidaraTowersRoute,
   ApiPublicDriveImageFileIdRoute: ApiPublicDriveImageFileIdRoute,

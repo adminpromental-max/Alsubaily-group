@@ -303,12 +303,16 @@ export const PROJECTS: Project[] = [
     y: 49.5,
     descriptionEn: "A world-class sports and wellness city in the heart of Dammam.",
     descriptionAr: "مدينة رياضية وصحية عالمية المستوى في قلب الدمام.",
-    heroImage: dammamAsset("Hero.jpg"),
+    heroImage: dammamAsset("Hero.png"),
     gallery: [
-      dammamAsset("Hero.jpg"),
+      dammamAsset("Hero.png"),
+      dammamAsset("1.png"),
+      dammamAsset("2.png"),
+      dammamAsset("3.png"),
       dammamAsset("4.jpg"),
       dammamAsset("5.jpg"),
       dammamAsset("6.jpg"),
+      dammamAsset("7.jpg"),
     ],
   },
   {
