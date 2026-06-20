@@ -119,24 +119,27 @@ export function HeroChairman() {
     >
       <HeroCinematic />
 
-      <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 pt-28 md:px-8 md:pt-32">
-        <p className="text-[11px] uppercase tracking-[0.4em] text-[#c9a962]">
-          {t("مجموعة الشبيلي", "AlShubaily Group")}
-        </p>
-        <h1
-          className={cn(
-            "mt-4 text-[clamp(1.35rem,3.2vw,2.35rem)] font-semibold leading-tight text-white",
-            "sm:whitespace-nowrap drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]",
-          )}
-        >
-          {t(
-            "نبني وجهات تجسّد طموح المملكة",
-            "Building destinations that embody the Kingdom's ambition",
-          )}
-        </h1>
-      </div>
+      {/* Upper area — video breathing room */}
+      <div className="flex-1" aria-hidden />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-8 pt-4 md:px-8 md:pb-10">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-8 md:px-8 md:pb-10">
+        <div className="mb-5 text-center md:mb-7">
+          <p className="text-[11px] uppercase tracking-[0.4em] text-[#c9a962]">
+            {t("مجموعة الشبيلي", "AlShubaily Group")}
+          </p>
+          <h1
+            className={cn(
+              "mx-auto mt-3 max-w-4xl text-[clamp(1.35rem,3.2vw,2.35rem)] font-semibold leading-tight text-white",
+              "sm:whitespace-nowrap drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]",
+            )}
+          >
+            {t(
+              "نبني وجهات تجسّد روح المملكة",
+              "Building destinations that embody the Kingdom's spirit",
+            )}
+          </h1>
+        </div>
+
         <HeroStats />
       </div>
     </section>

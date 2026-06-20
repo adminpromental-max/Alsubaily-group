@@ -22,6 +22,7 @@ export function FeaturedProjects({
   pauseOnInteraction = true,
 }: FeaturedProjectsProps) {
   const { t, lang } = useLang();
+  const isRTL = lang === "ar";
   const sectionRef = useScrollReveal<HTMLElement>({ y: 40, stagger: 0.1 });
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -79,6 +80,20 @@ export function FeaturedProjects({
     }, 380);
   }, [wrap]);
 
+  const goNext = useCallback(
+    (exitSide?: "left" | "right") => {
+      go(isRTL ? -1 : 1, exitSide ?? (isRTL ? "right" : "left"));
+    },
+    [go, isRTL],
+  );
+
+  const goPrev = useCallback(
+    (exitSide?: "left" | "right") => {
+      go(isRTL ? 1 : -1, exitSide ?? (isRTL ? "left" : "right"));
+    },
+    [go, isRTL],
+  );
+
   // Preload
   useEffect(() => {
     images.forEach((src) => {
@@ -90,19 +105,19 @@ export function FeaturedProjects({
   // Autoplay
   useEffect(() => {
     if (!autoPlayEnabled || paused || flyOut) return;
-    const timer = window.setInterval(() => go(1), autoPlayDelay);
+    const timer = window.setInterval(() => goNext(), autoPlayDelay);
     return () => window.clearInterval(timer);
-  }, [go, paused, flyOut, autoPlayEnabled, autoPlayDelay]);
+  }, [goNext, paused, flyOut, autoPlayEnabled, autoPlayDelay]);
 
   // Keyboard
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") go(-1);
-      if (e.key === "ArrowRight") go(1);
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [go]);
+  }, [goNext, goPrev]);
 
   const onPointerDown = (e: React.PointerEvent) => {
     if (flyOut) return;
@@ -119,16 +134,8 @@ export function FeaturedProjects({
     const dx = drag;
     dragStartX.current = null;
     if (Math.abs(dx) > SWIPE_THRESHOLD) {
-      const exitSide = dx < 0 ? "left" : "right";
-      const navStep =
-        lang === "ar"
-          ? dx < 0
-            ? -1
-            : 1
-          : dx < 0
-            ? 1
-            : -1;
-      go(navStep, exitSide);
+      if (dx < 0) goNext("left");
+      else goPrev("right");
     } else {
       setDrag(0);
     }
@@ -263,7 +270,7 @@ export function FeaturedProjects({
           {/* Floating prev/next */}
           <button
             type="button"
-            onClick={() => go(-1)}
+            onClick={() => goPrev()}
             aria-label={t("السابق", "Previous")}
             className="absolute left-2 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/40 text-[#C9A962] backdrop-blur-md transition-all hover:border-[#C9A962] hover:bg-black/60 active:scale-95 md:left-6"
           >
@@ -271,7 +278,7 @@ export function FeaturedProjects({
           </button>
           <button
             type="button"
-            onClick={() => go(1)}
+            onClick={() => goNext()}
             aria-label={t("التالي", "Next")}
             className="absolute right-2 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/40 text-[#C9A962] backdrop-blur-md transition-all hover:border-[#C9A962] hover:bg-black/60 active:scale-95 md:right-6"
           >
@@ -287,7 +294,16 @@ export function FeaturedProjects({
               type="button"
               onClick={() => {
                 if (dotIndex === index || flyOut) return;
-                setFlyOut(dotIndex > index ? "left" : "right");
+                const forward = dotIndex > index;
+                setFlyOut(
+                  forward
+                    ? isRTL
+                      ? "right"
+                      : "left"
+                    : isRTL
+                      ? "left"
+                      : "right",
+                );
                 window.setTimeout(() => {
                   setIndex(dotIndex);
                   setFlyOut(null);
