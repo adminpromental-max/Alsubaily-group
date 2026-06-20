@@ -321,6 +321,30 @@ export function InteractiveMap({
     setFilter(project.region);
   }, []);
 
+  const onWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const rect = viewport.getBoundingClientRect();
+    const cursorX = e.clientX - rect.left;
+    const cursorY = e.clientY - rect.top;
+
+    const min = baseScaleRef.current;
+    const max = baseScaleRef.current * MAX_ZOOM_RATIO;
+    const factor = e.deltaY < 0 ? 1.1 : 0.91;
+    const next = Math.min(max, Math.max(min, transformRef.current.scale * factor));
+    if (next === transformRef.current.scale) return;
+
+    const ratio = next / transformRef.current.scale;
+    transformRef.current = {
+      scale: next,
+      x: cursorX - (cursorX - transformRef.current.x) * ratio,
+      y: cursorY - (cursorY - transformRef.current.y) * ratio,
+    };
+    applyTransform(false);
+  };
+
   const onPointerDown = (e: React.PointerEvent) => {
     const target = e.target as HTMLElement;
     if (target.closest(".map-hit-target, .map-float-controls, .map-project-popup, button, a, input")) {
@@ -374,17 +398,19 @@ export function InteractiveMap({
       <div
         className={cn(
           "relative w-full transition-opacity duration-300",
-          "h-[56vw] min-h-[420px]",
+          /* natural ratio of new-map.png (1392×768 ≈ 55.2%) with good minimums */
+          "h-[55vw] min-h-[340px] max-h-[760px]",
           ready ? "opacity-100" : "opacity-40",
         )}
       >
         <div
           ref={viewportRef}
-          className="map-viewport map-viewport--full relative h-full w-full overflow-hidden bg-[#FAFAF8]"
+          className="map-viewport map-viewport--full relative h-full w-full overflow-hidden bg-[#FAF8F4]"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
+          onWheel={onWheel}
         >
           {!hideControls && <div className="map-float-controls pointer-events-none absolute inset-x-0 top-0 z-40 px-3 pt-3 md:px-5 md:pt-4">
             <div className="pointer-events-auto mx-auto max-w-4xl space-y-2">
@@ -464,7 +490,7 @@ export function InteractiveMap({
                     selectProject(project);
                   }}
                   className={cn(
-                    "map-hit-target group absolute -translate-x-1/2 -translate-y-1/2",
+                    "map-hit-target absolute",
                     activeId === project.id && "is-active",
                     activeId && activeId !== project.id && "is-dimmed",
                   )}
@@ -472,12 +498,13 @@ export function InteractiveMap({
                     {
                       left: `${project.x}%`,
                       top: `${project.y}%`,
+                      transform: "translate(-50%, -50%)",
                       ["--pin-color" as string]: project.color,
                     } as React.CSSProperties
                   }
                 >
                   <span className="map-hit-ring" aria-hidden />
-                  <span className="map-hit-core" aria-hidden />
+                  <span className="map-hit-core" aria-hidden>{project.id}</span>
                 </button>
               ))}
             </div>
@@ -537,10 +564,10 @@ function MapProjectPopup({
 }) {
   return (
     <div
-      className="map-project-popup pointer-events-auto absolute left-1/2 top-1/2 z-50 w-[min(92vw,400px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-white/10 bg-[#14110D] shadow-[0_40px_100px_rgba(0,0,0,0.55)]"
+      className="map-project-popup pointer-events-auto absolute left-1/2 top-[48%] z-50 w-[min(88vw,380px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-white/10 bg-[#14110D] shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
       onClick={(e) => e.stopPropagation()}
     >
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-[16/9] overflow-hidden">
         <img
           src={project.heroImage}
           alt={lang === "ar" ? project.nameAr : project.nameEn}
@@ -563,13 +590,13 @@ function MapProjectPopup({
         </button>
       </div>
 
-      <div className="space-y-3 p-5 md:p-6">
+      <div className="space-y-2 p-4">
         <p className="text-xs font-medium text-[#C9A962]">
           {lang === "ar"
             ? `${project.regionAr} · ${project.typeAr}`
             : `${project.regionEn} · ${project.typeEn}`}
         </p>
-        <h3 className="text-xl font-semibold text-[#FAFAF8] md:text-2xl">
+        <h3 className="text-lg font-semibold text-[#FAFAF8]">
           {lang === "ar" ? project.nameAr : project.nameEn}
         </h3>
         <p className="text-sm leading-7 text-[#FAFAF8]/65">
