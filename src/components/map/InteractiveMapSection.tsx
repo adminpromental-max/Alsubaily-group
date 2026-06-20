@@ -28,7 +28,7 @@ export function InteractiveMapSection() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#1A1612]/60 md:text-base">
           {t(
-            "اضغطي على أي نقطة مضيئة لاستكشاف المشروع وتفاصيله.",
+            "اضغط على أي نقطة مضيئة لاستكشاف المشروع وتفاصيله.",
             "Tap any highlighted point to explore the project and its details.",
           )}
         </p>
@@ -72,7 +72,7 @@ export function InteractiveMapSection() {
         {/* Count line */}
         <p className="mt-3 text-xs text-[#1A1612]/50">
           {t(
-            `${visibleCount} مشروع · اضغطي على أي نقطة مضيئة`,
+            `${visibleCount} مشروع · اضغط على أي نقطة مضيئة`,
             `${visibleCount} projects · tap any highlighted point`,
           )}
         </p>

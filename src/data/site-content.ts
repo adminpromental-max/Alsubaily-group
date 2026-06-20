@@ -97,6 +97,6 @@ export const CHAIRMAN_CONTENT = {
   nameEn: "Khalid Saud AlShubaily",
   roleAr: "رئيس مجلس الإدارة",
   roleEn: "Chairman of the Board",
-  signatureNameAr: "خالد الشبيلي",
+  signatureNameAr: "خالد سعود الشبيلي",
   signatureNameEn: "Khalid AlShubaily",
 };

@@ -92,8 +92,18 @@ export function VisionMissionSection() {
           {t(VISION_MISSION.eyebrowAr, VISION_MISSION.eyebrowEn)}
         </p>
 
+        {/* Chairman — above vision/mission cards */}
+        <div className="vm-chairman-header mt-8 text-center md:mt-10">
+          <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-[#c9a962]">
+            {t(CHAIRMAN_CONTENT.roleAr, CHAIRMAN_CONTENT.roleEn)}
+          </p>
+          <p className="mt-2 text-xl font-semibold text-white md:text-2xl">
+            {t(CHAIRMAN_CONTENT.nameAr, CHAIRMAN_CONTENT.nameEn)}
+          </p>
+        </div>
+
         {/* Glass cards grid */}
-        <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2 md:gap-8">
+        <div className="mt-8 grid gap-6 md:mt-10 md:grid-cols-2 md:gap-8">
           {/* Vision card */}
           <div className="vm-glass-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-8 backdrop-blur-2xl transition-all duration-500 hover:border-[#c9a962]/40 hover:bg-white/[0.09] hover:shadow-[0_24px_60px_-16px_rgba(201,169,98,0.25)] md:p-10">
             {/* glass top highlight */}
@@ -132,27 +142,13 @@ export function VisionMissionSection() {
           </div>
         </div>
 
-        {/* Chairman signature block */}
+        {/* Chairman quote */}
         <div className="vm-signature mt-14 text-center md:mt-20">
           <div className="mx-auto inline-flex flex-col items-center">
             <Quote className="mb-3 h-6 w-6 text-[#c9a962]/70" strokeWidth={1.5} />
             <blockquote className="max-w-2xl text-base font-light leading-relaxed text-white/85 md:text-lg">
               "{t(CHAIRMAN_CONTENT.quoteAr, CHAIRMAN_CONTENT.quoteEn)}"
             </blockquote>
-            <div className="mt-6 flex flex-col items-center">
-              <div className="relative mb-3">
-                <p
-                  className="text-xl font-semibold italic text-white md:text-2xl"
-                  style={{ fontFamily: '"Cairo", "Brush Script MT", cursive' }}
-                >
-                  {t(CHAIRMAN_CONTENT.signatureNameAr, CHAIRMAN_CONTENT.signatureNameEn)}
-                </p>
-                <div className="mx-auto mt-2 h-[1px] w-32 bg-gradient-to-r from-transparent via-[#c9a962]/60 to-transparent" />
-              </div>
-              <p className="text-[11px] uppercase tracking-[0.3em] text-[#c9a962]/80">
-                {t(CHAIRMAN_CONTENT.roleAr, CHAIRMAN_CONTENT.roleEn)}
-              </p>
-            </div>
           </div>
         </div>
       </div>
