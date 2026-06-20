@@ -11,12 +11,12 @@ export type DammamHighlight = {
   bodyEn: string;
 };
 
-export const DAMMAM_HERO_POSTER = dammamAsset("Hero.png");
+export const DAMMAM_HERO_POSTER = dammamAsset("City-landscape.png");
 export const DAMMAM_BANNER = dammamAsset("banner.png");
 
 export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
   {
-    file: "4.jpg",
+    file: "Football-studium.jpg",
     side: "right",
     eyebrowAr: "استاد رياضي عالمي",
     eyebrowEn: "World-Class Stadium",
@@ -28,7 +28,7 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "Accommodating over 45,000 spectators, designed to the highest international standards for major championships and multi-discipline events, with advanced broadcast technology at the heart of Dammam.",
   },
   {
-    file: "1.png",
+    file: "Ball-Area.png",
     side: "left",
     eyebrowAr: "ملاعب متعددة",
     eyebrowEn: "Multi-Sport Courts",
@@ -40,7 +40,7 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "A vibrant sports cluster with football, basketball, and volleyball courts in an open urban layout — serving the local community and visitors as a year-round training and competition destination.",
   },
   {
-    file: "2.png",
+    file: "Polo.png",
     side: "right",
     eyebrowAr: "رياضة فاخرة",
     eyebrowEn: "Elite Sport",
@@ -52,7 +52,7 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "A world-class polo field blending heritage and modernity — designed to host international tournaments and premium events within expansive green surroundings befitting the Olympic city.",
   },
   {
-    file: "3.png",
+    file: "Runner's-zone..png",
     side: "left",
     eyebrowAr: "ألعاب القوى",
     eyebrowEn: "Athletics",
@@ -64,7 +64,7 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "Dedicated tracks and lanes for running, marathons, and daily training — built to international standards supporting elite athletes and enthusiasts alike toward an active lifestyle.",
   },
   {
-    file: "5.jpg",
+    file: "Bike-ride.png",
     side: "right",
     eyebrowAr: "تنقل مستدام",
     eyebrowEn: "Sustainable Mobility",
@@ -76,7 +76,7 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "A network of walkways and cycling paths connecting the Olympic city's facilities — promoting active mobility and sustainability in an integrated urban experience for families and visitors.",
   },
   {
-    file: "6.jpg",
+    file: "Walway.png",
     side: "left",
     eyebrowAr: "فضاءات عامة",
     eyebrowEn: "Public Realm",
@@ -88,7 +88,7 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "An elegant urban promenade linking sports and commercial zones — offering a comfortable walking experience with green views and seating areas that bring the city to life throughout the day.",
   },
   {
-    file: "7.jpg",
+    file: "Gulf.png",
     side: "right",
     eyebrowAr: "واجهة بحرية",
     eyebrowEn: "Waterfront",
@@ -100,7 +100,7 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "An exceptional corniche overlooking the Arabian Gulf — combining dining, promenades, and waterfront activities in a distinctive experience completing the coastal sports city identity.",
   },
   {
-    file: "Hero.png",
+    file: "City-landscape.png",
     side: "left",
     eyebrowAr: "رؤية شاملة",
     eyebrowEn: "Master Vision",

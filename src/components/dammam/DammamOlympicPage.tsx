@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -412,14 +411,6 @@ export function DammamOlympicPage() {
             <a href="/#map" className="cta-glass-btn">
               {t("استكشف مشاريع أخرى", "Explore More Projects")}
             </a>
-          </div>
-          <div className="mt-6 text-center">
-            <Link
-              to="/dammam-preview"
-              className="text-sm text-[#9A7B3A] underline-offset-4 hover:underline"
-            >
-              {t("تجربة المعاينة التفاعلية", "Interactive Preview Experience")}
-            </Link>
           </div>
         </div>
       </section>

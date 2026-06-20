@@ -22,7 +22,7 @@ export const Route = createFileRoute("/projects/dammam-olympic-city")({
       },
       {
         property: "og:image",
-        content: dammamAsset("Hero.png"),
+        content: dammamAsset("City-landscape.png"),
       },
     ],
   }),

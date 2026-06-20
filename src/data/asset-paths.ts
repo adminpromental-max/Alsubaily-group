@@ -1,5 +1,6 @@
 /** Exact folder names as committed in git / deployed on Vercel */
-export const DAMMAM_PROJECT_DIR = "مدينه الدمام الأوليمبيه";
+/** مدينة الدمام — من مشروع alshubaily (web) الأصلي */
+export const DAMMAM_PROJECT_DIR = "dammam-olympic";
 export const BEACH_PROJECT_DIR = "منتجع منزل البحر ";
 
 export function projectAsset(dir: string, file: string) {

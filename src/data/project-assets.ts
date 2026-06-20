@@ -6,16 +6,16 @@ export const REAL_PROJECT_ASSETS: Record<
   { hero: string; gallery: string[] }
 > = {
   "dammam-olympic-city": {
-    hero: dammamAsset("Hero.png"),
+    hero: dammamAsset("City-landscape.png"),
     gallery: [
-      dammamAsset("Hero.png"),
-      dammamAsset("1.png"),
-      dammamAsset("2.png"),
-      dammamAsset("3.png"),
-      dammamAsset("4.jpg"),
-      dammamAsset("5.jpg"),
-      dammamAsset("6.jpg"),
-      dammamAsset("7.jpg"),
+      dammamAsset("City-landscape.png"),
+      dammamAsset("Football-studium.jpg"),
+      dammamAsset("Ball-Area.png"),
+      dammamAsset("Polo.png"),
+      dammamAsset("Runner's-zone..png"),
+      dammamAsset("Bike-ride.png"),
+      dammamAsset("Walway.png"),
+      dammamAsset("Gulf.png"),
     ],
   },
   "alshubaily-high-rise": {
