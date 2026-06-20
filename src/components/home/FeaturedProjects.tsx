@@ -240,31 +240,11 @@ export function FeaturedProjects({
 
                   {/* Card back details — only on top card */}
                   {isTop && (
-                    <>
-                      {/* Corner indices (playing-card style) */}
-                      <div className="pointer-events-none absolute left-4 top-4 font-mono text-xs tracking-widest text-[#C9A962]">
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-                      <div className="pointer-events-none absolute right-4 bottom-4 rotate-180 font-mono text-xs tracking-widest text-[#C9A962]">
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-
-                      {/* Bottom label */}
-                      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 p-6">
-                        <span className="rounded-full bg-[#C9A962] px-3 py-1 text-[9px] font-bold uppercase tracking-[0.2em] text-[#080605]">
-                          {t("معرض المشاريع", "Project Gallery")}
-                        </span>
-                        <div className="flex items-center gap-3 rounded-full border border-white/15 bg-black/30 px-5 py-2 backdrop-blur-md">
-                          <span className="font-mono text-xs tracking-widest text-white">
-                            {String(index + 1).padStart(2, "0")}
-                          </span>
-                          <span className="h-3 w-px bg-[#C9A962]/60" />
-                          <span className="font-mono text-xs tracking-widest text-white/50">
-                            {String(total).padStart(2, "0")}
-                          </span>
-                        </div>
-                      </div>
-                    </>
+                    <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 p-6">
+                      <span className="rounded-full bg-[#C9A962] px-3 py-1 text-[9px] font-bold uppercase tracking-[0.2em] text-[#080605]">
+                        {t("معرض المشاريع", "Project Gallery")}
+                      </span>
+                    </div>
                   )}
                 </div>
               );
@@ -305,7 +285,7 @@ export function FeaturedProjects({
                   setDrag(0);
                 }, 380);
               }}
-              aria-label={`Slide ${dotIndex + 1}`}
+              aria-label={t("انتقل للصورة", "Go to image")}
               className={cn(
                 "h-1 rounded-full transition-all duration-500",
                 dotIndex === index
