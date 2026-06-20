@@ -66,8 +66,8 @@ export interface FileRoutesByFullPath {
   '/dammam-preview': typeof DammamPreviewRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
-  '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
+  '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
 }
 export interface FileRoutesByTo {
@@ -76,8 +76,8 @@ export interface FileRoutesByTo {
   '/dammam-preview': typeof DammamPreviewRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
-  '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
+  '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
 }
 export interface FileRoutesById {
@@ -87,8 +87,8 @@ export interface FileRoutesById {
   '/dammam-preview': typeof DammamPreviewRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
-  '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
+  '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
 }
 export interface FileRouteTypes {
@@ -99,8 +99,8 @@ export interface FileRouteTypes {
     | '/dammam-preview'
     | '/admin/showcase'
     | '/projects/$slug'
-    | '/projects/tidara-towers'
     | '/projects/rabia-makkah'
+    | '/projects/tidara-towers'
     | '/api/public/drive-image/$fileId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -109,8 +109,8 @@ export interface FileRouteTypes {
     | '/dammam-preview'
     | '/admin/showcase'
     | '/projects/$slug'
-    | '/projects/tidara-towers'
     | '/projects/rabia-makkah'
+    | '/projects/tidara-towers'
     | '/api/public/drive-image/$fileId'
   id:
     | '__root__'
@@ -119,8 +119,8 @@ export interface FileRouteTypes {
     | '/dammam-preview'
     | '/admin/showcase'
     | '/projects/$slug'
-    | '/projects/tidara-towers'
     | '/projects/rabia-makkah'
+    | '/projects/tidara-towers'
     | '/api/public/drive-image/$fileId'
   fileRoutesById: FileRoutesById
 }
@@ -130,8 +130,8 @@ export interface RootRouteChildren {
   DammamPreviewRoute: typeof DammamPreviewRoute
   AdminShowcaseRoute: typeof AdminShowcaseRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
-  ProjectsTidaraTowersRoute: typeof ProjectsTidaraTowersRoute
   ProjectsRabiaMakkahRoute: typeof ProjectsRabiaMakkahRoute
+  ProjectsTidaraTowersRoute: typeof ProjectsTidaraTowersRoute
   ApiPublicDriveImageFileIdRoute: typeof ApiPublicDriveImageFileIdRoute
 }
 
@@ -202,8 +202,8 @@ const rootRouteChildren: RootRouteChildren = {
   DammamPreviewRoute: DammamPreviewRoute,
   AdminShowcaseRoute: AdminShowcaseRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
-  ProjectsTidaraTowersRoute: ProjectsTidaraTowersRoute,
   ProjectsRabiaMakkahRoute: ProjectsRabiaMakkahRoute,
+  ProjectsTidaraTowersRoute: ProjectsTidaraTowersRoute,
   ApiPublicDriveImageFileIdRoute: ApiPublicDriveImageFileIdRoute,
 }
 export const routeTree = rootRouteImport

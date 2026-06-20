@@ -125,7 +125,7 @@ export type TidaraAlternatingSection = {
 export const TIDARA_ALTERNATING: TidaraAlternatingSection[] = [
   {
     id: "residential",
-    image: tidaraAsset("interior-1.png"),
+    image: tidaraAsset("walkthrough-1.png"),
     imageAltAr: "وحدات سكنية فاخرة في أبراج تيدارا",
     imageAltEn: "Premium residential units at Tidara Towers",
     eyebrowAr: "سكني",
@@ -139,9 +139,9 @@ export const TIDARA_ALTERNATING: TidaraAlternatingSection[] = [
   },
   {
     id: "commercial",
-    image: tidaraAsset("Masterplan.png"),
-    imageAltAr: "المخطط العام لمشروع أبراج تيدارا",
-    imageAltEn: "Tidara Towers master plan",
+    image: tidaraAsset("Office.png"),
+    imageAltAr: "البرج الإداري والمكاتب التجارية في أبراج تيدارا",
+    imageAltEn: "Administrative tower and commercial offices at Tidara Towers",
     eyebrowAr: "تجاري · إداري",
     eyebrowEn: "Commercial · Admin",
     titleAr: "116 مكتباً ومساحات تجارية",
@@ -153,9 +153,9 @@ export const TIDARA_ALTERNATING: TidaraAlternatingSection[] = [
   },
   {
     id: "hotel",
-    image: tidaraAsset("elevation-facade.png"),
-    imageAltAr: "واجهة البرج الفندقي — بوابة المارينا",
-    imageAltEn: "Hotel tower façade — marina gateway",
+    image: tidaraAsset("Hotel.png"),
+    imageAltAr: "برج الفندق على الواجهة البحرية — بوابة المارينا",
+    imageAltEn: "Waterfront hotel tower — marina gateway",
     eyebrowAr: "فندقي · ضيافة",
     eyebrowEn: "Hotel · Hospitality",
     titleAr: "فندق G+11 على الواجهة البحرية",
@@ -168,7 +168,7 @@ export const TIDARA_ALTERNATING: TidaraAlternatingSection[] = [
 ];
 
 export const TIDARA_BANNER = {
-  image: tidaraAsset("panorama.png"),
+  image: tidaraAsset("tower-night.png"),
   imageAltAr: "بانوراما أبراج تيدارا على الخليج العربي",
   imageAltEn: "Tidara Towers panorama on the Arabian Gulf",
   titleAr: "بوابتك على الخليج",
@@ -180,17 +180,155 @@ export const TIDARA_BANNER = {
 export type TidaraGalleryItem = {
   id: string;
   image: string;
+  tagAr: string;
+  tagEn: string;
   altAr: string;
   altEn: string;
+  descAr: string;
+  descEn: string;
 };
 
 export const TIDARA_GALLERY: TidaraGalleryItem[] = [
-  { id: "wt-1", image: tidaraAsset("walkthrough-1.png"), altAr: "جولة في المشروع 1", altEn: "Project walkthrough 1" },
-  { id: "wt-2", image: tidaraAsset("walkthrough-2.png"), altAr: "جولة في المشروع 2", altEn: "Project walkthrough 2" },
-  { id: "wt-3", image: tidaraAsset("walkthrough-3.png"), altAr: "جولة في المشروع 3", altEn: "Project walkthrough 3" },
-  { id: "wt-4", image: tidaraAsset("walkthrough-4.png"), altAr: "جولة في المشروع 4", altEn: "Project walkthrough 4" },
-  { id: "wt-5", image: tidaraAsset("walkthrough-5.png"), altAr: "جولة في المشروع 5", altEn: "Project walkthrough 5" },
-  { id: "wt-6", image: tidaraAsset("walkthrough-6.png"), altAr: "جولة في المشروع 6", altEn: "Project walkthrough 6" },
+  {
+    id: "hotel",
+    image: tidaraAsset("Hotel.png"),
+    tagAr: "فندقي",
+    tagEn: "Hotel",
+    altAr: "برج الفندق على الواجهة البحرية",
+    altEn: "Waterfront hotel tower",
+    descAr: "مبنى فندقي G+11 بإطلالة على المارينا والخليج — لوبي، SPA، ومطاعم راقية",
+    descEn: "G+11 hotel with marina and Gulf views — lobby, SPA, and fine dining",
+  },
+  {
+    id: "office",
+    image: tidaraAsset("Office.png"),
+    tagAr: "إداري · مكاتب",
+    tagEn: "Office · Commercial",
+    altAr: "البرج الإداري والمكاتب التجارية",
+    altEn: "Administrative tower and commercial offices",
+    descAr: "برج إداري G+29 — 116 مكتباً بمساحة 160 م² وSky Lounge في الطابق الأول",
+    descEn: "G+29 admin tower — 116 offices at 160 m² each and a first-floor Sky Lounge",
+  },
+  {
+    id: "sales",
+    image: tidaraAsset("Sales.png"),
+    tagAr: "تجاري · مبيعات",
+    tagEn: "Retail · Sales",
+    altAr: "المساحات التجارية ومناطق المبيعات",
+    altEn: "Retail spaces and sales areas",
+    descAr: "طابق أرضي للمطاعم والمقاهي ومساحات تجارية تُنشّط الواجهة الحضرية",
+    descEn: "Ground-floor F&B, cafés, and retail activating the urban waterfront",
+  },
+  {
+    id: "residential",
+    image: tidaraAsset("walkthrough-2.png"),
+    tagAr: "سكني",
+    tagEn: "Residential",
+    altAr: "الوحدات السكنية في أبراج تيدارا",
+    altEn: "Residential units at Tidara Towers",
+    descAr: "63+ وحدة سكنية بمساحات 110–156 م² مع تراسات متدرجة وإطلالة بانورامية",
+    descEn: "63+ units of 110–156 m² with stepped terraces and panoramic views",
+  },
+  {
+    id: "masterplan",
+    image: tidaraAsset("Masterplan.png"),
+    tagAr: "مخطط عام",
+    tagEn: "Master Plan",
+    altAr: "المخطط العام لمشروع أبراج تيدارا",
+    altEn: "Tidara Towers master plan",
+    descAr: "تخطيط متكامل يربط الفندق والإداري والسكني عبر بوديوم عام وممشى ساحلي",
+    descEn: "Integrated layout linking hotel, admin, and residential via a public podium and promenade",
+  },
+  {
+    id: "3d",
+    image: tidaraAsset("3D-Tower.png"),
+    tagAr: "تصور ثلاثي الأبعاد",
+    tagEn: "3D Visualization",
+    altAr: "تصور ثلاثي الأبعاد لأبراج تيدارا",
+    altEn: "Tidara Towers 3D visualization",
+    descAr: "برج مركزي أسطواني بإطلالة 360° على الخليج العربي",
+    descEn: "Central cylindrical tower with 360° views of the Arabian Gulf",
+  },
+  {
+    id: "facade",
+    image: tidaraAsset("elevation-facade.png"),
+    tagAr: "واجهة معمارية",
+    tagEn: "Architectural Façade",
+    altAr: "واجهة البرج — تصميم بارامتري",
+    altEn: "Tower façade — parametric design",
+    descAr: "واجهات بارامترية تربط البوديوم بالبرج والمارينا في إيماءة واحدة",
+    descEn: "Parametric façades connecting podium, tower, and marina into one gesture",
+  },
+  {
+    id: "panorama",
+    image: tidaraAsset("panorama.png"),
+    tagAr: "بانوراما",
+    tagEn: "Panorama",
+    altAr: "بانوراما أبراج تيدارا على الخليج",
+    altEn: "Tidara Towers panorama on the Gulf",
+    descAr: "منظر شامل للمشروع على مارينا الخبر والخليج العربي",
+    descEn: "Full project view on Al Khobar marina and the Arabian Gulf",
+  },
+  {
+    id: "night",
+    image: tidaraAsset("tower-night.png"),
+    tagAr: "منظر ليلي",
+    tagEn: "Night View",
+    altAr: "أبراج تيدارا في الإضاءة الليلية",
+    altEn: "Tidara Towers at night",
+    descAr: "تصور ليلي يُبرز الإضاءة المعمارية والحياة على الواجهة البحرية",
+    descEn: "Night rendering highlighting architectural lighting and waterfront life",
+  },
+  {
+    id: "wt-1",
+    image: tidaraAsset("walkthrough-1.png"),
+    tagAr: "جولة بصرية",
+    tagEn: "Walkthrough",
+    altAr: "جولة في المشروع — المنظور الخارجي",
+    altEn: "Project walkthrough — exterior perspective",
+    descAr: "منظور خارجي يُظهر العلاقة بين المباني والمارينا",
+    descEn: "Exterior perspective showing the relationship between buildings and marina",
+  },
+  {
+    id: "wt-3",
+    image: tidaraAsset("walkthrough-3.png"),
+    tagAr: "جولة بصرية",
+    tagEn: "Walkthrough",
+    altAr: "جولة في المشروع — البوديوم والممشى",
+    altEn: "Project walkthrough — podium and promenade",
+    descAr: "البوديوم العام والممشى الساحلي الذي يربط المباني الثلاثة",
+    descEn: "Public podium and coastal promenade linking all three buildings",
+  },
+  {
+    id: "wt-4",
+    image: tidaraAsset("walkthrough-4.png"),
+    tagAr: "جولة بصرية",
+    tagEn: "Walkthrough",
+    altAr: "جولة في المشروع — الواجهة البحرية",
+    altEn: "Project walkthrough — waterfront frontage",
+    descAr: "الواجهة البحرية النشطة والمساحات العامة على مستوى الأرض",
+    descEn: "Active waterfront frontage and ground-level public spaces",
+  },
+  {
+    id: "wt-5",
+    image: tidaraAsset("walkthrough-5.png"),
+    tagAr: "جولة بصرية",
+    tagEn: "Walkthrough",
+    altAr: "جولة في المشروع — المنظور الجوي",
+    altEn: "Project walkthrough — aerial perspective",
+    descAr: "منظور جوي يُظهر كتلة المشروع وعلاقته بالمارينا",
+    descEn: "Aerial view showing the project massing and its marina connection",
+  },
+  {
+    id: "wt-6",
+    image: tidaraAsset("walkthrough-6.png"),
+    tagAr: "جولة بصرية",
+    tagEn: "Walkthrough",
+    altAr: "جولة في المشروع — التفاصيل المعمارية",
+    altEn: "Project walkthrough — architectural details",
+    descAr: "تفاصيل معمارية ومواد الواجهة في الإضاءة الطبيعية",
+    descEn: "Architectural details and façade materials in natural light",
+  },
 ];
 
 export const TIDARA_GALLERY_HEADER = {

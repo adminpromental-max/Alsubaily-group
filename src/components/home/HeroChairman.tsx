@@ -1,16 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Building2, FileText, Users } from "lucide-react";
+import {
+  Building2,
+  FileText,
+  Globe,
+  Landmark,
+  MapPin,
+  Users,
+} from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import { CHAIRMAN_CONTENT, SITE_STATS } from "@/data/site-content";
+import { CHAIRMAN_CONTENT } from "@/data/site-content";
 import { HeroCinematic } from "./HeroCinematic";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
 type StatItem = {
-  key: keyof typeof SITE_STATS;
+  value: number;
   labelAr: string;
   labelEn: string;
   suffixAr?: string;
@@ -19,9 +26,12 @@ type StatItem = {
 };
 
 const STATS: StatItem[] = [
-  { key: "projects", labelAr: "عدد المشاريع", labelEn: "Projects", icon: Building2 },
-  { key: "investors", labelAr: "عدد المستثمرين", labelEn: "Investors", suffixAr: "+", suffixEn: "+", icon: Users },
-  { key: "requests", labelAr: "عدد الطلبات", labelEn: "Requests", suffixAr: "+", suffixEn: "+", icon: FileText },
+  { value: 18, labelAr: "عدد المشاريع", labelEn: "Projects", icon: Building2 },
+  { value: 850, labelAr: "عدد المستثمرين", labelEn: "Investors", suffixAr: "+", suffixEn: "+", icon: Users },
+  { value: 2400, labelAr: "عدد الطلبات", labelEn: "Requests", suffixAr: "+", suffixEn: "+", icon: FileText },
+  { value: 12, labelAr: "مدن", labelEn: "Cities", suffixAr: "+", suffixEn: "+", icon: MapPin },
+  { value: 25, labelAr: "سنوات الخبرة", labelEn: "Years", suffixAr: "+", suffixEn: "+", icon: Landmark },
+  { value: 100, labelAr: "شراكات", labelEn: "Partners", suffixAr: "+", suffixEn: "+", icon: Globe },
 ];
 
 function CountUp({ target, suffix, active }: { target: number; suffix?: string; active: boolean }) {
@@ -70,27 +80,27 @@ function HeroStats() {
   return (
     <div
       ref={ref}
-      className="mt-10 grid grid-cols-3 gap-3 sm:gap-6 md:mt-12 md:max-w-2xl"
+      className="grid grid-cols-3 gap-2 sm:gap-3 md:grid-cols-6 md:gap-4"
     >
       {STATS.map((stat) => {
         const Icon = stat.icon;
         return (
           <div
-            key={stat.key}
+            key={stat.labelEn}
             data-stat-card
-            className="group rounded-2xl border border-[#C9A962]/25 bg-black/30 px-3 py-4 text-center backdrop-blur-md transition-all duration-500 hover:border-[#C9A962]/55 hover:bg-black/40 md:px-5 md:py-6"
+            className="group rounded-xl border border-[#C9A962]/25 bg-black/40 px-2 py-3 text-center backdrop-blur-md transition-all duration-500 hover:border-[#C9A962]/55 hover:bg-black/50 sm:rounded-2xl sm:px-3 sm:py-4 md:px-4 md:py-5"
           >
-            <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-xl border border-[#C9A962]/30 bg-[#C9A962]/10 text-[#C9A962] md:mb-3 md:h-11 md:w-11">
-              <Icon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={1.5} />
+            <div className="mx-auto mb-1.5 flex h-8 w-8 items-center justify-center rounded-lg border border-[#C9A962]/30 bg-[#C9A962]/10 text-[#C9A962] sm:mb-2 sm:h-9 sm:w-9 md:mb-2.5 md:h-10 md:w-10">
+              <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.5} />
             </div>
-            <p className="text-2xl font-semibold text-[#C9A962] sm:text-3xl md:text-4xl lg:text-5xl">
+            <p className="text-xl font-semibold text-[#C9A962] sm:text-2xl md:text-3xl">
               <CountUp
-                target={SITE_STATS[stat.key]}
+                target={stat.value}
                 suffix={stat.suffixAr ? t(stat.suffixAr, stat.suffixEn ?? "") : undefined}
                 active={active}
               />
             </p>
-            <p className="mt-1 text-[10px] tracking-wide text-white/70 sm:text-xs md:mt-2 md:text-sm">
+            <p className="mt-0.5 text-[9px] tracking-wide text-white/70 sm:text-[10px] md:mt-1 md:text-xs">
               {t(stat.labelAr, stat.labelEn)}
             </p>
           </div>
@@ -105,24 +115,28 @@ export function HeroChairman() {
   return (
     <section
       id="hero"
-      className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden"
+      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden"
     >
       <HeroCinematic />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pb-20 pt-28 md:px-8 md:pb-24 md:pt-32">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 pt-28 md:px-8 md:pt-32">
         <p className="text-[11px] uppercase tracking-[0.4em] text-[#c9a962]">
           {t("مجموعة الشبيلي", "AlShubaily Group")}
         </p>
-        <h1 className={cn(
-          "mt-4 max-w-4xl text-4xl font-semibold leading-[1.15] text-white md:text-6xl lg:text-7xl",
-          "drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]",
-        )}>
+        <h1
+          className={cn(
+            "mt-4 text-[clamp(1.35rem,3.2vw,2.35rem)] font-semibold leading-tight text-white",
+            "sm:whitespace-nowrap drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]",
+          )}
+        >
           {t(
             "نبني وجهات تجسّد طموح المملكة",
             "Building destinations that embody the Kingdom's ambition",
           )}
         </h1>
+      </div>
 
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-8 pt-4 md:px-8 md:pb-10">
         <HeroStats />
       </div>
     </section>

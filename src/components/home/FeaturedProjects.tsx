@@ -21,7 +21,7 @@ export function FeaturedProjects({
   pauseOnHover = true,
   pauseOnInteraction = true,
 }: FeaturedProjectsProps) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const sectionRef = useScrollReveal<HTMLElement>({ y: 40, stagger: 0.1 });
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -70,8 +70,8 @@ export function FeaturedProjects({
     setIndex((c) => (c >= total ? 0 : c));
   }, [total]);
 
-  const go = useCallback((dir: 1 | -1) => {
-    setFlyOut(dir === 1 ? "left" : "right");
+  const go = useCallback((dir: 1 | -1, exitSide?: "left" | "right") => {
+    setFlyOut(exitSide ?? (dir === 1 ? "left" : "right"));
     window.setTimeout(() => {
       setIndex((c) => wrap(c + dir));
       setFlyOut(null);
@@ -119,7 +119,16 @@ export function FeaturedProjects({
     const dx = drag;
     dragStartX.current = null;
     if (Math.abs(dx) > SWIPE_THRESHOLD) {
-      go(dx < 0 ? 1 : -1);
+      const exitSide = dx < 0 ? "left" : "right";
+      const navStep =
+        lang === "ar"
+          ? dx < 0
+            ? -1
+            : 1
+          : dx < 0
+            ? 1
+            : -1;
+      go(navStep, exitSide);
     } else {
       setDrag(0);
     }
