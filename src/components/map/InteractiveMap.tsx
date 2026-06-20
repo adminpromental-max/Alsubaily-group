@@ -207,21 +207,6 @@ export function InteractiveMap({ initialRegion, initialProjectId }: InteractiveM
       imgSizeRef.current = next;
       setImgSize(next);
       fitMap(false);
-      if (!initializedRef.current) {
-        initializedRef.current = true;
-        setTimeout(() => {
-          if (initialProjectId) {
-            const project = allProjects.find((p) => p.id === initialProjectId);
-            if (project) {
-              zoomToPoint(project.x, project.y, REGION_ZOOM, true);
-              setMapMode("project");
-            }
-          } else if (initialRegion) {
-            const cluster = clusters.find((c) => c.id === initialRegion);
-            if (cluster) zoomToPoint(cluster.x, cluster.y, REGION_ZOOM, true);
-          }
-        }, 80);
-      }
     }
   };
 
@@ -235,22 +220,30 @@ export function InteractiveMap({ initialRegion, initialProjectId }: InteractiveM
       setImgSize(next);
     }
     fitMap(false);
-    if (!initializedRef.current && (initialRegion || initialProjectId)) {
-      initializedRef.current = true;
-      setTimeout(() => {
-        if (initialProjectId) {
-          const project = allProjects.find((p) => p.id === initialProjectId);
-          if (project) {
-            zoomToPoint(project.x, project.y, REGION_ZOOM, true);
-            setMapMode("project");
-          }
-        } else if (initialRegion) {
-          const cluster = clusters.find((c) => c.id === initialRegion);
-          if (cluster) zoomToPoint(cluster.x, cluster.y, REGION_ZOOM, true);
+  }, [fitMap]);
+
+  // Auto-zoom to initial region/project once map is ready
+  useEffect(() => {
+    if (!ready) return;
+    if (initializedRef.current) return;
+    initializedRef.current = true;
+
+    const id = setTimeout(() => {
+      if (initialProjectId) {
+        const project = allProjects.find((p) => p.id === initialProjectId);
+        if (project) {
+          zoomToPoint(project.x, project.y, REGION_ZOOM, true);
+          setMapMode("project");
         }
-      }, 80);
-    }
-  }, [fitMap, allProjects, clusters, initialProjectId, initialRegion, zoomToPoint]);
+      } else if (initialRegion) {
+        const cluster = clusters.find((c) => c.id === initialRegion);
+        if (cluster) zoomToPoint(cluster.x, cluster.y, REGION_ZOOM, true);
+      }
+    }, 120);
+
+    return () => clearTimeout(id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ready]);
 
   useEffect(() => {
     const viewport = viewportRef.current;
