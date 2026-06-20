@@ -345,7 +345,7 @@
 }
 
 .map-viewport--full {
-  border-radius: clamp(12px, 1.2vw, 20px);
+  border-radius: 0;
 }
 
 /* Invisible hit targets over baked map numbers */

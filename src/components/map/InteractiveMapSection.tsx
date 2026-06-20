@@ -5,7 +5,7 @@ export function InteractiveMapSection() {
   const { t } = useLang();
 
   return (
-    <section id="map" className="relative w-full py-16 md:py-24">
+    <section id="map" className="relative w-full pt-16 md:pt-24">
       <div className="mx-auto mb-8 max-w-4xl px-4 text-center md:mb-12 md:px-6">
         <p className="text-xs uppercase tracking-[0.35em] text-[#8A6A2E]">
           {t("خريطة المشاريع", "Projects Map")}
@@ -15,13 +15,13 @@ export function InteractiveMapSection() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#1A1612]/60 md:text-base">
           {t(
-            "اضغطي على أي رقم على الخريطة لاستكشاف المشروع — اضغطي على الخريطة للرجوع.",
+            "اضغط على أي رقم على الخريطة لاستكشاف المشروع — اضغط على الخريطة للرجوع.",
             "Tap any numbered point on the map to explore a project — tap the map to go back.",
           )}
         </p>
       </div>
 
-      <div className="w-full px-3 md:px-6 lg:px-10">
+      <div className="w-full">
         <InteractiveMap />
       </div>
     </section>

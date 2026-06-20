@@ -61,7 +61,12 @@ function clampTransform(
   return { x, y, scale: t.scale };
 }
 
-export function InteractiveMap() {
+interface InteractiveMapProps {
+  initialRegion?: Exclude<RegionId, "all">;
+  initialProjectId?: number;
+}
+
+export function InteractiveMap({ initialRegion, initialProjectId }: InteractiveMapProps = {}) {
   const { t, lang } = useLang();
   const viewportRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
@@ -74,15 +79,16 @@ export function InteractiveMap() {
     null,
   );
   const didPanRef = useRef(false);
+  const initializedRef = useRef(false);
 
   const [ready, setReady] = useState(false);
   const [imgSize, setImgSize] = useState(MAP_DEFAULT);
-  const [filter, setFilter] = useState<RegionId>("all");
-  const [mapMode, setMapMode] = useState<MapMode>("overview");
+  const [filter, setFilter] = useState<RegionId>(initialRegion ?? "all");
+  const [mapMode, setMapMode] = useState<MapMode>(initialRegion ? "region" : "overview");
   const [activeRegion, setActiveRegion] = useState<Exclude<RegionId, "all"> | null>(
-    null,
+    initialRegion ?? null,
   );
-  const [activeId, setActiveId] = useState<number | null>(null);
+  const [activeId, setActiveId] = useState<number | null>(initialProjectId ?? null);
   const [search, setSearch] = useState("");
 
   const allProjects = useMemo(() => withMapCoordinates(PROJECTS), []);
@@ -201,6 +207,21 @@ export function InteractiveMap() {
       imgSizeRef.current = next;
       setImgSize(next);
       fitMap(false);
+      if (!initializedRef.current) {
+        initializedRef.current = true;
+        setTimeout(() => {
+          if (initialProjectId) {
+            const project = allProjects.find((p) => p.id === initialProjectId);
+            if (project) {
+              zoomToPoint(project.x, project.y, REGION_ZOOM, true);
+              setMapMode("project");
+            }
+          } else if (initialRegion) {
+            const cluster = clusters.find((c) => c.id === initialRegion);
+            if (cluster) zoomToPoint(cluster.x, cluster.y, REGION_ZOOM, true);
+          }
+        }, 80);
+      }
     }
   };
 
@@ -214,7 +235,22 @@ export function InteractiveMap() {
       setImgSize(next);
     }
     fitMap(false);
-  }, [fitMap]);
+    if (!initializedRef.current && (initialRegion || initialProjectId)) {
+      initializedRef.current = true;
+      setTimeout(() => {
+        if (initialProjectId) {
+          const project = allProjects.find((p) => p.id === initialProjectId);
+          if (project) {
+            zoomToPoint(project.x, project.y, REGION_ZOOM, true);
+            setMapMode("project");
+          }
+        } else if (initialRegion) {
+          const cluster = clusters.find((c) => c.id === initialRegion);
+          if (cluster) zoomToPoint(cluster.x, cluster.y, REGION_ZOOM, true);
+        }
+      }, 80);
+    }
+  }, [fitMap, allProjects, clusters, initialProjectId, initialRegion, zoomToPoint]);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -327,13 +363,13 @@ export function InteractiveMap() {
       <div
         className={cn(
           "relative w-full transition-opacity duration-300",
-          "h-[min(62vw,420px)] min-h-[280px] sm:h-[min(58vw,520px)] md:h-[min(52vw,680px)] lg:h-[min(48vw,760px)]",
+          "h-[70vw] min-h-[340px] sm:h-[60vw] md:h-[56vw] lg:h-[52vw] xl:h-[600px]",
           ready ? "opacity-100" : "opacity-40",
         )}
       >
         <div
           ref={viewportRef}
-          className="map-viewport map-viewport--full relative h-full w-full overflow-hidden rounded-xl border border-[#E0D3C2]/60 bg-[#FAFAF8] shadow-[0_24px_80px_rgba(26,22,18,0.08)] md:rounded-2xl"
+          className="map-viewport map-viewport--full relative h-full w-full overflow-hidden bg-[#FAFAF8]"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
