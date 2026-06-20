@@ -1,17 +1,11 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useLang } from "@/contexts/lang-context";
-
-/** Slugs that have a dedicated immersive page — redirect immediately */
-const DEDICATED_ROUTES: Record<string, string> = {
-  "tidara-towers": "/projects/tidara-towers",
-  "rabia-makkah": "/projects/rabia-makkah",
-  "dammam-olympic-city": "/projects/dammam-olympic-city",
-};
+import { DEDICATED_PROJECT_PATHS } from "@/lib/project-routes";
 
 export const Route = createFileRoute("/projects/$slug")({
   beforeLoad: ({ params }) => {
-    const dest = DEDICATED_ROUTES[params.slug];
-    if (dest) throw redirect({ to: dest as never });
+    const dest = DEDICATED_PROJECT_PATHS[params.slug as keyof typeof DEDICATED_PROJECT_PATHS];
+    if (dest) throw redirect({ to: dest });
   },
   head: () => ({
     meta: [

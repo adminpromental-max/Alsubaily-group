@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import {
   useCallback,
   useEffect,
@@ -20,6 +19,7 @@ import {
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 import { useLang } from "@/contexts/lang-context";
 import { buttonVariants } from "@/components/ui/button";
+import { ProjectDetailLink } from "@/components/projects/ProjectDetailLink";
 import { cn } from "@/lib/utils";
 
 const MAP_SRC = "/assets/new-map.png";
@@ -589,9 +589,8 @@ function MapProjectPopup({
         <p className="text-sm leading-7 text-[#FAFAF8]/65">
           {lang === "ar" ? project.descriptionAr : project.descriptionEn}
         </p>
-        <Link
-          to="/projects/$slug"
-          params={{ slug: project.slug }}
+        <ProjectDetailLink
+          slug={project.slug}
           className={cn(
             buttonVariants({ size: "default" }),
             "mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#C9A962] text-[#14110D] hover:bg-[#B8954A]",
@@ -599,7 +598,7 @@ function MapProjectPopup({
         >
           {t("عرض تفاصيل المشروع", "View Project Details")}
           <ArrowLeft className="h-4 w-4 rotate-180" />
-        </Link>
+        </ProjectDetailLink>
       </div>
     </div>
   );

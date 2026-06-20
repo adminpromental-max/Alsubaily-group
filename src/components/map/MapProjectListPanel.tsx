@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { PROJECTS, REGIONS, type RegionId } from "@/data/projects";
+import { ProjectDetailLink } from "@/components/projects/ProjectDetailLink";
 import { useLang } from "@/contexts/lang-context";
 import { cn } from "@/lib/utils";
 
@@ -75,9 +75,8 @@ export function MapProjectListPanel({ activeProjectId, onProjectClick }: Props) 
               </p>
             </div>
 
-            <Link
-              to="/projects/$slug"
-              params={{ slug: project.slug }}
+            <ProjectDetailLink
+              slug={project.slug}
               onClick={(e) => e.stopPropagation()}
               className="map-panel-card-link"
               aria-label={lang === "ar" ? project.nameAr : project.nameEn}
@@ -91,7 +90,7 @@ export function MapProjectListPanel({ activeProjectId, onProjectClick }: Props) 
                   strokeLinejoin="round"
                 />
               </svg>
-            </Link>
+            </ProjectDetailLink>
           </button>
         ))}
       </div>
