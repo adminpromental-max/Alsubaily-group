@@ -64,9 +64,22 @@ function clampTransform(
 interface InteractiveMapProps {
   initialRegion?: Exclude<RegionId, "all">;
   initialProjectId?: number;
+  hideControls?: boolean;
+  externalSearch?: string;
+  externalFilter?: RegionId;
+  onSearchChange?: (v: string) => void;
+  onFilterChange?: (v: RegionId) => void;
 }
 
-export function InteractiveMap({ initialRegion, initialProjectId }: InteractiveMapProps = {}) {
+export function InteractiveMap({
+  initialRegion,
+  initialProjectId,
+  hideControls,
+  externalSearch,
+  externalFilter,
+  onSearchChange,
+  onFilterChange,
+}: InteractiveMapProps = {}) {
   const { t, lang } = useLang();
   const viewportRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
@@ -83,13 +96,18 @@ export function InteractiveMap({ initialRegion, initialProjectId }: InteractiveM
 
   const [ready, setReady] = useState(false);
   const [imgSize, setImgSize] = useState(MAP_DEFAULT);
-  const [filter, setFilter] = useState<RegionId>(initialRegion ?? "all");
+  const [filterInternal, setFilterInternal] = useState<RegionId>(initialRegion ?? "all");
   const [mapMode, setMapMode] = useState<MapMode>(initialRegion ? "region" : "overview");
   const [activeRegion, setActiveRegion] = useState<Exclude<RegionId, "all"> | null>(
     initialRegion ?? null,
   );
   const [activeId, setActiveId] = useState<number | null>(initialProjectId ?? null);
-  const [search, setSearch] = useState("");
+  const [searchInternal, setSearchInternal] = useState("");
+
+  const search = externalSearch !== undefined ? externalSearch : searchInternal;
+  const filter = externalFilter !== undefined ? externalFilter : filterInternal;
+  const setSearch = onSearchChange ?? setSearchInternal;
+  const setFilter: (v: RegionId) => void = onFilterChange ?? setFilterInternal;
 
   const allProjects = useMemo(() => withMapCoordinates(PROJECTS), []);
   const clusters = getRegionClusters();
@@ -356,7 +374,7 @@ export function InteractiveMap({ initialRegion, initialProjectId }: InteractiveM
       <div
         className={cn(
           "relative w-full transition-opacity duration-300",
-          "h-[70vw] min-h-[340px] sm:h-[60vw] md:h-[56vw] lg:h-[52vw] xl:h-[600px]",
+          "h-[75vw] min-h-[360px] sm:h-[65vw] md:h-[58vw] lg:h-[54vw] xl:h-[640px]",
           ready ? "opacity-100" : "opacity-40",
         )}
       >
@@ -368,7 +386,7 @@ export function InteractiveMap({ initialRegion, initialProjectId }: InteractiveM
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
         >
-          <div className="map-float-controls pointer-events-none absolute inset-x-0 top-0 z-40 px-3 pt-3 md:px-5 md:pt-4">
+          {!hideControls && <div className="map-float-controls pointer-events-none absolute inset-x-0 top-0 z-40 px-3 pt-3 md:px-5 md:pt-4">
             <div className="pointer-events-auto mx-auto max-w-4xl space-y-2">
               <label className="map-search-bar">
                 <Search className="h-4 w-4 shrink-0 text-[#8A8175]" />
@@ -413,7 +431,8 @@ export function InteractiveMap({ initialRegion, initialProjectId }: InteractiveM
                 ))}
               </div>
             </div>
-          </div>
+          </div>}
+
 
           <div
             ref={canvasRef}

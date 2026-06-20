@@ -40,33 +40,34 @@ function HomePage() {
   return (
     <div className="relative min-h-screen bg-plain-cream text-[#1A1612]">
       <main className="stacked-sections relative z-[2]">
-        <StackedSection index={0} total={7} surface="stone-dark">
+        <StackedSection index={0} total={6} surface="stone-dark">
           <HeroChairman />
         </StackedSection>
 
-        <StackedSection index={1} total={7} surface="cover-slider-stone">
+        <StackedSection index={1} total={6} surface="cover-slider-stone">
           <VisionMissionSection />
         </StackedSection>
 
-        <StackedSection index={2} total={7} surface="cover-creamy">
+        <StackedSection index={2} total={6} surface="cover-creamy">
           <LogoMarqueeBanner />
         </StackedSection>
 
-        <StackedSection index={3} total={7} surface="plain-cream">
+        <StackedSection index={3} total={6} surface="plain-cream">
           <ProjectTypesSection />
         </StackedSection>
 
-        <StackedSection index={4} total={7} surface="cover-slider-stone">
+        <StackedSection index={4} total={6} surface="cover-slider-stone">
           <FeaturedProjects />
         </StackedSection>
+      </main>
 
-        <StackedSection index={5} total={7} surface="plain-cream">
-          <InteractiveMapSection />
-        </StackedSection>
+      {/* Full-bleed map — outside stacked sections to avoid overflow:hidden clipping */}
+      <InteractiveMapSection />
 
+      <main className="stacked-sections relative z-[2]">
         <StackedSection
-          index={6}
-          total={7}
+          index={0}
+          total={1}
           surface="plain-dark"
           className="stacked-section--deep"
         >

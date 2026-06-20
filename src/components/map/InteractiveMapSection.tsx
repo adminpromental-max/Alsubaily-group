@@ -5,8 +5,9 @@ export function InteractiveMapSection() {
   const { t } = useLang();
 
   return (
-    <section id="map" className="relative w-full pt-16 md:pt-24">
-      <div className="mx-auto mb-8 max-w-4xl px-4 text-center md:mb-12 md:px-6">
+    <section id="map" className="relative w-full bg-[#FAF9F6]">
+      {/* Section header */}
+      <div className="mx-auto max-w-4xl px-4 pb-8 pt-16 text-center md:pb-10 md:pt-24 md:px-6">
         <p className="text-xs uppercase tracking-[0.35em] text-[#8A6A2E]">
           {t("خريطة المشاريع", "Projects Map")}
         </p>
@@ -21,6 +22,7 @@ export function InteractiveMapSection() {
         </p>
       </div>
 
+      {/* Full-bleed map — zero horizontal margin */}
       <div className="w-full">
         <InteractiveMap />
       </div>
