@@ -64,16 +64,7 @@ function HomePage() {
       {/* Full-bleed map — outside stacked sections to avoid overflow:hidden clipping */}
       <InteractiveMapSection />
 
-      <main className="stacked-sections relative z-[2]">
-        <StackedSection
-          index={0}
-          total={1}
-          surface="plain-dark"
-          className="stacked-section--deep"
-        >
-          <ContactSection />
-        </StackedSection>
-      </main>
+      <ContactSection />
 
       <FilmGrain />
     </div>
