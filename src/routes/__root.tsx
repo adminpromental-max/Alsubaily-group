@@ -100,10 +100,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/assets/Alshubaily-logo.png" },
       { rel: "preload", as: "image", href: "/assets/hero/Hero-1.jpg" },
-      { rel: "preload", as: "image", href: "/assets/textures/stone-cream.png" },
-      { rel: "preload", as: "image", href: "/assets/textures/stone-dark.png" },
-      { rel: "preload", as: "image", href: "/assets/textures/slider-stone.png" },
-      { rel: "preload", as: "image", href: "/assets/textures/background-creamy.png" },
       { rel: "preload", as: "image", href: "/assets/new-map.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {

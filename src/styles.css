@@ -97,18 +97,36 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
 
-  /* Stony surface textures */
+  /* Stony surface — procedural CSS (no image tiles) */
   --stone-cream-base: #ddd3c4;
   --stone-cream-tint: #f5eee2;
   --stone-dark-base: #0e0d0b;
   --stone-dark-tint: #14110d;
-  --stone-texture-cream: url("/assets/textures/stone-cream.png");
-  --stone-texture-dark: url("/assets/textures/stone-dark.png");
-  --texture-slider-stone: url("/assets/textures/slider-stone.png");
-  --texture-background-creamy: url("/assets/textures/background-creamy.png");
-  --stone-tile-lg: clamp(300px, 42vw, 560px);
-  --stone-tile-md: clamp(220px, 30vw, 400px);
-  --stone-tile-sm: clamp(160px, 22vw, 280px);
+  --stone-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  --stone-cream-body:
+    radial-gradient(ellipse 92% 72% at 16% 20%, rgba(255, 252, 247, 0.92) 0%, transparent 52%),
+    radial-gradient(ellipse 86% 68% at 84% 76%, rgba(225, 214, 198, 0.62) 0%, transparent 48%),
+    radial-gradient(ellipse 72% 58% at 54% 44%, rgba(240, 232, 218, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 48% 38% at 28% 72%, rgba(208, 196, 178, 0.32) 0%, transparent 44%),
+    linear-gradient(148deg, #ece3d5 0%, #ddd3c4 28%, #d5cbb9 52%, #e2d8ca 76%, #ddd3c4 100%);
+  --stone-dark-body:
+    radial-gradient(ellipse 96% 76% at 10% 16%, rgba(34, 30, 24, 0.88) 0%, transparent 50%),
+    radial-gradient(ellipse 82% 62% at 90% 84%, rgba(6, 5, 4, 0.82) 0%, transparent 48%),
+    radial-gradient(ellipse 58% 46% at 64% 34%, rgba(201, 169, 98, 0.07) 0%, transparent 54%),
+    radial-gradient(ellipse 42% 36% at 22% 68%, rgba(16, 14, 11, 0.65) 0%, transparent 48%),
+    linear-gradient(158deg, #181512 0%, #0e0d0b 35%, #12100d 68%, #0e0d0b 100%);
+  --stone-cover-cream:
+    radial-gradient(ellipse 115% 85% at 50% 8%, rgba(255, 252, 247, 0.82) 0%, transparent 54%),
+    radial-gradient(ellipse 72% 52% at 0% 92%, rgba(235, 226, 210, 0.48) 0%, transparent 44%),
+    radial-gradient(ellipse 68% 48% at 100% 60%, rgba(220, 210, 192, 0.35) 0%, transparent 42%),
+    var(--stone-cream-body);
+  --stone-cover-dark:
+    radial-gradient(ellipse 125% 95% at 50% 0%, rgba(24, 20, 16, 0.78) 0%, transparent 56%),
+    radial-gradient(ellipse 88% 62% at 0% 100%, rgba(201, 169, 98, 0.09) 0%, transparent 46%),
+    radial-gradient(ellipse 92% 72% at 100% 48%, rgba(4, 3, 2, 0.88) 0%, transparent 50%),
+    var(--stone-dark-body);
+  --stone-bg-grain-size: 140px 140px;
+  --stone-bg-full-size: 100% 100%;
   --al-plain-cream: #fafaf8;
   --al-plain-dark: #14110d;
 }
@@ -123,24 +141,25 @@
 
 .bg-cover-creamy {
   background-color: var(--al-plain-cream);
-  background-image: var(--texture-background-creamy);
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+  background-image: var(--stone-grain), var(--stone-cover-cream);
+  background-size: var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-position: center;
+  background-repeat: repeat, no-repeat;
 }
 
 .bg-cover-slider-stone {
   background-color: var(--stone-dark-base);
   background-image:
+    var(--stone-grain),
     linear-gradient(
       165deg,
       rgba(20, 17, 13, 0.35) 0%,
       rgba(8, 7, 6, 0.55) 100%
     ),
-    var(--texture-slider-stone);
-  background-size: cover;
+    var(--stone-cover-dark);
+  background-size: var(--stone-bg-grain-size), var(--stone-bg-full-size), var(--stone-bg-full-size);
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat, no-repeat, no-repeat;
 }
 
 .contact-copy-stone {
@@ -151,9 +170,10 @@
       rgba(22, 19, 15, 0.4) 0%,
       rgba(6, 5, 4, 0.65) 100%
     ),
-    var(--stone-texture-dark);
-  background-size: var(--stone-tile-md) var(--stone-tile-md);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-dark-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
   background-position: center;
 }
 
@@ -165,9 +185,10 @@
       rgba(245, 238, 226, 0.18) 0%,
       rgba(232, 223, 208, 0.08) 100%
     ),
-    var(--stone-texture-cream);
-  background-size: var(--stone-tile-lg) var(--stone-tile-lg);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-cream-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
   background-position: center;
 }
 
@@ -179,9 +200,10 @@
       rgba(26, 22, 18, 0.28) 0%,
       rgba(8, 7, 6, 0.42) 100%
     ),
-    var(--stone-texture-dark);
-  background-size: var(--stone-tile-lg) var(--stone-tile-lg);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-dark-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
   background-position: center;
 }
 
@@ -193,9 +215,10 @@
       rgba(255, 252, 247, 0.22) 0%,
       rgba(235, 226, 212, 0.12) 100%
     ),
-    var(--stone-texture-cream);
-  background-size: var(--stone-tile-md) var(--stone-tile-md);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-cream-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
   background-position: center;
 }
 
@@ -207,9 +230,10 @@
       rgba(22, 19, 15, 0.35) 0%,
       rgba(6, 5, 4, 0.5) 100%
     ),
-    var(--stone-texture-dark);
-  background-size: var(--stone-tile-sm) var(--stone-tile-sm);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-dark-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
   background-position: center;
 }
 
@@ -604,9 +628,11 @@
   background-color: var(--stone-cream-base);
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(250, 247, 242, 0.62) 100%),
-    var(--stone-texture-cream);
-  background-size: var(--stone-tile-md) var(--stone-tile-md);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-cream-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-position: center;
   box-shadow:
     0 -20px 60px rgba(26, 22, 18, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -684,9 +710,11 @@
   background-color: var(--stone-cream-base);
   background-image:
     linear-gradient(165deg, rgba(255, 255, 255, 0.72) 0%, rgba(250, 247, 242, 0.55) 100%),
-    var(--stone-texture-cream);
-  background-size: var(--stone-tile-md) var(--stone-tile-md);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-cream-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-position: center;
   padding: 1rem;
   backdrop-filter: blur(20px);
   box-shadow:
@@ -2386,9 +2414,11 @@ body.has-custom-cursor button {
   background-color: var(--stone-cream-base);
   background-image:
     linear-gradient(180deg, rgba(250, 248, 244, 0.5), rgba(245, 238, 226, 0.35)),
-    var(--stone-texture-cream);
-  background-size: var(--stone-tile-lg) var(--stone-tile-lg);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-cream-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-position: center;
 }
 
 /* Very light arabesque tile pattern */
@@ -2458,9 +2488,11 @@ body.has-custom-cursor button {
   background-color: var(--stone-cream-base);
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(245, 238, 226, 0.4)),
-    var(--stone-texture-cream);
-  background-size: var(--stone-tile-md) var(--stone-tile-md);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-cream-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-position: center;
   border: 1.5px solid rgba(107, 91, 62, 0.18);
   border-radius: 1.5rem;
   overflow: hidden;
@@ -4436,9 +4468,10 @@ body.has-custom-cursor button {
   background-color: var(--stone-dark-base);
   background-image:
     linear-gradient(160deg, rgba(18, 16, 13, 0.7) 0%, rgba(6, 5, 4, 0.92) 100%),
-    var(--stone-texture-dark);
-  background-size: var(--stone-tile-sm) var(--stone-tile-sm);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-dark-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
   background-position: center;
   padding: 1.25rem 1.25rem 1.35rem;
   border-inline-start: 4px solid #C9A962;
@@ -4683,9 +4716,11 @@ body.has-custom-cursor button {
   background-color: var(--stone-cream-base);
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(250, 247, 242, 0.62) 100%),
-    var(--stone-texture-cream);
-  background-size: var(--stone-tile-md) var(--stone-tile-md);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-cream-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-position: center;
   box-shadow:
     0 -20px 60px rgba(26, 22, 18, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -4746,9 +4781,11 @@ body.has-custom-cursor button {
   background-color: var(--stone-cream-base);
   background-image:
     linear-gradient(165deg, rgba(255, 255, 255, 0.72) 0%, rgba(250, 247, 242, 0.55) 100%),
-    var(--stone-texture-cream);
-  background-size: var(--stone-tile-md) var(--stone-tile-md);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-cream-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-position: center;
   padding: 1rem;
   backdrop-filter: blur(20px);
   box-shadow:
@@ -4760,9 +4797,11 @@ body.has-custom-cursor button {
   background-color: var(--stone-cream-base);
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(245, 238, 226, 0.4)),
-    var(--stone-texture-cream);
-  background-size: var(--stone-tile-md) var(--stone-tile-md);
-  background-repeat: repeat;
+    var(--stone-grain),
+    var(--stone-cream-body);
+  background-size: var(--stone-bg-full-size), var(--stone-bg-grain-size), var(--stone-bg-full-size);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-position: center;
   border: 1.5px solid rgba(107, 91, 62, 0.18);
   border-radius: 1.5rem;
   overflow: hidden;
