@@ -10,7 +10,6 @@ import {
   Users,
 } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import { CHAIRMAN_CONTENT } from "@/data/site-content";
 import { HeroCinematic } from "./HeroCinematic";
 import { cn } from "@/lib/utils";
 
@@ -112,17 +111,77 @@ function HeroStats() {
 
 export function HeroChairman() {
   const { t } = useLang();
+  const heroRef = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    const bg = bgRef.current;
+    const content = contentRef.current;
+    if (!hero) return;
+
+    const ctx = gsap.context(() => {
+      if (bg) {
+        gsap.fromTo(
+          bg,
+          { y: "-8%", scale: 1 },
+          {
+            y: "12%",
+            scale: 1.12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: hero,
+              start: "top top",
+              end: "bottom top",
+              scrub: 0.8,
+            },
+          },
+        );
+      }
+
+      if (content) {
+        gsap.fromTo(
+          content,
+          { y: 0, opacity: 1 },
+          {
+            y: 80,
+            opacity: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: hero,
+              start: "top top",
+              end: "60% top",
+              scrub: 0.5,
+            },
+          },
+        );
+      }
+    }, hero);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
+      ref={heroRef}
       id="hero"
-      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden"
+      data-parallax-section
+      className="hero-full-screen relative isolate flex min-h-[100svh] flex-col overflow-hidden"
     >
-      <HeroCinematic />
+      <div
+        ref={bgRef}
+        className="absolute inset-x-0 -top-[10%] -bottom-[10%] will-change-transform"
+      >
+        <HeroCinematic />
+      </div>
 
-      {/* Upper area — video breathing room */}
       <div className="flex-1" aria-hidden />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-8 md:px-8 md:pb-10">
+      <div
+        ref={contentRef}
+        className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-8 will-change-transform md:px-8 md:pb-10"
+      >
         <div className="mb-5 text-center md:mb-7">
           <p className="text-[11px] uppercase tracking-[0.4em] text-[#c9a962]">
             {t("مجموعة الشبيلي", "AlShubaily Group")}
@@ -143,32 +202,5 @@ export function HeroChairman() {
         <HeroStats />
       </div>
     </section>
-  );
-}
-
-export function ChairmanQuote() {
-  const { t } = useLang();
-  return (
-    <div
-      id="chairman"
-      className="relative border-t border-white/10 bg-stone-dark px-6 py-16 md:px-8 md:py-20"
-    >
-      <div className="mx-auto max-w-4xl text-center">
-        <p className="text-[11px] uppercase tracking-[0.4em] text-[#c9a962]">
-          {t(CHAIRMAN_CONTENT.eyebrowAr, CHAIRMAN_CONTENT.eyebrowEn)}
-        </p>
-        <blockquote className="mt-6 text-xl font-light leading-relaxed text-white/90 md:text-2xl lg:text-3xl">
-          “{t(CHAIRMAN_CONTENT.quoteAr, CHAIRMAN_CONTENT.quoteEn)}”
-        </blockquote>
-        <div className="mt-8">
-          <p className="text-lg font-semibold text-white">
-            {t(CHAIRMAN_CONTENT.nameAr, CHAIRMAN_CONTENT.nameEn)}
-          </p>
-          <p className="text-sm text-white/60">
-            {t(CHAIRMAN_CONTENT.roleAr, CHAIRMAN_CONTENT.roleEn)}
-          </p>
-        </div>
-      </div>
-    </div>
   );
 }

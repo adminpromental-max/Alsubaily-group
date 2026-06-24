@@ -303,6 +303,25 @@ export function InteractiveMap({
     applyTransform(true);
   };
 
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const onWheel = (e: WheelEvent) => {
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+        zoomFromCenter(
+          e.deltaY < 0
+            ? baseScaleRef.current * ZOOM_STEP_RATIO
+            : -baseScaleRef.current * ZOOM_STEP_RATIO,
+        );
+      }
+    };
+
+    viewport.addEventListener("wheel", onWheel, { passive: false });
+    return () => viewport.removeEventListener("wheel", onWheel);
+  }, []);
+
   const resetMap = useCallback(() => {
     setActiveId(null);
     setActiveRegion(null);
@@ -345,7 +364,6 @@ export function InteractiveMap({
       tx: transformRef.current.x,
       ty: transformRef.current.y,
     };
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
   };
 
   const onPointerMove = (e: React.PointerEvent) => {
@@ -354,7 +372,16 @@ export function InteractiveMap({
     const dx = e.clientX - start.x;
     const dy = e.clientY - start.y;
     if (Math.abs(dx) < 4 && Math.abs(dy) < 4) return;
-    didPanRef.current = true;
+
+    if (!didPanRef.current) {
+      didPanRef.current = true;
+      try {
+        (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+      } catch {
+        /* ignore */
+      }
+    }
+
     transformRef.current = {
       ...transformRef.current,
       x: start.tx + dx * PAN_DAMPING,
@@ -449,7 +476,7 @@ export function InteractiveMap({
           <div
             ref={canvasRef}
             className={cn(
-              "absolute top-0 left-0 touch-none will-change-transform",
+              "absolute top-0 left-0 will-change-transform",
               !ready && "invisible",
             )}
             style={{ width: imgSize.w, height: imgSize.h }}

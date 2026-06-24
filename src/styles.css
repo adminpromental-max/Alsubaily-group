@@ -330,8 +330,8 @@
 
 .map-viewport--full {
   border-radius: 0;
-  overscroll-behavior: contain;
-  touch-action: pan-x pan-y;
+  overscroll-behavior: auto;
+  touch-action: auto;
 }
 
 /* Numbered pin markers */

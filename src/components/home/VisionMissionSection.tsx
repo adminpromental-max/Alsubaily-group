@@ -106,16 +106,7 @@ export function VisionMissionSection() {
         </blockquote>
 
         <div className="vm-signature mt-8 text-center md:mt-10">
-          <p
-            className="text-xl font-semibold italic text-white md:text-2xl"
-            style={{ fontFamily: '"Cairo", "Brush Script MT", cursive' }}
-          >
-            {t(
-              CHAIRMAN_CONTENT.signatureNameAr,
-              CHAIRMAN_CONTENT.signatureNameEn,
-            )}
-          </p>
-          <div className="mx-auto mt-3 h-px w-32 bg-gradient-to-r from-transparent via-[#c9a962]/60 to-transparent" />
+          <div className="mx-auto h-px w-32 bg-gradient-to-r from-transparent via-[#c9a962]/60 to-transparent" />
           <p className="mt-3 text-[11px] uppercase tracking-[0.3em] text-[#c9a962]/80">
             {t(CHAIRMAN_CONTENT.roleAr, CHAIRMAN_CONTENT.roleEn)}
           </p>
