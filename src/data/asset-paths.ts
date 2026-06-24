@@ -33,6 +33,12 @@ export function rabiaAsset(file: string) {
   return projectAsset(RABIA_PROJECT_DIR, file);
 }
 
+export const HAIL_WALKWAY_GALLERY_DIR = "gallery-Hail-walkaway";
+
+export function hailWalkwayAsset(file: string) {
+  return encodeURI(`/assets/${HAIL_WALKWAY_GALLERY_DIR}/${file}`);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {
