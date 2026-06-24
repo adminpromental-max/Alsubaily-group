@@ -3,10 +3,12 @@ import { useLang } from "@/contexts/lang-context";
 import { Button } from "@/components/ui/button";
 
 const NAV = [
-  { href: "/#map", ar: "المشاريع", en: "Projects" },
-  { href: "/#chairman", ar: "الرؤية", en: "Vision" },
-  { href: "/about", ar: "من نحن", en: "About" },
-  { href: "/#contact", ar: "تواصل", en: "Contact" },
+  { to: "/", ar: "الرئيسية", en: "Home" },
+  { to: "/about", ar: "عن المجموعة", en: "About Group" },
+  { to: "/projects", ar: "المشاريع", en: "Projects" },
+  { to: "/services", ar: "خدماتنا", en: "Our Services" },
+  { to: "/media", ar: "المركز الإعلامي", en: "Media Center" },
+  { to: "/#contact", ar: "الاتصال بنا", en: "Contact Us", hash: true },
 ] as const;
 
 export function SiteHeader() {
@@ -33,24 +35,24 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex lg:gap-8">
           {NAV.map((item) =>
-            item.href === "/about" ? (
-              <Link
-                key={item.href}
-                to="/about"
-                className="text-sm text-[#5C5348] transition hover:text-[#1A1612]"
-              >
-                {t(item.ar, item.en)}
-              </Link>
-            ) : (
+            item.hash ? (
               <a
-                key={item.href}
-                href={item.href}
+                key={item.to}
+                href={item.to}
                 className="text-sm text-[#5C5348] transition hover:text-[#1A1612]"
               >
                 {t(item.ar, item.en)}
               </a>
+            ) : (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="text-sm text-[#5C5348] transition hover:text-[#1A1612]"
+              >
+                {t(item.ar, item.en)}
+              </Link>
             ),
           )}
         </nav>
