@@ -5177,3 +5177,22 @@ body.has-custom-cursor button {
     display: none;
   }
 }
+
+/* ── Projects circular orbit (about page experiment) ─────────── */
+.projects-orbit-section {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(250, 248, 244, 0.95) 100%
+  );
+}
+
+.projects-orbit-wheel {
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+.projects-orbit-item img {
+  pointer-events: none;
+  user-select: none;
+}
