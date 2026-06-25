@@ -38,10 +38,15 @@ export function HailWalkwayVideo() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#050505]">
+    <section ref={sectionRef} className="walkway-cinema-section relative overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_45%,rgba(201,169,98,0.1),transparent_68%)]"
+      />
+
       <div
         data-video-reveal
-        className="border-b border-[#C9A962]/15 px-6 py-10 text-center md:py-12"
+        className="relative border-b border-[#C9A962]/15 px-6 py-10 text-center md:py-12"
       >
         <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#C9A962]">
           {t("فيديو المشروع", "Project Video")}
@@ -51,28 +56,33 @@ export function HailWalkwayVideo() {
         </h2>
       </div>
 
-      <div data-video-reveal className="relative w-full bg-black px-0 md:px-6 lg:px-10">
-        {/* 16:9 frame — object-contain shows full frame including bottom-right captions */}
-        <div className="walkway-video-frame relative mx-auto w-full max-w-6xl overflow-hidden md:rounded-2xl md:border md:border-[#C9A962]/20">
-          <div className="relative aspect-video w-full bg-black">
+      <div data-video-reveal className="relative px-4 pb-2 pt-2 md:px-8 md:pb-4 md:pt-4">
+        <div className="walkway-cinema-stage">
+          <div className="walkway-cinema-bar" aria-hidden />
+
+          <div className="walkway-cinema-screen">
             <video
               autoPlay
               muted
               loop
               playsInline
               controls
-              className="absolute inset-0 h-full w-full object-contain object-center"
+              className="walkway-cinema-video"
               poster={HAIL_WALKWAY_HERO_IMAGE}
             >
               <source src={HAIL_WALKWAY_VIDEO_URL} type="video/mp4" />
             </video>
-
-            {/* Light top fade only — no bottom/side overlays that hide captions */}
             <div
-              className="pointer-events-none absolute inset-x-0 top-0 z-10 h-12 bg-gradient-to-b from-black/35 to-transparent"
+              className="walkway-cinema-grain pointer-events-none absolute inset-0 mix-blend-overlay"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-white/[0.06]"
               aria-hidden
             />
           </div>
+
+          <div className="walkway-cinema-bar" aria-hidden />
         </div>
 
         <p className="walkway-cinema-caption">
