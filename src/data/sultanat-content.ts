@@ -105,24 +105,100 @@ export const SULTANAT_INFRASTRUCTURE = {
     "لم نكتفِ بجمال الموقع — نفّذنا كامل أعمال البنية التحتية والعلوية الراقية لضمان جودة حياة لا تُضاهى.",
   bodyEn:
     "Beyond the beauty of the site — fully integrated infrastructure and premium superstructure for an unmatched quality of life.",
-  slides: [
-    {
-      src: sultanatAsset("Infrastructure-1.png"),
-      captionAr: "شوارع واسعة وأرصفة فخمة",
-      captionEn: "Wide boulevards & premium pavements",
-    },
-    {
-      src: sultanatAsset("Infrastructure-2.png"),
-      captionAr: "أشجار النخيل المصطفة",
-      captionEn: "Meticulously lined palm trees",
-    },
-    {
-      src: sultanatAsset("Infrastructure-3.png"),
-      captionAr: "أعمدة إنارة ديكورية",
-      captionEn: "Decorative lighting columns",
-    },
-  ],
 };
+
+export type SultanatGalleryItem = {
+  id: string;
+  src: string;
+  titleAr: string;
+  titleEn: string;
+  descAr: string;
+  descEn: string;
+};
+
+export const SULTANAT_GALLERY_HEADER = {
+  eyebrowAr: "معرض المشروع",
+  eyebrowEn: "Project Gallery",
+  titleAr: "جولة في سلطانة الشرق",
+  titleEn: "Tour Sultanat Al Sharq",
+};
+
+export const SULTANAT_GALLERY_ITEMS: SultanatGalleryItem[] = [
+  {
+    id: "hero-aerial",
+    src: sultanatAsset("Hero Section - الجزر.png"),
+    titleAr: "لقطة جوية",
+    titleEn: "Aerial View",
+    descAr: "جزر خضراء وقصور قرميدية تمتد في مياه الخليج الصافية",
+    descEn: "Green islands and terracotta palaces stretching into clear Gulf waters",
+  },
+  {
+    id: "islands",
+    src: sultanatAsset("الجزر.png"),
+    titleAr: "نظام الجزر",
+    titleEn: "Island System",
+    descAr: "تخطيط هندسي يوفّر قطع أراضٍ متصلة مباشرة بالبحر",
+    descEn: "Engineering layout delivering land plots directly connected to the sea",
+  },
+  {
+    id: "aerial-detail",
+    src: sultanatAsset("Arial Detail.png"),
+    titleAr: "الامتداد الجغرافي",
+    titleEn: "Geographic Scale",
+    descAr: "مساحة ضخمة وواجهة بحرية تمتد على امتداد البصر",
+    descEn: "Vast footprint with a seafront stretching as far as the eye can see",
+  },
+  {
+    id: "private-beach",
+    src: sultanatAsset("Private Beach - Perspective.png"),
+    titleAr: "شاطئ خاص",
+    titleEn: "Private Beach",
+    descAr: "شواطئ رملية خاصة وإطلالة ساحرة على الخليج العربي",
+    descEn: "Private sandy shores with stunning views of the Arabian Gulf",
+  },
+  {
+    id: "palace",
+    src: sultanatAsset("Luxury Palace.png"),
+    titleAr: "قصر فاخر",
+    titleEn: "Luxury Palace",
+    descAr: "مسبح خاص يطل على البحر مع مرسى يخت وطراز متوسطي كلاسيكي",
+    descEn: "Private sea-facing pool, yacht dock & classic Mediterranean style",
+  },
+  {
+    id: "central",
+    src: sultanatAsset("Central Zone.png"),
+    titleAr: "المنطقة المركزية",
+    titleEn: "Central Zone",
+    descAr: "منطقة خدمات متكاملة تكمل لوحة الفخامة في المشروع",
+    descEn: "Integrated services zone completing the project's luxury canvas",
+  },
+  {
+    id: "infra-1",
+    src: sultanatAsset("Infrastructure-1.png"),
+    titleAr: "شوارع واسعة",
+    titleEn: "Wide Boulevards",
+    descAr: "طرق أسفلتية نظيفة وأرصفة فخمة على مستوى الشارع",
+    descEn: "Clean asphalt roads and premium street-level pavements",
+  },
+  {
+    id: "infra-2",
+    src: sultanatAsset("Infrastructure-2.png"),
+    titleAr: "لاندسكيب استوائي",
+    titleEn: "Tropical Landscape",
+    descAr: "أشجار نخيل مصطفة بدقة على جانبي الطريق",
+    descEn: "Meticulously lined palm trees along the boulevard",
+  },
+  {
+    id: "infra-3",
+    src: sultanatAsset("Infrastructure-3.png"),
+    titleAr: "إنارة ديكورية",
+    titleEn: "Decorative Lighting",
+    descAr: "أعمدة إنارة منحنية باللونين الذهبي والفضي",
+    descEn: "Curved lighting columns in gold and silver",
+  },
+];
+
+export const SULTANAT_GALLERY = SULTANAT_GALLERY_ITEMS.map((item) => item.src);
 
 export const SULTANAT_ARCHITECTURE = [
   {
@@ -175,14 +251,3 @@ export const SULTANAT_CTA = {
   image: sultanatAsset("Private Beach - Perspective.png"),
 };
 
-export const SULTANAT_GALLERY = [
-  sultanatAsset("Hero Section - الجزر.png"),
-  sultanatAsset("الجزر.png"),
-  sultanatAsset("Private Beach - Perspective.png"),
-  sultanatAsset("Luxury Palace.png"),
-  sultanatAsset("Central Zone.png"),
-  sultanatAsset("Infrastructure-1.png"),
-  sultanatAsset("Infrastructure-2.png"),
-  sultanatAsset("Infrastructure-3.png"),
-  sultanatAsset("Arial Detail.png"),
-];

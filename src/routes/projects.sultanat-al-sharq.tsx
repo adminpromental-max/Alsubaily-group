@@ -3,7 +3,7 @@ import { SultanatArchitecture } from "@/components/sultanat/SultanatArchitecture
 import { SultanatCTA } from "@/components/sultanat/SultanatCTA";
 import { SultanatHero } from "@/components/sultanat/SultanatHero";
 import { SultanatIdentity } from "@/components/sultanat/SultanatIdentity";
-import { SultanatInfrastructure } from "@/components/sultanat/SultanatInfrastructure";
+import { SultanatCircleGallery } from "@/components/sultanat/SultanatCircleGallery";
 import { SultanatLocation } from "@/components/sultanat/SultanatLocation";
 import { SULTANAT_HERO_IMAGE } from "@/data/sultanat-content";
 
@@ -42,7 +42,7 @@ function SultanatPage() {
       <SultanatHero />
       <SultanatLocation />
       <SultanatIdentity />
-      <SultanatInfrastructure />
+      <SultanatCircleGallery />
       <SultanatArchitecture />
       <SultanatCTA />
     </main>
