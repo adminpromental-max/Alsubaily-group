@@ -1,4 +1,4 @@
-import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset } from "@/data/asset-paths";
+import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, zahraaAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -328,16 +328,27 @@ export const PROJECTS: Project[] = [
     region: "eastern",
     regionEn: "Eastern Region",
     regionAr: "المنطقة الشرقية",
-    typeEn: "Residential",
-    typeAr: "سكني",
-    color: "#5A6B4A",
+    typeEn: "Residential / Commercial",
+    typeAr: "سكني / تجاري",
+    color: "#1E6B8A",
     x: 73.5,
     y: 44.5,
     descriptionEn:
-      "An elegant residential project named after beauty and prosperity.",
-    descriptionAr: "مشروع سكني أنيق يحمل اسم الجمال والازدهار.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
+      "The new pulse of Al-Qatif on the Gulf — a 1.26M m² masterplan with 1,200m seafront, family residential units, and mixed-use commercial hub.",
+    descriptionAr:
+      "نبض القطيف الجديد على ضفاف الخليج — مخطط 1,260,000 م² بواجهة بحرية 1,200 متر، وحدات سكنية عائلية ونواة تجارية متعددة الاستخدامات.",
+    heroImage: zahraaAsset("hero.png"),
+    gallery: [
+      zahraaAsset("hero.png"),
+      zahraaAsset("1.png"),
+      zahraaAsset("2.png"),
+      zahraaAsset("3.png"),
+      zahraaAsset("4.png"),
+      zahraaAsset("5.png"),
+      zahraaAsset("6.png"),
+      zahraaAsset("7.png"),
+      zahraaAsset("8.png"),
+    ],
   },
   {
     id: 15,

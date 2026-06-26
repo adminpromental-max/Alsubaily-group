@@ -22,6 +22,7 @@ import { Route as ProjectsHailWalkwayRouteImport } from './routes/projects.hail-
 import { Route as ProjectsHailCornicheRouteImport } from './routes/projects.hail-corniche'
 import { Route as ProjectsDammamOlympicCityRouteImport } from './routes/projects.dammam-olympic-city'
 import { Route as ProjectsAlshubailyHighRiseRouteImport } from './routes/projects.alshubaily-high-rise'
+import { Route as ProjectsAlZahraaRouteImport } from './routes/projects.al-zahraa'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as AdminShowcaseRouteImport } from './routes/admin.showcase'
 import { Route as ApiPublicDriveImageFileIdRouteImport } from './routes/api/public/drive-image.$fileId'
@@ -93,6 +94,11 @@ const ProjectsAlshubailyHighRiseRoute =
     path: '/projects/alshubaily-high-rise',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProjectsAlZahraaRoute = ProjectsAlZahraaRouteImport.update({
+  id: '/projects/al-zahraa',
+  path: '/projects/al-zahraa',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   id: '/projects/$slug',
   path: '/projects/$slug',
@@ -118,6 +124,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/al-zahraa': typeof ProjectsAlZahraaRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
@@ -136,6 +143,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/al-zahraa': typeof ProjectsAlZahraaRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/al-zahraa': typeof ProjectsAlZahraaRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/showcase'
     | '/projects/$slug'
+    | '/projects/al-zahraa'
     | '/projects/alshubaily-high-rise'
     | '/projects/dammam-olympic-city'
     | '/projects/hail-corniche'
@@ -193,6 +203,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/showcase'
     | '/projects/$slug'
+    | '/projects/al-zahraa'
     | '/projects/alshubaily-high-rise'
     | '/projects/dammam-olympic-city'
     | '/projects/hail-corniche'
@@ -211,6 +222,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/showcase'
     | '/projects/$slug'
+    | '/projects/al-zahraa'
     | '/projects/alshubaily-high-rise'
     | '/projects/dammam-olympic-city'
     | '/projects/hail-corniche'
@@ -230,6 +242,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   AdminShowcaseRoute: typeof AdminShowcaseRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
+  ProjectsAlZahraaRoute: typeof ProjectsAlZahraaRoute
   ProjectsAlshubailyHighRiseRoute: typeof ProjectsAlshubailyHighRiseRoute
   ProjectsDammamOlympicCityRoute: typeof ProjectsDammamOlympicCityRoute
   ProjectsHailCornicheRoute: typeof ProjectsHailCornicheRoute
@@ -334,6 +347,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsAlshubailyHighRiseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/al-zahraa': {
+      id: '/projects/al-zahraa'
+      path: '/projects/al-zahraa'
+      fullPath: '/projects/al-zahraa'
+      preLoaderRoute: typeof ProjectsAlZahraaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/$slug': {
       id: '/projects/$slug'
       path: '/projects/$slug'
@@ -366,6 +386,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   AdminShowcaseRoute: AdminShowcaseRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
+  ProjectsAlZahraaRoute: ProjectsAlZahraaRoute,
   ProjectsAlshubailyHighRiseRoute: ProjectsAlshubailyHighRiseRoute,
   ProjectsDammamOlympicCityRoute: ProjectsDammamOlympicCityRoute,
   ProjectsHailCornicheRoute: ProjectsHailCornicheRoute,

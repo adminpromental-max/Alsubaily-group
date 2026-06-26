@@ -7,6 +7,7 @@ export const DEDICATED_PROJECT_PATHS = {
   "alshubaily-high-rise": "/projects/alshubaily-high-rise",
   "sultanat-al-sharq": "/projects/sultanat-al-sharq",
   "hail-corniche": "/projects/hail-corniche",
+  "al-zahraa": "/projects/al-zahraa",
 } as const;
 
 export type DedicatedProjectSlug = keyof typeof DEDICATED_PROJECT_PATHS;

@@ -57,6 +57,12 @@ export function sultanatAsset(file: string) {
   return projectAsset(SULTANAT_DIR, file);
 }
 
+export const ZAHRAA_DIR = "Alzahraa2";
+
+export function zahraaAsset(file: string) {
+  return projectAsset(ZAHRAA_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

@@ -55,6 +55,20 @@ export const REAL_PROJECT_ASSETS: Record<
       "/assets/projects/Hail-cournish/5.png",
     ],
   },
+  "al-zahraa": {
+    hero: "/assets/projects/Alzahraa2/hero.png",
+    gallery: [
+      "/assets/projects/Alzahraa2/hero.png",
+      "/assets/projects/Alzahraa2/1.png",
+      "/assets/projects/Alzahraa2/2.png",
+      "/assets/projects/Alzahraa2/3.png",
+      "/assets/projects/Alzahraa2/4.png",
+      "/assets/projects/Alzahraa2/5.png",
+      "/assets/projects/Alzahraa2/6.png",
+      "/assets/projects/Alzahraa2/7.png",
+      "/assets/projects/Alzahraa2/8.png",
+    ],
+  },
   "alshubaily-new-beach": {
     hero: beachAsset("Hero.jpg"),
     gallery: [
