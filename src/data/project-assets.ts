@@ -44,6 +44,17 @@ export const REAL_PROJECT_ASSETS: Record<
       "/assets/projects/سلطانه-الشرق/Arial Detail.png",
     ],
   },
+  "hail-corniche": {
+    hero: "/assets/projects/Hail-cournish/Hero-section.png",
+    gallery: [
+      "/assets/projects/Hail-cournish/Hero-section.png",
+      "/assets/projects/Hail-cournish/1.png",
+      "/assets/projects/Hail-cournish/2.png",
+      "/assets/projects/Hail-cournish/3.png",
+      "/assets/projects/Hail-cournish/4.png",
+      "/assets/projects/Hail-cournish/5.png",
+    ],
+  },
   "alshubaily-new-beach": {
     hero: beachAsset("Hero.jpg"),
     gallery: [

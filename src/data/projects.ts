@@ -1,4 +1,4 @@
-import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset } from "@/data/asset-paths";
+import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -96,17 +96,24 @@ export const PROJECTS: Project[] = [
     region: "hail",
     regionEn: "Hail",
     regionAr: "حائل",
-    typeEn: "Waterfront",
-    typeAr: "واجهة بحرية",
+    typeEn: "Commercial / Tourism",
+    typeAr: "تجاري / سياحي",
     color: "#4A7C59",
     x: 43.5,
     y: 27.5,
     descriptionEn:
-      "A scenic waterfront promenade development along Hail's beautiful landscape.",
+      "The Kingdom's first land corniche — transforming Wadi Al-Adair'a into a 2.5M m² commercial, tourism, and entertainment destination in Hail.",
     descriptionAr:
-      "مشروع كورنيش ساحلي على طول المناظر الطبيعية الخلابة في حائل.",
-    heroImage: "/assets/hero/Hero-2.jpg",
-    gallery: DEFAULT_GALLERY,
+      "الكورنيش البري الأول من نوعه — تحويل وادي الأديرع إلى وجهة تجارية وسياحية وترفيهية بمساحة 2,500,000 م² في حائل.",
+    heroImage: hailCornicheAsset("Hero-section.png"),
+    gallery: [
+      hailCornicheAsset("Hero-section.png"),
+      hailCornicheAsset("1.png"),
+      hailCornicheAsset("2.png"),
+      hailCornicheAsset("3.png"),
+      hailCornicheAsset("4.png"),
+      hailCornicheAsset("5.png"),
+    ],
   },
   {
     id: 4,

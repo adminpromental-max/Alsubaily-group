@@ -39,6 +39,12 @@ export function hailWalkwayAsset(file: string) {
   return encodeURI(`/assets/${HAIL_WALKWAY_GALLERY_DIR}/${file}`);
 }
 
+export const HAIL_CORNICHE_DIR = "Hail-cournish";
+
+export function hailCornicheAsset(file: string) {
+  return projectAsset(HAIL_CORNICHE_DIR, file);
+}
+
 export const HIGH_RISE_DIR = "High-rise";
 
 export function highRiseAsset(file: string) {
