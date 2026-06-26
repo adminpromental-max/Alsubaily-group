@@ -70,12 +70,17 @@ export const REAL_PROJECT_ASSETS: Record<
     ],
   },
   "alshubaily-new-beach": {
-    hero: beachAsset("Hero.jpg"),
+    hero: "/assets/projects/New-beach/hero.jpeg",
     gallery: [
-      beachAsset("Hero.jpg"),
-      beachAsset("1.jpg"),
-      beachAsset("2.jpg"),
-      beachAsset("3.jpg"),
+      "/assets/projects/New-beach/hero.jpeg",
+      "/assets/projects/New-beach/1.jpeg",
+      "/assets/projects/New-beach/2.jpeg",
+      "/assets/projects/New-beach/3.jpeg",
+      "/assets/projects/New-beach/4.jpeg",
+      "/assets/projects/New-beach/5.jpeg",
+      "/assets/projects/New-beach/6.jpeg",
+      "/assets/projects/New-beach/8.jpeg",
+      "/assets/projects/New-beach/9.jpeg",
     ],
   },
 };

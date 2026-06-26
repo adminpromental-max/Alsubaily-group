@@ -1,4 +1,4 @@
-import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, zahraaAsset } from "@/data/asset-paths";
+import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, zahraaAsset, newBeachAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -435,20 +435,26 @@ export const PROJECTS: Project[] = [
     region: "eastern",
     regionEn: "Eastern Region",
     regionAr: "المنطقة الشرقية",
-    typeEn: "Beachfront",
-    typeAr: "ساحلي",
+    typeEn: "Beachfront / Mixed-use",
+    typeAr: "ساحلي / متعدد",
     color: "#2E6B8A",
     x: 83.5,
     y: 52.5,
     descriptionEn:
-      "A stunning beachfront development with pristine shores and luxury amenities.",
-    descriptionAr: "مشروع ساحلي خلاب مع شواطئ نقية ومرافق فاخرة.",
-    heroImage: beachAsset("Hero.jpg"),
+      "Al Khobar's first and foremost beachfront — 2.9M m² between King Fahd Causeway and Sultanat Al Sharq with coastal, investment, and entertainment zones.",
+    descriptionAr:
+      "الأول والأهم في الخبر على الشاطئ — 2,909,000 م² بين جسر الملك فهد وسلطانة الشرق، بثلاث مناطق ساحلية واستثمارية وترفيهية.",
+    heroImage: newBeachAsset("hero.jpeg"),
     gallery: [
-      beachAsset("Hero.jpg"),
-      beachAsset("1.jpg"),
-      beachAsset("2.jpg"),
-      beachAsset("3.jpg"),
+      newBeachAsset("hero.jpeg"),
+      newBeachAsset("1.jpeg"),
+      newBeachAsset("2.jpeg"),
+      newBeachAsset("3.jpeg"),
+      newBeachAsset("4.jpeg"),
+      newBeachAsset("5.jpeg"),
+      newBeachAsset("6.jpeg"),
+      newBeachAsset("8.jpeg"),
+      newBeachAsset("9.jpeg"),
     ],
   },
   {

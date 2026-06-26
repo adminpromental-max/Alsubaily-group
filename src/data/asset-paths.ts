@@ -63,6 +63,12 @@ export function zahraaAsset(file: string) {
   return projectAsset(ZAHRAA_DIR, file);
 }
 
+export const NEW_BEACH_DIR = "New-beach";
+
+export function newBeachAsset(file: string) {
+  return projectAsset(NEW_BEACH_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {
