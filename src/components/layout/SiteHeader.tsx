@@ -88,35 +88,17 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-8 md:py-4">
-        <Link to="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+        <Link to="/" className="flex min-w-0 items-center">
           <img
             src={ALSHUBAILY_LOGO}
-            alt="AlShubaily"
-            width={44}
-            height={48}
+            alt={t("مجموعة الشبيلي", "AlShubaily Group")}
+            width={52}
+            height={56}
             className={cn(
-              "h-10 w-auto shrink-0 sm:h-11",
+              "h-12 w-auto shrink-0 sm:h-14",
               onHero && "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]",
             )}
           />
-          <div className="min-w-0 leading-tight">
-            <p
-              className={cn(
-                "text-[9px] tracking-[0.18em] uppercase sm:text-[11px] sm:tracking-[0.2em]",
-                onHero ? "text-[#E8D5A3]" : "text-[#9A7B3A]",
-              )}
-            >
-              AlShubaily
-            </p>
-            <p
-              className={cn(
-                "truncate text-xs font-medium sm:text-sm",
-                onHero ? "text-white" : "text-[#1A1612]",
-              )}
-            >
-              {t("مجموعة الشبيلي", "AlShubaily Group")}
-            </p>
-          </div>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex lg:gap-8">
@@ -160,15 +142,12 @@ export function SiteHeader() {
             >
               <SheetHeader className="border-b border-[#E0D3C2]/50 px-6 py-5 text-start">
                 <div className="flex items-center justify-between gap-3">
-                  <SheetTitle className="flex items-center gap-2.5 text-start">
+                  <SheetTitle className="flex items-center text-start">
                     <img
                       src={ALSHUBAILY_LOGO}
-                      alt=""
-                      className="h-9 w-auto"
+                      alt={t("مجموعة الشبيلي", "AlShubaily Group")}
+                      className="h-11 w-auto"
                     />
-                    <span className="text-sm font-medium text-[#1A1612]">
-                      {t("مجموعة الشبيلي", "AlShubaily Group")}
-                    </span>
                   </SheetTitle>
                   <SheetClose asChild>
                     <button

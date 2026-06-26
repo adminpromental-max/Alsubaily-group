@@ -1210,7 +1210,7 @@ body.has-custom-cursor button {
 }
 
 .logo-3d-img--hero {
-  max-width: 280px;
+  max-width: 340px;
 }
 
 .logo-3d-img--sub {
@@ -1220,11 +1220,17 @@ body.has-custom-cursor button {
 
 @media (min-width: 768px) {
   .logo-3d-img--hero {
-    max-width: 320px;
+    max-width: 420px;
   }
 
   .logo-3d-img--sub {
     height: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-3d-img--hero {
+    max-width: 480px;
   }
 }
 

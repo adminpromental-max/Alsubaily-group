@@ -20,11 +20,11 @@ export function LogoMarqueeBanner() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
         <div className="mb-8 flex flex-col items-center gap-3 text-center md:mb-10">
-          <div className="relative h-20 w-20 md:h-24 md:w-24">
+          <div className="relative h-28 w-28 md:h-36 md:w-36 lg:h-40 lg:w-40">
             <img
               src={GROUP_ICON}
               alt={t("مجموعة الشبيلي", "AlShubaily Group")}
-              className="h-full w-full object-contain drop-shadow-[0_4px_24px_rgba(201,169,98,0.45)]"
+              className="h-full w-full object-contain drop-shadow-[0_6px_32px_rgba(201,169,98,0.5)]"
               loading="eager"
             />
           </div>
