@@ -69,6 +69,12 @@ export function newBeachAsset(file: string) {
   return projectAsset(NEW_BEACH_DIR, file);
 }
 
+export const RABIA_ROAD_DIR = "rabia-road";
+
+export function rabiaRoadAsset(file: string) {
+  return projectAsset(RABIA_ROAD_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

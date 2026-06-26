@@ -1,4 +1,4 @@
-import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, zahraaAsset, newBeachAsset } from "@/data/asset-paths";
+import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -455,6 +455,31 @@ export const PROJECTS: Project[] = [
       newBeachAsset("6.jpeg"),
       newBeachAsset("8.jpeg"),
       newBeachAsset("9.jpeg"),
+    ],
+  },
+  {
+    id: 20,
+    slug: "rabia-road",
+    nameEn: "Rabia Road",
+    nameAr: "رابية رود",
+    region: "mecca",
+    regionEn: "Mecca",
+    regionAr: "مكة",
+    typeEn: "Mixed-use · Expressway",
+    typeAr: "متعدد الاستخدامات · طريق سريع",
+    color: "#6B1D3A",
+    x: 30,
+    y: 60.5,
+    descriptionEn:
+      "Makkah's western facade on the Mecca–Jeddah Expressway — 2.45M m² on the Third Ring Road, minutes from the Holy Mosque.",
+    descriptionAr:
+      "واجهة مكة الغربية على طريق مكة جدة السريع — 2,450,000 م² على الطريق الدائري الثالث، على بعد دقائق من الحرم المكي الشريف.",
+    heroImage: rabiaRoadAsset("WhatsApp Image 2026-06-25 at 3.27.46 PM.jpeg"),
+    gallery: [
+      rabiaRoadAsset("WhatsApp Image 2026-06-25 at 3.27.46 PM.jpeg"),
+      rabiaRoadAsset("WhatsApp Image 2026-06-25 at 3.27.46 PM (1).jpeg"),
+      rabiaRoadAsset("WhatsApp Image 2026-06-25 at 3.27.46 PM (2).jpeg"),
+      rabiaRoadAsset("WhatsApp Image 2026-06-25 at 3.27.46 PM (3).jpeg"),
     ],
   },
   {
