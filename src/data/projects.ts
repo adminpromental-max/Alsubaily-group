@@ -1,4 +1,4 @@
-import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset } from "@/data/asset-paths";
+import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -387,16 +387,27 @@ export const PROJECTS: Project[] = [
     region: "eastern",
     regionEn: "Eastern Region",
     regionAr: "المنطقة الشرقية",
-    typeEn: "Mixed-use",
-    typeAr: "متعدد الاستخدامات",
-    color: "#8B6914",
+    typeEn: "Luxury Residential",
+    typeAr: "سكني فاخر",
+    color: "#C45C3E",
     x: 84.5,
     y: 48.5,
     descriptionEn:
-      "A royal-inspired destination celebrating the heritage of the Eastern Region.",
-    descriptionAr: "وجهة مستوحاة من التراث تحتفي بإرث المنطقة الشرقية.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
+      "The pinnacle of luxury and privacy on the Gulf — 765,000 m² with 1,100 m of seafront, private islands, and Mediterranean palatial estates in Khobar.",
+    descriptionAr:
+      "قمة الفخامة والخصوصية على ضفاف الخليج — 765,000 م² وواجهة بحرية 1,100 متر، جزر خاصة وقصور بطراز البحر الأبيض المتوسط في الخبر.",
+    heroImage: sultanatAsset("Hero Section - الجزر.png"),
+    gallery: [
+      sultanatAsset("Hero Section - الجزر.png"),
+      sultanatAsset("الجزر.png"),
+      sultanatAsset("Private Beach - Perspective.png"),
+      sultanatAsset("Luxury Palace.png"),
+      sultanatAsset("Central Zone.png"),
+      sultanatAsset("Infrastructure-1.png"),
+      sultanatAsset("Infrastructure-2.png"),
+      sultanatAsset("Infrastructure-3.png"),
+      sultanatAsset("Arial Detail.png"),
+    ],
   },
   {
     id: 18,

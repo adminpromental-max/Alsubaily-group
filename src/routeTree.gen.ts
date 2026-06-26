@@ -16,6 +16,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsTidaraTowersRouteImport } from './routes/projects.tidara-towers'
+import { Route as ProjectsSultanatAlSharqRouteImport } from './routes/projects.sultanat-al-sharq'
 import { Route as ProjectsRabiaMakkahRouteImport } from './routes/projects.rabia-makkah'
 import { Route as ProjectsHailWalkwayRouteImport } from './routes/projects.hail-walkway'
 import { Route as ProjectsDammamOlympicCityRouteImport } from './routes/projects.dammam-olympic-city'
@@ -57,6 +58,11 @@ const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
 const ProjectsTidaraTowersRoute = ProjectsTidaraTowersRouteImport.update({
   id: '/projects/tidara-towers',
   path: '/projects/tidara-towers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsSultanatAlSharqRoute = ProjectsSultanatAlSharqRouteImport.update({
+  id: '/projects/sultanat-al-sharq',
+  path: '/projects/sultanat-al-sharq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsRabiaMakkahRoute = ProjectsRabiaMakkahRouteImport.update({
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-walkway': typeof ProjectsHailWalkwayRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
+  '/projects/sultanat-al-sharq': typeof ProjectsSultanatAlSharqRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/projects/': typeof ProjectsIndexRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
@@ -126,6 +133,7 @@ export interface FileRoutesByTo {
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-walkway': typeof ProjectsHailWalkwayRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
+  '/projects/sultanat-al-sharq': typeof ProjectsSultanatAlSharqRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/projects': typeof ProjectsIndexRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
@@ -143,6 +151,7 @@ export interface FileRoutesById {
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-walkway': typeof ProjectsHailWalkwayRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
+  '/projects/sultanat-al-sharq': typeof ProjectsSultanatAlSharqRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/projects/': typeof ProjectsIndexRoute
   '/api/public/drive-image/$fileId': typeof ApiPublicDriveImageFileIdRoute
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/projects/dammam-olympic-city'
     | '/projects/hail-walkway'
     | '/projects/rabia-makkah'
+    | '/projects/sultanat-al-sharq'
     | '/projects/tidara-towers'
     | '/projects/'
     | '/api/public/drive-image/$fileId'
@@ -177,6 +187,7 @@ export interface FileRouteTypes {
     | '/projects/dammam-olympic-city'
     | '/projects/hail-walkway'
     | '/projects/rabia-makkah'
+    | '/projects/sultanat-al-sharq'
     | '/projects/tidara-towers'
     | '/projects'
     | '/api/public/drive-image/$fileId'
@@ -193,6 +204,7 @@ export interface FileRouteTypes {
     | '/projects/dammam-olympic-city'
     | '/projects/hail-walkway'
     | '/projects/rabia-makkah'
+    | '/projects/sultanat-al-sharq'
     | '/projects/tidara-towers'
     | '/projects/'
     | '/api/public/drive-image/$fileId'
@@ -210,6 +222,7 @@ export interface RootRouteChildren {
   ProjectsDammamOlympicCityRoute: typeof ProjectsDammamOlympicCityRoute
   ProjectsHailWalkwayRoute: typeof ProjectsHailWalkwayRoute
   ProjectsRabiaMakkahRoute: typeof ProjectsRabiaMakkahRoute
+  ProjectsSultanatAlSharqRoute: typeof ProjectsSultanatAlSharqRoute
   ProjectsTidaraTowersRoute: typeof ProjectsTidaraTowersRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
   ApiPublicDriveImageFileIdRoute: typeof ApiPublicDriveImageFileIdRoute
@@ -264,6 +277,13 @@ declare module '@tanstack/react-router' {
       path: '/projects/tidara-towers'
       fullPath: '/projects/tidara-towers'
       preLoaderRoute: typeof ProjectsTidaraTowersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/sultanat-al-sharq': {
+      id: '/projects/sultanat-al-sharq'
+      path: '/projects/sultanat-al-sharq'
+      fullPath: '/projects/sultanat-al-sharq'
+      preLoaderRoute: typeof ProjectsSultanatAlSharqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects/rabia-makkah': {
@@ -330,6 +350,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsDammamOlympicCityRoute: ProjectsDammamOlympicCityRoute,
   ProjectsHailWalkwayRoute: ProjectsHailWalkwayRoute,
   ProjectsRabiaMakkahRoute: ProjectsRabiaMakkahRoute,
+  ProjectsSultanatAlSharqRoute: ProjectsSultanatAlSharqRoute,
   ProjectsTidaraTowersRoute: ProjectsTidaraTowersRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
   ApiPublicDriveImageFileIdRoute: ApiPublicDriveImageFileIdRoute,

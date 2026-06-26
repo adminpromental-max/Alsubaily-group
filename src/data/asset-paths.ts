@@ -45,6 +45,12 @@ export function highRiseAsset(file: string) {
   return projectAsset(HIGH_RISE_DIR, file);
 }
 
+export const SULTANAT_DIR = "سلطانه-الشرق";
+
+export function sultanatAsset(file: string) {
+  return projectAsset(SULTANAT_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

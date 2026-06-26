@@ -30,6 +30,20 @@ export const REAL_PROJECT_ASSETS: Record<
       "/assets/projects/High-rise/النهر-الصناعي.png",
     ],
   },
+  "sultanat-al-sharq": {
+    hero: "/assets/projects/سلطانه-الشرق/Hero Section - الجزر.png",
+    gallery: [
+      "/assets/projects/سلطانه-الشرق/Hero Section - الجزر.png",
+      "/assets/projects/سلطانه-الشرق/الجزر.png",
+      "/assets/projects/سلطانه-الشرق/Private Beach - Perspective.png",
+      "/assets/projects/سلطانه-الشرق/Luxury Palace.png",
+      "/assets/projects/سلطانه-الشرق/Central Zone.png",
+      "/assets/projects/سلطانه-الشرق/Infrastructure-1.png",
+      "/assets/projects/سلطانه-الشرق/Infrastructure-2.png",
+      "/assets/projects/سلطانه-الشرق/Infrastructure-3.png",
+      "/assets/projects/سلطانه-الشرق/Arial Detail.png",
+    ],
+  },
   "alshubaily-new-beach": {
     hero: beachAsset("Hero.jpg"),
     gallery: [
