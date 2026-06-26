@@ -77,9 +77,9 @@ export const SULTANAT_IDENTITY_STEPS = [
     subtitleAr: "فخامة كلاسيكية",
     subtitleEn: "Classic Grandeur",
     bodyAr:
-      "بيئة مثالية لبناء القصور والفلل الفارهة — مسبح خاص يطل على البحر، مرسى خشبي، وطراز البحر الأبيض المتوسط بأسقفه القرميدية.",
+      "بيئة مثالية لبناء القصور والفلل الفارهة — مسبح خاص يطل على البحر، مرسى خشبي، وطراز ساحلي فاخر على ضفاف البحر الأحمر والخليج العربي بأسقفه القرميدية.",
     bodyEn:
-      "The ideal setting for palatial estates — private pools opening to the sea, wooden docks, and Mediterranean terracotta roofs.",
+      "The ideal setting for palatial estates — private pools opening to the sea, wooden docks, and refined coastal style on the Red Sea and Arabian Gulf with terracotta roofs.",
     image: sultanatAsset("Luxury Palace.png"),
   },
   {
@@ -161,8 +161,8 @@ export const SULTANAT_GALLERY_ITEMS: SultanatGalleryItem[] = [
     src: sultanatAsset("Luxury Palace.png"),
     titleAr: "قصر فاخر",
     titleEn: "Luxury Palace",
-    descAr: "مسبح خاص يطل على البحر مع مرسى يخت وطراز متوسطي كلاسيكي",
-    descEn: "Private sea-facing pool, yacht dock & classic Mediterranean style",
+    descAr: "مسبح خاص يطل على البحر مع مرسى يخت وإطلالة على البحر الأحمر والخليج العربي",
+    descEn: "Private sea-facing pool, yacht dock & views of the Red Sea and Arabian Gulf",
   },
   {
     id: "central",
@@ -205,8 +205,8 @@ export const SULTANAT_ARCHITECTURE = [
     id: "roof",
     titleAr: "أسقف قرميدية",
     titleEn: "Terracotta Roofs",
-    descAr: "طراز البحر الأبيض المتوسط الأصيل",
-    descEn: "Authentic Mediterranean character",
+    descAr: "طراز ساحلي أصيل على البحر الأحمر والخليج العربي",
+    descEn: "Authentic coastal character on the Red Sea & Arabian Gulf",
   },
   {
     id: "facade",

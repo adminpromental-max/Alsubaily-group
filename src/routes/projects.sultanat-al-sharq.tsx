@@ -25,7 +25,7 @@ export const Route = createFileRoute("/projects/sultanat-al-sharq")({
       {
         property: "og:description",
         content:
-          "The pinnacle of luxury on the Gulf — private islands, palatial estates, and Mediterranean elegance in Khobar.",
+          "The pinnacle of luxury on the Gulf — private islands, palatial estates on the Red Sea and Arabian Gulf in Khobar.",
       },
       {
         property: "og:image",

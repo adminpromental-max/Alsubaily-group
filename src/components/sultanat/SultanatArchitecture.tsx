@@ -54,7 +54,7 @@ export function SultanatArchitecture() {
             {t("الطراز المعماري", "Architectural Style")}
           </p>
           <h2 className="mt-2 font-heading text-3xl font-bold text-[#E8D5C4] md:text-4xl">
-            {t("البحر الأبيض المتوسط", "Mediterranean Revival")}
+            {t("البحر الأحمر والخليج العربي", "Red Sea & Arabian Gulf")}
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-sm text-[#E8D5C4]/65">
             {t(

@@ -391,9 +391,9 @@ export const PROJECTS: Project[] = [
     x: 84.5,
     y: 48.5,
     descriptionEn:
-      "The pinnacle of luxury and privacy on the Gulf — 765,000 m² with 1,100 m of seafront, private islands, and Mediterranean palatial estates in Khobar.",
+      "The pinnacle of luxury and privacy on the Gulf — 765,000 m² with 1,100 m of seafront, private islands, and palatial estates on the Red Sea and Arabian Gulf in Khobar.",
     descriptionAr:
-      "قمة الفخامة والخصوصية على ضفاف الخليج — 765,000 م² وواجهة بحرية 1,100 متر، جزر خاصة وقصور بطراز البحر الأبيض المتوسط في الخبر.",
+      "قمة الفخامة والخصوصية على ضفاف الخليج — 765,000 م² وواجهة بحرية 1,100 متر، جزر خاصة وقصور فاخرة على البحر الأحمر والخليج العربي في الخبر.",
     heroImage: sultanatAsset("Hero Section - الجزر.png"),
     gallery: [
       sultanatAsset("Hero Section - الجزر.png"),
