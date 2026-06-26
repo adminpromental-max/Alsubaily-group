@@ -19,12 +19,15 @@ export const REAL_PROJECT_ASSETS: Record<
     ],
   },
   "alshubaily-high-rise": {
-    hero: "/assets/projects/Twin-Tower/Hero.jpg",
+    hero: "/assets/projects/High-rise/لقطه-بانوراميه.png",
     gallery: [
-      "/assets/projects/Twin-Tower/Hero.jpg",
-      "/assets/projects/Twin-Tower/1.jpg",
-      "/assets/projects/Twin-Tower/2.jpg",
-      "/assets/projects/Twin-Tower/3.jpg",
+      "/assets/projects/High-rise/لقطه-بانوراميه.png",
+      "/assets/projects/High-rise/السياق-الجغرافي.png",
+      "/assets/projects/High-rise/المارينا.png",
+      "/assets/projects/High-rise/فلل.png",
+      "/assets/projects/High-rise/جراند-مول.png",
+      "/assets/projects/High-rise/مكاتب.png",
+      "/assets/projects/High-rise/النهر-الصناعي.png",
     ],
   },
   "alshubaily-new-beach": {

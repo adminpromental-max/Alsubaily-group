@@ -39,6 +39,12 @@ export function hailWalkwayAsset(file: string) {
   return encodeURI(`/assets/${HAIL_WALKWAY_GALLERY_DIR}/${file}`);
 }
 
+export const HIGH_RISE_DIR = "High-rise";
+
+export function highRiseAsset(file: string) {
+  return projectAsset(HIGH_RISE_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

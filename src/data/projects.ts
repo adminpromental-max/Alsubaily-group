@@ -346,14 +346,18 @@ export const PROJECTS: Project[] = [
     x: 80.5,
     y: 46.5,
     descriptionEn:
-      "Iconic high-rise towers defining the skyline of the Eastern Province.",
-    descriptionAr: "أبراج شاهقة تحدد أفق المنطقة الشرقية.",
-    heroImage: "/assets/projects/Twin-Tower/Hero.jpg",
+      "The beating heart of Khobar — a 2 km seafront investment and tourism destination integrating marina, grand mall, towers, and an artificial river.",
+    descriptionAr:
+      "القلب النابض لمدينة الخبر — وجهة استثمارية وسياحية بطول 2 كم تجمع المارينا والجراند مول والأبراج والنهر الصناعي.",
+    heroImage: "/assets/projects/High-rise/لقطه-بانوراميه.png",
     gallery: [
-      "/assets/projects/Twin-Tower/Hero.jpg",
-      "/assets/projects/Twin-Tower/1.jpg",
-      "/assets/projects/Twin-Tower/2.jpg",
-      "/assets/projects/Twin-Tower/3.jpg",
+      "/assets/projects/High-rise/لقطه-بانوراميه.png",
+      "/assets/projects/High-rise/السياق-الجغرافي.png",
+      "/assets/projects/High-rise/المارينا.png",
+      "/assets/projects/High-rise/فلل.png",
+      "/assets/projects/High-rise/جراند-مول.png",
+      "/assets/projects/High-rise/مكاتب.png",
+      "/assets/projects/High-rise/النهر-الصناعي.png",
     ],
   },
   {
