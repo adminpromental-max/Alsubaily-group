@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LangProvider } from "../contexts/lang-context";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
+import { ALSHUBAILY_LOGO } from "../data/group-logos";
 
 function NotFoundComponent() {
   return (
@@ -98,7 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/assets/Alshubaily-logo.png" },
+      { rel: "icon", href: ALSHUBAILY_LOGO },
       { rel: "preload", as: "image", href: "/assets/hero/Hero-1.jpg" },
       { rel: "preload", as: "image", href: "/assets/new-map.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

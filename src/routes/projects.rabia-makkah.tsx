@@ -11,16 +11,16 @@ export const Route = createFileRoute("/projects/rabia-makkah")({
   head: () => ({
     meta: [
       {
-        title: "رابية مكة المكرمة — مجموعة الشبيلي | Rabia Makkah",
+        title: "الشبيلي وأهل البيت — مجموعة الشبيلي | AlShubaily & Ahl al-Bayt",
       },
       {
         name: "description",
         content:
-          "رابية مكة المكرمة — وجهة متكاملة تجمع بين عظمة الموروث الإسلامي وأرقى معايير الحياة العصرية على أرض المقدسات. 230,000 م² · 3 أبراج · 6 كم من المسجد الحرام.",
+          "الشبيلي وأهل البيت — وجهة متكاملة تجمع بين عظمة الموروث الإسلامي وأرقى معايير الحياة العصرية على أرض المقدسات. 230,000 م² · 3 أبراج · 6 كم من المسجد الحرام.",
       },
       {
         property: "og:title",
-        content: "Rabia Makkah Al-Mukarramah — AlShubaily Group",
+        content: "AlShubaily & Ahl al-Bayt — AlShubaily Group",
       },
       {
         property: "og:description",

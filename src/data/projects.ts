@@ -44,30 +44,10 @@ export const REGIONS: Region[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: 1,
-    slug: "alshubaily-ahl-albayt",
-    nameEn: "AlShubaily & Ahl albayt",
-    nameAr: "الشبيلي و أهل البيت",
-    region: "mecca",
-    regionEn: "Mecca",
-    regionAr: "مكة",
-    typeEn: "Mixed-use",
-    typeAr: "متعدد الاستخدامات",
-    color: "#8B4513",
-    x: 31.5,
-    y: 57.5,
-    descriptionEn:
-      "A landmark mixed-use development in the holy city of Mecca, combining residential and commercial excellence.",
-    descriptionAr:
-      "مشروع متعدد الاستخدامات في مكة المكرمة يجمع بين التميز السكني والتجاري.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
-  },
-  {
     id: 2,
     slug: "rabia-makkah",
-    nameEn: "Rabia Makkah Al-Mukarramah",
-    nameAr: "رابية مكة المكرمة",
+    nameEn: "AlShubaily & Ahl al-Bayt",
+    nameAr: "الشبيلي وأهل البيت",
     region: "mecca",
     regionEn: "Mecca",
     regionAr: "مكة",

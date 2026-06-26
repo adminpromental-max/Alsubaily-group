@@ -12,6 +12,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { ALSHUBAILY_LOGO } from "@/data/group-logos";
 
 const NAV = [
   { to: "/", ar: "الرئيسية", en: "Home" },
@@ -89,7 +90,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-8 md:py-4">
         <Link to="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
           <img
-            src="/assets/Alshubaily-logo.png"
+            src={ALSHUBAILY_LOGO}
             alt="AlShubaily"
             width={44}
             height={48}
@@ -161,7 +162,7 @@ export function SiteHeader() {
                 <div className="flex items-center justify-between gap-3">
                   <SheetTitle className="flex items-center gap-2.5 text-start">
                     <img
-                      src="/assets/Alshubaily-logo.png"
+                      src={ALSHUBAILY_LOGO}
                       alt=""
                       className="h-9 w-auto"
                     />

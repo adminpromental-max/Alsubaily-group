@@ -1,3 +1,5 @@
+import { ALSHUBAILY_LOGO } from "@/data/group-logos";
+
 export function SiteFooter() {
   return (
     <footer
@@ -7,7 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
         <div className="flex items-center gap-4">
           <img
-            src="/assets/Alshubaily-logo.png"
+            src={ALSHUBAILY_LOGO}
             alt="AlShubaily"
             width={40}
             height={44}

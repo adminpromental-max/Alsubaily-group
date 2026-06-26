@@ -1,7 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useLang } from "@/contexts/lang-context";
 import { PROJECTS } from "@/data/projects";
-import { DEDICATED_PROJECT_PATHS } from "@/lib/project-routes";
+import { ProjectDetailLink } from "@/components/projects/ProjectDetailLink";
 
 export const Route = createFileRoute("/projects/")({
   head: () => ({
@@ -15,12 +15,6 @@ export const Route = createFileRoute("/projects/")({
   }),
   component: ProjectsPage,
 });
-
-function projectHref(slug: string) {
-  const dedicated =
-    DEDICATED_PROJECT_PATHS[slug as keyof typeof DEDICATED_PROJECT_PATHS];
-  return dedicated ?? `/projects/${slug}`;
-}
 
 function ProjectsPage() {
   const { t, lang } = useLang();
@@ -45,9 +39,9 @@ function ProjectsPage() {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
-            <Link
+            <ProjectDetailLink
               key={project.slug}
-              to={projectHref(project.slug)}
+              slug={project.slug}
               className="group overflow-hidden rounded-2xl border border-[#E0D3C2]/80 bg-white transition hover:border-[#C9A962]/50 hover:shadow-lg"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -69,7 +63,7 @@ function ProjectsPage() {
                   {lang === "ar" ? project.descriptionAr : project.descriptionEn}
                 </p>
               </div>
-            </Link>
+            </ProjectDetailLink>
           ))}
         </div>
       </div>

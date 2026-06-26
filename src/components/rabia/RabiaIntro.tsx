@@ -178,8 +178,8 @@ export function RabiaIntro() {
                       "WhatsApp Image 2026-06-18 at 10.07.39 PM (1).jpeg",
                     )}
                     alt={t(
-                      "منظر جوي لمشروع رابية مكة المكرمة",
-                      "Aerial view of Rabia Makkah Al-Mukarramah",
+                      "منظر جوي لمشروع الشبيلي وأهل البيت",
+                      "Aerial view of AlShubaily & Ahl al-Bayt",
                     )}
                     className="h-full w-full object-cover"
                     loading="lazy"

@@ -8,11 +8,14 @@ export type GroupSubsidiary = {
   chipClass: string;
 };
 
+/** Primary group logo — header, group section, favicon */
+export const ALSHUBAILY_LOGO = "/assets/projects/Alshubaily-logo.png";
+
 /** Main group logo — used in chairman / vision section */
-export const GROUP_HERO_LOGO = "/assets/Banner-logos/group-logo.png";
+export const GROUP_HERO_LOGO = ALSHUBAILY_LOGO;
 
 /** Compact icon — used in the banner header */
-export const GROUP_ICON = `${BANNER_BASE}/Icon.png`;
+export const GROUP_ICON = ALSHUBAILY_LOGO;
 
 /** Background video for the logo marquee banner — hosted on Cloudinary CDN */
 export const BANNER_VIDEO =

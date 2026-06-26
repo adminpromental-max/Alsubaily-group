@@ -41,8 +41,8 @@ export const RABIA_STATS: RabiaStat[] = [
 export const RABIA_HERO = {
   eyebrowAr: "مكة المكرمة · بوابة الروح والفخامة",
   eyebrowEn: "Makkah Al-Mukarramah · A Gateway of Spirit & Grandeur",
-  titleAr: "رابية مكة المكرمة",
-  titleEn: "Rabia Makkah Al-Mukarramah",
+  titleAr: "الشبيلي وأهل البيت",
+  titleEn: "AlShubaily & Ahl al-Bayt",
   subtitleAr:
     "وجهة متكاملة تجمع بين عظمة الموروث الإسلامي وأرقى معايير الحياة العصرية — على أرض المقدسات",
   subtitleEn:
@@ -57,9 +57,9 @@ export const RABIA_INTRO = {
   quoteAr: "مدينة داخل المدينة — على مقربة من قلب الإسلام",
   quoteEn: "A city within a city — steps away from the heart of Islam",
   leadAr:
-    "رابية مكة المكرمة مشروع متكامل تتشابك فيه أبراج العصر الحديثة مع التصميم الإسلامي الكلاسيكي الأصيل، ليخلق وجهةً لا مثيل لها على أرض المقدسات.",
+    "الشبيلي وأهل البيت مشروع متكامل تتشابك فيه أبراج العصر الحديثة مع التصميم الإسلامي الكلاسيكي الأصيل، ليخلق وجهةً لا مثيل لها على أرض المقدسات.",
   leadEn:
-    "Rabia Makkah Al-Mukarramah is an integrated development where modern towers intertwine with authentic classical Islamic design, creating an unparalleled destination on sacred ground.",
+    "AlShubaily & Ahl al-Bayt is an integrated development where modern towers intertwine with authentic classical Islamic design, creating an unparalleled destination on sacred ground.",
   bodyAr:
     "يمتد المشروع على مساحة 230,000 م² ليضم ثلاثة أبراج شاهقة بواجهات زجاجية وتيجان إسلامية ذهبية، ومسجداً مركزياً كبيراً بقبة وصومعتين، وأحياءً تجارية وضيافية بطابع عمراني موروث، وساحات عامة بديعة تؤطرها المشاة والنباتات.",
   bodyEn:
@@ -120,8 +120,8 @@ export const RABIA_ALTERNATING: RabiaAlternatingSection[] = [
   {
     id: "towers",
     image: rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.41 PM.jpeg"),
-    imageAltAr: "الأبراج الثلاثة في رابية مكة المكرمة",
-    imageAltEn: "The three towers of Rabia Makkah Al-Mukarramah",
+    imageAltAr: "الأبراج الثلاثة في مشروع الشبيلي وأهل البيت",
+    imageAltEn: "The three towers of AlShubaily & Ahl al-Bayt",
     eyebrowAr: "الأبراج الفاخرة",
     eyebrowEn: "Luxury Towers",
     titleAr: "ثلاثة أبراج تعانق السماء",
@@ -134,8 +134,8 @@ export const RABIA_ALTERNATING: RabiaAlternatingSection[] = [
   {
     id: "mosque",
     image: rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.39 PM.jpeg"),
-    imageAltAr: "المسجد المركزي الكبير في رابية مكة",
-    imageAltEn: "The grand central mosque in Rabia Makkah",
+    imageAltAr: "المسجد المركزي الكبير في الشبيلي وأهل البيت",
+    imageAltEn: "The grand central mosque in AlShubaily & Ahl al-Bayt",
     eyebrowAr: "المسجد المركزي",
     eyebrowEn: "Grand Central Mosque",
     titleAr: "مسجد كبير في قلب المشروع",
@@ -148,8 +148,8 @@ export const RABIA_ALTERNATING: RabiaAlternatingSection[] = [
   {
     id: "masterplan",
     image: rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.41 PM (1).jpeg"),
-    imageAltAr: "المخطط العام لمشروع رابية مكة",
-    imageAltEn: "Rabia Makkah master plan aerial view",
+    imageAltAr: "المخطط العام لمشروع الشبيلي وأهل البيت",
+    imageAltEn: "AlShubaily & Ahl al-Bayt master plan aerial view",
     eyebrowAr: "المخطط العام",
     eyebrowEn: "Master Plan",
     titleAr: "تناسق معماري إسلامي خالص",
@@ -163,14 +163,14 @@ export const RABIA_ALTERNATING: RabiaAlternatingSection[] = [
 
 export const RABIA_BANNER = {
   image: rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.43 PM.jpeg"),
-  imageAltAr: "الساحة العامة الكبرى في رابية مكة المكرمة",
-  imageAltEn: "The grand public plaza in Rabia Makkah Al-Mukarramah",
+  imageAltAr: "الساحة العامة الكبرى في الشبيلي وأهل البيت",
+  imageAltEn: "The grand public plaza in AlShubaily & Ahl al-Bayt",
   titleAr: "حيث تحيا الفخامة على أرض مقدسة",
   titleEn: "Where Grandeur Lives on Sacred Ground",
   subtitleAr:
-    "رابية مكة المكرمة — وجهة استثنائية لا تجمع بين الرقي والروحانية فحسب، بل تُعيد تعريف مفهوم الإقامة الفاخرة في مكة",
+    "الشبيلي وأهل البيت — وجهة استثنائية لا تجمع بين الرقي والروحانية فحسب، بل تُعيد تعريف مفهوم الإقامة الفاخرة في مكة",
   subtitleEn:
-    "Rabia Makkah — an exceptional destination that not only merges sophistication with spirituality but redefines luxury living in Makkah",
+    "AlShubaily & Ahl al-Bayt — an exceptional destination that not only merges sophistication with spirituality but redefines luxury living in Makkah",
 };
 
 export type RabiaGalleryItem = {
@@ -184,8 +184,8 @@ export const RABIA_GALLERY: RabiaGalleryItem[] = [
   {
     id: "img-1",
     image: rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.38 PM.jpeg"),
-    altAr: "منظر ليلي جوي لمشروع رابية مكة",
-    altEn: "Night aerial view of Rabia Makkah project",
+    altAr: "منظر ليلي جوي لمشروع الشبيلي وأهل البيت",
+    altEn: "Night aerial view of AlShubaily & Ahl al-Bayt",
   },
   {
     id: "img-2",
@@ -234,14 +234,14 @@ export const RABIA_GALLERY: RabiaGalleryItem[] = [
 export const RABIA_GALLERY_HEADER = {
   eyebrowAr: "جولة بصرية",
   eyebrowEn: "Visual Tour",
-  titleAr: "اكتشف رابية مكة المكرمة",
-  titleEn: "Explore Rabia Makkah Al-Mukarramah",
+  titleAr: "اكتشف الشبيلي وأهل البيت",
+  titleEn: "Explore AlShubaily & Ahl al-Bayt",
 };
 
 export const RABIA_LOCATION = {
   image: rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.47 PM.jpeg"),
-  imageAltAr: "خريطة موقع مشروع رابية مكة المكرمة",
-  imageAltEn: "Location map of Rabia Makkah Al-Mukarramah project",
+  imageAltAr: "خريطة موقع مشروع الشبيلي وأهل البيت",
+  imageAltEn: "Location map of AlShubaily & Ahl al-Bayt project",
   eyebrowAr: "الموقع الاستراتيجي",
   eyebrowEn: "Strategic Location",
   titleAr: "على بُعد 6 كم من قلب الإسلام",

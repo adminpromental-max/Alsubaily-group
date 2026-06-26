@@ -70,8 +70,8 @@ export const GEO_PROJECTS: GeoProject[] = [
   {
     id: 1,
     slug: "alshubaily-ahl-albayt",
-    nameAr: "الشبيلي و أهل البيت",
-    nameEn: "AlShubaily & Ahl albayt",
+    nameAr: "الشبيلي وأهل البيت",
+    nameEn: "AlShubaily & Ahl al-Bayt",
     typeAr: "متعدد الاستخدامات",
     typeEn: "Mixed-use",
     region: "mecca",
@@ -82,8 +82,8 @@ export const GEO_PROJECTS: GeoProject[] = [
   {
     id: 2,
     slug: "rabia-makkah",
-    nameAr: "رابية مكة (1)",
-    nameEn: "Rabia Makkah (1)",
+    nameAr: "الشبيلي وأهل البيت",
+    nameEn: "AlShubaily & Ahl al-Bayt",
     typeAr: "سكني",
     typeEn: "Residential",
     region: "mecca",
@@ -94,8 +94,8 @@ export const GEO_PROJECTS: GeoProject[] = [
   {
     id: 13,
     slug: "rabia-makkah-2",
-    nameAr: "رابية مكة (2)",
-    nameEn: "Rabia Makkah (2)",
+    nameAr: "الشبيلي وأهل البيت",
+    nameEn: "AlShubaily & Ahl al-Bayt",
     typeAr: "سكني",
     typeEn: "Residential",
     region: "mecca",

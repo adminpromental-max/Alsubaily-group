@@ -34,6 +34,8 @@ export const PROJECT_CATEGORY_BY_SLUG: Record<string, ProjectCategoryId> = {
   "alshubaily-high-rise-2": "residential",
   "sultanat-al-sharq": "commercial",
   "alshubaily-new-beach": "tourism",
+  "rabia-road": "commercial",
+  "tidara-towers": "commercial",
 };
 
 export const PROJECT_CATEGORIES: ProjectCategory[] = [

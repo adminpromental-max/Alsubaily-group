@@ -85,7 +85,7 @@ export function RabiaBanner() {
           data-banner-reveal
           className="text-[11px] uppercase tracking-[0.45em] text-[#C9A962]"
         >
-          {t("رابية مكة المكرمة", "Rabia Makkah Al-Mukarramah")}
+          {t("الشبيلي وأهل البيت", "AlShubaily & Ahl al-Bayt")}
         </p>
         <h2
           data-banner-reveal
