@@ -11,36 +11,6 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-function ArchFrame() {
-  return (
-    <svg
-      aria-hidden
-      className="pointer-events-none absolute inset-4 z-20 opacity-60 md:inset-8"
-      viewBox="0 0 400 600"
-      preserveAspectRatio="none"
-      fill="none"
-    >
-      <path
-        d="M200 20 C 80 20, 20 80, 20 200 L 20 580 L 380 580 L 380 200 C 380 80, 320 20, 200 20 Z"
-        stroke="url(#archGrad)"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M200 20 C 120 20, 60 60, 60 140 L 60 540 L 340 540 L 340 140 C 340 60, 280 20, 200 20 Z"
-        stroke="rgba(201,169,98,0.25)"
-        strokeWidth="0.75"
-      />
-      <defs>
-        <linearGradient id="archGrad" x1="0" y1="0" x2="400" y2="600">
-          <stop offset="0%" stopColor="#C9A962" />
-          <stop offset="50%" stopColor="#C45C3E" />
-          <stop offset="100%" stopColor="#C9A962" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-}
-
 export function SultanatHero() {
   const { t } = useLang();
   const heroRef = useRef<HTMLElement>(null);
@@ -136,8 +106,6 @@ export function SultanatHero() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a1209]/55 via-[#1a1209]/15 to-[#1a1209]/88" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_45%_at_50%_75%,rgba(196,92,62,0.18),transparent)]" />
       </div>
-
-      <ArchFrame />
 
       <div
         ref={contentRef}

@@ -49,7 +49,7 @@ export const SULTANAT_LOCATION = {
     "يتربع المشروع على مساحة ضخمة مع واجهة بحرية ساحرة. موقع استثنائي جنوب الشبيلي بورت وبجوار جسر الملك فهد — نقطة الاتصال الأرقى في قلب الخبر.",
   bodyEn:
     "A vast footprint with a stunning seafront. Exceptionally positioned south of AlShubaily Port beside the King Fahd Causeway — Khobar's most distinguished connection point.",
-  image: sultanatAsset("Private Beach - Perspective.png"),
+  image: sultanatAsset("Arial Detail.png"),
   pins: [
     { labelAr: "الشبيلي بورت", labelEn: "AlShubaily Port" },
     { labelAr: "جسر الملك فهد", labelEn: "King Fahd Causeway" },
@@ -172,7 +172,7 @@ export const SULTANAT_CTA = {
     "عوامل تجعل من سلطانة الشرق فرصة نادرة لإقامة أفخم المجمعات السكنية والمنتجعات",
   bodyEn:
     "Making Sultanat Al Sharq a rare opportunity for the Kingdom's finest residential compounds and resorts",
-  image: sultanatAsset("Arial Detail.png"),
+  image: sultanatAsset("Private Beach - Perspective.png"),
 };
 
 export const SULTANAT_GALLERY = [
