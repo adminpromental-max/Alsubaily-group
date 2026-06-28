@@ -44,7 +44,7 @@ export function ProjectTypesSection() {
         </div>
 
         {/* Monolith stack */}
-        <div className="space-y-20 md:grid md:grid-cols-3 md:gap-10 md:space-y-0">
+        <div className="space-y-20 md:grid md:grid-cols-2 md:gap-8 md:space-y-0 lg:grid-cols-4 lg:gap-6">
           {PROJECT_CATEGORIES.map((cat) => {
             const count = countByCategory(cat.id);
             return (

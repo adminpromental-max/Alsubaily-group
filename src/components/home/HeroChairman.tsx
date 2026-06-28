@@ -3,11 +3,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Building2,
-  FileText,
-  Globe,
   Landmark,
   MapPin,
-  Users,
+  Ruler,
 } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
 import { HeroCinematic } from "./HeroCinematic";
@@ -25,12 +23,17 @@ type StatItem = {
 };
 
 const STATS: StatItem[] = [
-  { value: 18, labelAr: "عدد المشاريع", labelEn: "Projects", icon: Building2 },
-  { value: 850, labelAr: "عدد المستثمرين", labelEn: "Investors", suffixAr: "+", suffixEn: "+", icon: Users },
-  { value: 2400, labelAr: "عدد الطلبات", labelEn: "Requests", suffixAr: "+", suffixEn: "+", icon: FileText },
+  { value: 40, labelAr: "عدد المشاريع", labelEn: "Projects", icon: Building2 },
+  {
+    value: 37,
+    labelAr: "إجمالي المساحات",
+    labelEn: "Total Area",
+    suffixAr: " مليون م²",
+    suffixEn: "M m²",
+    icon: Ruler,
+  },
   { value: 12, labelAr: "مدن", labelEn: "Cities", suffixAr: "+", suffixEn: "+", icon: MapPin },
   { value: 25, labelAr: "سنوات الخبرة", labelEn: "Years", suffixAr: "+", suffixEn: "+", icon: Landmark },
-  { value: 100, labelAr: "شراكات", labelEn: "Partners", suffixAr: "+", suffixEn: "+", icon: Globe },
 ];
 
 function CountUp({ target, suffix, active }: { target: number; suffix?: string; active: boolean }) {
@@ -79,7 +82,7 @@ function HeroStats() {
   return (
     <div
       ref={ref}
-      className="grid grid-cols-3 gap-2 sm:gap-3 md:grid-cols-6 md:gap-4"
+      className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-4 md:gap-4"
     >
       {STATS.map((stat) => {
         const Icon = stat.icon;

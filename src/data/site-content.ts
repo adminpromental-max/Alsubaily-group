@@ -3,7 +3,8 @@ import { projectTypeAsset } from "@/data/asset-paths";
 export type ProjectCategoryId =
   | "residential"
   | "commercial"
-  | "tourism";
+  | "tourism"
+  | "office";
 
 export type ProjectCategory = {
   id: ProjectCategoryId;
@@ -30,12 +31,12 @@ export const PROJECT_CATEGORY_BY_SLUG: Record<string, ProjectCategoryId> = {
   "alshubaily-port": "commercial",
   "dammam-olympic-city": "tourism",
   "al-zahraa": "residential",
-  "alshubaily-high-rise": "residential",
-  "alshubaily-high-rise-2": "residential",
+  "alshubaily-high-rise": "office",
+  "alshubaily-high-rise-2": "office",
   "sultanat-al-sharq": "commercial",
   "alshubaily-new-beach": "tourism",
   "rabia-road": "commercial",
-  "tidara-towers": "commercial",
+  "tidara-towers": "office",
 };
 
 export const PROJECT_CATEGORIES: ProjectCategory[] = [
@@ -45,15 +46,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Tourism",
     bioAr: "نصمم وجهات تتجاوز التوقعات، حيث يلتقي الابتكار بالرفاهية لتجربة سياحية فريدة.",
     bioEn: "Destinations that exceed expectations — where innovation meets luxury for a unique experience.",
-    image: projectTypeAsset("سياحي.jpg"),
-  },
-  {
-    id: "commercial",
-    nameAr: "تجاري",
-    nameEn: "Commercial",
-    bioAr: "مساحات تجارية ذكية تعزز كفاءة الأعمال وتخلق بيئة اقتصادية مستدامة ومبهرة.",
-    bioEn: "Smart commercial spaces that empower business efficiency and a sustainable economy.",
-    image: projectTypeAsset("تجاري.png"),
+    image: projectTypeAsset("سياحي.png"),
   },
   {
     id: "residential",
@@ -62,6 +55,22 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     bioAr: "أكثر من مجرد سكن؛ مجتمعات سكنية متكاملة تمنحك الخصوصية والرفاهية التي تستحقها.",
     bioEn: "More than housing — integrated communities offering the privacy and luxury you deserve.",
     image: projectTypeAsset("سكني.jpeg"),
+  },
+  {
+    id: "commercial",
+    nameAr: "تجاري",
+    nameEn: "Commercial",
+    bioAr: "مولات تجارية تجمع البراندات العالمية (جراند مول).",
+    bioEn: "Commercial malls bringing together international brands (Grand Mall).",
+    image: projectTypeAsset("تجاري.png"),
+  },
+  {
+    id: "office",
+    nameAr: "مكتبي",
+    nameEn: "Office",
+    bioAr: "تضم مشاريع الشبيلي مكاتب استثمارية تناسب الشركات بجميع أنواعها.",
+    bioEn: "AlShubaily projects include investment-grade offices suited to companies of every scale.",
+    image: projectTypeAsset("مكتبي.png"),
   },
 ];
 
