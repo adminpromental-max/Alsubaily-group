@@ -5,6 +5,15 @@ export const GRAND_MALL_HERO_MOBILE = grandMallAsset("2.png");
 export const GRAND_MALL_SHOWCASE = grandMallAsset("4.png");
 export const GRAND_MALL_CTA_BG = grandMallAsset("3.png");
 
+/** Cinematic auto-slideshow for «وجهة متكاملة» */
+export const GRAND_MALL_SHOWCASE_SLIDES = [
+  { src: grandMallAsset("4.png"), labelAr: "المول بالكامل", labelEn: "The Full Mall" },
+  { src: grandMallAsset("14.png"), labelAr: "المحلات التجارية", labelEn: "Retail" },
+  { src: grandMallAsset("15.png"), labelAr: "البحيرات", labelEn: "Lakes" },
+  { src: grandMallAsset("16.png"), labelAr: "الترفيه", labelEn: "Entertainment" },
+  { src: grandMallAsset("17.png"), labelAr: "السينما", labelEn: "Cinema" },
+] as const;
+
 export const GRAND_MALL_HERO_COPY = {
   eyebrowAr: "المنطقة الشرقية · وجهة استثمارية",
   eyebrowEn: "Eastern Region · Investment Destination",
