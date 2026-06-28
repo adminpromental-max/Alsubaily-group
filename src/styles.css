@@ -5223,6 +5223,71 @@ body.has-custom-cursor button {
   background: linear-gradient(to left, #E8D5C4 30%, transparent);
 }
 
+/* ── About page — chairman golden frame ─────────────────────── */
+.about-group-banner {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+}
+
+.about-chairman-frame {
+  position: relative;
+  width: min(100%, 320px);
+  padding: 6px;
+  background: linear-gradient(
+    145deg,
+    #e8d5a3 0%,
+    #c9a962 35%,
+    #8a6e2f 55%,
+    #c9a962 75%,
+    #f0e0b8 100%
+  );
+  border-radius: 4px;
+  box-shadow:
+    0 24px 60px rgba(26, 22, 18, 0.18),
+    0 0 0 1px rgba(201, 169, 98, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.about-chairman-frame-inner {
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
+  background: #1a1612;
+}
+
+.about-chairman-frame-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: #f0e0b8;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.about-chairman-frame-corner--tl {
+  top: 10px;
+  inset-inline-start: 10px;
+  border-width: 2px 0 0 2px;
+}
+
+.about-chairman-frame-corner--tr {
+  top: 10px;
+  inset-inline-end: 10px;
+  border-width: 2px 2px 0 0;
+}
+
+.about-chairman-frame-corner--bl {
+  bottom: 10px;
+  inset-inline-start: 10px;
+  border-width: 0 0 2px 2px;
+}
+
+.about-chairman-frame-corner--br {
+  bottom: 10px;
+  inset-inline-end: 10px;
+  border-width: 0 2px 2px 0;
+}
+
 [dir="rtl"] .sultanat-ocg-fade.ocg-fade--start {
   background: linear-gradient(to left, #E8D5C4 30%, transparent);
 }
