@@ -5388,6 +5388,117 @@ body.has-custom-cursor button {
   }
 }
 
+/* ── Grand Mall immersive landing ───────────────────────────── */
+.gm-hero-logo {
+  filter: drop-shadow(0 8px 32px rgba(201, 169, 98, 0.35));
+}
+
+.gm-gates-overlay {
+  filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.45));
+  mix-blend-mode: screen;
+}
+
+.gm-cinema-stage {
+  perspective: 1200px;
+}
+
+.gm-cinema-screen {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 3px solid rgba(201, 169, 98, 0.35);
+  box-shadow:
+    0 0 80px rgba(201, 169, 98, 0.15),
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    inset 0 0 60px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+}
+
+.gm-cinema-audience {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 28%;
+  background: linear-gradient(to top, rgba(5, 5, 4, 0.95) 20%, transparent);
+  clip-path: polygon(0 100%, 8% 45%, 18% 70%, 28% 40%, 38% 65%, 48% 35%, 58% 60%, 68% 38%, 78% 62%, 88% 42%, 100% 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gm-cinema-scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.gm-portal-arch {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 999px 999px 1.25rem 1.25rem;
+  border: 2px solid rgba(201, 169, 98, 0.35);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    inset 0 0 40px rgba(201, 169, 98, 0.08);
+}
+
+.gm-portal-tag {
+  position: absolute;
+  top: 1rem;
+  inset-inline-start: 1rem;
+  border-radius: 999px;
+  background: rgba(201, 169, 98, 0.9);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #1a1612;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.gm-lake-shimmer {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(201, 169, 98, 0.08) 50%,
+    transparent
+  );
+  animation: gm-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes gm-shimmer {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(-8px); }
+}
+
+.gm-marquee-track {
+  animation: gm-marquee 22s linear infinite;
+}
+
+@keyframes gm-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.gm-gallery-slide {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gm-gallery-slide:hover {
+  transform: scale(1.02);
+  box-shadow: 0 24px 60px rgba(201, 169, 98, 0.2);
+}
+
 [dir="rtl"] .sultanat-ocg-fade.ocg-fade--start {
   background: linear-gradient(to left, #E8D5C4 30%, transparent);
 }
