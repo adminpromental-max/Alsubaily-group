@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { GrandMallCTA } from "@/components/grand-mall/GrandMallCTA";
 import { GrandMallHero } from "@/components/grand-mall/GrandMallHero";
+import { GrandMallPortals } from "@/components/grand-mall/GrandMallPortals";
 import { GrandMallShowcase } from "@/components/grand-mall/GrandMallShowcase";
 import { GrandMallStats } from "@/components/grand-mall/GrandMallStats";
-import { GrandMallWorlds } from "@/components/grand-mall/GrandMallWorlds";
 import { GrandMallZones } from "@/components/grand-mall/GrandMallZones";
 import { GRAND_MALL_HERO } from "@/data/grand-mall-content";
 
@@ -40,10 +40,10 @@ function GrandMallPage() {
   return (
     <main className="gm-page min-h-screen bg-[#0A0908]">
       <GrandMallHero />
-      <GrandMallWorlds />
+      <GrandMallStats />
+      <GrandMallPortals />
       <GrandMallShowcase />
       <GrandMallZones />
-      <GrandMallStats />
       <GrandMallCTA />
     </main>
   );

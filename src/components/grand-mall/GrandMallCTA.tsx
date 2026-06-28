@@ -1,21 +1,30 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpLeft, Mail } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
+import { GRAND_MALL_CTA_BG } from "@/data/grand-mall-content";
 
 export function GrandMallCTA() {
   const { t } = useLang();
 
   return (
-    <section className="gm-section gm-section--dark gm-section--last relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(201,169,98,0.12),transparent)]" />
-      <div className="relative mx-auto max-w-3xl px-6 text-center md:px-8">
+    <section className="gm-section gm-section--last relative min-h-[420px] overflow-hidden md:min-h-[480px]">
+      <img
+        src={GRAND_MALL_CTA_BG}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0908]/95 via-[#0A0908]/75 to-[#0A0908]/55" />
+
+      <div className="relative mx-auto flex min-h-[420px] max-w-3xl flex-col items-center justify-center px-6 text-center md:min-h-[480px] md:px-8">
         <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#C9A962]">
           {t("جراند مول", "Grand Mall")}
         </p>
         <h2 className="font-heading mt-2 text-3xl font-bold text-white md:text-4xl">
           {t("ابدأ رحلتك", "Start Your Journey")}
         </h2>
-        <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/65 md:text-base">
+        <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/80 md:text-base">
           {t(
             "وجهة متكاملة للتسوق والترفيه في المنطقة الشرقية — تواصل معنا لمعرفة فرص الاستثمار والتأجير.",
             "An integrated shopping and entertainment destination in the Eastern Region — contact us for investment and leasing opportunities.",
@@ -33,7 +42,7 @@ export function GrandMallCTA() {
           <Link
             to="/"
             hash="map"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white/90 transition hover:border-[#C9A962]/50 hover:text-[#C9A962]"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/30 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition hover:border-[#C9A962]/50 hover:text-[#C9A962]"
           >
             <ArrowUpLeft className="h-4 w-4" />
             {t("كل المشاريع", "All Projects")}
