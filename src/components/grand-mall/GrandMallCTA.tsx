@@ -1,22 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpLeft, Mail } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import { GRAND_MALL_LOGO } from "@/data/grand-mall-content";
 
 export function GrandMallCTA() {
   const { t } = useLang();
 
   return (
-    <section className="relative overflow-hidden bg-[#12100E] py-20 md:py-28">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(201,169,98,0.15),transparent)]" />
+    <section className="gm-section gm-section--dark gm-section--last relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(201,169,98,0.12),transparent)]" />
       <div className="relative mx-auto max-w-3xl px-6 text-center md:px-8">
-        <img
-          src={GRAND_MALL_LOGO}
-          alt=""
-          className="mx-auto mb-8 h-auto w-[min(50vw,220px)] opacity-90"
-        />
-        <h2 className="font-heading text-3xl font-bold text-white md:text-4xl">
-          {t("اكتشف جراند مول", "Discover Grand Mall")}
+        <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#C9A962]">
+          {t("جراند مول", "Grand Mall")}
+        </p>
+        <h2 className="font-heading mt-2 text-3xl font-bold text-white md:text-4xl">
+          {t("ابدأ رحلتك", "Start Your Journey")}
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/65 md:text-base">
           {t(

@@ -1,11 +1,8 @@
 import { grandMallAsset } from "@/data/asset-paths";
 
-export const GRAND_MALL_LOGO = grandMallAsset("grand-mall-logo.webp");
 export const GRAND_MALL_HERO = grandMallAsset("1.png");
 export const GRAND_MALL_HERO_MOBILE = grandMallAsset("2.png");
-export const GRAND_MALL_GATES = grandMallAsset("gates.png");
-export const GRAND_MALL_RETAIL_FEATURE = grandMallAsset("3.png");
-export const GRAND_MALL_CINEMATIC_WIDE = grandMallAsset("4.png");
+export const GRAND_MALL_SHOWCASE = grandMallAsset("4.png");
 
 export const GRAND_MALL_HERO_COPY = {
   eyebrowAr: "المنطقة الشرقية · وجهة استثمارية",
@@ -20,61 +17,52 @@ export const GRAND_MALL_HERO_COPY = {
     "An integrated mall combining global retail, artificial lakes, family entertainment, and cinema — in one luxury experience.",
 };
 
-/** GSAP cinema-screen slideshow — no video file needed */
-export const GRAND_MALL_CINEMA_SLIDES = [
-  GRAND_MALL_CINEMATIC_WIDE,
-  grandMallAsset("14.png"),
-  grandMallAsset("15.png"),
-  grandMallAsset("16.png"),
-  grandMallAsset("17.png"),
-  grandMallAsset("18.png"),
-] as const;
-
-export type GrandMallPortal = {
+export type GrandMallWorld = {
   id: string;
   titleAr: string;
   titleEn: string;
+  descAr: string;
+  descEn: string;
   tagAr: string;
   tagEn: string;
-  images: readonly string[];
+  image: string;
+  accent: string;
 };
 
-export const GRAND_MALL_PORTALS: GrandMallPortal[] = [
+/** One image per world — no carousel duplication */
+export const GRAND_MALL_WORLDS: GrandMallWorld[] = [
   {
     id: "retail",
     titleAr: "المحلات التجارية",
-    titleEn: "Retail Boulevard",
-    tagAr: "براندات عالمية",
-    tagEn: "Global Brands",
-    images: [
-      grandMallAsset("البوابه اليسرى/5.png"),
-      grandMallAsset("البوابه اليسرى/6.png"),
-      grandMallAsset("البوابه اليسرى/7.png"),
-    ],
+    titleEn: "Retail",
+    descAr: "براندات عالمية في ممرات فاخرة",
+    descEn: "Global brands in luxury corridors",
+    tagAr: "Zone A",
+    tagEn: "Zone A",
+    image: grandMallAsset("البوابه اليسرى/6.png"),
+    accent: "#C9A962",
   },
   {
     id: "lakes",
     titleAr: "البحيرات الصناعية",
-    titleEn: "Artificial Lakes",
-    tagAr: "هدوء وانعكاس",
-    tagEn: "Serenity & Reflection",
-    images: [
-      grandMallAsset("البوابه الوسطى/8.png"),
-      grandMallAsset("البوابه الوسطى/9.png"),
-      grandMallAsset("البوابه الوسطى/10.png"),
-    ],
+    titleEn: "Lakes",
+    descAr: "هدوء وانعكاسات داخل المول",
+    descEn: "Calm and reflections within the mall",
+    tagAr: "Zone B",
+    tagEn: "Zone B",
+    image: grandMallAsset("البوابه الوسطى/9.png"),
+    accent: "#5B8FA8",
   },
   {
     id: "entertainment",
     titleAr: "الترفيه والسينما",
-    titleEn: "Entertainment & Cinema",
-    tagAr: "عائلات وفعاليات",
-    tagEn: "Families & Events",
-    images: [
-      grandMallAsset("البوابه اليمنى /11.png"),
-      grandMallAsset("البوابه اليمنى /12.png"),
-      grandMallAsset("البوابه اليمنى /13.png"),
-    ],
+    titleEn: "Entertainment",
+    descAr: "عائلات، فعاليات، وعروض سينمائية",
+    descEn: "Families, events, and cinema",
+    tagAr: "Zone C–D",
+    tagEn: "Zone C–D",
+    image: grandMallAsset("البوابه اليمنى /12.png"),
+    accent: "#B84040",
   },
 ];
 
@@ -122,7 +110,7 @@ export const GRAND_MALL_ZONES: GrandMallZone[] = [
     titleAr: "منطقة الترفيه",
     titleEn: "Entertainment Hub",
     bodyAr:
-      "مساحات ترفيه عائلية متكاملة — ألعاب، فعاليات، ومناطق جمع تجمع بين الحركة والمتعة لجميع الأعمار.",
+      "مساحات ترفيه عائلية متكاملة — ألعاب، فعاليات، ومناطق جمع لجميع الأعمار.",
     bodyEn:
       "Integrated family entertainment — games, events, and gathering spaces for all ages.",
   },
@@ -158,11 +146,8 @@ export type GrandMallStat = {
   suffixEn?: string;
   labelAr: string;
   labelEn: string;
-  textAr?: string;
-  textEn?: string;
 };
 
-/** Placeholder figures — update when official numbers are confirmed */
 export const GRAND_MALL_STATS: GrandMallStat[] = [
   {
     value: 185000,
@@ -197,9 +182,25 @@ export const GRAND_MALL_STATS: GrandMallStat[] = [
   },
 ];
 
-export const GRAND_MALL_GALLERY = [
-  GRAND_MALL_HERO,
-  GRAND_MALL_RETAIL_FEATURE,
-  ...GRAND_MALL_CINEMA_SLIDES,
-  ...GRAND_MALL_PORTALS.flatMap((p) => p.images),
+export const GRAND_MALL_FEATURES = [
+  {
+    icon: "store" as const,
+    labelAr: "محلات",
+    labelEn: "Retail",
+  },
+  {
+    icon: "waves" as const,
+    labelAr: "بحيرات",
+    labelEn: "Lakes",
+  },
+  {
+    icon: "gamepad" as const,
+    labelAr: "ترفيه",
+    labelEn: "Fun",
+  },
+  {
+    icon: "film" as const,
+    labelAr: "سينما",
+    labelEn: "Cinema",
+  },
 ] as const;

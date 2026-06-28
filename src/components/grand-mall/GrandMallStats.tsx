@@ -74,7 +74,7 @@ export function GrandMallStats() {
   }, []);
 
   return (
-    <section className="relative bg-[#FAF9F6] py-16 md:py-20">
+    <section className="gm-section gm-section--light">
       <div className="mx-auto mb-8 max-w-6xl px-6 text-center md:px-8">
         <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#8A6A2E]">
           {t("أرقام المول", "Mall in Numbers")}
