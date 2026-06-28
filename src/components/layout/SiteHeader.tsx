@@ -18,7 +18,6 @@ const NAV = [
   { to: "/", ar: "الرئيسية", en: "Home" },
   { to: "/about", ar: "عن المجموعة", en: "About Group" },
   { to: "/projects", ar: "المشاريع", en: "Projects" },
-  { to: "/services", ar: "خدماتنا", en: "Our Services" },
   { to: "/media", ar: "المركز الإعلامي", en: "Media Center" },
   { to: "/#contact", ar: "الاتصال بنا", en: "Contact Us", hash: true },
 ] as const;

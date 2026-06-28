@@ -5288,6 +5288,44 @@ body.has-custom-cursor button {
   border-width: 0 2px 2px 0;
 }
 
+/* ── Homepage — group companies showcase ─────────────────────── */
+.group-companies-hero-ring::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 9999px;
+  border: 1px dashed rgba(201, 169, 98, 0.28);
+  animation: group-ring-spin 48s linear infinite;
+}
+
+@keyframes group-ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.group-companies-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.group-companies-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 169, 98, 0.06) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.group-companies-card:hover::before {
+  opacity: 1;
+}
+
 [dir="rtl"] .sultanat-ocg-fade.ocg-fade--start {
   background: linear-gradient(to left, #E8D5C4 30%, transparent);
 }
