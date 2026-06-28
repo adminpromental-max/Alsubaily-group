@@ -5326,6 +5326,68 @@ body.has-custom-cursor button {
   opacity: 1;
 }
 
+/* ── Group activities — expandable accordion panels ─────────── */
+.activity-accordion {
+  width: 100%;
+  touch-action: manipulation;
+}
+
+.activity-panel {
+  flex: 1 1 0;
+  min-width: 0;
+  cursor: pointer;
+  border: 1px solid rgba(201, 169, 98, 0.15);
+  transition:
+    flex 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.activity-panel.is-active {
+  flex: 4.5 1 0;
+  border-color: rgba(201, 169, 98, 0.45);
+  box-shadow: 0 20px 50px -20px rgba(26, 22, 18, 0.45);
+}
+
+.activity-panel:focus-visible {
+  outline: 2px solid #c9a962;
+  outline-offset: 2px;
+}
+
+.activity-panel-img {
+  transform: scale(1);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.activity-panel-img.is-active,
+.activity-panel.is-active .activity-panel-img {
+  transform: scale(1.06);
+}
+
+.activity-panel-title-collapsed {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  align-self: flex-end;
+  max-height: min(52vw, 200px);
+  letter-spacing: 0.04em;
+}
+
+.activity-panel-title-collapsed--rtl {
+  transform: rotate(0deg);
+}
+
+@media (max-width: 639px) {
+  .activity-panel.is-active {
+    flex: 5 1 0;
+  }
+
+  .activity-panel-title-collapsed {
+    max-height: min(45vw, 160px);
+    font-size: 0.75rem;
+  }
+}
+
 [dir="rtl"] .sultanat-ocg-fade.ocg-fade--start {
   background: linear-gradient(to left, #E8D5C4 30%, transparent);
 }
