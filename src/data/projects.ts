@@ -1,4 +1,4 @@
-import { dammamAsset, beachAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -232,23 +232,29 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 11,
-    slug: "alshubaily-resort",
-    nameEn: "AlShubaily Resort",
-    nameAr: "الشبيلي ريزورت",
+    slug: "beach-house-resort",
+    nameEn: "Maison de la Mer Resort",
+    nameAr: "منتجع منزل البحر",
     region: "eastern",
     regionEn: "Eastern Region",
     regionAr: "المنطقة الشرقية",
-    typeEn: "Resort",
-    typeAr: "منتجع",
+    typeEn: "Resort · Multi-use",
+    typeAr: "منتجع · متعدد الاستخدامات",
     color: "#4A6741",
     x: 74.5,
     y: 50.5,
     descriptionEn:
-      "A luxury resort offering exceptional hospitality on the Arabian Gulf coast.",
+      "Maison de la Mer — infrastructure and superstructure development combining tourism, restaurants, and marina across 62,000 m².",
     descriptionAr:
-      "منتجع فاخر يقدم ضيافة استثنائية على ساحل الخليج العربي.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
+      "منتجع منزل البحر — مشروع بنية تحتية وفوقية يجمع السياحة والمطاعم والمارينا على 62,000 م².",
+    heroImage: beachHouseAsset("Hero.png"),
+    gallery: [
+      beachHouseAsset("1.jpg"),
+      beachHouseAsset("2.jpg"),
+      beachHouseAsset("3.jpg"),
+      beachHouseAsset("4.jpg"),
+      beachHouseAsset("5.png"),
+    ],
   },
   {
     id: 12,

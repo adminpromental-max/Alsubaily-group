@@ -27,7 +27,7 @@ export const PROJECT_CATEGORY_BY_SLUG: Record<string, ProjectCategoryId> = {
   "golf-city": "tourism",
   "alshubaily-town": "commercial",
   "alshubaily-grand-mall": "commercial",
-  "alshubaily-resort": "tourism",
+  "beach-house-resort": "tourism",
   "alshubaily-port": "commercial",
   "dammam-olympic-city": "tourism",
   "al-zahraa": "residential",
