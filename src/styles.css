@@ -503,109 +503,80 @@
     0 0 18px color-mix(in srgb, var(--pin-color, #c9a962) 65%, transparent);
 }
 
-/* Google Maps-style pin markers — unified gold glow on black (map preview v2) */
-.map-hit-target--gmap {
-  width: 2.125rem;
-  height: 2.875rem;
+/* Pushpin markers — ball + needle (map preview v2, same colors/pulse as homepage) */
+.map-hit-target--pushpin {
+  width: 2rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.map-hit-target--gmap:hover {
-  transform: translate(-50%, -100%) scale(1.1);
+.map-hit-target--pushpin:hover {
+  transform: translate(-50%, -100%) scale(1.15);
   z-index: 20;
 }
 
-.map-hit-target--gmap.is-active {
-  transform: translate(-50%, -100%) scale(1.14);
+.map-hit-target--pushpin.is-active {
+  transform: translate(-50%, -100%) scale(1.2);
   z-index: 40;
 }
 
-.map-gmap-pin {
-  position: relative;
-  display: block;
-  width: 2.125rem;
-  height: 2.875rem;
-  filter:
-    drop-shadow(0 0 6px rgba(201, 169, 98, 0.85))
-    drop-shadow(0 0 14px rgba(201, 169, 98, 0.4))
-    drop-shadow(0 2px 5px rgba(0, 0, 0, 0.45));
-  animation: map-gmap-glow 2.6s ease-in-out infinite;
-  transition: filter 0.2s ease;
-}
-
-.map-hit-target--gmap:hover .map-gmap-pin,
-.map-hit-target--gmap.is-active .map-gmap-pin {
-  animation: none;
-  filter:
-    drop-shadow(0 0 10px rgba(232, 200, 114, 1))
-    drop-shadow(0 0 22px rgba(201, 169, 98, 0.65))
-    drop-shadow(0 3px 8px rgba(0, 0, 0, 0.5));
-}
-
-@keyframes map-gmap-glow {
-  0%, 100% {
-    filter:
-      drop-shadow(0 0 5px rgba(201, 169, 98, 0.7))
-      drop-shadow(0 0 12px rgba(201, 169, 98, 0.35))
-      drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
-  }
-  50% {
-    filter:
-      drop-shadow(0 0 12px rgba(232, 200, 114, 0.95))
-      drop-shadow(0 0 24px rgba(201, 169, 98, 0.55))
-      drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
-  }
-}
-
-.map-gmap-pin-shape {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.map-gmap-pin-num {
-  position: absolute;
-  top: 0.55rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.625rem;
-  font-weight: 800;
-  color: #e8c872;
-  text-shadow: 0 0 6px rgba(201, 169, 98, 0.9);
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-.map-gmap-tooltip {
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 5px);
-  transform: translateX(-50%) translateY(2px);
-  opacity: 0;
-  visibility: hidden;
+.map-pushpin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   pointer-events: none;
-  white-space: nowrap;
-  font-size: 0.5625rem;
-  font-weight: 700;
-  color: #e8c872;
-  background: rgba(20, 17, 13, 0.92);
-  border: 1px solid rgba(201, 169, 98, 0.55);
-  padding: 3px 7px;
-  border-radius: 4px;
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.35),
-    0 0 14px rgba(201, 169, 98, 0.45);
-  transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
-  max-width: 8.5rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  z-index: 5;
 }
 
-.map-hit-target--gmap:hover .map-gmap-tooltip,
-.map-hit-target--gmap:focus-visible .map-gmap-tooltip {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
+.map-pushpin-head {
+  position: relative;
+  width: 1.85rem;
+  height: 1.85rem;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.map-hit-target--pushpin .map-hit-core {
+  inset: 0;
+  background: radial-gradient(
+    circle at 32% 28%,
+    color-mix(in srgb, var(--pin-color, #c9a962) 20%, white) 0%,
+    var(--pin-color, #c9a962) 50%,
+    color-mix(in srgb, var(--pin-color, #c9a962) 80%, black) 100%
+  );
+}
+
+.map-hit-target--pushpin .map-hit-ring {
+  inset: -5px;
+}
+
+.map-hit-target--pushpin.is-active .map-hit-ring {
+  inset: -7px;
+}
+
+.map-pushpin-stick {
+  position: relative;
+  width: 2.5px;
+  height: 0.7rem;
+  margin-top: -1px;
+  background: linear-gradient(180deg, #d4d4d4 0%, #a8a8a8 50%, #787878 100%);
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.map-pushpin-stick::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 5px;
+  height: 2px;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 50%;
+  filter: blur(1px);
 }
 
 .map-popup-portal {

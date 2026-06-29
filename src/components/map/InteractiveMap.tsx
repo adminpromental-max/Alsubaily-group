@@ -17,7 +17,6 @@ import {
   type RegionId,
 } from "@/data/projects";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
-import { getMapV2RegionColor } from "@/data/map-v2-coordinates";
 import { useLang } from "@/contexts/lang-context";
 import { buttonVariants } from "@/components/ui/button";
 import { ProjectDetailLink } from "@/components/projects/ProjectDetailLink";
@@ -78,7 +77,7 @@ interface InteractiveMapProps {
   mapSrc?: string;
   mapDefault?: { w: number; h: number };
   coordinates?: Record<number, { x: number; y: number }>;
-  pinMode?: "number" | "label" | "gmap";
+  pinMode?: "number" | "label" | "pushpin";
   /** Use region-unified colors instead of per-project color (gmap preview) */
   regionPinColors?: boolean;
 }
@@ -371,7 +370,7 @@ export function InteractiveMap({
 
   const onPointerDown = (e: React.PointerEvent) => {
     const target = e.target as HTMLElement;
-    if (target.closest(".map-hit-target, .map-gmap-tooltip, .map-label-pin, .map-float-controls, .map-project-popup, button, a, input")) {
+    if (target.closest(".map-hit-target, .map-pushpin, .map-label-pin, .map-float-controls, .map-project-popup, button, a, input")) {
       return;
     }
 
@@ -512,12 +511,15 @@ export function InteractiveMap({
 
             <div className="absolute inset-0">
               {searchFiltered.map((project) => {
-                const pinColor = regionPinColors
-                  ? getMapV2RegionColor(project.region)
-                  : project.color;
-                const isGmap = pinMode === "gmap";
+                const pinColor = project.color;
+                const isPushpin = pinMode === "pushpin";
                 const isLabel = pinMode === "label";
                 const projectName = lang === "ar" ? project.nameAr : project.nameEn;
+                const anchorTransform = isPushpin
+                  ? "translate(-50%, -100%)"
+                  : isLabel
+                    ? "translate(0, -50%)"
+                    : "translate(-50%, -50%)";
 
                 return (
                 <button
@@ -531,7 +533,7 @@ export function InteractiveMap({
                   className={cn(
                     "map-hit-target absolute",
                     isLabel && "map-hit-target--label",
-                    isGmap && "map-hit-target--gmap",
+                    isPushpin && "map-hit-target--pushpin",
                     activeId === project.id && "is-active",
                     activeId && activeId !== project.id && "is-dimmed",
                   )}
@@ -539,43 +541,19 @@ export function InteractiveMap({
                     {
                       left: `${project.x}%`,
                       top: `${project.y}%`,
-                      transform: isGmap
-                        ? "translate(-50%, -100%)"
-                        : isLabel
-                          ? "translate(0, -50%)"
-                          : "translate(-50%, -50%)",
+                      transform: anchorTransform,
                       ["--pin-color" as string]: pinColor,
                     } as React.CSSProperties
                   }
                 >
-                  {isGmap ? (
-                    <>
-                      <span className="map-gmap-pin" aria-hidden>
-                        <svg
-                          className="map-gmap-pin-shape"
-                          viewBox="0 0 28 40"
-                          width="28"
-                          height="40"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.268 21.732 0 14 0z"
-                            fill="#14110D"
-                          />
-                          <circle
-                            cx="14"
-                            cy="14"
-                            r="8"
-                            fill="#1A1612"
-                            stroke="#C9A962"
-                            strokeWidth="1.25"
-                          />
-                        </svg>
-                        <span className="map-gmap-pin-num">{project.id}</span>
+                  {isPushpin ? (
+                    <span className="map-pushpin" aria-hidden>
+                      <span className="map-pushpin-head">
+                        <span className="map-hit-ring" />
+                        <span className="map-hit-core">{project.id}</span>
                       </span>
-                      <span className="map-gmap-tooltip">{projectName}</span>
-                    </>
+                      <span className="map-pushpin-stick" />
+                    </span>
                   ) : isLabel ? (
                     <>
                       <span className="map-hit-dot" aria-hidden />

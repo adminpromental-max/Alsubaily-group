@@ -40,8 +40,8 @@ export function InteractiveMapPreviewSection() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#1A1612]/60 md:text-base">
           {t(
-            "مرّر على أي pin لعرض اسم المشروع، واضغط لفتح البطاقة. اختر منطقة من الشريط — واضغط على الخريطة للعودة.",
-            "Hover a pin to see the project name, click to open its card. Filter by region — tap the map to reset.",
+            "اضغط على أي pin لاستكشاف المشروع. اختر منطقة من الشريط — واضغط على الخريطة للعودة.",
+            "Tap any pin to explore the project. Filter by region — tap the map to reset.",
           )}
         </p>
       </div>
@@ -102,7 +102,7 @@ export function InteractiveMapPreviewSection() {
           mapSrc={MAP_V2_SRC}
           mapDefault={MAP_V2_SIZE}
           coordinates={MAP_V2_COORDINATES}
-          pinMode="gmap"
+          pinMode="pushpin"
         />
       </div>
     </section>
