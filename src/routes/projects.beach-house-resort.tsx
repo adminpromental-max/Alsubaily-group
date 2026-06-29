@@ -3,7 +3,7 @@ import { BeachHouseBanner } from "@/components/beach-house/BeachHouseBanner";
 import { BeachHouseCTA } from "@/components/beach-house/BeachHouseCTA";
 import { BeachHouseGallery } from "@/components/beach-house/BeachHouseGallery";
 import { BeachHouseHero } from "@/components/beach-house/BeachHouseHero";
-import { BeachHouseStats } from "@/components/beach-house/BeachHouseStats";
+import { BeachHouseWaveSeparator } from "@/components/beach-house/BeachHouseWaveSeparator";
 import { BEACH_HOUSE_HERO_IMAGE } from "@/data/beach-house-content";
 
 export const Route = createFileRoute("/projects/beach-house-resort")({
@@ -37,11 +37,11 @@ export const Route = createFileRoute("/projects/beach-house-resort")({
 
 function BeachHousePage() {
   return (
-    <main className="bh-page min-h-screen bg-[#E8DCC8]">
+    <main className="bh-page min-h-screen bg-[#8EC5DB]">
       <BeachHouseHero />
-      <BeachHouseStats />
       <BeachHouseGallery />
       <BeachHouseBanner />
+      <BeachHouseWaveSeparator />
       <BeachHouseCTA />
     </main>
   );

@@ -67,31 +67,48 @@ export const BEACH_HOUSE_COMPONENTS = [
   },
 ];
 
+export const BEACH_HOUSE_TOUR = {
+  titleAr: "الجولة الكاملة",
+  titleEn: "Full Tour",
+  subtitleAr: "استكشف رؤية منتجع منزل البحر",
+  subtitleEn: "Explore the Maison de la Mer vision",
+};
+
 export const BEACH_HOUSE_GALLERY = [
   {
     src: beachHouseAsset("1.jpg"),
     titleAr: "وجهة ساحلية",
     titleEn: "Coastal Destination",
+    descAr: "وجهة متكاملة على ساحل الخليج العربي.",
+    descEn: "An integrated destination on the Arabian Gulf coast.",
   },
   {
     src: beachHouseAsset("2.jpg"),
     titleAr: "تصميم معماري",
     titleEn: "Architectural Vision",
+    descAr: "تصميم يجمع بين الفخامة والطابع الساحلي.",
+    descEn: "Design blending luxury with coastal character.",
   },
   {
     src: beachHouseAsset("3.jpg"),
     titleAr: "بيئة متكاملة",
     titleEn: "Integrated Environment",
+    descAr: "مساحات مفتوحة ومرافق متعددة الاستخدامات.",
+    descEn: "Open spaces and multi-use facilities.",
   },
   {
     src: beachHouseAsset("4.jpg"),
     titleAr: "مساحات مفتوحة",
     titleEn: "Open Spaces",
+    descAr: "بيئة طبيعية واسعة للزوار والسكان.",
+    descEn: "Expansive natural setting for visitors and residents.",
   },
   {
     src: beachHouseAsset("5.png"),
     titleAr: "رؤية المستقبل",
     titleEn: "Future Vision",
+    descAr: "مشروع يرتقي بمفهوم الوجهة الساحلية.",
+    descEn: "A project elevating the coastal destination concept.",
   },
 ];
 

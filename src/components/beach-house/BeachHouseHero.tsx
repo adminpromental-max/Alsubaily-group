@@ -15,7 +15,7 @@ function WaveDivider() {
   return (
     <svg
       aria-hidden
-      className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 w-full text-[#E8DCC8] md:h-24"
+      className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 w-full text-[#8EC5DB] md:h-24"
       viewBox="0 0 1440 80"
       preserveAspectRatio="none"
     >

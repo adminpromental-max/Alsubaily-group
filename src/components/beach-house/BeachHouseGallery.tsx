@@ -1,129 +1,137 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, type CSSProperties } from "react";
+import { ImageIcon } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import { BEACH_HOUSE_GALLERY } from "@/data/beach-house-content";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { BEACH_HOUSE_GALLERY, BEACH_HOUSE_TOUR } from "@/data/beach-house-content";
 import { cn } from "@/lib/utils";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function BeachHouseGallery() {
   const { t, lang } = useLang();
   const [active, setActive] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
-  const slides = BEACH_HOUSE_GALLERY;
-
-  const next = useCallback(
-    () => setActive((p) => (p + 1) % slides.length),
-    [slides.length],
-  );
-  const prev = useCallback(
-    () => setActive((p) => (p - 1 + slides.length) % slides.length),
-    [slides.length],
-  );
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    gsap.fromTo(
-      el.querySelectorAll("[data-gallery-reveal]"),
-      { y: 28, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.9,
-        ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 85%", once: true },
-      },
-    );
-  }, []);
-
-  useEffect(() => {
-    const id = setInterval(next, 5000);
-    return () => clearInterval(id);
-  }, [next]);
-
-  const PrevIcon = lang === "ar" ? ChevronRight : ChevronLeft;
-  const NextIcon = lang === "ar" ? ChevronLeft : ChevronRight;
+  const sectionRef = useScrollReveal<HTMLElement>({ y: 36, stagger: 0.1 });
+  const isRtl = lang === "ar";
 
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-gradient-to-b from-[#E8DCC8] to-[#D4C4A8] py-16 md:py-20"
+      className="relative overflow-hidden py-14 md:py-20"
     >
-      <div className="mx-auto max-w-5xl px-6 md:px-8">
-        <p
-          data-gallery-reveal
-          className="mb-3 text-center text-xs font-medium uppercase tracking-[0.35em] text-[#8A6A2E]"
-        >
-          {t("معرض المشروع", "Project Gallery")}
-        </p>
-        <h2
-          data-gallery-reveal
-          className="mb-10 text-center font-heading text-2xl font-semibold text-[#2C2416] md:text-3xl"
-        >
-          {t("رؤية منتجع منزل البحر", "Maison de la Mer Vision")}
-        </h2>
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
+        <div data-reveal className="relative mb-10 md:mb-12">
+          <div
+            className="pointer-events-none absolute -top-6 select-none text-[40px] font-black leading-none text-white/25 md:text-[72px]"
+            style={{
+              [isRtl ? "right" : "left"]: "-0.25rem",
+            } as CSSProperties}
+            aria-hidden
+          >
+            TOUR
+          </div>
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="font-heading relative z-10 text-3xl font-black text-[#0A3D5C] md:text-5xl">
+                {t(BEACH_HOUSE_TOUR.titleAr, BEACH_HOUSE_TOUR.titleEn)}
+              </h2>
+              <div className="mt-3 flex items-center">
+                <span className="h-[2px] w-12 bg-[#C9A962]" />
+                <p className="ms-3 text-sm font-medium tracking-wide text-[#0A3D5C]/70 md:text-base">
+                  {t(BEACH_HOUSE_TOUR.subtitleAr, BEACH_HOUSE_TOUR.subtitleEn)}
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-[#0A3D5C]/65 md:text-sm">
+              {t(
+                "اضغط أو مرّر لاستكشاف كل صورة",
+                "Tap or hover to explore each view",
+              )}
+            </p>
+          </div>
+        </div>
 
-        <div data-gallery-reveal className="relative">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-3xl shadow-2xl">
-            {slides.map((slide, i) => (
-              <figure
+        <div
+          data-reveal
+          className="activity-accordion flex h-[min(72svh,420px)] min-h-[320px] gap-2 sm:gap-2.5 md:h-[480px] md:gap-3"
+          role="tablist"
+          aria-label={t(BEACH_HOUSE_TOUR.titleAr, BEACH_HOUSE_TOUR.titleEn)}
+        >
+          {BEACH_HOUSE_GALLERY.map((slide, i) => {
+            const isActive = active === i;
+            const title = t(slide.titleAr, slide.titleEn);
+
+            return (
+              <button
                 key={slide.src}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-expanded={isActive}
                 className={cn(
-                  "absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                  active === i
-                    ? "z-10 scale-100 opacity-100"
-                    : "z-0 scale-105 opacity-0",
+                  "activity-panel group relative overflow-hidden rounded-2xl outline-none md:rounded-3xl",
+                  isActive && "is-active",
                 )}
+                onClick={() => setActive(i)}
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
               >
                 <img
                   src={slide.src}
-                  alt={t(slide.titleAr, slide.titleEn)}
-                  className="h-full w-full object-cover"
+                  alt={title}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  className={cn(
+                    "activity-panel-img absolute inset-0 h-full w-full object-cover",
+                    isActive && "is-active",
+                  )}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2C2416]/75 via-transparent to-transparent" />
-                <figcaption className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                  <p className="font-heading text-xl font-bold text-white md:text-2xl">
-                    {t(slide.titleAr, slide.titleEn)}
-                  </p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540]/90 via-[#0A2540]/35 to-[#0A2540]/10" />
 
-          <button
-            type="button"
-            onClick={prev}
-            aria-label={t("السابق", "Previous")}
-            className="absolute start-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-[#2C2416]/50 text-white backdrop-blur-md transition hover:bg-[#2C2416]/70"
-          >
-            <PrevIcon className="h-5 w-5" />
-          </button>
-          <button
-            type="button"
-            onClick={next}
-            aria-label={t("التالي", "Next")}
-            className="absolute end-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-[#2C2416]/50 text-white backdrop-blur-md transition hover:bg-[#2C2416]/70"
-          >
-            <NextIcon className="h-5 w-5" />
-          </button>
+                <div className="absolute inset-0 flex flex-col justify-between p-3 sm:p-4 md:p-6">
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm md:h-11 md:w-11">
+                      <ImageIcon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={1.5} />
+                    </div>
+                    <span
+                      className={cn(
+                        "rounded-full bg-[#C9A962] px-2.5 py-0.5 text-[10px] font-semibold text-[#1A1612] transition-opacity duration-400 md:px-3 md:py-1 md:text-xs",
+                        isActive ? "opacity-100" : "opacity-0",
+                      )}
+                    >
+                      {i + 1} / {BEACH_HOUSE_GALLERY.length}
+                    </span>
+                  </div>
 
-          <div className="mt-5 flex justify-center gap-2">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Slide ${i + 1}`}
-                onClick={() => setActive(i)}
-                className={cn(
-                  "h-1.5 rounded-full transition-all duration-300",
-                  active === i ? "w-8 bg-[#2C2416]" : "w-1.5 bg-[#2C2416]/30",
-                )}
-              />
-            ))}
-          </div>
+                  <div className="text-start">
+                    <h3
+                      className={cn(
+                        "font-heading font-bold text-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                        isActive
+                          ? "text-lg sm:text-xl md:text-3xl"
+                          : cn(
+                              "text-sm sm:text-base md:text-xl",
+                              "activity-panel-title-collapsed",
+                              isRtl && "activity-panel-title-collapsed--rtl",
+                            ),
+                      )}
+                    >
+                      {title}
+                    </h3>
+
+                    <div
+                      className={cn(
+                        "overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                        isActive
+                          ? "mt-2 max-h-24 opacity-100 md:mt-3"
+                          : "max-h-0 opacity-0",
+                      )}
+                    >
+                      <p className="max-w-md text-[11px] leading-relaxed text-white/85 sm:text-xs md:text-sm md:leading-relaxed">
+                        {t(slide.descAr, slide.descEn)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
