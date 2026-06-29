@@ -30,7 +30,7 @@ const ZOOM_STEP_RATIO = 0.1;
 const MOBILE_BREAKPOINT = 1024;
 const MOBILE_COVER_OVERSCAN = 1.06;
 const REGION_ZOOM = 1.85;
-const CLICK_THRESHOLD = 6;
+const DESKTOP_PAN_BOOST = 1.22;
 
 type MapMode = "overview" | "region" | "project";
 type Transform = { x: number; y: number; scale: number };
@@ -78,8 +78,8 @@ interface InteractiveMapProps {
   mapDefault?: { w: number; h: number };
   coordinates?: Record<number, { x: number; y: number }>;
   pinMode?: "number" | "label" | "pushpin";
-  /** Use region-unified colors instead of per-project color (gmap preview) */
-  regionPinColors?: boolean;
+  /** Slightly zoom in on load so the map can be dragged; vertical page scroll stays natural */
+  panBoost?: boolean;
 }
 
 export function InteractiveMap({
@@ -95,6 +95,7 @@ export function InteractiveMap({
   coordinates = NEW_MAP_COORDINATES,
   pinMode = "number",
   regionPinColors = false,
+  panBoost = false,
 }: InteractiveMapProps = {}) {
   const { t, lang } = useLang();
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -205,9 +206,12 @@ export function InteractiveMap({
       if (vw < 10 || vh < 10 || !w || !h) return;
 
       const isMobile = vw < MOBILE_BREAKPOINT;
+      const fitScale = Math.min(vw / w, vh / h);
       const nextBase = isMobile
         ? Math.max(vw / w, vh / h) * MOBILE_COVER_OVERSCAN
-        : Math.min(vw / w, vh / h);
+        : panBoost
+          ? fitScale * DESKTOP_PAN_BOOST
+          : fitScale;
       baseScaleRef.current = nextBase;
       transformRef.current = {
         x: (vw - w * nextBase) / 2,
@@ -217,7 +221,7 @@ export function InteractiveMap({
       applyTransform(animate);
       setReady(true);
     },
-    [applyTransform],
+    [applyTransform, panBoost],
   );
 
   const zoomToPoint = useCallback(
@@ -332,12 +336,23 @@ export function InteractiveMap({
             ? baseScaleRef.current * ZOOM_STEP_RATIO
             : -baseScaleRef.current * ZOOM_STEP_RATIO,
         );
+        return;
+      }
+
+      // Horizontal trackpad / mouse wheel → pan map; vertical scroll passes to the page
+      if (panBoost && Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 2) {
+        e.preventDefault();
+        transformRef.current = {
+          ...transformRef.current,
+          x: transformRef.current.x - e.deltaX,
+        };
+        applyTransform(false);
       }
     };
 
     viewport.addEventListener("wheel", onWheel, { passive: false });
     return () => viewport.removeEventListener("wheel", onWheel);
-  }, []);
+  }, [panBoost, applyTransform]);
 
   const resetMap = useCallback(() => {
     setActiveId(null);
@@ -401,8 +416,8 @@ export function InteractiveMap({
 
     transformRef.current = {
       ...transformRef.current,
-      x: start.tx + dx * PAN_DAMPING,
-      y: start.ty + dy * PAN_DAMPING,
+      x: start.tx + dx * (panBoost ? 1 : PAN_DAMPING),
+      y: start.ty + dy * (panBoost ? 1 : PAN_DAMPING),
     };
     applyTransform(false);
   };
@@ -436,7 +451,10 @@ export function InteractiveMap({
       >
         <div
           ref={viewportRef}
-          className="map-viewport map-viewport--full relative h-full w-full overflow-hidden bg-[#FAF8F4]"
+          className={cn(
+            "map-viewport map-viewport--full relative h-full w-full overflow-hidden bg-[#FAF8F4]",
+            panBoost && "map-viewport--pan",
+          )}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}

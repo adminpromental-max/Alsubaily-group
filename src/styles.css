@@ -358,6 +358,19 @@
   touch-action: auto;
 }
 
+.map-viewport--pan {
+  cursor: grab;
+  touch-action: pan-y pinch-zoom;
+}
+
+.map-viewport--pan:active {
+  cursor: grabbing;
+}
+
+.map-viewport--pan .map-hit-target {
+  cursor: pointer;
+}
+
 /* Numbered pin markers */
 .map-hit-target {
   z-index: 12;
@@ -505,7 +518,7 @@
 
 /* Pushpin markers — ball + needle (map preview v2, same colors/pulse as homepage) */
 .map-hit-target--pushpin {
-  width: 2.85rem;
+  width: 3.2rem;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -531,18 +544,18 @@
 
 .map-pushpin-head {
   position: relative;
-  width: 2.65rem;
-  height: 2.65rem;
+  width: 3rem;
+  height: 3rem;
   flex-shrink: 0;
   z-index: 2;
 }
 
 .map-hit-target--pushpin .map-hit-core {
   inset: 0;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
   background: radial-gradient(
     circle at 32% 28%,
     color-mix(in srgb, var(--pin-color, #c9a962) 20%, white) 0%,
@@ -552,17 +565,17 @@
 }
 
 .map-hit-target--pushpin .map-hit-ring {
-  inset: -7px;
+  inset: -8px;
 }
 
 .map-hit-target--pushpin.is-active .map-hit-ring {
-  inset: -9px;
+  inset: -10px;
 }
 
 .map-pushpin-stick {
   position: relative;
-  width: 3.5px;
-  height: 1rem;
+  width: 4px;
+  height: 1.1rem;
   margin-top: -1px;
   background: linear-gradient(180deg, #d4d4d4 0%, #a8a8a8 50%, #787878 100%);
   border-radius: 0 0 2px 2px;

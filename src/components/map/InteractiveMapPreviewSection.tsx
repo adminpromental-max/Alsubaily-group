@@ -103,6 +103,7 @@ export function InteractiveMapPreviewSection() {
           mapDefault={MAP_V2_SIZE}
           coordinates={MAP_V2_COORDINATES}
           pinMode="pushpin"
+          panBoost
         />
       </div>
     </section>
