@@ -5492,6 +5492,39 @@ body.has-custom-cursor button {
   margin-top: -1px;
 }
 
+/* ── Region map v2 (map-preview page) ───────────────────────── */
+.region-map-viewport {
+  touch-action: manipulation;
+}
+
+.region-hit-zone {
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.region-hit-zone:hover {
+  border-color: color-mix(in srgb, var(--region-color) 55%, transparent);
+  background: color-mix(in srgb, var(--region-color) 12%, transparent);
+}
+
+.region-hit-zone.is-active {
+  border-color: color-mix(in srgb, var(--region-color) 75%, white);
+  background: color-mix(in srgb, var(--region-color) 18%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--region-color) 20%, transparent);
+}
+
+.region-hit-zone.is-dimmed {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.region-map-label {
+  z-index: 20;
+  -webkit-tap-highlight-color: transparent;
+}
+
 [dir="rtl"] .sultanat-ocg-fade.ocg-fade--start {
   background: linear-gradient(to left, #E8D5C4 30%, transparent);
 }

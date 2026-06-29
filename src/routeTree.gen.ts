@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as MediaRouteImport } from './routes/media'
+import { Route as MapPreviewRouteImport } from './routes/map-preview'
 import { Route as DammamPreviewRouteImport } from './routes/dammam-preview'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -24,6 +25,7 @@ import { Route as ProjectsHailCornicheRouteImport } from './routes/projects.hail
 import { Route as ProjectsDammamOlympicCityRouteImport } from './routes/projects.dammam-olympic-city'
 import { Route as ProjectsAlshubailyNewBeachRouteImport } from './routes/projects.alshubaily-new-beach'
 import { Route as ProjectsAlshubailyHighRiseRouteImport } from './routes/projects.alshubaily-high-rise'
+import { Route as ProjectsAlshubailyGrandMallRouteImport } from './routes/projects.alshubaily-grand-mall'
 import { Route as ProjectsAlZahraaRouteImport } from './routes/projects.al-zahraa'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as AdminShowcaseRouteImport } from './routes/admin.showcase'
@@ -37,6 +39,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const MediaRoute = MediaRouteImport.update({
   id: '/media',
   path: '/media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapPreviewRoute = MapPreviewRouteImport.update({
+  id: '/map-preview',
+  path: '/map-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DammamPreviewRoute = DammamPreviewRouteImport.update({
@@ -107,6 +114,12 @@ const ProjectsAlshubailyHighRiseRoute =
     path: '/projects/alshubaily-high-rise',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProjectsAlshubailyGrandMallRoute =
+  ProjectsAlshubailyGrandMallRouteImport.update({
+    id: '/projects/alshubaily-grand-mall',
+    path: '/projects/alshubaily-grand-mall',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProjectsAlZahraaRoute = ProjectsAlZahraaRouteImport.update({
   id: '/projects/al-zahraa',
   path: '/projects/al-zahraa',
@@ -133,11 +146,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/dammam-preview': typeof DammamPreviewRoute
+  '/map-preview': typeof MapPreviewRoute
   '/media': typeof MediaRoute
   '/services': typeof ServicesRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/al-zahraa': typeof ProjectsAlZahraaRoute
+  '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
@@ -154,11 +169,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/dammam-preview': typeof DammamPreviewRoute
+  '/map-preview': typeof MapPreviewRoute
   '/media': typeof MediaRoute
   '/services': typeof ServicesRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/al-zahraa': typeof ProjectsAlZahraaRoute
+  '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
@@ -176,11 +193,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/dammam-preview': typeof DammamPreviewRoute
+  '/map-preview': typeof MapPreviewRoute
   '/media': typeof MediaRoute
   '/services': typeof ServicesRoute
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/al-zahraa': typeof ProjectsAlZahraaRoute
+  '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
@@ -199,11 +218,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/dammam-preview'
+    | '/map-preview'
     | '/media'
     | '/services'
     | '/admin/showcase'
     | '/projects/$slug'
     | '/projects/al-zahraa'
+    | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
     | '/projects/alshubaily-new-beach'
     | '/projects/dammam-olympic-city'
@@ -220,11 +241,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/dammam-preview'
+    | '/map-preview'
     | '/media'
     | '/services'
     | '/admin/showcase'
     | '/projects/$slug'
     | '/projects/al-zahraa'
+    | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
     | '/projects/alshubaily-new-beach'
     | '/projects/dammam-olympic-city'
@@ -241,11 +264,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/dammam-preview'
+    | '/map-preview'
     | '/media'
     | '/services'
     | '/admin/showcase'
     | '/projects/$slug'
     | '/projects/al-zahraa'
+    | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
     | '/projects/alshubaily-new-beach'
     | '/projects/dammam-olympic-city'
@@ -263,11 +288,13 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   DammamPreviewRoute: typeof DammamPreviewRoute
+  MapPreviewRoute: typeof MapPreviewRoute
   MediaRoute: typeof MediaRoute
   ServicesRoute: typeof ServicesRoute
   AdminShowcaseRoute: typeof AdminShowcaseRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ProjectsAlZahraaRoute: typeof ProjectsAlZahraaRoute
+  ProjectsAlshubailyGrandMallRoute: typeof ProjectsAlshubailyGrandMallRoute
   ProjectsAlshubailyHighRiseRoute: typeof ProjectsAlshubailyHighRiseRoute
   ProjectsAlshubailyNewBeachRoute: typeof ProjectsAlshubailyNewBeachRoute
   ProjectsDammamOlympicCityRoute: typeof ProjectsDammamOlympicCityRoute
@@ -295,6 +322,13 @@ declare module '@tanstack/react-router' {
       path: '/media'
       fullPath: '/media'
       preLoaderRoute: typeof MediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map-preview': {
+      id: '/map-preview'
+      path: '/map-preview'
+      fullPath: '/map-preview'
+      preLoaderRoute: typeof MapPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dammam-preview': {
@@ -388,6 +422,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsAlshubailyHighRiseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/alshubaily-grand-mall': {
+      id: '/projects/alshubaily-grand-mall'
+      path: '/projects/alshubaily-grand-mall'
+      fullPath: '/projects/alshubaily-grand-mall'
+      preLoaderRoute: typeof ProjectsAlshubailyGrandMallRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/al-zahraa': {
       id: '/projects/al-zahraa'
       path: '/projects/al-zahraa'
@@ -423,11 +464,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   DammamPreviewRoute: DammamPreviewRoute,
+  MapPreviewRoute: MapPreviewRoute,
   MediaRoute: MediaRoute,
   ServicesRoute: ServicesRoute,
   AdminShowcaseRoute: AdminShowcaseRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ProjectsAlZahraaRoute: ProjectsAlZahraaRoute,
+  ProjectsAlshubailyGrandMallRoute: ProjectsAlshubailyGrandMallRoute,
   ProjectsAlshubailyHighRiseRoute: ProjectsAlshubailyHighRiseRoute,
   ProjectsAlshubailyNewBeachRoute: ProjectsAlshubailyNewBeachRoute,
   ProjectsDammamOlympicCityRoute: ProjectsDammamOlympicCityRoute,
