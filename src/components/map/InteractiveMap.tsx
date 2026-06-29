@@ -35,9 +35,12 @@ const CLICK_THRESHOLD = 6;
 type MapMode = "overview" | "region" | "project";
 type Transform = { x: number; y: number; scale: number };
 
-function withMapCoordinates(projects: Project[]): Project[] {
+function withMapCoordinates(
+  projects: Project[],
+  coordinates: Record<number, { x: number; y: number }>,
+): Project[] {
   return projects.map((p) => {
-    const c = NEW_MAP_COORDINATES[p.id];
+    const c = coordinates[p.id];
     return c ? { ...p, x: c.x, y: c.y } : p;
   });
 }
@@ -71,6 +74,10 @@ interface InteractiveMapProps {
   externalFilter?: RegionId;
   onSearchChange?: (v: string) => void;
   onFilterChange?: (v: RegionId) => void;
+  mapSrc?: string;
+  mapDefault?: { w: number; h: number };
+  coordinates?: Record<number, { x: number; y: number }>;
+  pinMode?: "number" | "label";
 }
 
 export function InteractiveMap({
@@ -81,13 +88,17 @@ export function InteractiveMap({
   externalFilter,
   onSearchChange,
   onFilterChange,
+  mapSrc = MAP_SRC,
+  mapDefault = MAP_DEFAULT,
+  coordinates = NEW_MAP_COORDINATES,
+  pinMode = "number",
 }: InteractiveMapProps = {}) {
   const { t, lang } = useLang();
   const viewportRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
 
-  const imgSizeRef = useRef(MAP_DEFAULT);
+  const imgSizeRef = useRef(mapDefault);
   const baseScaleRef = useRef(1);
   const transformRef = useRef<Transform>({ x: 0, y: 0, scale: 1 });
   const panStartRef = useRef<{ x: number; y: number; tx: number; ty: number } | null>(
@@ -97,7 +108,7 @@ export function InteractiveMap({
   const initializedRef = useRef(false);
 
   const [ready, setReady] = useState(false);
-  const [imgSize, setImgSize] = useState(MAP_DEFAULT);
+  const [imgSize, setImgSize] = useState(mapDefault);
   const [filterInternal, setFilterInternal] = useState<RegionId>(initialRegion ?? "all");
   const [mapMode, setMapMode] = useState<MapMode>(initialRegion ? "region" : "overview");
   const [activeRegion, setActiveRegion] = useState<Exclude<RegionId, "all"> | null>(
@@ -111,8 +122,11 @@ export function InteractiveMap({
   const setSearch = onSearchChange ?? setSearchInternal;
   const setFilter: (v: RegionId) => void = onFilterChange ?? setFilterInternal;
 
-  const allProjects = useMemo(() => withMapCoordinates(PROJECTS), []);
-  const clusters = getRegionClusters();
+  const allProjects = useMemo(
+    () => withMapCoordinates(PROJECTS, coordinates),
+    [coordinates],
+  );
+  const clusters = useMemo(() => getRegionClusters(coordinates), [coordinates]);
 
   const searchFiltered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -353,7 +367,7 @@ export function InteractiveMap({
 
   const onPointerDown = (e: React.PointerEvent) => {
     const target = e.target as HTMLElement;
-    if (target.closest(".map-hit-target, .map-float-controls, .map-project-popup, button, a, input")) {
+    if (target.closest(".map-hit-target, .map-label-pin, .map-float-controls, .map-project-popup, button, a, input")) {
       return;
     }
 
@@ -402,7 +416,7 @@ export function InteractiveMap({
       Math.abs(dx) < CLICK_THRESHOLD &&
       Math.abs(dy) < CLICK_THRESHOLD;
 
-    if (isClick && (activeId || mapMode !== "overview")) {
+    if (isClick && (activeId || mapMode !== "overview" || filter !== "all" || search.trim())) {
       resetMap();
     }
   };
@@ -483,10 +497,10 @@ export function InteractiveMap({
           >
             <img
               ref={imgRef}
-              src={MAP_SRC}
+              src={mapSrc}
               alt={t("خريطة مشاريع الشبيلي", "AlShubaily Projects Map")}
-              width={MAP_DEFAULT.w}
-              height={MAP_DEFAULT.h}
+              width={mapDefault.w}
+              height={mapDefault.h}
               onLoad={handleImageLoad}
               draggable={false}
               className="block h-auto w-full max-w-none select-none"
@@ -504,6 +518,7 @@ export function InteractiveMap({
                   }}
                   className={cn(
                     "map-hit-target absolute",
+                    pinMode === "label" && "map-hit-target--label",
                     activeId === project.id && "is-active",
                     activeId && activeId !== project.id && "is-dimmed",
                   )}
@@ -511,13 +526,29 @@ export function InteractiveMap({
                     {
                       left: `${project.x}%`,
                       top: `${project.y}%`,
-                      transform: "translate(-50%, -50%)",
+                      transform:
+                        pinMode === "label"
+                          ? "translate(0, -50%)"
+                          : "translate(-50%, -50%)",
                       ["--pin-color" as string]: project.color,
                     } as React.CSSProperties
                   }
                 >
-                  <span className="map-hit-ring" aria-hidden />
-                  <span className="map-hit-core" aria-hidden>{project.id}</span>
+                  {pinMode === "label" ? (
+                    <>
+                      <span className="map-hit-dot" aria-hidden />
+                      <span className="map-hit-label">
+                        {lang === "ar" ? project.nameAr : project.nameEn}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="map-hit-ring" aria-hidden />
+                      <span className="map-hit-core" aria-hidden>
+                        {project.id}
+                      </span>
+                    </>
+                  )}
                 </button>
               ))}
             </div>

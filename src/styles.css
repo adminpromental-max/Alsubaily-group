@@ -439,6 +439,70 @@
   50%       { transform: scale(1.35); opacity: 1; }
 }
 
+/* Label pin markers (map preview v2) */
+.map-hit-target--label {
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex-direction: row;
+}
+
+.map-hit-target--label:hover {
+  transform: translate(0, -50%) scale(1.06);
+  z-index: 20;
+}
+
+.map-hit-target--label.is-active {
+  transform: translate(0, -50%) scale(1.1);
+  z-index: 40;
+}
+
+.map-hit-dot {
+  position: relative;
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--pin-color, #c9a962);
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.75),
+    0 0 10px color-mix(in srgb, var(--pin-color, #c9a962) 70%, transparent);
+  animation: map-marker-pulse 2.4s ease-in-out infinite;
+}
+
+.map-hit-target--label.is-active .map-hit-dot {
+  width: 8px;
+  height: 8px;
+  animation: map-marker-active 1.4s ease-in-out infinite;
+}
+
+.map-hit-label {
+  font-size: 0.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: #1a1612;
+  background: rgba(255, 255, 255, 0.94);
+  padding: 1px 5px;
+  border-radius: 3px;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.12),
+    0 0 12px color-mix(in srgb, var(--pin-color, #c9a962) 45%, transparent);
+  max-width: 7.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-hit-target--label:hover .map-hit-label,
+.map-hit-target--label.is-active .map-hit-label {
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.18),
+    0 0 18px color-mix(in srgb, var(--pin-color, #c9a962) 65%, transparent);
+}
+
 .map-popup-portal {
   isolation: isolate;
 }

@@ -556,8 +556,10 @@ export type RegionCluster = {
 
 const REGION_IDS = ["mecca", "hail", "riyadh", "eastern"] as const;
 
-export function getRegionClusters(): RegionCluster[] {
-  const coord = (p: Project) => NEW_MAP_COORDINATES[p.id] ?? { x: p.x, y: p.y };
+export function getRegionClusters(
+  coordinates: Record<number, { x: number; y: number }> = NEW_MAP_COORDINATES,
+): RegionCluster[] {
+  const coord = (p: Project) => coordinates[p.id] ?? { x: p.x, y: p.y };
   return REGION_IDS.map((id) => {
     const projects = PROJECTS.filter((p) => p.region === id);
     const region = REGIONS.find((r) => r.id === id)!;
