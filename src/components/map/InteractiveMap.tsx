@@ -17,6 +17,7 @@ import {
   type RegionId,
 } from "@/data/projects";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
+import { getMapV2RegionColor } from "@/data/map-v2-coordinates";
 import { useLang } from "@/contexts/lang-context";
 import { buttonVariants } from "@/components/ui/button";
 import { ProjectDetailLink } from "@/components/projects/ProjectDetailLink";
@@ -77,7 +78,9 @@ interface InteractiveMapProps {
   mapSrc?: string;
   mapDefault?: { w: number; h: number };
   coordinates?: Record<number, { x: number; y: number }>;
-  pinMode?: "number" | "label";
+  pinMode?: "number" | "label" | "gmap";
+  /** Use region-unified colors instead of per-project color (gmap preview) */
+  regionPinColors?: boolean;
 }
 
 export function InteractiveMap({
@@ -92,6 +95,7 @@ export function InteractiveMap({
   mapDefault = MAP_DEFAULT,
   coordinates = NEW_MAP_COORDINATES,
   pinMode = "number",
+  regionPinColors = false,
 }: InteractiveMapProps = {}) {
   const { t, lang } = useLang();
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -367,7 +371,7 @@ export function InteractiveMap({
 
   const onPointerDown = (e: React.PointerEvent) => {
     const target = e.target as HTMLElement;
-    if (target.closest(".map-hit-target, .map-label-pin, .map-float-controls, .map-project-popup, button, a, input")) {
+    if (target.closest(".map-hit-target, .map-gmap-tooltip, .map-label-pin, .map-float-controls, .map-project-popup, button, a, input")) {
       return;
     }
 
@@ -507,18 +511,27 @@ export function InteractiveMap({
             />
 
             <div className="absolute inset-0">
-              {searchFiltered.map((project) => (
+              {searchFiltered.map((project) => {
+                const pinColor = regionPinColors
+                  ? getMapV2RegionColor(project.region)
+                  : project.color;
+                const isGmap = pinMode === "gmap";
+                const isLabel = pinMode === "label";
+                const projectName = lang === "ar" ? project.nameAr : project.nameEn;
+
+                return (
                 <button
                   key={project.id}
                   type="button"
-                  aria-label={lang === "ar" ? project.nameAr : project.nameEn}
+                  aria-label={projectName}
                   onClick={(e) => {
                     e.stopPropagation();
                     selectProject(project);
                   }}
                   className={cn(
                     "map-hit-target absolute",
-                    pinMode === "label" && "map-hit-target--label",
+                    isLabel && "map-hit-target--label",
+                    isGmap && "map-hit-target--gmap",
                     activeId === project.id && "is-active",
                     activeId && activeId !== project.id && "is-dimmed",
                   )}
@@ -526,20 +539,40 @@ export function InteractiveMap({
                     {
                       left: `${project.x}%`,
                       top: `${project.y}%`,
-                      transform:
-                        pinMode === "label"
+                      transform: isGmap
+                        ? "translate(-50%, -100%)"
+                        : isLabel
                           ? "translate(0, -50%)"
                           : "translate(-50%, -50%)",
-                      ["--pin-color" as string]: project.color,
+                      ["--pin-color" as string]: pinColor,
                     } as React.CSSProperties
                   }
                 >
-                  {pinMode === "label" ? (
+                  {isGmap ? (
+                    <>
+                      <span className="map-gmap-pin" aria-hidden>
+                        <svg
+                          className="map-gmap-pin-shape"
+                          viewBox="0 0 28 40"
+                          width="28"
+                          height="40"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.268 21.732 0 14 0z"
+                            fill="currentColor"
+                          />
+                          <circle cx="14" cy="14" r="8" fill="white" fillOpacity="0.95" />
+                        </svg>
+                        <span className="map-gmap-pin-num">{project.id}</span>
+                      </span>
+                      <span className="map-gmap-tooltip">{projectName}</span>
+                    </>
+                  ) : isLabel ? (
                     <>
                       <span className="map-hit-dot" aria-hidden />
-                      <span className="map-hit-label">
-                        {lang === "ar" ? project.nameAr : project.nameEn}
-                      </span>
+                      <span className="map-hit-label">{projectName}</span>
                     </>
                   ) : (
                     <>
@@ -550,7 +583,8 @@ export function InteractiveMap({
                     </>
                   )}
                 </button>
-              ))}
+                );
+              })}
             </div>
           </div>
 
