@@ -505,7 +505,7 @@
 
 /* Pushpin markers — ball + needle (map preview v2, same colors/pulse as homepage) */
 .map-hit-target--pushpin {
-  width: 2rem;
+  width: 2.4rem;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -531,14 +531,15 @@
 
 .map-pushpin-head {
   position: relative;
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 2.2rem;
+  height: 2.2rem;
   flex-shrink: 0;
   z-index: 2;
 }
 
 .map-hit-target--pushpin .map-hit-core {
   inset: 0;
+  font-size: 0.68rem;
   background: radial-gradient(
     circle at 32% 28%,
     color-mix(in srgb, var(--pin-color, #c9a962) 20%, white) 0%,
@@ -548,17 +549,17 @@
 }
 
 .map-hit-target--pushpin .map-hit-ring {
-  inset: -5px;
+  inset: -6px;
 }
 
 .map-hit-target--pushpin.is-active .map-hit-ring {
-  inset: -7px;
+  inset: -8px;
 }
 
 .map-pushpin-stick {
   position: relative;
-  width: 2.5px;
-  height: 0.7rem;
+  width: 3px;
+  height: 0.85rem;
   margin-top: -1px;
   background: linear-gradient(180deg, #d4d4d4 0%, #a8a8a8 50%, #787878 100%);
   border-radius: 0 0 2px 2px;
