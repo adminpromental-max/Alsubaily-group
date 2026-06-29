@@ -10,13 +10,13 @@ export const MAP_V2_COORDINATES: Record<number, { x: number; y: number }> = {
   2: { x: 28, y: 64 },
   20: { x: 28, y: 67 },
   // Hail — onto حائل zone
-  3: { x: 29, y: 29 },
+  3: { x: 33.5, y: 29 },
   4: { x: 30, y: 32 },
   // Riyadh
-  5: { x: 40, y: 61 },
-  6: { x: 43, y: 62.5 },
+  5: { x: 43, y: 61 },
+  6: { x: 46, y: 62.5 },
   7: { x: 41.5, y: 63.5 },
-  8: { x: 41.5, y: 61.5 },
+  8: { x: 44.5, y: 61.5 },
   // Eastern
   9: { x: 62, y: 51 },
   10: { x: 59, y: 54 },
