@@ -1,12 +1,12 @@
 /**
- * Marker positions (% of map image) for new-map 2.png (1392×768).
+ * Marker positions (% of map image) for new-map3.png (2784×1536).
  * Pin needle tip anchors on the colored region blobs.
  */
-export const MAP_V2_SRC = encodeURI("/assets/new-map 2.png");
-export const MAP_V2_SIZE = { w: 1392, h: 768 };
+export const MAP_V2_SRC = "/assets/new-map3.png";
+export const MAP_V2_SIZE = { w: 2784, h: 1536 };
 
 export const MAP_V2_COORDINATES: Record<number, { x: number; y: number }> = {
-  // Mecca
+  // Mecca — western zone
   2: { x: 20.5, y: 64 },
   20: { x: 20.5, y: 67 },
   // Hail — tan northern blob
@@ -17,16 +17,16 @@ export const MAP_V2_COORDINATES: Record<number, { x: number; y: number }> = {
   6: { x: 35, y: 58.5 },
   7: { x: 37.5, y: 59.5 },
   8: { x: 33.5, y: 57.5 },
-  // Eastern — wider spread north/south across the region
-  9: { x: 44.5, y: 48 },
-  10: { x: 47, y: 50.5 },
-  11: { x: 49.5, y: 53 },
-  12: { x: 46.5, y: 56.5 },
-  13: { x: 45, y: 49.5 },
-  14: { x: 43.5, y: 46.5 },
-  15: { x: 48, y: 55.5 },
-  16: { x: 49, y: 48 },
-  17: { x: 44, y: 58.5 },
-  18: { x: 47.5, y: 59.5 },
-  19: { x: 46, y: 52 },
+  // Eastern — spread across the full grey eastern region (new-map3)
+  9: { x: 48, y: 44 },
+  10: { x: 52, y: 46 },
+  11: { x: 56, y: 48 },
+  12: { x: 58, y: 52 },
+  13: { x: 50, y: 45 },
+  14: { x: 46, y: 42 },
+  15: { x: 54, y: 50 },
+  16: { x: 60, y: 46 },
+  17: { x: 48, y: 58 },
+  18: { x: 56, y: 60 },
+  19: { x: 52, y: 54 },
 };
