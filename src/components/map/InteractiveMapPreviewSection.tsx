@@ -103,7 +103,6 @@ export function InteractiveMapPreviewSection() {
           mapDefault={MAP_V2_SIZE}
           coordinates={MAP_V2_COORDINATES}
           pinMode="gmap"
-          regionPinColors
         />
       </div>
     </section>

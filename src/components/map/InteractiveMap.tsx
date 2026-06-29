@@ -561,9 +561,16 @@ export function InteractiveMap({
                         >
                           <path
                             d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.268 21.732 0 14 0z"
-                            fill="currentColor"
+                            fill="#14110D"
                           />
-                          <circle cx="14" cy="14" r="8" fill="white" fillOpacity="0.95" />
+                          <circle
+                            cx="14"
+                            cy="14"
+                            r="8"
+                            fill="#1A1612"
+                            stroke="#C9A962"
+                            strokeWidth="1.25"
+                          />
                         </svg>
                         <span className="map-gmap-pin-num">{project.id}</span>
                       </span>
