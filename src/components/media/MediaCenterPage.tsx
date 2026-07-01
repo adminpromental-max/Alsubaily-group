@@ -14,10 +14,11 @@ import {
 import { useLang } from "@/contexts/lang-context";
 import { MediaArticleModal } from "@/components/media/MediaArticleModal";
 import {
-  getArticleMediaType,
   MEDIA_ARTICLES,
   MEDIA_CATEGORIES,
+  MEDIA_HERO_BANNER,
   type MediaArticle,
+  type MediaArticleLayout,
   type MediaCategoryId,
 } from "@/data/media-articles";
 import { cn } from "@/lib/utils";
@@ -39,11 +40,46 @@ function formatArticleDate(date: string, lang: string) {
   }).format(new Date(date));
 }
 
-function MediaTypeIcon({ article }: { article: MediaArticle }) {
-  const type = getArticleMediaType(article);
+function LayoutIcon({ layout }: { layout: MediaArticleLayout }) {
   const Icon =
-    type === "image-video" ? Layers : type === "video" ? Play : ImageIcon;
+    layout === "image-video" ? Layers : layout === "video-cover" ? Play : ImageIcon;
   return <Icon className="h-3.5 w-3.5" strokeWidth={1.5} />;
+}
+
+function CardCover({ article }: { article: MediaArticle }) {
+  if (article.layout === "video-cover" && article.videoUrl) {
+    return (
+      <video
+        src={article.videoUrl}
+        muted
+        loop
+        playsInline
+        autoPlay
+        preload="metadata"
+        poster={article.image}
+        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+    );
+  }
+
+  if (article.image) {
+    return (
+      <img
+        src={article.image}
+        alt=""
+        loading="lazy"
+        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+    );
+  }
+
+  return (
+    <div className="flex h-full min-h-[200px] items-center justify-center bg-gradient-to-br from-[#1A1612] via-[#2A2218] to-[#1A1612]">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#C9A962]/40 bg-[#C9A962]/15 text-[#C9A962]">
+        <Play className="h-7 w-7 fill-current" strokeWidth={1.5} />
+      </div>
+    </div>
+  );
 }
 
 function ArticleCard({
@@ -59,8 +95,6 @@ function ArticleCard({
   const category = MEDIA_CATEGORIES.find((c) => c.id === article.category);
   const title = lang === "ar" ? article.titleAr : article.titleEn;
   const excerpt = lang === "ar" ? article.excerptAr : article.excerptEn;
-  const mediaType = getArticleMediaType(article);
-  const hasVisual = Boolean(article.image || article.videoUrl);
 
   return (
     <article
@@ -81,25 +115,12 @@ function ArticleCard({
             featured ? "min-h-[240px] md:min-h-full" : "aspect-[16/10]",
           )}
         >
-          {article.image ? (
-            <img
-              src={article.image}
-              alt=""
-              loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-          ) : (
-            <div className="flex h-full min-h-[200px] items-center justify-center bg-gradient-to-br from-[#1A1612] via-[#2A2218] to-[#1A1612]">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#C9A962]/40 bg-[#C9A962]/15 text-[#C9A962]">
-                <Play className="h-7 w-7 fill-current" strokeWidth={1.5} />
-              </div>
-            </div>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C0A08]/80 via-[#0C0A08]/15 to-transparent" />
+          <CardCover article={article} />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C0A08]/80 via-[#0C0A08]/10 to-transparent" />
 
-          {mediaType === "video" && article.image && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white backdrop-blur-sm transition-transform duration-500 group-hover:scale-110">
+          {article.layout === "video-cover" && (
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white backdrop-blur-sm">
                 <Play className="h-6 w-6 fill-current" strokeWidth={1.5} />
               </div>
             </div>
@@ -114,7 +135,7 @@ function ArticleCard({
                 : ""}
             </span>
             <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-black/35 px-2.5 py-1 text-[10px] text-white backdrop-blur-sm">
-              <MediaTypeIcon article={article} />
+              <LayoutIcon layout={article.layout} />
             </span>
           </div>
         </div>
@@ -146,8 +167,6 @@ function ArticleCard({
           </span>
         </div>
       </button>
-
-      {!hasVisual && null}
     </article>
   );
 }
@@ -217,15 +236,17 @@ export function MediaCenterPage() {
     <>
       <section
         ref={heroRef}
-        className="relative overflow-hidden bg-[#0C0A08] px-6 pt-32 pb-16 md:px-8 md:pb-20"
+        className="media-hero-banner relative min-h-[340px] overflow-hidden px-6 pt-32 pb-14 md:min-h-[420px] md:px-8 md:pb-20"
       >
         <div
-          className="pointer-events-none absolute -end-24 top-0 h-80 w-80 rounded-full bg-[#C9A962]/10 blur-[120px]"
           aria-hidden
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url('${MEDIA_HERO_BANNER}')` }}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1612]/55 via-[#1A1612]/70 to-[#FAF8F4]" />
         <div
-          className="pointer-events-none absolute -start-16 bottom-0 h-64 w-64 rounded-full bg-[#8B4513]/10 blur-[100px]"
           aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(201,169,98,0.18),transparent_65%)]"
         />
 
         <div className="relative mx-auto max-w-7xl">
@@ -237,13 +258,13 @@ export function MediaCenterPage() {
           </p>
           <h1
             data-media-hero
-            className="mt-4 max-w-3xl font-heading text-4xl font-semibold leading-tight text-white md:text-6xl"
+            className="mt-4 max-w-3xl font-heading text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl"
           >
             {t("آخر الأخبار والتغطيات", "Latest News & Coverage")}
           </h1>
           <p
             data-media-hero
-            className="mt-5 max-w-2xl text-sm leading-relaxed text-white/70 md:text-base"
+            className="mt-5 max-w-2xl text-sm leading-relaxed text-white/80 md:text-base"
           >
             {t(
               "تابع أخبار مجموعة الشبيلي، تطورات المشاريع، التغطيات الإعلامية، والفعاليات — في مكان واحد.",
@@ -263,15 +284,15 @@ export function MediaCenterPage() {
               return (
                 <div
                   key={cat.id}
-                  className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm"
+                  className="rounded-2xl border border-white/15 bg-white/10 px-4 py-4 backdrop-blur-md"
                 >
-                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl border border-[#C9A962]/30 bg-[#C9A962]/10 text-[#C9A962]">
+                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl border border-[#C9A962]/35 bg-[#C9A962]/15 text-[#C9A962]">
                     <Icon className="h-4 w-4" strokeWidth={1.5} />
                   </div>
                   <p className="font-heading text-sm font-semibold text-white">
                     {lang === "ar" ? cat.nameAr : cat.nameEn}
                   </p>
-                  <p className="mt-1 text-xs text-white/50">
+                  <p className="mt-1 text-xs text-white/60">
                     {count} {t("مقال", "articles")}
                   </p>
                 </div>
@@ -317,10 +338,16 @@ export function MediaCenterPage() {
         <div className="mx-auto max-w-7xl">
           {filtered.length === 0 ? (
             <p className="py-20 text-center text-[#5C5348]">
-              {t("لا توجد مقالات في هذا القسم حالياً.", "No articles in this section yet.")}
+              {t(
+                "لا توجد مقالات في هذا القسم حالياً.",
+                "No articles in this section yet.",
+              )}
             </p>
           ) : (
-            <div ref={gridRef} className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div
+              ref={gridRef}
+              className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+            >
               {featured && (
                 <ArticleCard
                   article={featured}
