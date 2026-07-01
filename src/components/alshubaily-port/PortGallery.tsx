@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MapPin } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import { PORT_LOCATION } from "@/data/port-content";
+import { PORT_GALLERY, PORT_LOCATION } from "@/data/port-content";
 
 gsap.registerPlugin(ScrollTrigger);
 
