@@ -224,6 +224,6 @@ export const GEO_PROJECTS: GeoProject[] = [
     region: "eastern",
     lat: 26.4400,
     lng: 50.1620,
-    heroImage: "/assets/projects/Twin-Tower/Hero.jpg",
+    heroImage: encodeURI("/assets/projects/Ahshubaily-Port/Aerials  (13).png"),
   },
 ];

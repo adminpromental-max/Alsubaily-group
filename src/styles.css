@@ -6007,3 +6007,167 @@ body.has-custom-cursor button {
   }
 }
 
+/* ── AlShubaily Port immersive landing ─────────────────────── */
+.port-page {
+  overflow-x: clip;
+}
+
+.port-section {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .port-section {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+  }
+}
+
+.port-section--deep {
+  background: #0B1624;
+  border-top: 1px solid rgba(78, 205, 196, 0.1);
+}
+
+.port-section--darker {
+  background: #070E18;
+  border-top: 1px solid rgba(78, 205, 196, 0.08);
+}
+
+.port-section--light {
+  background: #EEF4F8;
+  border-top: 1px solid rgba(11, 22, 36, 0.06);
+}
+
+.port-section--last {
+  border-top: 1px solid rgba(78, 205, 196, 0.1);
+}
+
+.port-frame {
+  box-shadow:
+    0 0 40px rgba(78, 205, 196, 0.08),
+    0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.port-showcase-cinema {
+  box-shadow:
+    0 0 60px rgba(78, 205, 196, 0.12),
+    0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.port-cinema-scanline {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  opacity: 0.45;
+}
+
+.port-scroll-hint {
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.port-scroll-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, #4ECDC4, transparent);
+  animation: port-scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes port-scroll-pulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(0.8); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+.port-gallery-grid {
+  columns: 2;
+  column-gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .port-gallery-grid {
+    columns: 3;
+    column-gap: 1.25rem;
+  }
+}
+
+.port-gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .port-gallery-item {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.port-cinema-section {
+  background: #070E18;
+}
+
+.port-cinema-stage {
+  position: relative;
+  width: min(100%, 960px);
+  margin-inline: auto;
+}
+
+.port-cinema-bar {
+  height: 2px;
+  margin-inline: 10%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(78, 205, 196, 0.45),
+    transparent
+  );
+}
+
+.port-cinema-screen {
+  position: relative;
+  margin: 0.65rem 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  box-shadow:
+    0 0 80px rgba(78, 205, 196, 0.1),
+    0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.port-cinema-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #0B1624;
+}
+
+.port-cinema-screen .port-cinema-grain {
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+@media (min-width: 768px) {
+  .port-cinema-screen {
+    border-radius: 1rem;
+    margin: 0.85rem 0;
+  }
+}
+
+.port-cinema-caption {
+  padding: 1.25rem 1.5rem 1.75rem;
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+

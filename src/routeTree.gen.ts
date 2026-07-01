@@ -23,6 +23,7 @@ import { Route as ProjectsHailWalkwayRouteImport } from './routes/projects.hail-
 import { Route as ProjectsHailCornicheRouteImport } from './routes/projects.hail-corniche'
 import { Route as ProjectsDammamOlympicCityRouteImport } from './routes/projects.dammam-olympic-city'
 import { Route as ProjectsBeachHouseResortRouteImport } from './routes/projects.beach-house-resort'
+import { Route as ProjectsAlshubailyPortRouteImport } from './routes/projects.alshubaily-port'
 import { Route as ProjectsAlshubailyNewBeachRouteImport } from './routes/projects.alshubaily-new-beach'
 import { Route as ProjectsAlshubailyHighRiseRouteImport } from './routes/projects.alshubaily-high-rise'
 import { Route as ProjectsAlshubailyGrandMallRouteImport } from './routes/projects.alshubaily-grand-mall'
@@ -104,6 +105,11 @@ const ProjectsBeachHouseResortRoute =
     path: '/projects/beach-house-resort',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProjectsAlshubailyPortRoute = ProjectsAlshubailyPortRouteImport.update({
+  id: '/projects/alshubaily-port',
+  path: '/projects/alshubaily-port',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsAlshubailyNewBeachRoute =
   ProjectsAlshubailyNewBeachRouteImport.update({
     id: '/projects/alshubaily-new-beach',
@@ -164,6 +170,7 @@ export interface FileRoutesByFullPath {
   '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
+  '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
@@ -188,6 +195,7 @@ export interface FileRoutesByTo {
   '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
+  '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
@@ -213,6 +221,7 @@ export interface FileRoutesById {
   '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
+  '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
@@ -239,6 +248,7 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
     | '/projects/alshubaily-new-beach'
+    | '/projects/alshubaily-port'
     | '/projects/beach-house-resort'
     | '/projects/dammam-olympic-city'
     | '/projects/hail-corniche'
@@ -263,6 +273,7 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
     | '/projects/alshubaily-new-beach'
+    | '/projects/alshubaily-port'
     | '/projects/beach-house-resort'
     | '/projects/dammam-olympic-city'
     | '/projects/hail-corniche'
@@ -287,6 +298,7 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
     | '/projects/alshubaily-new-beach'
+    | '/projects/alshubaily-port'
     | '/projects/beach-house-resort'
     | '/projects/dammam-olympic-city'
     | '/projects/hail-corniche'
@@ -312,6 +324,7 @@ export interface RootRouteChildren {
   ProjectsAlshubailyGrandMallRoute: typeof ProjectsAlshubailyGrandMallRoute
   ProjectsAlshubailyHighRiseRoute: typeof ProjectsAlshubailyHighRiseRoute
   ProjectsAlshubailyNewBeachRoute: typeof ProjectsAlshubailyNewBeachRoute
+  ProjectsAlshubailyPortRoute: typeof ProjectsAlshubailyPortRoute
   ProjectsBeachHouseResortRoute: typeof ProjectsBeachHouseResortRoute
   ProjectsDammamOlympicCityRoute: typeof ProjectsDammamOlympicCityRoute
   ProjectsHailCornicheRoute: typeof ProjectsHailCornicheRoute
@@ -423,6 +436,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsBeachHouseResortRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/alshubaily-port': {
+      id: '/projects/alshubaily-port'
+      path: '/projects/alshubaily-port'
+      fullPath: '/projects/alshubaily-port'
+      preLoaderRoute: typeof ProjectsAlshubailyPortRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/alshubaily-new-beach': {
       id: '/projects/alshubaily-new-beach'
       path: '/projects/alshubaily-new-beach'
@@ -496,6 +516,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsAlshubailyGrandMallRoute: ProjectsAlshubailyGrandMallRoute,
   ProjectsAlshubailyHighRiseRoute: ProjectsAlshubailyHighRiseRoute,
   ProjectsAlshubailyNewBeachRoute: ProjectsAlshubailyNewBeachRoute,
+  ProjectsAlshubailyPortRoute: ProjectsAlshubailyPortRoute,
   ProjectsBeachHouseResortRoute: ProjectsBeachHouseResortRoute,
   ProjectsDammamOlympicCityRoute: ProjectsDammamOlympicCityRoute,
   ProjectsHailCornicheRoute: ProjectsHailCornicheRoute,

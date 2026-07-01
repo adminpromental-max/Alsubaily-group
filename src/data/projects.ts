@@ -1,4 +1,4 @@
-import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -277,12 +277,14 @@ export const PROJECTS: Project[] = [
       "A waterfront port development combining marina, retail, and residential spaces.",
     descriptionAr:
       "مشروع ميناء ساحلي يجمع بين المارينا والتجزئة والمساحات السكنية.",
-    heroImage: "/assets/projects/Twin-Tower/Hero.jpg",
+    heroImage: portAsset("Aerials  (13).png"),
     gallery: [
-      "/assets/projects/Twin-Tower/Hero.jpg",
-      "/assets/hero/Hero-1.jpg",
-      "/assets/hero/Hero-2.jpg",
-      "/assets/hero/Hero-1.jpg",
+      portAsset("Aerials  (13).png"),
+      portAsset("Aerials  (11).png"),
+      portAsset("Port (26).png"),
+      portAsset("Port (36).png"),
+      portAsset("Port (41).png"),
+      portAsset("Port (51).png"),
     ],
   },
   {

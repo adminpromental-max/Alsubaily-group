@@ -86,6 +86,12 @@ export function grandMallAsset(...parts: string[]) {
   return projectAsset(GRAND_MALL_DIR, parts.join("/"));
 }
 
+export const PORT_DIR = "Ahshubaily-Port";
+
+export function portAsset(file: string) {
+  return projectAsset(PORT_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

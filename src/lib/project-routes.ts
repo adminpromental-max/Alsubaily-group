@@ -11,6 +11,7 @@ export const DEDICATED_PROJECT_PATHS = {
   "al-zahraa": "/projects/al-zahraa",
   "alshubaily-new-beach": "/projects/alshubaily-new-beach",
   "alshubaily-grand-mall": "/projects/alshubaily-grand-mall",
+  "alshubaily-port": "/projects/alshubaily-port",
   "beach-house-resort": "/projects/beach-house-resort",
   "alshubaily-resort": "/projects/beach-house-resort",
 } as const;
