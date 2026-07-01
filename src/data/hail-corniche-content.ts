@@ -3,7 +3,7 @@ import { hailCornicheAsset } from "@/data/asset-paths";
 export const HAIL_CORNICHE_HERO_IMAGE = hailCornicheAsset("Hero-section.png");
 
 export const HAIL_CORNICHE_VIDEO_URL =
-  "https://res.cloudinary.com/dfzaghfsv/video/upload/v1782490740/%D9%83%D9%88%D8%B1%D9%86%D9%8A%D8%B4_%D8%A7%D9%84%D8%AD%D8%A7%D9%8A%D9%94%D9%84_vaojy3.mov";
+  "https://res.cloudinary.com/dfzaghfsv/video/upload/v1782929316/%D9%83%D9%88%D8%B1%D9%86%D9%8A%D8%B4-%D8%AD%D8%A7%D9%8A%D9%94%D9%84_wazcu8.mov";
 
 export const HAIL_CORNICHE_HERO = {
   eyebrowAr: "حائل · كورنيش بري",
