@@ -1,32 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useLang } from "@/contexts/lang-context";
+import { MediaCenterPage } from "@/components/media/MediaCenterPage";
 
 export const Route = createFileRoute("/media")({
   head: () => ({
-    meta: [{ title: "المركز الإعلامي | مجموعة الشبيلي" }],
+    meta: [
+      {
+        title: "المركز الإعلامي — مجموعة الشبيلي | Media Center",
+      },
+      {
+        name: "description",
+        content:
+          "أخبار مجموعة الشبيلي، تطورات المشاريع، التغطية الإعلامية، والمناسبات والفعاليات.",
+      },
+      {
+        property: "og:title",
+        content: "Media Center — AlShubaily Group",
+      },
+      {
+        property: "og:description",
+        content:
+          "Company news, project updates, media coverage, and events from AlShubaily Group.",
+      },
+    ],
   }),
-  component: MediaPage,
+  component: MediaRoutePage,
 });
 
-function MediaPage() {
-  const { t } = useLang();
-
+function MediaRoutePage() {
   return (
-    <main className="min-h-screen bg-stone-cream px-6 pt-32 pb-20 md:px-8">
-      <div className="mx-auto max-w-3xl">
-        <p className="text-[11px] uppercase tracking-[0.4em] text-[#9A7B3A]">
-          {t("المركز الإعلامي", "Media Center")}
-        </p>
-        <h1 className="mt-3 text-3xl font-semibold text-[#1A1612] md:text-5xl">
-          {t("المركز الإعلامي", "Media Center")}
-        </h1>
-        <p className="mt-5 text-sm leading-8 text-[#5C5348] md:text-base">
-          {t(
-            "هذه الصفحة قيد التطوير — سيتم إضافة الأخبار والتغطيات الإعلامية قريباً.",
-            "This page is under development — news and media coverage will be added soon.",
-          )}
-        </p>
-      </div>
+    <main className="min-h-screen bg-[#FAF8F4]">
+      <MediaCenterPage />
     </main>
   );
 }
