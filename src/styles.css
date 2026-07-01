@@ -6082,108 +6082,79 @@ body.has-custom-cursor button {
   50% { opacity: 1; transform: scaleY(1); }
 }
 
-/* Gallery slider */
-.port-gallery-slider {
-  position: relative;
+/* Gallery — card deck (homepage style) */
+.port-gallery-deck {
+  background: #eaf4f9;
+  border-top: 1px solid rgba(46, 143, 168, 0.1);
 }
 
-.port-gallery-viewport {
-  box-shadow:
-    0 8px 32px rgba(46, 143, 168, 0.15),
-    0 2px 8px rgba(26, 74, 110, 0.06);
-}
-
-.port-gallery-track {
-  will-change: transform;
-}
-
-.port-gallery-nav {
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  display: flex;
-  height: 2.75rem;
-  width: 2.75rem;
-  -webkit-tap-highlight-color: transparent;
-  translate: 0 -50%;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.92);
-  color: #1a4a6e;
-  box-shadow: 0 4px 16px rgba(26, 74, 110, 0.12);
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.port-gallery-nav:hover {
+.port-deck-card {
+  border: 1px solid rgba(255, 255, 255, 0.65);
   background: #fff;
-  scale: 1.05;
+  box-shadow: 0 24px 60px rgba(26, 74, 110, 0.18);
 }
 
-.port-gallery-nav--prev {
-  inset-inline-start: 0.75rem;
-}
-
-.port-gallery-nav--next {
-  inset-inline-end: 0.75rem;
+/* Cinematic full-width video banner */
+.port-cinema-banner {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: linear-gradient(180deg, #f7fbfd 0%, #dceef7 100%);
+  border-top: 1px solid rgba(46, 143, 168, 0.1);
 }
 
 @media (min-width: 768px) {
-  .port-gallery-nav {
-    height: 3rem;
-    width: 3rem;
-  }
-
-  .port-gallery-nav--prev {
-    inset-inline-start: 1.25rem;
-  }
-
-  .port-gallery-nav--next {
-    inset-inline-end: 1.25rem;
+  .port-cinema-banner {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }
 
-.port-gallery-thumb {
-  -webkit-tap-highlight-color: transparent;
+.port-cinema-banner-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-/* Video section — side panel */
-.port-video-card {
-  overflow: hidden;
-  border-radius: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  background: #fff;
-  box-shadow:
-    0 12px 40px rgba(46, 143, 168, 0.18),
-    0 4px 12px rgba(26, 74, 110, 0.08);
+.port-cinema-banner-bar {
+  height: 10px;
+  background: linear-gradient(180deg, #1a4a6e 0%, #0d2a40 100%);
 }
 
-.port-video-player {
+.port-cinema-banner-bar--top {
+  box-shadow: 0 2px 12px rgba(26, 74, 110, 0.2);
+}
+
+.port-cinema-banner-bar--bottom {
+  background: linear-gradient(0deg, #1a4a6e 0%, #0d2a40 100%);
+}
+
+.port-cinema-banner-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  background: #0d2a40;
+}
+
+@media (min-width: 768px) {
+  .port-cinema-banner-screen {
+    aspect-ratio: 2.35 / 1;
+    max-height: min(56vw, 520px);
+    margin-inline: auto;
+  }
+}
+
+.port-cinema-banner-video {
   display: block;
-  aspect-ratio: 16 / 10;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  background: #c5e3f0;
+  background: #0d2a40;
 }
 
-.port-wave-top,
-.port-wave-bottom {
-  position: absolute;
-  inset-inline: 0;
-  height: 48px;
-  pointer-events: none;
-  background-repeat: repeat-x;
-  background-size: 1200px 48px;
-  opacity: 0.55;
-}
-
-.port-wave-top {
-  top: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath fill='%23EAF4F9' d='M0 24c150-16 300 16 450 0s300-16 450 0 300 16 450 0v24H0z'/%3E%3C/svg%3E");
-}
-
-.port-wave-bottom {
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath fill='%23F7FBFD' d='M0 24c150 16 300-16 450 0s300 16 450 0 300-16 450 0v24H0z'/%3E%3C/svg%3E");
+.port-cinema-banner-grain {
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
 }
 
