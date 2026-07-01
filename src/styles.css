@@ -6010,6 +6010,7 @@ body.has-custom-cursor button {
 /* ── AlShubaily Port immersive landing ─────────────────────── */
 .port-page {
   overflow-x: clip;
+  background: #eaf4f9;
 }
 
 .port-section {
@@ -6025,46 +6026,42 @@ body.has-custom-cursor button {
   }
 }
 
-.port-section--deep {
-  background: #0B1624;
-  border-top: 1px solid rgba(78, 205, 196, 0.1);
+.port-section--sky {
+  background: #eaf4f9;
+  border-top: 1px solid rgba(46, 143, 168, 0.1);
 }
 
-.port-section--darker {
-  background: #070E18;
-  border-top: 1px solid rgba(78, 205, 196, 0.08);
+.port-section--white {
+  background: #f7fbfd;
+  border-top: 1px solid rgba(46, 143, 168, 0.08);
+}
+
+.port-section--wave {
+  background: linear-gradient(180deg, #dceef7 0%, #c5e3f0 50%, #dceef7 100%);
+  border-top: 1px solid rgba(46, 143, 168, 0.12);
 }
 
 .port-section--light {
-  background: #EEF4F8;
-  border-top: 1px solid rgba(11, 22, 36, 0.06);
+  background: #f7fbfd;
+  border-top: 1px solid rgba(26, 74, 110, 0.06);
 }
 
 .port-section--last {
-  border-top: 1px solid rgba(78, 205, 196, 0.1);
+  border-top: 1px solid rgba(46, 143, 168, 0.1);
 }
 
 .port-frame {
   box-shadow:
-    0 0 40px rgba(78, 205, 196, 0.08),
-    0 20px 50px rgba(0, 0, 0, 0.35);
+    0 4px 24px rgba(46, 143, 168, 0.12),
+    0 12px 40px rgba(26, 74, 110, 0.08);
 }
 
-.port-showcase-cinema {
-  box-shadow:
-    0 0 60px rgba(78, 205, 196, 0.12),
-    0 24px 60px rgba(0, 0, 0, 0.5);
+.port-showcase-editorial {
+  box-shadow: 0 16px 48px rgba(26, 74, 110, 0.12);
 }
 
-.port-cinema-scanline {
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.03) 2px,
-    rgba(0, 0, 0, 0.03) 4px
-  );
-  opacity: 0.45;
+.port-showcase-pick {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .port-scroll-hint {
@@ -6076,7 +6073,7 @@ body.has-custom-cursor button {
   display: block;
   width: 1px;
   height: 48px;
-  background: linear-gradient(to bottom, #4ECDC4, transparent);
+  background: linear-gradient(to bottom, #fff, transparent);
   animation: port-scroll-pulse 2s ease-in-out infinite;
 }
 
@@ -6085,89 +6082,108 @@ body.has-custom-cursor button {
   50% { opacity: 1; transform: scaleY(1); }
 }
 
-.port-gallery-grid {
-  columns: 2;
-  column-gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .port-gallery-grid {
-    columns: 3;
-    column-gap: 1.25rem;
-  }
-}
-
-.port-gallery-item {
-  break-inside: avoid;
-  margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-  .port-gallery-item {
-    margin-bottom: 1.25rem;
-  }
-}
-
-.port-cinema-section {
-  background: #070E18;
-}
-
-.port-cinema-stage {
+/* Gallery slider */
+.port-gallery-slider {
   position: relative;
-  width: min(100%, 960px);
-  margin-inline: auto;
 }
 
-.port-cinema-bar {
-  height: 2px;
-  margin-inline: 10%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(78, 205, 196, 0.45),
-    transparent
-  );
-}
-
-.port-cinema-screen {
-  position: relative;
-  margin: 0.65rem 0;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(78, 205, 196, 0.2);
+.port-gallery-viewport {
   box-shadow:
-    0 0 80px rgba(78, 205, 196, 0.1),
-    0 24px 60px rgba(0, 0, 0, 0.55);
+    0 8px 32px rgba(46, 143, 168, 0.15),
+    0 2px 8px rgba(26, 74, 110, 0.06);
 }
 
-.port-cinema-video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: #0B1624;
+.port-gallery-track {
+  will-change: transform;
 }
 
-.port-cinema-screen .port-cinema-grain {
-  opacity: 0.09;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
+.port-gallery-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  -webkit-tap-highlight-color: transparent;
+  translate: 0 -50%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a4a6e;
+  box-shadow: 0 4px 16px rgba(26, 74, 110, 0.12);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.port-gallery-nav:hover {
+  background: #fff;
+  scale: 1.05;
+}
+
+.port-gallery-nav--prev {
+  inset-inline-start: 0.75rem;
+}
+
+.port-gallery-nav--next {
+  inset-inline-end: 0.75rem;
 }
 
 @media (min-width: 768px) {
-  .port-cinema-screen {
-    border-radius: 1rem;
-    margin: 0.85rem 0;
+  .port-gallery-nav {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .port-gallery-nav--prev {
+    inset-inline-start: 1.25rem;
+  }
+
+  .port-gallery-nav--next {
+    inset-inline-end: 1.25rem;
   }
 }
 
-.port-cinema-caption {
-  padding: 1.25rem 1.5rem 1.75rem;
-  text-align: center;
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+.port-gallery-thumb {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Video section — side panel */
+.port-video-card {
+  overflow: hidden;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: #fff;
+  box-shadow:
+    0 12px 40px rgba(46, 143, 168, 0.18),
+    0 4px 12px rgba(26, 74, 110, 0.08);
+}
+
+.port-video-player {
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #c5e3f0;
+}
+
+.port-wave-top,
+.port-wave-bottom {
+  position: absolute;
+  inset-inline: 0;
+  height: 48px;
+  pointer-events: none;
+  background-repeat: repeat-x;
+  background-size: 1200px 48px;
+  opacity: 0.55;
+}
+
+.port-wave-top {
+  top: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath fill='%23EAF4F9' d='M0 24c150-16 300 16 450 0s300-16 450 0 300 16 450 0v24H0z'/%3E%3C/svg%3E");
+}
+
+.port-wave-bottom {
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath fill='%23F7FBFD' d='M0 24c150 16 300-16 450 0s300 16 450 0 300-16 450 0v24H0z'/%3E%3C/svg%3E");
 }
 

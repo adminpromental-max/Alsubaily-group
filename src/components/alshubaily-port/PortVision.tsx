@@ -29,7 +29,7 @@ export function PortVision() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="port-section port-section--deep">
+    <section ref={sectionRef} className="port-section port-section--sky">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 md:grid-cols-2 md:gap-14 md:px-8">
         <div data-vision-reveal className="relative">
           <div className="port-frame overflow-hidden rounded-2xl md:rounded-3xl">
@@ -42,7 +42,7 @@ export function PortVision() {
             />
           </div>
           <div
-            className="pointer-events-none absolute -inset-3 rounded-[1.75rem] border border-[#4ECDC4]/20 md:-inset-4 md:rounded-[2rem]"
+            className="pointer-events-none absolute -inset-3 rounded-[1.75rem] border border-[#2E8FA8]/25 md:-inset-4 md:rounded-[2rem]"
             aria-hidden
           />
         </div>
@@ -50,19 +50,19 @@ export function PortVision() {
         <div>
           <p
             data-vision-reveal
-            className="text-xs font-medium uppercase tracking-[0.35em] text-[#4ECDC4]"
+            className="text-xs font-medium uppercase tracking-[0.35em] text-[#2E8FA8]"
           >
             {t("الشبيلي بورت", "AlShubaily Port")}
           </p>
           <h2
             data-vision-reveal
-            className="font-heading mt-2 text-3xl font-bold text-white md:text-4xl"
+            className="font-heading mt-2 text-3xl font-bold text-[#1A4A6E] md:text-4xl"
           >
             {t(PORT_VISION.titleAr, PORT_VISION.titleEn)}
           </h2>
           <p
             data-vision-reveal
-            className="mt-5 text-sm leading-relaxed text-white/75 md:text-base"
+            className="mt-5 text-sm leading-relaxed text-[#3D6B8A] md:text-base"
           >
             {t(PORT_VISION.bodyAr, PORT_VISION.bodyEn)}
           </p>
@@ -72,13 +72,13 @@ export function PortVision() {
               <li
                 key={item.labelEn}
                 data-vision-reveal
-                className="flex gap-4 border-s-2 border-[#4ECDC4]/40 ps-4"
+                className="flex gap-4 border-s-2 border-[#38B2AA]/50 ps-4"
               >
                 <div>
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-sm font-semibold text-[#1A4A6E]">
                     {t(item.labelAr, item.labelEn)}
                   </p>
-                  <p className="mt-0.5 text-xs text-white/55">
+                  <p className="mt-0.5 text-xs text-[#5A8499]">
                     {t(item.descAr, item.descEn)}
                   </p>
                 </div>

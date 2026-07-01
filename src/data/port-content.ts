@@ -3,8 +3,10 @@ import { portAsset } from "@/data/asset-paths";
 export const PORT_VIDEO_URL =
   "https://res.cloudinary.com/dfzaghfsv/video/upload/v1782936265/Alshubaily-Port_s7ggqr.mov";
 
-export const PORT_HERO_POSTER = portAsset("Aerials  (13).png");
-export const PORT_VISION_IMAGE = portAsset("Aerials  (11).png");
+export const PORT_HERO_IMAGE = portAsset("Aerials  (11).png");
+/** @deprecated use PORT_HERO_IMAGE */
+export const PORT_HERO_POSTER = PORT_HERO_IMAGE;
+export const PORT_VISION_IMAGE = portAsset("Aerials  (13).png");
 export const PORT_CTA_BG = portAsset("Port (53).png");
 
 export const PORT_HERO_COPY = {

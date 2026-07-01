@@ -7,7 +7,7 @@ import { PortHero } from "@/components/alshubaily-port/PortHero";
 import { PortShowcase } from "@/components/alshubaily-port/PortShowcase";
 import { PortStats } from "@/components/alshubaily-port/PortStats";
 import { PortVision } from "@/components/alshubaily-port/PortVision";
-import { PORT_HERO_POSTER } from "@/data/port-content";
+import { PORT_HERO_IMAGE } from "@/data/port-content";
 
 export const Route = createFileRoute("/projects/alshubaily-port")({
   head: () => ({
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/projects/alshubaily-port")({
       },
       {
         property: "og:image",
-        content: PORT_HERO_POSTER,
+        content: PORT_HERO_IMAGE,
       },
     ],
   }),
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/projects/alshubaily-port")({
 
 function AlshubailyPortPage() {
   return (
-    <main className="port-page min-h-screen bg-[#0B1624]">
+    <main className="port-page min-h-screen bg-[#EAF4F9]">
       <PortHero />
       <PortStats />
       <PortVision />

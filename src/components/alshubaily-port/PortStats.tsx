@@ -47,8 +47,8 @@ export function PortStats() {
   }, []);
 
   return (
-    <section className="port-stats-strip relative z-[4] border-y border-[#4ECDC4]/15 bg-[#0B1624]/95 backdrop-blur-md">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-[#4ECDC4]/10 px-4 py-6 md:grid-cols-5 md:px-8 md:py-8">
+    <section className="port-stats-strip relative z-[4] border-y border-[#2E8FA8]/12 bg-white/90 backdrop-blur-md">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-[#2E8FA8]/10 px-4 py-6 md:grid-cols-5 md:px-8 md:py-8">
         {PORT_STATS.map((stat: PortStat, i) => {
           const Icon = STAT_ICONS[i] ?? Waves;
           const suffix = stat.suffixAr
@@ -57,13 +57,13 @@ export function PortStats() {
           return (
             <div
               key={stat.labelEn}
-              className="flex flex-col items-center bg-[#0B1624] px-2 py-2 text-center md:px-3"
+              className="flex flex-col items-center bg-white px-2 py-2 text-center md:px-3"
             >
-              <Icon className="mb-2 h-4 w-4 text-[#4ECDC4]/80" strokeWidth={1.5} />
-              <p className="text-base font-bold text-white md:text-xl">
+              <Icon className="mb-2 h-4 w-4 text-[#2E8FA8]" strokeWidth={1.5} />
+              <p className="text-base font-bold text-[#1A4A6E] md:text-xl">
                 <CountUp target={stat.value} suffix={suffix} active={active} />
               </p>
-              <p className="mt-1 text-[10px] text-white/55 md:text-xs">
+              <p className="mt-1 text-[10px] text-[#5A8499] md:text-xs">
                 {t(stat.labelAr, stat.labelEn)}
               </p>
             </div>

@@ -277,9 +277,9 @@ export const PROJECTS: Project[] = [
       "A waterfront port development combining marina, retail, and residential spaces.",
     descriptionAr:
       "مشروع ميناء ساحلي يجمع بين المارينا والتجزئة والمساحات السكنية.",
-    heroImage: portAsset("Aerials  (13).png"),
+    heroImage: portAsset("Aerials  (11).png"),
     gallery: [
-      portAsset("Aerials  (13).png"),
+      portAsset("Aerials  (11).png"),
       portAsset("Aerials  (11).png"),
       portAsset("Port (26).png"),
       portAsset("Port (36).png"),

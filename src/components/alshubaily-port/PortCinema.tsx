@@ -1,18 +1,16 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Play } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import {
-  PORT_HERO_POSTER,
-  PORT_GALLERY,
-  PORT_VIDEO_URL,
-} from "@/data/port-content";
+import { PORT_HERO_IMAGE, PORT_VIDEO_URL } from "@/data/port-content";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function PortCinema() {
   const { t } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -20,89 +18,60 @@ export function PortCinema() {
 
     gsap.fromTo(
       el.querySelectorAll<HTMLElement>("[data-video-reveal]"),
-      { y: 40, opacity: 0 },
+      { y: 32, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 0.9,
         ease: "power3.out",
-        stagger: 0.12,
-        scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        stagger: 0.1,
+        scrollTrigger: { trigger: el, start: "top 85%", once: true },
       },
     );
   }, []);
 
-  useEffect(() => {
-    const v = sectionRef.current?.querySelector("video");
-    if (!v) return;
-    v.play().catch(() => {});
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="port-cinema-section relative overflow-hidden"
-    >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_45%,rgba(78,205,196,0.1),transparent_68%)]"
-      />
+    <section ref={sectionRef} className="port-section port-section--wave relative overflow-hidden">
+      <div className="port-wave-top" aria-hidden />
 
-      <div
-        data-video-reveal
-        className="relative border-b border-[#4ECDC4]/15 px-6 py-10 text-center md:py-12"
-      >
-        <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#4ECDC4]">
-          {t("تجربة سينمائية", "Cinematic Experience")}
-        </p>
-        <h2 className="font-heading mt-2 text-2xl font-bold text-white md:text-3xl">
-          {t("جولة في الشبيلي بورت", "Tour AlShubaily Port")}
-        </h2>
-        <p className="mx-auto mt-2 max-w-md text-sm text-white/55">
-          {t(
-            "شاهد رؤية المشروع في فيلم تعريفي فاخر",
-            "Experience the project vision in a premium showcase film",
-          )}
-        </p>
-      </div>
-
-      <div
-        data-video-reveal
-        className="relative px-4 pb-2 pt-2 md:px-8 md:pb-4 md:pt-4"
-      >
-        <div className="port-cinema-stage">
-          <div className="port-cinema-bar" aria-hidden />
-
-          <div className="port-cinema-screen">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              className="port-cinema-video"
-              poster={PORT_HERO_POSTER}
-            >
-              <source src={PORT_VIDEO_URL} type="video/quicktime" />
-              <source src={PORT_VIDEO_URL} type="video/mp4" />
-            </video>
-            <div
-              className="port-cinema-grain pointer-events-none absolute inset-0 mix-blend-overlay"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-white/[0.06]"
-              aria-hidden
-            />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 md:grid-cols-2 md:gap-14 md:px-8">
+        <div data-video-reveal>
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#2E8FA8]">
+            {t("فيلم تعريفي", "Showcase Film")}
+          </p>
+          <h2 className="font-heading mt-2 text-2xl font-bold text-[#1A4A6E] md:text-3xl">
+            {t("جولة في الشبيلي بورت", "Tour AlShubaily Port")}
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-[#3D6B8A] md:text-base">
+            {t(
+              "استكشف رؤية المشروع في فيلم يعرّف بالوجهة الساحلية — المارينا، الأبراج، والممشى في تجربة بصرية واحدة.",
+              "Explore the project vision in a film introducing the coastal destination — marina, towers, and promenade in one visual journey.",
+            )}
+          </p>
+          <div className="mt-6 flex items-center gap-3 text-xs text-[#5A8499]">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#2E8FA8]/15 text-[#2E8FA8]">
+              <Play className="h-3.5 w-3.5 fill-current" />
+            </span>
+            {t("اضغط للتشغيل · جولة سينمائية", "Tap to play · Cinematic tour")}
           </div>
-
-          <div className="port-cinema-bar" aria-hidden />
         </div>
 
-        <p className="port-cinema-caption">
-          {t("الشبيلي بورت — فيلم تعريفي", "AlShubaily Port — Showcase Film")}
-        </p>
+        <div data-video-reveal className="port-video-card">
+          <video
+            ref={videoRef}
+            controls
+            playsInline
+            preload="metadata"
+            poster={PORT_HERO_IMAGE}
+            className="port-video-player w-full"
+          >
+            <source src={PORT_VIDEO_URL} type="video/quicktime" />
+            <source src={PORT_VIDEO_URL} type="video/mp4" />
+          </video>
+        </div>
       </div>
+
+      <div className="port-wave-bottom" aria-hidden />
     </section>
   );
 }

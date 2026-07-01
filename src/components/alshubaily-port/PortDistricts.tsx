@@ -33,10 +33,10 @@ export function PortDistricts() {
     <section ref={sectionRef} className="port-section port-section--light">
       <div className="mx-auto max-w-6xl px-6 md:px-8">
         <div data-district-reveal className="mb-10 text-center md:mb-14">
-          <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#1E4D6B]">
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#2E8FA8]">
             {t("استكشف المشروع", "Explore the Project")}
           </p>
-          <h2 className="font-heading mt-2 text-3xl font-bold text-[#0B1624] md:text-4xl">
+          <h2 className="font-heading mt-2 text-3xl font-bold text-[#1A4A6E] md:text-4xl">
             {t("مناطق الشبيلي بورت", "AlShubaily Port Districts")}
           </h2>
         </div>
@@ -49,8 +49,8 @@ export function PortDistricts() {
               className={cn(
                 "rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all md:text-sm",
                 active === i
-                  ? "bg-[#0B1624] text-[#4ECDC4]"
-                  : "bg-[#0B1624]/8 text-[#1E4D6B] hover:bg-[#0B1624]/12",
+                  ? "bg-[#2E8FA8] text-white"
+                  : "bg-[#2E8FA8]/10 text-[#1A4A6E] hover:bg-[#2E8FA8]/18",
               )}
               onClick={() => setActive(i)}
             >
@@ -80,13 +80,13 @@ export function PortDistricts() {
           </div>
 
           <div data-district-reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#1E4D6B]">
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#2E8FA8]">
               {t(PORT_DISTRICTS[active].eyebrowAr, PORT_DISTRICTS[active].eyebrowEn)}
             </p>
-            <h3 className="font-heading mt-2 text-2xl font-bold text-[#0B1624] md:text-3xl">
+            <h3 className="font-heading mt-2 text-2xl font-bold text-[#1A4A6E] md:text-3xl">
               {t(PORT_DISTRICTS[active].titleAr, PORT_DISTRICTS[active].titleEn)}
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-[#3D5266] md:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-[#3D6B8A] md:text-base">
               {t(PORT_DISTRICTS[active].bodyAr, PORT_DISTRICTS[active].bodyEn)}
             </p>
           </div>
