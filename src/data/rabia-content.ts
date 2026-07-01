@@ -36,6 +36,11 @@ export const RABIA_STATS: RabiaStat[] = [
     labelAr: "مسجد مركزي كبير",
     labelEn: "Grand Central Mosque",
   },
+  {
+    value: 257,
+    labelAr: "محل تجاري",
+    labelEn: "Commercial Stores",
+  },
 ];
 
 export const RABIA_HERO = {
@@ -52,18 +57,10 @@ export const RABIA_HERO = {
 export const RABIA_INTRO = {
   eyebrowAr: "رؤية المشروع",
   eyebrowEn: "Project Vision",
-  titleAr: "حيث يلتقي التراث بالفخامة",
-  titleEn: "Where Heritage Meets Grandeur",
+  titleAr: "حيث يلتقي التراث بالفخامة والتميز",
+  titleEn: "Where Heritage Meets Grandeur & Excellence",
   quoteAr: "مدينة داخل المدينة — على مقربة من قلب الإسلام",
   quoteEn: "A city within a city — steps away from the heart of Islam",
-  leadAr:
-    "الشبيلي وأهل البيت مشروع متكامل تتشابك فيه أبراج العصر الحديثة مع التصميم الإسلامي الكلاسيكي الأصيل، ليخلق وجهةً لا مثيل لها على أرض المقدسات.",
-  leadEn:
-    "AlShubaily & Ahl al-Bayt is an integrated development where modern towers intertwine with authentic classical Islamic design, creating an unparalleled destination on sacred ground.",
-  bodyAr:
-    "يمتد المشروع على مساحة 230,000 م² ليضم ثلاثة أبراج شاهقة بواجهات زجاجية وتيجان إسلامية ذهبية، ومسجداً مركزياً كبيراً بقبة وصومعتين، وأحياءً تجارية وضيافية بطابع عمراني موروث، وساحات عامة بديعة تؤطرها المشاة والنباتات.",
-  bodyEn:
-    "Spanning 230,000 m², the project includes three soaring towers with glass facades and golden Islamic crowns, a grand central mosque with a dome and twin minarets, heritage-styled hospitality and retail districts, and beautifully landscaped public squares.",
 };
 
 export type RabiaIntroHighlight = {

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import gsap from "gsap";
-import { Building2, Compass, MapPin, MoonStar } from "lucide-react";
+import { Building2, Compass, MapPin, MoonStar, Store } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
 import { rabiaAsset } from "@/data/asset-paths";
 import {
@@ -12,7 +12,7 @@ import {
 } from "@/data/rabia-content";
 import { cn } from "@/lib/utils";
 
-const STAT_ICONS = [Building2, MoonStar, MapPin, Compass] as const;
+const STAT_ICONS = [Building2, MoonStar, MapPin, Compass, Store] as const;
 
 function CountUp({
   target,
@@ -74,7 +74,7 @@ function RabiaHeroStats() {
   return (
     <div
       ref={ref}
-      className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:mt-10 md:grid-cols-4 md:gap-5"
+      className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:mt-10 md:grid-cols-3 lg:grid-cols-5 md:gap-4"
     >
       {RABIA_STATS.map((stat: RabiaStat, i) => {
         const Icon = STAT_ICONS[i] ?? Building2;
