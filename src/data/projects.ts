@@ -1,4 +1,4 @@
-import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -111,8 +111,12 @@ export const PROJECTS: Project[] = [
     descriptionEn:
       "An elegant pedestrian walkway connecting key destinations in Hail region.",
     descriptionAr: "ممشى راقٍ يربط بين أهم الوجهات في منطقة حائل.",
-    heroImage: "/assets/hero/Hero-2.jpg",
-    gallery: DEFAULT_GALLERY,
+    heroImage: hailWalkwayAsset("6.jpeg"),
+    gallery: [
+      hailWalkwayAsset("1.jpeg"),
+      hailWalkwayAsset("6.jpeg"),
+      hailWalkwayAsset("10.jpeg"),
+    ],
   },
   {
     id: 5,

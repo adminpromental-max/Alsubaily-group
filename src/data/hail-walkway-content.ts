@@ -20,13 +20,6 @@ export const HAIL_WALKWAY_STATS: WalkwayStat[] = [
     labelEn: "Total Area",
   },
   {
-    value: 350,
-    suffixAr: "+",
-    suffixEn: "+",
-    labelAr: "عدد المستثمرين",
-    labelEn: "Investors",
-  },
-  {
     value: 45,
     suffixAr: "+",
     suffixEn: "+",
@@ -116,4 +109,4 @@ export const HAIL_WALKWAY_GALLERY: WalkwayGallerySlide[] = GALLERY_FILES.map(
   }),
 );
 
-export const HAIL_WALKWAY_HERO_IMAGE = hailWalkwayAsset("2.jpeg");
+export const HAIL_WALKWAY_HERO_IMAGE = hailWalkwayAsset("6.jpeg");

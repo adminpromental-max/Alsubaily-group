@@ -126,7 +126,7 @@ export const GEO_PROJECTS: GeoProject[] = [
     region: "hail",
     lat: 27.5380,
     lng: 41.7100,
-    heroImage: "/assets/hero/Hero-3.jpg",
+    heroImage: encodeURI("/assets/gallery-Hail-walkaway/6.jpeg"),
   },
   // Riyadh projects
   {

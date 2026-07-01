@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Building2, ShoppingBag, Store, Users } from "lucide-react";
+import { Building2, ShoppingBag, Store } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
 import {
   HAIL_WALKWAY_STATS,
@@ -10,7 +10,7 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const STAT_ICONS = [Building2, Users, Store, ShoppingBag] as const;
+const STAT_ICONS = [Building2, Store, ShoppingBag] as const;
 
 function CountUp({
   target,
@@ -76,7 +76,7 @@ export function HailWalkwayStats() {
     <section className="relative bg-[#FAF8F4] py-10 md:py-14">
       <div
         ref={ref}
-        className="mx-auto grid max-w-4xl grid-cols-2 gap-3 px-6 sm:gap-4 md:gap-5 md:px-8"
+        className="mx-auto grid max-w-4xl grid-cols-1 gap-3 px-6 sm:grid-cols-3 sm:gap-4 md:px-8"
       >
         {HAIL_WALKWAY_STATS.map((stat: WalkwayStat, i) => {
           const Icon = STAT_ICONS[i] ?? Building2;
