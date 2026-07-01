@@ -2,6 +2,7 @@ import { projectTypeAsset } from "@/data/asset-paths";
 
 export type ProjectCategoryId =
   | "residential"
+  | "neighborhoods"
   | "commercial"
   | "tourism"
   | "office";
@@ -55,6 +56,14 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     bioAr: "أكثر من مجرد سكن؛ مجتمعات سكنية متكاملة تمنحك الخصوصية والرفاهية التي تستحقها.",
     bioEn: "More than housing — integrated communities offering the privacy and luxury you deserve.",
     image: projectTypeAsset("سكني.jpeg"),
+  },
+  {
+    id: "neighborhoods",
+    nameAr: "أحياء سكنية",
+    nameEn: "Residential Neighborhoods",
+    bioAr: "نخطط وننفّذ أحياء سكنية متكاملة تجمع بين التصميم العمراني الراقي وجودة الحياة.",
+    bioEn: "We plan and develop integrated residential neighborhoods that blend refined urban design with quality of life.",
+    image: projectTypeAsset("احياء سكنية.png"),
   },
   {
     id: "commercial",

@@ -2,6 +2,7 @@ import { useState, type CSSProperties } from "react";
 import {
   Building2,
   Home,
+  Landmark,
   Palmtree,
   Store,
 } from "lucide-react";
@@ -18,6 +19,7 @@ import { cn } from "@/lib/utils";
 const CATEGORY_ICONS = {
   tourism: Palmtree,
   residential: Home,
+  neighborhoods: Landmark,
   commercial: Store,
   office: Building2,
 } as const;
@@ -116,7 +118,7 @@ export function ProjectTypesSection() {
                     <span
                       className={cn(
                         "rounded-full bg-[#C9A962] px-2.5 py-0.5 text-[10px] font-semibold text-[#1A1612] transition-opacity duration-400 md:px-3 md:py-1 md:text-xs",
-                        isActive ? "opacity-100" : "opacity-0",
+                        isActive && count > 0 ? "opacity-100" : "opacity-0",
                       )}
                     >
                       {count} {t("مشروع", "projects")}
