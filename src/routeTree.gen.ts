@@ -18,14 +18,15 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsTidaraTowersRouteImport } from './routes/projects.tidara-towers'
 import { Route as ProjectsSultanatAlSharqRouteImport } from './routes/projects.sultanat-al-sharq'
-import { Route as ProjectsRabiaRoadRouteImport } from './routes/projects.rabia-road'
 import { Route as ProjectsRabiaMakkahRouteImport } from './routes/projects.rabia-makkah'
 import { Route as ProjectsHailWalkwayRouteImport } from './routes/projects.hail-walkway'
 import { Route as ProjectsHailCornicheRouteImport } from './routes/projects.hail-corniche'
 import { Route as ProjectsDammamOlympicCityRouteImport } from './routes/projects.dammam-olympic-city'
+import { Route as ProjectsBeachHouseResortRouteImport } from './routes/projects.beach-house-resort'
 import { Route as ProjectsAlshubailyNewBeachRouteImport } from './routes/projects.alshubaily-new-beach'
 import { Route as ProjectsAlshubailyHighRiseRouteImport } from './routes/projects.alshubaily-high-rise'
 import { Route as ProjectsAlshubailyGrandMallRouteImport } from './routes/projects.alshubaily-grand-mall'
+import { Route as ProjectsAlshubailyAhlAlbaytRouteImport } from './routes/projects.alshubaily-ahl-albayt'
 import { Route as ProjectsAlZahraaRouteImport } from './routes/projects.al-zahraa'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as AdminShowcaseRouteImport } from './routes/admin.showcase'
@@ -76,11 +77,6 @@ const ProjectsSultanatAlSharqRoute = ProjectsSultanatAlSharqRouteImport.update({
   path: '/projects/sultanat-al-sharq',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsRabiaRoadRoute = ProjectsRabiaRoadRouteImport.update({
-  id: '/projects/rabia-road',
-  path: '/projects/rabia-road',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProjectsRabiaMakkahRoute = ProjectsRabiaMakkahRouteImport.update({
   id: '/projects/rabia-makkah',
   path: '/projects/rabia-makkah',
@@ -102,6 +98,12 @@ const ProjectsDammamOlympicCityRoute =
     path: '/projects/dammam-olympic-city',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProjectsBeachHouseResortRoute =
+  ProjectsBeachHouseResortRouteImport.update({
+    id: '/projects/beach-house-resort',
+    path: '/projects/beach-house-resort',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProjectsAlshubailyNewBeachRoute =
   ProjectsAlshubailyNewBeachRouteImport.update({
     id: '/projects/alshubaily-new-beach',
@@ -118,6 +120,12 @@ const ProjectsAlshubailyGrandMallRoute =
   ProjectsAlshubailyGrandMallRouteImport.update({
     id: '/projects/alshubaily-grand-mall',
     path: '/projects/alshubaily-grand-mall',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProjectsAlshubailyAhlAlbaytRoute =
+  ProjectsAlshubailyAhlAlbaytRouteImport.update({
+    id: '/projects/alshubaily-ahl-albayt',
+    path: '/projects/alshubaily-ahl-albayt',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ProjectsAlZahraaRoute = ProjectsAlZahraaRouteImport.update({
@@ -152,14 +160,15 @@ export interface FileRoutesByFullPath {
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/al-zahraa': typeof ProjectsAlZahraaRoute
+  '/projects/alshubaily-ahl-albayt': typeof ProjectsAlshubailyAhlAlbaytRoute
   '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
+  '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
   '/projects/hail-walkway': typeof ProjectsHailWalkwayRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
-  '/projects/rabia-road': typeof ProjectsRabiaRoadRoute
   '/projects/sultanat-al-sharq': typeof ProjectsSultanatAlSharqRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -175,14 +184,15 @@ export interface FileRoutesByTo {
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/al-zahraa': typeof ProjectsAlZahraaRoute
+  '/projects/alshubaily-ahl-albayt': typeof ProjectsAlshubailyAhlAlbaytRoute
   '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
+  '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
   '/projects/hail-walkway': typeof ProjectsHailWalkwayRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
-  '/projects/rabia-road': typeof ProjectsRabiaRoadRoute
   '/projects/sultanat-al-sharq': typeof ProjectsSultanatAlSharqRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/projects': typeof ProjectsIndexRoute
@@ -199,14 +209,15 @@ export interface FileRoutesById {
   '/admin/showcase': typeof AdminShowcaseRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/al-zahraa': typeof ProjectsAlZahraaRoute
+  '/projects/alshubaily-ahl-albayt': typeof ProjectsAlshubailyAhlAlbaytRoute
   '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
+  '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
   '/projects/hail-walkway': typeof ProjectsHailWalkwayRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
-  '/projects/rabia-road': typeof ProjectsRabiaRoadRoute
   '/projects/sultanat-al-sharq': typeof ProjectsSultanatAlSharqRoute
   '/projects/tidara-towers': typeof ProjectsTidaraTowersRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -224,14 +235,15 @@ export interface FileRouteTypes {
     | '/admin/showcase'
     | '/projects/$slug'
     | '/projects/al-zahraa'
+    | '/projects/alshubaily-ahl-albayt'
     | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
     | '/projects/alshubaily-new-beach'
+    | '/projects/beach-house-resort'
     | '/projects/dammam-olympic-city'
     | '/projects/hail-corniche'
     | '/projects/hail-walkway'
     | '/projects/rabia-makkah'
-    | '/projects/rabia-road'
     | '/projects/sultanat-al-sharq'
     | '/projects/tidara-towers'
     | '/projects/'
@@ -247,14 +259,15 @@ export interface FileRouteTypes {
     | '/admin/showcase'
     | '/projects/$slug'
     | '/projects/al-zahraa'
+    | '/projects/alshubaily-ahl-albayt'
     | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
     | '/projects/alshubaily-new-beach'
+    | '/projects/beach-house-resort'
     | '/projects/dammam-olympic-city'
     | '/projects/hail-corniche'
     | '/projects/hail-walkway'
     | '/projects/rabia-makkah'
-    | '/projects/rabia-road'
     | '/projects/sultanat-al-sharq'
     | '/projects/tidara-towers'
     | '/projects'
@@ -270,14 +283,15 @@ export interface FileRouteTypes {
     | '/admin/showcase'
     | '/projects/$slug'
     | '/projects/al-zahraa'
+    | '/projects/alshubaily-ahl-albayt'
     | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
     | '/projects/alshubaily-new-beach'
+    | '/projects/beach-house-resort'
     | '/projects/dammam-olympic-city'
     | '/projects/hail-corniche'
     | '/projects/hail-walkway'
     | '/projects/rabia-makkah'
-    | '/projects/rabia-road'
     | '/projects/sultanat-al-sharq'
     | '/projects/tidara-towers'
     | '/projects/'
@@ -294,14 +308,15 @@ export interface RootRouteChildren {
   AdminShowcaseRoute: typeof AdminShowcaseRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ProjectsAlZahraaRoute: typeof ProjectsAlZahraaRoute
+  ProjectsAlshubailyAhlAlbaytRoute: typeof ProjectsAlshubailyAhlAlbaytRoute
   ProjectsAlshubailyGrandMallRoute: typeof ProjectsAlshubailyGrandMallRoute
   ProjectsAlshubailyHighRiseRoute: typeof ProjectsAlshubailyHighRiseRoute
   ProjectsAlshubailyNewBeachRoute: typeof ProjectsAlshubailyNewBeachRoute
+  ProjectsBeachHouseResortRoute: typeof ProjectsBeachHouseResortRoute
   ProjectsDammamOlympicCityRoute: typeof ProjectsDammamOlympicCityRoute
   ProjectsHailCornicheRoute: typeof ProjectsHailCornicheRoute
   ProjectsHailWalkwayRoute: typeof ProjectsHailWalkwayRoute
   ProjectsRabiaMakkahRoute: typeof ProjectsRabiaMakkahRoute
-  ProjectsRabiaRoadRoute: typeof ProjectsRabiaRoadRoute
   ProjectsSultanatAlSharqRoute: typeof ProjectsSultanatAlSharqRoute
   ProjectsTidaraTowersRoute: typeof ProjectsTidaraTowersRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
@@ -373,13 +388,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsSultanatAlSharqRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects/rabia-road': {
-      id: '/projects/rabia-road'
-      path: '/projects/rabia-road'
-      fullPath: '/projects/rabia-road'
-      preLoaderRoute: typeof ProjectsRabiaRoadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/projects/rabia-makkah': {
       id: '/projects/rabia-makkah'
       path: '/projects/rabia-makkah'
@@ -408,6 +416,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsDammamOlympicCityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/beach-house-resort': {
+      id: '/projects/beach-house-resort'
+      path: '/projects/beach-house-resort'
+      fullPath: '/projects/beach-house-resort'
+      preLoaderRoute: typeof ProjectsBeachHouseResortRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/alshubaily-new-beach': {
       id: '/projects/alshubaily-new-beach'
       path: '/projects/alshubaily-new-beach'
@@ -427,6 +442,13 @@ declare module '@tanstack/react-router' {
       path: '/projects/alshubaily-grand-mall'
       fullPath: '/projects/alshubaily-grand-mall'
       preLoaderRoute: typeof ProjectsAlshubailyGrandMallRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/alshubaily-ahl-albayt': {
+      id: '/projects/alshubaily-ahl-albayt'
+      path: '/projects/alshubaily-ahl-albayt'
+      fullPath: '/projects/alshubaily-ahl-albayt'
+      preLoaderRoute: typeof ProjectsAlshubailyAhlAlbaytRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects/al-zahraa': {
@@ -470,14 +492,15 @@ const rootRouteChildren: RootRouteChildren = {
   AdminShowcaseRoute: AdminShowcaseRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ProjectsAlZahraaRoute: ProjectsAlZahraaRoute,
+  ProjectsAlshubailyAhlAlbaytRoute: ProjectsAlshubailyAhlAlbaytRoute,
   ProjectsAlshubailyGrandMallRoute: ProjectsAlshubailyGrandMallRoute,
   ProjectsAlshubailyHighRiseRoute: ProjectsAlshubailyHighRiseRoute,
   ProjectsAlshubailyNewBeachRoute: ProjectsAlshubailyNewBeachRoute,
+  ProjectsBeachHouseResortRoute: ProjectsBeachHouseResortRoute,
   ProjectsDammamOlympicCityRoute: ProjectsDammamOlympicCityRoute,
   ProjectsHailCornicheRoute: ProjectsHailCornicheRoute,
   ProjectsHailWalkwayRoute: ProjectsHailWalkwayRoute,
   ProjectsRabiaMakkahRoute: ProjectsRabiaMakkahRoute,
-  ProjectsRabiaRoadRoute: ProjectsRabiaRoadRoute,
   ProjectsSultanatAlSharqRoute: ProjectsSultanatAlSharqRoute,
   ProjectsTidaraTowersRoute: ProjectsTidaraTowersRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,

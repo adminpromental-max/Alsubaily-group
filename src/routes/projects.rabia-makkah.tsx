@@ -1,35 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { RabiaAlternatingSections } from "@/components/rabia/RabiaAlternatingSections";
-import { RabiaBanner } from "@/components/rabia/RabiaBanner";
-import { RabiaGallery } from "@/components/rabia/RabiaGallery";
-import { RabiaHero } from "@/components/rabia/RabiaHero";
-import { RabiaIntro } from "@/components/rabia/RabiaIntro";
-import { RabiaLocation } from "@/components/rabia/RabiaLocation";
-import { rabiaAsset } from "@/data/asset-paths";
+import { RabiaRoadCTA } from "@/components/rabia-road/RabiaRoadCTA";
+import { RabiaRoadGallery } from "@/components/rabia-road/RabiaRoadGallery";
+import { RabiaRoadHero } from "@/components/rabia-road/RabiaRoadHero";
+import { RabiaRoadInfrastructure } from "@/components/rabia-road/RabiaRoadInfrastructure";
+import { RabiaRoadInvestment } from "@/components/rabia-road/RabiaRoadInvestment";
+import { RabiaRoadLocation } from "@/components/rabia-road/RabiaRoadLocation";
+import { RabiaRoadPlanning } from "@/components/rabia-road/RabiaRoadPlanning";
+import { RabiaRoadStats } from "@/components/rabia-road/RabiaRoadStats";
+import { RABIA_ROAD_HERO_IMAGE } from "@/data/rabia-road-content";
 
 export const Route = createFileRoute("/projects/rabia-makkah")({
   head: () => ({
     meta: [
       {
-        title: "الشبيلي وأهل البيت — مجموعة الشبيلي | AlShubaily & Ahl al-Bayt",
+        title: "رابية مكة — مجموعة الشبيلي | Rabia Makkah",
       },
       {
         name: "description",
         content:
-          "الشبيلي وأهل البيت — وجهة متكاملة تجمع بين عظمة الموروث الإسلامي وأرقى معايير الحياة العصرية على أرض المقدسات. 230,000 م² · 3 أبراج · 6 كم من المسجد الحرام.",
+          "رابية مكة — واجهة مكة الغربية على طريق مكة جدة السريع. 2,450,000 م² على بعد دقائق من الحرم المكي الشريف.",
       },
       {
         property: "og:title",
-        content: "AlShubaily & Ahl al-Bayt — AlShubaily Group",
+        content: "Rabia Makkah — AlShubaily Group",
       },
       {
         property: "og:description",
         content:
-          "An integrated destination blending Islamic heritage grandeur with the finest contemporary living — 230,000 m² in the holy city of Makkah.",
+          "Makkah's western facade on the Mecca–Jeddah Expressway — 2.45M m² minutes from the Holy Mosque.",
       },
       {
         property: "og:image",
-        content: rabiaAsset("WhatsApp Image 2026-06-18 at 10.07.41 PM.jpeg"),
+        content: RABIA_ROAD_HERO_IMAGE,
       },
     ],
   }),
@@ -38,13 +40,15 @@ export const Route = createFileRoute("/projects/rabia-makkah")({
 
 function RabiaMakkahPage() {
   return (
-    <main className="min-h-screen bg-[#FAF8F4]">
-      <RabiaHero />
-      <RabiaIntro />
-      <RabiaAlternatingSections />
-      <RabiaLocation />
-      <RabiaBanner />
-      <RabiaGallery />
+    <main className="min-h-screen bg-[#F5EDE0]">
+      <RabiaRoadHero />
+      <RabiaRoadStats />
+      <RabiaRoadLocation />
+      <RabiaRoadPlanning />
+      <RabiaRoadInfrastructure />
+      <RabiaRoadInvestment />
+      <RabiaRoadGallery />
+      <RabiaRoadCTA />
     </main>
   );
 }

@@ -7,8 +7,8 @@ export const RABIA_ROAD_HERO_IMAGE = rabiaRoadAsset(
 export const RABIA_ROAD_HERO = {
   eyebrowAr: "مكة المكرمة · الواجهة الغربية",
   eyebrowEn: "Makkah · Western Facade",
-  titleAr: "رابية رود",
-  titleEn: "Rabia Road",
+  titleAr: "رابية مكة",
+  titleEn: "Rabia Makkah",
   taglineAr: "على بعد دقائق من الحرم",
   taglineEn: "Minutes from the Holy Mosque",
   subtitleAr:
@@ -139,8 +139,8 @@ export const RABIA_ROAD_INVESTMENT = {
 };
 
 export const RABIA_ROAD_CTA = {
-  titleAr: "استثمر في رابية رود",
-  titleEn: "Invest in Rabia Road",
+  titleAr: "استثمر في رابية مكة",
+  titleEn: "Invest in Rabia Makkah",
   subtitleAr: "الوجهة الأذكى على واجهة مكة الغربية",
   subtitleEn: "The smartest destination on Makkah's western facade",
   image: RABIA_ROAD_HERO_IMAGE,

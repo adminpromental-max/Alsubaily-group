@@ -81,7 +81,7 @@ export const GEO_PROJECTS: GeoProject[] = [
   },
   {
     id: 2,
-    slug: "rabia-makkah",
+    slug: "alshubaily-ahl-albayt",
     nameAr: "الشبيلي وأهل البيت",
     nameEn: "AlShubaily & Ahl al-Bayt",
     typeAr: "سكني",

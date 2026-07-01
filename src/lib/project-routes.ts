@@ -1,7 +1,7 @@
 /** Immersive project pages — use these paths instead of /projects/$slug */
 export const DEDICATED_PROJECT_PATHS = {
   "tidara-towers": "/projects/tidara-towers",
-  "alshubaily-ahl-albayt": "/projects/rabia-makkah",
+  "alshubaily-ahl-albayt": "/projects/alshubaily-ahl-albayt",
   "rabia-makkah": "/projects/rabia-makkah",
   "dammam-olympic-city": "/projects/dammam-olympic-city",
   "hail-walkway": "/projects/hail-walkway",
@@ -10,7 +10,6 @@ export const DEDICATED_PROJECT_PATHS = {
   "hail-corniche": "/projects/hail-corniche",
   "al-zahraa": "/projects/al-zahraa",
   "alshubaily-new-beach": "/projects/alshubaily-new-beach",
-  "rabia-road": "/projects/rabia-road",
   "alshubaily-grand-mall": "/projects/alshubaily-grand-mall",
   "beach-house-resort": "/projects/beach-house-resort",
   "alshubaily-resort": "/projects/beach-house-resort",

@@ -45,7 +45,7 @@ export const REGIONS: Region[] = [
 export const PROJECTS: Project[] = [
   {
     id: 2,
-    slug: "rabia-makkah",
+    slug: "alshubaily-ahl-albayt",
     nameEn: "AlShubaily & Ahl al-Bayt",
     nameAr: "الشبيلي وأهل البيت",
     region: "mecca",
@@ -449,9 +449,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 20,
-    slug: "rabia-road",
-    nameEn: "Rabia Road",
-    nameAr: "رابية رود",
+    slug: "rabia-makkah",
+    nameEn: "Rabia Makkah",
+    nameAr: "رابية مكة",
     region: "mecca",
     regionEn: "Mecca",
     regionAr: "مكة",

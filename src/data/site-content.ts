@@ -18,8 +18,7 @@ export type ProjectCategory = {
 
 /** Maps each project slug → category for filters & type cards */
 export const PROJECT_CATEGORY_BY_SLUG: Record<string, ProjectCategoryId> = {
-  "alshubaily-ahl-albayt": "commercial",
-  "rabia-makkah": "residential",
+  "alshubaily-ahl-albayt": "residential",
   "hail-corniche": "tourism",
   "hail-walkway": "tourism",
   "benban-residence": "residential",
@@ -36,7 +35,7 @@ export const PROJECT_CATEGORY_BY_SLUG: Record<string, ProjectCategoryId> = {
   "alshubaily-high-rise-2": "office",
   "sultanat-al-sharq": "commercial",
   "alshubaily-new-beach": "tourism",
-  "rabia-road": "commercial",
+  "rabia-makkah": "commercial",
   "tidara-towers": "office",
 };
 

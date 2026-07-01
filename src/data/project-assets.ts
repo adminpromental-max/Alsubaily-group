@@ -83,7 +83,7 @@ export const REAL_PROJECT_ASSETS: Record<
       "/assets/projects/New-beach/9.jpeg",
     ],
   },
-  "rabia-road": {
+  "rabia-makkah": {
     hero: "/assets/projects/rabia-road/WhatsApp Image 2026-06-25 at 3.27.46 PM.jpeg",
     gallery: [
       "/assets/projects/rabia-road/WhatsApp Image 2026-06-25 at 3.27.46 PM.jpeg",
