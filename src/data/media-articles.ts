@@ -35,6 +35,13 @@ export type MediaArticle = {
 
 export const MEDIA_HERO_BANNER = dammamAsset("City-landscape.png");
 
+export const MEDIA_TAGLINE = {
+  word1Ar: "آخر",
+  word2Ar: "الأخبار",
+  word1En: "Latest",
+  word2En: "News",
+};
+
 export const MEDIA_CATEGORIES: MediaCategory[] = [
   { id: "company-news", nameAr: "أخبار الشركة", nameEn: "Company News" },
   {

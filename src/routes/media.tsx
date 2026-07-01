@@ -28,7 +28,7 @@ export const Route = createFileRoute("/media")({
 
 function MediaRoutePage() {
   return (
-    <main className="min-h-screen bg-[#FAF8F4]">
+    <main className="min-h-screen bg-[#F2EDE4]">
       <MediaCenterPage />
     </main>
   );

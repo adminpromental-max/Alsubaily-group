@@ -5987,3 +5987,23 @@ body.has-custom-cursor button {
   transform: translateX(100%);
 }
 
+/* ── Media Center — Newspaper layout ── */
+.media-newspaper {
+  background-color: #f2ede4;
+  background-image:
+    linear-gradient(rgba(26, 22, 18, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 22, 18, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.media-headline-rail {
+  min-height: 100%;
+}
+
+@media (min-width: 1024px) {
+  .media-headline-rail {
+    max-height: 520px;
+    overflow-y: auto;
+  }
+}
+
