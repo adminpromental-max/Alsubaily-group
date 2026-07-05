@@ -1,4 +1,4 @@
-import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset, riyadhBoulevardAsset, alshubailyResidenceAsset, townAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset, riyadhBoulevardAsset, alshubailyResidenceAsset, townAsset, grandMallAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -258,8 +258,13 @@ export const PROJECTS: Project[] = [
     descriptionEn:
       "A premier shopping and entertainment destination in the Eastern Region.",
     descriptionAr: "وجهة تسوق وترفيه رائدة في المنطقة الشرقية.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
+    heroImage: grandMallAsset("1.webp"),
+    gallery: [
+      grandMallAsset("1.webp"),
+      grandMallAsset("4.webp"),
+      grandMallAsset("F  -   20.webp"),
+      grandMallAsset("final wadi  -   02.webp"),
+    ],
   },
   {
     id: 11,

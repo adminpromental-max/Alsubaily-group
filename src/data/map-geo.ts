@@ -200,7 +200,7 @@ export const GEO_PROJECTS: GeoProject[] = [
     region: "eastern",
     lat: 26.3950,
     lng: 50.1160,
-    heroImage: "/assets/hero/Hero-1.jpg",
+    heroImage: "/assets/projects/Grand-Mall/1.webp",
   },
   {
     id: 11,
