@@ -106,18 +106,14 @@ export function LogoMarqueeBanner() {
                   "group-companies-card group flex h-full flex-col items-center rounded-2xl border border-[#E0D3C2]/70 bg-white/90 px-4 py-6 text-center shadow-[0_8px_32px_-12px_rgba(26,22,18,0.1)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#C9A962]/45 hover:shadow-[0_20px_48px_-16px_rgba(201,169,98,0.28)] md:px-5 md:py-7",
                 )}
               >
-                <div className="flex h-16 w-full items-center justify-center md:h-20">
+                <div className="flex h-20 w-full items-center justify-center md:h-24">
                   <img
                     src={company.logo}
                     alt={lang === "ar" ? company.nameAr : company.nameEn}
-                    className="max-h-full max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="max-h-full max-w-[90%] object-contain transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
-                <p className="mt-4 text-xs font-semibold leading-relaxed text-[#1A1612] md:text-sm">
-                  {lang === "ar" ? company.nameAr : company.nameEn}
-                </p>
-                <div className="mt-3 h-0.5 w-0 bg-gradient-to-r from-[#C9A962] to-[#E8D5A3] transition-all duration-500 group-hover:w-10" />
               </article>
             </li>
           ))}

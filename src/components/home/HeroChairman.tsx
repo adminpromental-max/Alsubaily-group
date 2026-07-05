@@ -25,7 +25,7 @@ type StatItem = {
 const STATS: StatItem[] = [
   { value: 40, labelAr: "عدد المشاريع", labelEn: "Projects", icon: Building2 },
   {
-    value: 37,
+    value: 32,
     labelAr: "إجمالي المساحات",
     labelEn: "Total Area",
     suffixAr: " مليون م²",
@@ -33,7 +33,7 @@ const STATS: StatItem[] = [
     icon: Ruler,
   },
   { value: 12, labelAr: "مدن", labelEn: "Cities", suffixAr: "+", suffixEn: "+", icon: MapPin },
-  { value: 25, labelAr: "سنوات الخبرة", labelEn: "Years", suffixAr: "+", suffixEn: "+", icon: Landmark },
+  { value: 37, labelAr: "سنوات الخبرة", labelEn: "Years", suffixAr: "+", suffixEn: "+", icon: Landmark },
 ];
 
 function CountUp({ target, suffix, active }: { target: number; suffix?: string; active: boolean }) {

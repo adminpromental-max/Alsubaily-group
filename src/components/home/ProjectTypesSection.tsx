@@ -1,6 +1,9 @@
-import { useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 import {
   Building2,
+  ChevronLeft,
+  ChevronRight,
   Home,
   Landmark,
   Palmtree,
@@ -24,6 +27,8 @@ const CATEGORY_ICONS = {
   office: Building2,
 } as const;
 
+const AUTOPLAY_MS = 6000;
+
 function countByCategory(id: ProjectCategoryId) {
   return PROJECTS.filter((p) => PROJECT_CATEGORY_BY_SLUG[p.slug] === id).length;
 }
@@ -31,136 +36,197 @@ function countByCategory(id: ProjectCategoryId) {
 export function ProjectTypesSection() {
   const { t, lang } = useLang();
   const [active, setActive] = useState(0);
-  const sectionRef = useScrollReveal<HTMLElement>({ y: 40, stagger: 0.12 });
-  const isRtl = lang === "ar";
+  const [paused, setPaused] = useState(false);
+  const sectionRef = useScrollReveal<HTMLElement>({ y: 40, stagger: 0.1 });
+  const stageRef = useRef<HTMLDivElement>(null);
+  const infoRef = useRef<HTMLDivElement>(null);
+  const total = PROJECT_CATEGORIES.length;
+
+  const goTo = useCallback(
+    (index: number) => {
+      setActive(((index % total) + total) % total);
+    },
+    [total],
+  );
+
+  const goNext = useCallback(() => goTo(active + 1), [active, goTo]);
+  const goPrev = useCallback(() => goTo(active - 1), [active, goTo]);
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = window.setInterval(() => goNext(), AUTOPLAY_MS);
+    return () => window.clearInterval(timer);
+  }, [goNext, paused]);
+
+  useEffect(() => {
+    const stage = stageRef.current;
+    const info = infoRef.current;
+    if (!stage || !info) return;
+
+    const imgs = stage.querySelectorAll<HTMLElement>("[data-cat-img]");
+    imgs.forEach((img, i) => {
+      gsap.to(img, {
+        opacity: i === active ? 1 : 0,
+        scale: i === active ? 1.06 : 1,
+        duration: 0.9,
+        ease: "power2.inOut",
+      });
+    });
+
+    gsap.fromTo(
+      info,
+      { y: 16, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+    );
+  }, [active]);
+
+  const cat = PROJECT_CATEGORIES[active];
+  const Icon = CATEGORY_ICONS[cat.id];
+  const count = countByCategory(cat.id);
+  const name = lang === "ar" ? cat.nameAr : cat.nameEn;
+  const bio = lang === "ar" ? cat.bioAr : cat.bioEn;
 
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-16 md:py-24"
+      className="activities-spotlight relative overflow-hidden bg-[#0A0908] py-16 md:py-24"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
-        <div data-reveal className="relative mb-10 md:mb-12">
-          <div
-            className="pointer-events-none absolute -top-6 select-none text-[44px] font-black leading-none text-[#C9A962]/10 md:text-[80px]"
-            style={{
-              [isRtl ? "right" : "left"]: "-0.25rem",
-            } as CSSProperties}
-            aria-hidden
-          >
-            ACTIVITIES
-          </div>
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h2 className="font-heading relative z-10 text-3xl font-black text-[#0A0A0A] md:text-5xl">
-                {t("نشاطات المجموعة", "Group Activities")}
-              </h2>
-              <div className="mt-3 flex items-center">
-                <span className="h-[2px] w-12 bg-[#C9A962]" />
-                <p className="ms-3 text-sm font-medium tracking-wide text-[#0A0A0A]/60 md:text-base">
-                  {t("خلق مجتمعات متكاملة", "Crafting integrated communities")}
-                </p>
-              </div>
-            </div>
-            <p className="text-xs text-[#5C5348]/80 md:text-sm">
-              {t(
-                "اضغط أو مرّر لاستكشاف كل نشاط",
-                "Tap or hover to explore each activity",
-              )}
-            </p>
-          </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C9A962]/35 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[min(100vw,800px)] -translate-x-1/2 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(201,169,98,0.12),transparent)]"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 md:px-8">
+        <div data-reveal className="mb-8 text-center md:mb-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#C9A962]">
+            {t("محفظة المشاريع", "Project Portfolio")}
+          </p>
+          <h2 className="font-heading mt-3 text-3xl font-bold text-white md:text-5xl">
+            {t("نشاطات المجموعة", "Group Activities")}
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-white/60 md:text-base">
+            {t(
+              "اختر نشاطاً واستكشف رؤيتنا في كل قطاع",
+              "Pick an activity and explore our vision in each sector",
+            )}
+          </p>
         </div>
 
         <div
           data-reveal
-          className="activity-accordion flex h-[min(72svh,420px)] min-h-[320px] gap-2 sm:gap-2.5 md:h-[480px] md:gap-3"
+          className="mb-5 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] md:mb-7 md:flex-wrap md:justify-center md:overflow-visible [&::-webkit-scrollbar]:hidden"
           role="tablist"
           aria-label={t("نشاطات المجموعة", "Group Activities")}
         >
-          {PROJECT_CATEGORIES.map((cat, i) => {
-            const Icon = CATEGORY_ICONS[cat.id];
+          {PROJECT_CATEGORIES.map((category, i) => {
+            const CatIcon = CATEGORY_ICONS[category.id];
+            const label = lang === "ar" ? category.nameAr : category.nameEn;
             const isActive = active === i;
-            const count = countByCategory(cat.id);
-            const name = lang === "ar" ? cat.nameAr : cat.nameEn;
-            const bio = lang === "ar" ? cat.bioAr : cat.bioEn;
-
             return (
               <button
-                key={cat.id}
+                key={category.id}
                 type="button"
                 role="tab"
                 aria-selected={isActive}
-                aria-expanded={isActive}
                 className={cn(
-                  "activity-panel group relative overflow-hidden rounded-2xl outline-none md:rounded-3xl",
-                  isActive && "is-active",
+                  "activity-chip shrink-0 rounded-full border px-4 py-2.5 text-sm font-semibold transition-all duration-400 md:px-5 md:py-3",
+                  isActive
+                    ? "border-[#C9A962] bg-[#C9A962] text-[#1A1612] shadow-[0_8px_24px_rgba(201,169,98,0.35)]"
+                    : "border-white/15 bg-white/5 text-white/80 hover:border-[#C9A962]/40 hover:bg-white/10 hover:text-white",
                 )}
-                onClick={() => setActive(i)}
-                onMouseEnter={() => setActive(i)}
-                onFocus={() => setActive(i)}
+                onClick={() => goTo(i)}
               >
-                <img
-                  src={cat.image}
-                  alt={name}
-                  loading="lazy"
-                  className={cn(
-                    "activity-panel-img absolute inset-0 h-full w-full object-cover",
-                    isActive && "is-active",
-                  )}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/35 to-[#0A0A0A]/15" />
-
-                <div className="absolute inset-0 flex flex-col justify-between p-3 sm:p-4 md:p-6">
-                  <div className="flex items-center gap-2 md:gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm md:h-11 md:w-11">
-                      <Icon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={1.5} />
-                    </div>
-                    <span
-                      className={cn(
-                        "rounded-full bg-[#C9A962] px-2.5 py-0.5 text-[10px] font-semibold text-[#1A1612] transition-opacity duration-400 md:px-3 md:py-1 md:text-xs",
-                        isActive && count > 0 ? "opacity-100" : "opacity-0",
-                      )}
-                    >
-                      {count} {t("مشروع", "projects")}
-                    </span>
-                  </div>
-
-                  <div className="text-start">
-                    <h3
-                      className={cn(
-                        "font-heading font-bold text-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                        isActive
-                          ? "text-lg sm:text-xl md:text-3xl"
-                          : cn(
-                              "text-sm sm:text-base md:text-xl",
-                              "activity-panel-title-collapsed",
-                              isRtl && "activity-panel-title-collapsed--rtl",
-                            ),
-                      )}
-                    >
-                      {name}
-                    </h3>
-
-                    <div
-                      className={cn(
-                        "overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                        isActive
-                          ? "mt-2 max-h-40 opacity-100 md:mt-3"
-                          : "max-h-0 opacity-0",
-                      )}
-                    >
-                      <p className="max-w-md text-[11px] leading-relaxed text-white/85 sm:text-xs md:text-sm md:leading-relaxed">
-                        {bio}
-                      </p>
-                      <span className="mt-2 inline-block text-[10px] font-medium uppercase tracking-wider text-[#C9A962] md:mt-3 md:text-xs">
-                        {lang === "ar" ? cat.nameEn : cat.nameAr}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                <span className="inline-flex items-center gap-2">
+                  <CatIcon className="h-4 w-4" strokeWidth={1.5} />
+                  {label}
+                </span>
               </button>
             );
           })}
+        </div>
+
+        <div
+          data-reveal
+          className="group relative overflow-hidden rounded-3xl border border-[#C9A962]/20 shadow-[0_24px_60px_rgba(0,0,0,0.45)]"
+        >
+          <div
+            ref={stageRef}
+            className="relative aspect-[16/10] bg-[#141210] md:aspect-[21/9]"
+          >
+            {PROJECT_CATEGORIES.map((category, i) => (
+              <img
+                key={category.id}
+                data-cat-img
+                src={category.image}
+                alt={lang === "ar" ? category.nameAr : category.nameEn}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
+                className={cn(
+                  "absolute inset-0 h-full w-full object-cover will-change-transform",
+                  i === active ? "opacity-100" : "opacity-0",
+                )}
+              />
+            ))}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A0908]/90 via-[#0A0908]/25 to-[#0A0908]/20" />
+
+            <button
+              type="button"
+              aria-label={t("السابق", "Previous")}
+              className="absolute start-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white opacity-0 backdrop-blur-sm transition hover:border-[#C9A962]/50 hover:text-[#C9A962] group-hover:opacity-100 md:start-5 md:h-11 md:w-11"
+              onClick={goPrev}
+            >
+              <ChevronLeft className="h-5 w-5 rtl:rotate-180" />
+            </button>
+            <button
+              type="button"
+              aria-label={t("التالي", "Next")}
+              className="absolute end-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white opacity-0 backdrop-blur-sm transition hover:border-[#C9A962]/50 hover:text-[#C9A962] group-hover:opacity-100 md:end-5 md:h-11 md:w-11"
+              onClick={goNext}
+            >
+              <ChevronRight className="h-5 w-5 rtl:rotate-180" />
+            </button>
+          </div>
+
+          <div
+            ref={infoRef}
+            className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-3 p-5 md:flex-row md:items-end md:justify-between md:p-8"
+          >
+            <div className="max-w-2xl">
+              <div className="mb-2 flex items-center gap-2">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#C9A962]/40 bg-[#C9A962]/15 text-[#C9A962]">
+                  <Icon className="h-4 w-4" strokeWidth={1.5} />
+                </div>
+                {count > 0 ? (
+                  <span className="rounded-full bg-[#C9A962] px-3 py-1 text-xs font-bold text-[#1A1612]">
+                    {count} {t("مشروع", "projects")}
+                  </span>
+                ) : null}
+              </div>
+              <h3 className="font-heading text-2xl font-bold text-white md:text-4xl">{name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/80 md:text-base">{bio}</p>
+            </div>
+
+            <div className="flex items-center gap-1.5 self-start md:self-auto">
+              {PROJECT_CATEGORIES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={t("انتقل للنشاط", "Go to activity")}
+                  className={cn(
+                    "h-1 rounded-full transition-all duration-500",
+                    i === active ? "w-8 bg-[#C9A962]" : "w-2 bg-white/25 hover:bg-white/45",
+                  )}
+                  onClick={() => goTo(i)}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
