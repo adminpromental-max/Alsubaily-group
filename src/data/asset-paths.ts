@@ -110,6 +110,12 @@ export function riyadhBoulevardAsset(file: string) {
   return projectAsset(RIYADH_BOULEVARD_DIR, file);
 }
 
+export const ALSHUBAILY_RESIDENCE_DIR = "alshubaily-residence";
+
+export function alshubailyResidenceAsset(file: string) {
+  return projectAsset(ALSHUBAILY_RESIDENCE_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

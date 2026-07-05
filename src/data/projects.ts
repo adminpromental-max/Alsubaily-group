@@ -1,4 +1,4 @@
-import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset, riyadhBoulevardAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset, riyadhBoulevardAsset, alshubailyResidenceAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -146,21 +146,26 @@ export const PROJECTS: Project[] = [
   {
     id: 6,
     slug: "alshubaily-residence",
-    nameEn: "AlShubaily Residence",
+    nameEn: "Al Shabili Residence",
     nameAr: "الشبيلي ريزيدنس",
     region: "riyadh",
     regionEn: "Riyadh",
     regionAr: "الرياض",
-    typeEn: "Luxury",
-    typeAr: "فاخر",
+    typeEn: "Luxury Residential",
+    typeAr: "سكني فاخر",
     color: "#6B5B7B",
     x: 49.5,
     y: 46.5,
     descriptionEn:
-      "Signature luxury residences bearing the AlShubaily name in the capital city.",
-    descriptionAr: "مساكن فاخرة تحمل اسم الشبيلي في العاصمة الرياض.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
+      "An address of luxury coming soon on Turki Al-Awwal Road — a private compound and vibrant promenade across 66,000 m².",
+    descriptionAr:
+      "عنوان الفخامة قريباً على طريق تركي الأول — مجتمع سكني خاص وبوابة تجارية حيوية على 66,000 م².",
+    heroImage: alshubailyResidenceAsset("cover.svg"),
+    gallery: [
+      alshubailyResidenceAsset("cover.svg"),
+      alshubailyResidenceAsset("1.svg"),
+      alshubailyResidenceAsset("2.svg"),
+    ],
   },
   {
     id: 7,
