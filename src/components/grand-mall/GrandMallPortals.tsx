@@ -107,10 +107,10 @@ export function GrandMallPortals() {
       <div className="mx-auto max-w-6xl px-6 md:px-8">
         <div data-portal-head className="mb-10 text-center md:mb-14">
           <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#C9A962]">
-            {t("ثلاث بوابات · ثلاث عوالم", "Three Gates · Three Worlds")}
+            {t("ثلاث مناطق · ثلاث تجارب", "Three Districts · Three Experiences")}
           </p>
           <h2 className="font-heading mt-2 text-3xl font-bold text-white md:text-4xl">
-            {t("مرايا العرض", "Display Mirrors")}
+            {t("عوالم جراند مول", "Grand Mall Worlds")}
           </h2>
         </div>
 

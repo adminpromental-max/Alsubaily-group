@@ -1,16 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import {
-  Building2,
-  Car,
-  Film,
-  ShoppingBag,
-  Waves,
-} from "lucide-react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLang } from "@/contexts/lang-context";
 import { GRAND_MALL_STATS, type GrandMallStat } from "@/data/grand-mall-content";
+import { cn } from "@/lib/utils";
 
-const STAT_ICONS = [Building2, ShoppingBag, Film, Car, Waves] as const;
+gsap.registerPlugin(ScrollTrigger);
 
 function CountUp({
   target,
@@ -22,13 +17,14 @@ function CountUp({
   active: boolean;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
+
   useEffect(() => {
     const el = ref.current;
     if (!el || !active) return;
     const obj = { val: 0 };
     const tween = gsap.to(obj, {
       val: target,
-      duration: 2.2,
+      duration: 2.4,
       ease: "power2.out",
       onUpdate: () => {
         el.textContent = `${Math.round(obj.val).toLocaleString()}${suffix ?? ""}`;
@@ -36,6 +32,7 @@ function CountUp({
     });
     return () => tween.kill();
   }, [active, suffix, target]);
+
   return (
     <span ref={ref} className="tabular-nums">
       0{suffix ?? ""}
@@ -43,42 +40,114 @@ function CountUp({
   );
 }
 
+function StatCard({
+  stat,
+  active,
+  className,
+}: {
+  stat: GrandMallStat;
+  active: boolean;
+  className?: string;
+}) {
+  const { t } = useLang();
+  const suffix = stat.suffixAr ? t(stat.suffixAr, stat.suffixEn ?? "") : undefined;
+
+  return (
+    <article
+      className={cn(
+        "gm-stat-card group relative overflow-hidden rounded-2xl border border-[#C9A962]/20 bg-gradient-to-br from-[#141210] to-[#0A0908] p-5 transition-colors hover:border-[#C9A962]/45 md:p-6",
+        stat.featured && "md:col-span-2 md:row-span-2 md:p-8",
+        className,
+      )}
+    >
+      <div
+        className="pointer-events-none absolute -end-6 -top-6 h-24 w-24 rounded-full bg-[#C9A962]/10 blur-2xl transition-opacity group-hover:opacity-150"
+        aria-hidden
+      />
+      <p
+        className={cn(
+          "font-heading font-bold text-white",
+          stat.featured ? "text-4xl md:text-6xl" : "text-2xl md:text-3xl",
+        )}
+      >
+        <CountUp target={stat.value} suffix={suffix} active={active} />
+      </p>
+      <p
+        className={cn(
+          "mt-2 text-[#C9A962]/90",
+          stat.featured ? "text-sm md:text-base" : "text-xs md:text-sm",
+        )}
+      >
+        {t(stat.labelAr, stat.labelEn)}
+      </p>
+    </article>
+  );
+}
+
 export function GrandMallStats() {
   const { t } = useLang();
-  const ref = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setActive(true), 600);
-    return () => window.clearTimeout(timer);
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 85%",
+        once: true,
+        onEnter: () => setActive(true),
+      });
+
+      gsap.fromTo(
+        section.querySelectorAll("[data-stat-reveal]"),
+        { y: 28, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.08,
+          ease: "power3.out",
+          scrollTrigger: { trigger: section, start: "top 85%", once: true },
+        },
+      );
+    }, section);
+
+    return () => ctx.revert();
   }, []);
 
+  const featured = GRAND_MALL_STATS.find((s) => s.featured);
+  const rest = GRAND_MALL_STATS.filter((s) => !s.featured);
+
   return (
-    <section className="gm-stats-strip relative z-[4] border-y border-[#C9A962]/15 bg-[#0A0908]/95 backdrop-blur-md">
-      <div
-        ref={ref}
-        className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-[#C9A962]/10 px-4 py-6 md:grid-cols-5 md:px-8 md:py-8"
-      >
-        {GRAND_MALL_STATS.map((stat: GrandMallStat, i) => {
-          const Icon = STAT_ICONS[i] ?? Building2;
-          const suffix = stat.suffixAr
-            ? t(stat.suffixAr, stat.suffixEn ?? "")
-            : undefined;
-          return (
-            <div
-              key={stat.labelEn}
-              className="flex flex-col items-center bg-[#0A0908] px-2 py-2 text-center md:px-3"
-            >
-              <Icon className="mb-2 h-4 w-4 text-[#C9A962]/80" strokeWidth={1.5} />
-              <p className="text-base font-bold text-white md:text-xl">
-                <CountUp target={stat.value} suffix={suffix} active={active} />
-              </p>
-              <p className="mt-1 text-[10px] text-white/55 md:text-xs">
-                {t(stat.labelAr, stat.labelEn)}
-              </p>
+    <section
+      ref={sectionRef}
+      className="gm-stats-bento relative z-[4] -mt-2 px-4 pb-10 pt-6 md:px-8 md:pb-14 md:pt-8"
+    >
+      <div className="mx-auto max-w-6xl">
+        <div data-stat-reveal className="mb-6 text-center md:mb-8">
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#C9A962]">
+            {t("أرقام المشروع", "Project at a Glance")}
+          </p>
+          <h2 className="font-heading mt-2 text-xl font-bold text-white md:text-2xl">
+            {t("وجهة استثمارية بمقاييس عالمية", "An Investment Destination at Global Scale")}
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2 md:gap-4">
+          {featured ? (
+            <div data-stat-reveal className="col-span-2 row-span-2">
+              <StatCard stat={featured} active={active} className="h-full min-h-[180px] md:min-h-[240px]" />
             </div>
-          );
-        })}
+          ) : null}
+          {rest.map((stat) => (
+            <div key={stat.labelEn} data-stat-reveal>
+              <StatCard stat={stat} active={active} className="h-full" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -26,8 +26,8 @@ export function GrandMallCTA() {
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/80 md:text-base">
           {t(
-            "وجهة متكاملة للتسوق والترفيه في المنطقة الشرقية — تواصل معنا لمعرفة فرص الاستثمار والتأجير.",
-            "An integrated shopping and entertainment destination in the Eastern Region — contact us for investment and leasing opportunities.",
+            "وجهة متكاملة في قلب الشبيلي تاون — تواصل معنا لمعرفة فرص التأجير والاستثمار في جراند مول.",
+            "An integrated destination at the heart of AlShubaily Town — contact us for leasing and investment opportunities at Grand Mall.",
           )}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
