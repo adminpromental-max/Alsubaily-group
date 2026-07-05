@@ -1,4 +1,4 @@
-import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset, riyadhBoulevardAsset, alshubailyResidenceAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset, riyadhBoulevardAsset, alshubailyResidenceAsset, townAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -223,17 +223,24 @@ export const PROJECTS: Project[] = [
     region: "eastern",
     regionEn: "Eastern Region",
     regionAr: "المنطقة الشرقية",
-    typeEn: "Town",
-    typeAr: "مدينة",
+    typeEn: "Integrated Town",
+    typeAr: "مدينة متكاملة",
     color: "#5C4033",
     x: 70.5,
     y: 46.5,
     descriptionEn:
-      "A master-planned town offering complete lifestyle in the Eastern Province.",
+      "An integrated town on the Al Khobar waterfront — 5,993,129 m² blending Andalusian elegance with shopping, entertainment, and luxury living.",
     descriptionAr:
-      "مدينة مخططة بعناية تقدم أسلوب حياة متكامل في المنطقة الشرقية.",
-    heroImage: "/assets/hero/Hero-2.jpg",
-    gallery: DEFAULT_GALLERY,
+      "مدينة متكاملة على ضفاف الخبر — 5,993,129 م² تجمع بين الأناقة الأندلسية والتسوق والترفيه والعيش الفاخر.",
+    heroImage: townAsset("الشبيلي-تاون.png"),
+    gallery: [
+      townAsset("الشبيلي-تاون.png"),
+      townAsset("Hero.png"),
+      townAsset("grand-mall.png"),
+      townAsset("1.png"),
+      townAsset("5.jpg"),
+      townAsset("6.jpg"),
+    ],
   },
   {
     id: 10,

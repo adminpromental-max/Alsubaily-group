@@ -26,6 +26,7 @@ import { Route as ProjectsGolfCityRouteImport } from './routes/projects.golf-cit
 import { Route as ProjectsDammamOlympicCityRouteImport } from './routes/projects.dammam-olympic-city'
 import { Route as ProjectsBenbanResidenceRouteImport } from './routes/projects.benban-residence'
 import { Route as ProjectsBeachHouseResortRouteImport } from './routes/projects.beach-house-resort'
+import { Route as ProjectsAlshubailyTownRouteImport } from './routes/projects.alshubaily-town'
 import { Route as ProjectsAlshubailyResidenceRouteImport } from './routes/projects.alshubaily-residence'
 import { Route as ProjectsAlshubailyPortRouteImport } from './routes/projects.alshubaily-port'
 import { Route as ProjectsAlshubailyNewBeachRouteImport } from './routes/projects.alshubaily-new-beach'
@@ -124,6 +125,11 @@ const ProjectsBeachHouseResortRoute =
     path: '/projects/beach-house-resort',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProjectsAlshubailyTownRoute = ProjectsAlshubailyTownRouteImport.update({
+  id: '/projects/alshubaily-town',
+  path: '/projects/alshubaily-town',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsAlshubailyResidenceRoute =
   ProjectsAlshubailyResidenceRouteImport.update({
     id: '/projects/alshubaily-residence',
@@ -197,6 +203,7 @@ export interface FileRoutesByFullPath {
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
   '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/alshubaily-residence': typeof ProjectsAlshubailyResidenceRoute
+  '/projects/alshubaily-town': typeof ProjectsAlshubailyTownRoute
   '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/benban-residence': typeof ProjectsBenbanResidenceRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
@@ -226,6 +233,7 @@ export interface FileRoutesByTo {
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
   '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/alshubaily-residence': typeof ProjectsAlshubailyResidenceRoute
+  '/projects/alshubaily-town': typeof ProjectsAlshubailyTownRoute
   '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/benban-residence': typeof ProjectsBenbanResidenceRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
@@ -256,6 +264,7 @@ export interface FileRoutesById {
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
   '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/alshubaily-residence': typeof ProjectsAlshubailyResidenceRoute
+  '/projects/alshubaily-town': typeof ProjectsAlshubailyTownRoute
   '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/benban-residence': typeof ProjectsBenbanResidenceRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
@@ -287,6 +296,7 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-new-beach'
     | '/projects/alshubaily-port'
     | '/projects/alshubaily-residence'
+    | '/projects/alshubaily-town'
     | '/projects/beach-house-resort'
     | '/projects/benban-residence'
     | '/projects/dammam-olympic-city'
@@ -316,6 +326,7 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-new-beach'
     | '/projects/alshubaily-port'
     | '/projects/alshubaily-residence'
+    | '/projects/alshubaily-town'
     | '/projects/beach-house-resort'
     | '/projects/benban-residence'
     | '/projects/dammam-olympic-city'
@@ -345,6 +356,7 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-new-beach'
     | '/projects/alshubaily-port'
     | '/projects/alshubaily-residence'
+    | '/projects/alshubaily-town'
     | '/projects/beach-house-resort'
     | '/projects/benban-residence'
     | '/projects/dammam-olympic-city'
@@ -375,6 +387,7 @@ export interface RootRouteChildren {
   ProjectsAlshubailyNewBeachRoute: typeof ProjectsAlshubailyNewBeachRoute
   ProjectsAlshubailyPortRoute: typeof ProjectsAlshubailyPortRoute
   ProjectsAlshubailyResidenceRoute: typeof ProjectsAlshubailyResidenceRoute
+  ProjectsAlshubailyTownRoute: typeof ProjectsAlshubailyTownRoute
   ProjectsBeachHouseResortRoute: typeof ProjectsBeachHouseResortRoute
   ProjectsBenbanResidenceRoute: typeof ProjectsBenbanResidenceRoute
   ProjectsDammamOlympicCityRoute: typeof ProjectsDammamOlympicCityRoute
@@ -510,6 +523,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsBeachHouseResortRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/alshubaily-town': {
+      id: '/projects/alshubaily-town'
+      path: '/projects/alshubaily-town'
+      fullPath: '/projects/alshubaily-town'
+      preLoaderRoute: typeof ProjectsAlshubailyTownRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/alshubaily-residence': {
       id: '/projects/alshubaily-residence'
       path: '/projects/alshubaily-residence'
@@ -599,6 +619,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsAlshubailyNewBeachRoute: ProjectsAlshubailyNewBeachRoute,
   ProjectsAlshubailyPortRoute: ProjectsAlshubailyPortRoute,
   ProjectsAlshubailyResidenceRoute: ProjectsAlshubailyResidenceRoute,
+  ProjectsAlshubailyTownRoute: ProjectsAlshubailyTownRoute,
   ProjectsBeachHouseResortRoute: ProjectsBeachHouseResortRoute,
   ProjectsBenbanResidenceRoute: ProjectsBenbanResidenceRoute,
   ProjectsDammamOlympicCityRoute: ProjectsDammamOlympicCityRoute,

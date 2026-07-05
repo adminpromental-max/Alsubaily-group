@@ -116,6 +116,12 @@ export function alshubailyResidenceAsset(file: string) {
   return projectAsset(ALSHUBAILY_RESIDENCE_DIR, file);
 }
 
+export const TOWN_DIR = "Alshubaily-town";
+
+export function townAsset(file: string) {
+  return projectAsset(TOWN_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {
