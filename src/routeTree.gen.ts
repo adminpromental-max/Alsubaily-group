@@ -21,6 +21,7 @@ import { Route as ProjectsSultanatAlSharqRouteImport } from './routes/projects.s
 import { Route as ProjectsRabiaMakkahRouteImport } from './routes/projects.rabia-makkah'
 import { Route as ProjectsHailWalkwayRouteImport } from './routes/projects.hail-walkway'
 import { Route as ProjectsHailCornicheRouteImport } from './routes/projects.hail-corniche'
+import { Route as ProjectsGolfCityRouteImport } from './routes/projects.golf-city'
 import { Route as ProjectsDammamOlympicCityRouteImport } from './routes/projects.dammam-olympic-city'
 import { Route as ProjectsBeachHouseResortRouteImport } from './routes/projects.beach-house-resort'
 import { Route as ProjectsAlshubailyPortRouteImport } from './routes/projects.alshubaily-port'
@@ -91,6 +92,11 @@ const ProjectsHailWalkwayRoute = ProjectsHailWalkwayRouteImport.update({
 const ProjectsHailCornicheRoute = ProjectsHailCornicheRouteImport.update({
   id: '/projects/hail-corniche',
   path: '/projects/hail-corniche',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsGolfCityRoute = ProjectsGolfCityRouteImport.update({
+  id: '/projects/golf-city',
+  path: '/projects/golf-city',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsDammamOlympicCityRoute =
@@ -173,6 +179,7 @@ export interface FileRoutesByFullPath {
   '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
+  '/projects/golf-city': typeof ProjectsGolfCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
   '/projects/hail-walkway': typeof ProjectsHailWalkwayRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
@@ -198,6 +205,7 @@ export interface FileRoutesByTo {
   '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
+  '/projects/golf-city': typeof ProjectsGolfCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
   '/projects/hail-walkway': typeof ProjectsHailWalkwayRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
@@ -224,6 +232,7 @@ export interface FileRoutesById {
   '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/beach-house-resort': typeof ProjectsBeachHouseResortRoute
   '/projects/dammam-olympic-city': typeof ProjectsDammamOlympicCityRoute
+  '/projects/golf-city': typeof ProjectsGolfCityRoute
   '/projects/hail-corniche': typeof ProjectsHailCornicheRoute
   '/projects/hail-walkway': typeof ProjectsHailWalkwayRoute
   '/projects/rabia-makkah': typeof ProjectsRabiaMakkahRoute
@@ -251,6 +260,7 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-port'
     | '/projects/beach-house-resort'
     | '/projects/dammam-olympic-city'
+    | '/projects/golf-city'
     | '/projects/hail-corniche'
     | '/projects/hail-walkway'
     | '/projects/rabia-makkah'
@@ -276,6 +286,7 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-port'
     | '/projects/beach-house-resort'
     | '/projects/dammam-olympic-city'
+    | '/projects/golf-city'
     | '/projects/hail-corniche'
     | '/projects/hail-walkway'
     | '/projects/rabia-makkah'
@@ -301,6 +312,7 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-port'
     | '/projects/beach-house-resort'
     | '/projects/dammam-olympic-city'
+    | '/projects/golf-city'
     | '/projects/hail-corniche'
     | '/projects/hail-walkway'
     | '/projects/rabia-makkah'
@@ -327,6 +339,7 @@ export interface RootRouteChildren {
   ProjectsAlshubailyPortRoute: typeof ProjectsAlshubailyPortRoute
   ProjectsBeachHouseResortRoute: typeof ProjectsBeachHouseResortRoute
   ProjectsDammamOlympicCityRoute: typeof ProjectsDammamOlympicCityRoute
+  ProjectsGolfCityRoute: typeof ProjectsGolfCityRoute
   ProjectsHailCornicheRoute: typeof ProjectsHailCornicheRoute
   ProjectsHailWalkwayRoute: typeof ProjectsHailWalkwayRoute
   ProjectsRabiaMakkahRoute: typeof ProjectsRabiaMakkahRoute
@@ -420,6 +433,13 @@ declare module '@tanstack/react-router' {
       path: '/projects/hail-corniche'
       fullPath: '/projects/hail-corniche'
       preLoaderRoute: typeof ProjectsHailCornicheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/golf-city': {
+      id: '/projects/golf-city'
+      path: '/projects/golf-city'
+      fullPath: '/projects/golf-city'
+      preLoaderRoute: typeof ProjectsGolfCityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects/dammam-olympic-city': {
@@ -519,6 +539,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsAlshubailyPortRoute: ProjectsAlshubailyPortRoute,
   ProjectsBeachHouseResortRoute: ProjectsBeachHouseResortRoute,
   ProjectsDammamOlympicCityRoute: ProjectsDammamOlympicCityRoute,
+  ProjectsGolfCityRoute: ProjectsGolfCityRoute,
   ProjectsHailCornicheRoute: ProjectsHailCornicheRoute,
   ProjectsHailWalkwayRoute: ProjectsHailWalkwayRoute,
   ProjectsRabiaMakkahRoute: ProjectsRabiaMakkahRoute,

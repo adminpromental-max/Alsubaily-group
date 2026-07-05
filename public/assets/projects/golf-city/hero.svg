@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1A3324"/>
+      <stop offset="45%" stop-color="#2D5A3D"/>
+      <stop offset="100%" stop-color="#1E3D2A"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8D5A3"/>
+      <stop offset="100%" stop-color="#C9A962"/>
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  <ellipse cx="960" cy="900" rx="720" ry="180" fill="#C9A962" fill-opacity="0.08"/>
+  <text x="960" y="500" text-anchor="middle" fill="url(#gold)" font-family="Georgia, serif" font-size="120" font-weight="700">قريباً</text>
+  <text x="960" y="590" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.55" font-family="Arial, sans-serif" font-size="36" letter-spacing="12">GOLF CITY</text>
+  <text x="960" y="660" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.35" font-family="Arial, sans-serif" font-size="28">قولف سيتي · المزاحمية</text>
+</svg>

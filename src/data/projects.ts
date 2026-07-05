@@ -1,4 +1,4 @@
-import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -180,20 +180,26 @@ export const PROJECTS: Project[] = [
     id: 8,
     slug: "golf-city",
     nameEn: "Golf City",
-    nameAr: "جولف سيتي",
+    nameAr: "قولف سيتي",
     region: "riyadh",
     regionEn: "Riyadh",
     regionAr: "الرياض",
-    typeEn: "Golf",
-    typeAr: "جولف",
+    typeEn: "Integrated Community",
+    typeAr: "مجتمع متكامل",
     color: "#8B6914",
     x: 53.5,
     y: 48.5,
     descriptionEn:
-      "An integrated golf community with premium villas and world-class amenities.",
-    descriptionAr: "مجتمع جولف متكامل مع فلل فاخرة ومرافق عالمية المستوى.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
+      "An exceptional integrated destination coming soon in Al-Muzahimiyah — residential, hospitality, and entertainment across 1,850,000 m².",
+    descriptionAr:
+      "وجهة متكاملة استثنائية قريباً في المزاحمية — عالم سكني وضيافة فندقية ووجهة ترفيهية على مساحة 1,850,000 م².",
+    heroImage: golfCityAsset("cover.svg"),
+    gallery: [
+      golfCityAsset("cover.svg"),
+      golfCityAsset("1.svg"),
+      golfCityAsset("2.svg"),
+      golfCityAsset("3.svg"),
+    ],
   },
   {
     id: 9,

@@ -92,6 +92,12 @@ export function portAsset(file: string) {
   return projectAsset(PORT_DIR, file);
 }
 
+export const GOLF_CITY_DIR = "golf-city";
+
+export function golfCityAsset(file: string) {
+  return projectAsset(GOLF_CITY_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

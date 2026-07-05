@@ -168,14 +168,14 @@ export const GEO_PROJECTS: GeoProject[] = [
   {
     id: 8,
     slug: "golf-city",
-    nameAr: "جولف سيتي",
+    nameAr: "قولف سيتي",
     nameEn: "Golf City",
-    typeAr: "جولف",
-    typeEn: "Golf",
+    typeAr: "مجتمع متكامل",
+    typeEn: "Integrated Community",
     region: "riyadh",
     lat: 24.6220,
     lng: 46.8150,
-    heroImage: "/assets/hero/Hero-2.jpg",
+    heroImage: "/assets/projects/golf-city/cover.svg",
   },
   // Eastern Province
   {
