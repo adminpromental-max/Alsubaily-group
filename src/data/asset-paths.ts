@@ -104,6 +104,12 @@ export function binyanAsset(file: string) {
   return projectAsset(BINYAN_RESIDENCE_DIR, file);
 }
 
+export const RIYADH_BOULEVARD_DIR = "riyadh-boulevard";
+
+export function riyadhBoulevardAsset(file: string) {
+  return projectAsset(RIYADH_BOULEVARD_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

@@ -1,4 +1,4 @@
-import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset, riyadhBoulevardAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -176,10 +176,14 @@ export const PROJECTS: Project[] = [
     x: 51.5,
     y: 43.5,
     descriptionEn:
-      "A vibrant boulevard featuring retail, dining, and entertainment experiences.",
-    descriptionAr: "بوليفارد حيوي يضم التجزئة والمطاعم والترفيه.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
+      "A vibrant boulevard featuring retail, dining, and entertainment — coming soon.",
+    descriptionAr: "بوليفارد حيوي يضم التجزئة والمطاعم والترفيه — قريباً.",
+    heroImage: riyadhBoulevardAsset("cover.svg"),
+    gallery: [
+      riyadhBoulevardAsset("cover.svg"),
+      riyadhBoulevardAsset("cover.svg"),
+      riyadhBoulevardAsset("cover.svg"),
+    ],
   },
   {
     id: 8,

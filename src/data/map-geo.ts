@@ -163,7 +163,7 @@ export const GEO_PROJECTS: GeoProject[] = [
     region: "riyadh",
     lat: 24.7608,
     lng: 46.6441,
-    heroImage: "/assets/hero/Hero-1.jpg",
+    heroImage: "/assets/projects/riyadh-boulevard/cover.svg",
   },
   {
     id: 8,
