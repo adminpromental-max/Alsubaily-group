@@ -120,9 +120,11 @@ export function GolfCityHero() {
         <h1 data-hero-reveal className="olympic-hero-title mt-1 max-w-4xl">
           {t(GOLF_CITY_HERO.titleAr, GOLF_CITY_HERO.titleEn)}
         </h1>
-        <p data-hero-reveal className="olympic-hero-sub mt-4 max-w-2xl">
-          {t(GOLF_CITY_HERO.subtitleAr, GOLF_CITY_HERO.subtitleEn)}
-        </p>
+        {GOLF_CITY_HERO.subtitleAr && (
+          <p data-hero-reveal className="olympic-hero-sub mt-4 max-w-2xl">
+            {t(GOLF_CITY_HERO.subtitleAr, GOLF_CITY_HERO.subtitleEn)}
+          </p>
+        )}
       </div>
 
       <div className="olympic-hero-scroll pointer-events-none" aria-hidden>

@@ -180,7 +180,7 @@ export const PROJECTS: Project[] = [
     id: 8,
     slug: "golf-city",
     nameEn: "Golf City",
-    nameAr: "قولف سيتي",
+    nameAr: "جولف سيتي",
     region: "riyadh",
     regionEn: "Riyadh",
     regionAr: "الرياض",

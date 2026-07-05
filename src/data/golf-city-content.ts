@@ -6,14 +6,12 @@ export const GOLF_CITY_COVER_IMAGE = golfCityAsset("cover.svg");
 export const GOLF_CITY_HERO = {
   eyebrowAr: "المزاحمية · الرياض",
   eyebrowEn: "Al-Muzahimiyah · Riyadh",
-  titleAr: "قولف سيتي",
+  titleAr: "جولف سيتي",
   titleEn: "Golf City",
   taglineAr: "انتظرونا.. قريباً!",
   taglineEn: "Stay tuned.. Coming Soon!",
-  subtitleAr:
-    "المستقبل يرتسم هنا.. قريباً في المزاحمية — نعمل حالياً خلف الكواليس لتطوير وجهة استثنائية تعيد تعريف مفهوم جودة الحياة والرفاهية.",
-  subtitleEn:
-    "The future is taking shape here — soon in Al-Muzahimiyah. We are working behind the scenes to develop an exceptional destination that redefines quality of life and wellness.",
+  subtitleAr: "",
+  subtitleEn: "",
 };
 
 export type GolfCityStat = {
@@ -52,7 +50,7 @@ export const GOLF_CITY_INTRO = {
   titleAr: "نبض جديد للمنطقة",
   titleEn: "A New Pulse for the Region",
   bodyAr:
-    "على مساحة شاسعة تتجاوز 1,850,000 متر مربع، يولد مشروع «قولف سيتي» ليكون النبض الجديد للمنطقة — وجهة طموحة تجمع بين عصرية التصميم وهدوء الطبيعة في قلب المزاحمية.",
+    "على مساحة شاسعة تتجاوز 1,850,000 متر مربع، يولد مشروع «جولف سيتي» ليكون النبض الجديد للمنطقة — وجهة طموحة تجمع بين عصرية التصميم وهدوء الطبيعة في قلب المزاحمية.",
   bodyEn:
     "Across a vast area exceeding 1,850,000 square meters, Golf City emerges as the new pulse of the region — an ambitious destination blending contemporary design with the serenity of nature in the heart of Al-Muzahimiyah.",
   image: golfCityAsset("1.svg"),
@@ -62,9 +60,9 @@ export const GOLF_CITY_ABOUT = {
   titleAr: "عن المشروع",
   titleEn: "About the Project",
   bodyAr:
-    "قولف سيتي هو مجتمع متكامل ووجهة طموحة تجمع بين عصرية التصميم وهدوء الطبيعة في قلب المزاحمية. تم تخطيط المشروع بدقة ليكون بيئة مثالية للعيش، الاستجمام، والاستثمار، عبر ثلاثة ركائز أساسية:",
+    "جولف سيتي هو مجتمع متكامل ووجهة طموحة تجمع بين عصرية التصميم وهدوء الطبيعة في قلب المزاحمية، تم تخطيط المشروع بدقة ليكون بيئة مثالية للعيش، والاستثمار، عبر ثلاثة ركائز أساسية:",
   bodyEn:
-    "Golf City is an integrated community and ambitious destination that combines contemporary design with the tranquility of nature in the heart of Al-Muzahimiyah. Meticulously planned as an ideal environment for living, leisure, and investment through three core pillars:",
+    "Golf City is an integrated community and ambitious destination that combines contemporary design with the tranquility of nature in the heart of Al-Muzahimiyah. Meticulously planned as an ideal environment for living and investment through three core pillars:",
 };
 
 export const GOLF_CITY_PILLARS = [
@@ -104,11 +102,11 @@ export const GOLF_CITY_LOCATION = {
   titleAr: "لماذا المزاحمية؟",
   titleEn: "Why Al-Muzahimiyah?",
   bodyAr:
-    "تم اختيار المزاحمية بعناية لتكون موطناً لمشروع قولف سيتي، فهي ليست مجرد موقع جغرافي، بل هي الوجهة السياحية والترفيهية الأقرب للعاصمة الرياض. تتميز المنطقة بطبيعتها الساحرة التي تجمع بين هيبة جبال طويق، ونقاء رمال النفود الذهبية، واعتدال أجوائها.",
+    "تم اختيار المزاحمية بعناية لتكون موطناً لمشروع جولف سيتي، فهي ليست مجرد موقع جغرافي، بل هي الوجهة السياحية والترفيهية الأقرب للعاصمة الرياض. تتميز المنطقة بطبيعتها الساحرة التي تجمع بين هيبة جبال طويق، ونقاء رمال النفود الذهبية، واعتدال أجوائها.",
   bodyEn:
     "Al-Muzahimiyah was carefully chosen as the home of Golf City — not merely a geographic location, but the closest tourism and leisure destination to the capital, Riyadh. The region captivates with the majesty of Tuwaiq mountains, the purity of golden desert sands, and its temperate climate.",
   body2Ar:
-    "بفضل موقعها الاستراتيجي على طريق مكة المكرمة السريع، توفر المزاحمية لساكني وزوار قولف سيتي ملاذاً هادئاً ييسهل الوصول إليه، ليربطهم بنمط حياة عصري وصحي بعيداً عن صخب المدينة، وفي أحضان طبيعة لا تُنسى.",
+    "بفضل موقعها الاستراتيجي على طريق مكة المكرمة السريع، توفر المزاحمية لساكني وزوار جولف سيتي ملاذاً هادئاً ييسهل الوصول إليه، ليربطهم بنمط حياة عصري وصحي بعيداً عن صخب المدينة، وفي أحضان طبيعة لا تُنسى.",
   body2En:
     "Thanks to its strategic location on the Makkah Expressway, Al-Muzahimiyah offers residents and visitors of Golf City a peaceful retreat that is easy to reach — connecting them to a modern, healthy lifestyle away from the city bustle, embraced by unforgettable nature.",
   image: golfCityAsset("2.svg"),
@@ -177,7 +175,7 @@ export const GOLF_CITY_GALLERY: GolfCityGallerySlide[] = [
 ];
 
 export const GOLF_CITY_CTA = {
-  titleAr: "قولف سيتي.. قريباً",
+  titleAr: "جولف سيتي.. قريباً",
   titleEn: "Golf City — Coming Soon",
   subtitleAr: "كن أول من يعرف عند إطلاق المشروع",
   subtitleEn: "Be the first to know when the project launches",

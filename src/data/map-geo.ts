@@ -168,7 +168,7 @@ export const GEO_PROJECTS: GeoProject[] = [
   {
     id: 8,
     slug: "golf-city",
-    nameAr: "قولف سيتي",
+    nameAr: "جولف سيتي",
     nameEn: "Golf City",
     typeAr: "مجتمع متكامل",
     typeEn: "Integrated Community",
