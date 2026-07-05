@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E2430"/>
+      <stop offset="100%" stop-color="#3D4F63"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0D4B8"/>
+      <stop offset="100%" stop-color="#C4783A"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <text x="300" y="195" text-anchor="middle" fill="url(#accent)" font-family="Georgia, serif" font-size="52" font-weight="700">قريباً</text>
+  <text x="300" y="245" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.5" font-family="Arial, sans-serif" font-size="14" letter-spacing="3">بنيان ريزدنس</text>
+</svg>

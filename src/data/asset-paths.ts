@@ -98,6 +98,12 @@ export function golfCityAsset(file: string) {
   return projectAsset(GOLF_CITY_DIR, file);
 }
 
+export const BINYAN_RESIDENCE_DIR = "binyan-residence";
+
+export function binyanAsset(file: string) {
+  return projectAsset(BINYAN_RESIDENCE_DIR, file);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

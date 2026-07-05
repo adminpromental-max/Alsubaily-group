@@ -1,4 +1,4 @@
-import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -121,22 +121,27 @@ export const PROJECTS: Project[] = [
   {
     id: 5,
     slug: "benban-residence",
-    nameEn: "Benban Residence",
-    nameAr: "بنبان ريزيدنس",
+    nameEn: "Binyan Residence",
+    nameAr: "بنيان ريزدنس",
     region: "riyadh",
     regionEn: "Riyadh",
     regionAr: "الرياض",
-    typeEn: "Residential",
-    typeAr: "سكني",
+    typeEn: "Smart Residential",
+    typeAr: "سكني ذكي",
     color: "#C4783A",
     x: 47.5,
     y: 53.5,
     descriptionEn:
-      "Contemporary residential towers in the vibrant Benban district of Riyadh.",
+      "A smart, sustainable community coming soon in North Riyadh — 6,200,000 m² redefining modern living.",
     descriptionAr:
-      "أبراج سكنية عصرية في حي بنبان النابض بالحياة في الرياض.",
-    heroImage: "/assets/hero/Hero-1.jpg",
-    gallery: DEFAULT_GALLERY,
+      "مجتمع ذكي ومستدام قريباً شمال الرياض — 6,200,000 م² تعيد صياغة مفهوم العيش العصري.",
+    heroImage: binyanAsset("cover.svg"),
+    gallery: [
+      binyanAsset("cover.svg"),
+      binyanAsset("1.svg"),
+      binyanAsset("2.svg"),
+      binyanAsset("3.svg"),
+    ],
   },
   {
     id: 6,
