@@ -122,6 +122,12 @@ export function townAsset(file: string) {
   return projectAsset(TOWN_DIR, file);
 }
 
+export const MEDIA_CENTER_DIR = "Media-center";
+
+export function mediaCenterAsset(file: string) {
+  return encodeURI(`/assets/${MEDIA_CENTER_DIR}/${file}`);
+}
+
 export const LOGO_DIR = "لوجوهات مجموعة الشبيلي";
 
 export function groupLogo(file: string) {

@@ -1,4 +1,10 @@
-import { dammamAsset, hailCornicheAsset, hailWalkwayAsset, rabiaAsset } from "@/data/asset-paths";
+import {
+  dammamAsset,
+  hailCornicheAsset,
+  hailWalkwayAsset,
+  mediaCenterAsset,
+  rabiaAsset,
+} from "@/data/asset-paths";
 import { HAIL_CORNICHE_VIDEO_URL } from "@/data/hail-corniche-content";
 import { RABIA_VIDEO_URL } from "@/data/rabia-content";
 
@@ -10,6 +16,22 @@ export type MediaCategoryId =
 
 /** image = cover photo · video-cover = cover video · image-video = photo hero + text + inline video */
 export type MediaArticleLayout = "image" | "video-cover" | "image-video";
+
+export type MediaExternalSourceId =
+  | "alriyadh"
+  | "sabq"
+  | "ajel"
+  | "x"
+  | "snapchat"
+  | "youtube";
+
+export type MediaExternalSource = {
+  id: MediaExternalSourceId;
+  labelAr: string;
+  labelEn: string;
+  /** Supports multiple URLs per platform (e.g. several YouTube videos). */
+  urls: string[];
+};
 
 export type MediaCategory = {
   id: MediaCategoryId;
@@ -31,6 +53,7 @@ export type MediaArticle = {
   image?: string;
   videoUrl?: string;
   featured?: boolean;
+  externalSources?: MediaExternalSource[];
 };
 
 export const MEDIA_HERO_BANNER = dammamAsset("City-landscape.png");
@@ -72,6 +95,76 @@ export function getCategoryById(id: MediaCategoryId): MediaCategory {
 }
 
 export const MEDIA_ARTICLES: MediaArticle[] = [
+  {
+    id: "pu-004",
+    category: "project-updates",
+    layout: "image",
+    date: "2026-07-06",
+    featured: true,
+    titleAr:
+      'الشبيلي تاون بالخُبر.. وجهة متكاملة تجمع التسوّق والضيافة والترفيه على الساحل الشرقي',
+    titleEn:
+      "AlShubaily Town in Al Khobar — an integrated destination for retail, hospitality, and leisure",
+    excerptAr:
+      "مشروع ضخم على مساحة 900 ألف م² يضم أكبر بحيرة صناعية في الشرق الأوسط، ويستعد للانطلاق في الربع الأول من 2025.",
+    excerptEn:
+      "A 900,000 m² development featuring the largest artificial lake in the Middle East, preparing to launch in Q1 2025.",
+    bodyParagraphsAr: [
+      'تستعد شركة "الإيسار العربية" لافتتاح مشروع "الشبيلي تاون" في مدينة الخُبر، في إطار خططها لتقديم وجهة عمرانية متكاملة تجمع بين السكن الفاخر والتجزئة والترفيه والضيافة، وذلك خلال الربع الأول من عام 2025.',
+      'يمتد المشروع على مساحة 900 ألف متر مربع على امتداد الساحل الشرقي مقابل جسر الملك فهد، ليصبح أحد أبرز المعالم السياحية والاستثمارية في المنطقة الشرقية، ويضم أكبر بحيرة صناعية في الشرق الأوسط.',
+      'يضم "الشبيلي تاون" عدداً من المكونات الرئيسية، أبرزها "الشبيلي جراند مول" الذي يُقام على جزيرة عائمة تحيط بها المياه من ثلاث جهات، مستوحى تصميمه من العمارة الأندلسية وقصر الحمراء، ويغطي مساحة تتجاوز 331 ألف متر مربع مع واجهة بحرية بطول 1.7 كم.',
+      'كما يتضمن المشروع "الشبيلي ريزيدنس" بأكثر من 1200 وحدة سكنية فاخرة، و10 فنادق خمس نجوم يديرها كبرى سلاسل الضيافة العالمية، إضافة إلى 600 متجر و7 مناطق ترفيهية و5000 موقف للسيارات، إلى جانب قرية الحرفيين وقرية الكرنفال.',
+      'أكد المهندس سعود بن خالد الشبيلي، الرئيس التنفيذي لشركة الإيسار العربية، أن المشروع يمثل إضافة نوعية للاقتصاد المحلي ويدعم مستهدفات رؤية المملكة 2030 في تعزيز السياحة وجذب الاستثمارات، مشيراً إلى أن الشركة بدأت بالفعل عمليات تأجير "الشبيلي جراند مول".',
+      'ويأتي "الشبيلي تاون" ضمن محفظة الإيسار العربية التي تضم 6 مشاريع واسعة النطاق في الرياض ومكة المكرمة والقطيف وحائل والخُبر، جميعها تُنفَّذ وفق معايير عالمية لتلبية تطلعات السوق السعودي المتنامي.',
+    ],
+    bodyParagraphsEn: [
+      'Al Eisaar Al Arabiya is preparing to launch AlShubaily Town in Al Khobar, delivering an integrated urban destination combining premium residential, retail, entertainment, and hospitality, targeted for Q1 2025.',
+      "Spanning 900,000 square meters along the Eastern Province coastline opposite King Fahd Causeway, the project will become a landmark tourism and investment destination, featuring the largest artificial lake in the Middle East.",
+      'AlShubaily Town comprises several key components, led by AlShubaily Grand Mall — built on a floating island surrounded by water on three sides, inspired by Andalusian architecture and the Alhambra Palace, covering over 331,000 m² with a 1.7 km waterfront.',
+      'The development also includes AlShubaily Residence with over 1,200 luxury residential units, 10 five-star hotels operated by leading global hospitality brands, 600 retail outlets, 7 entertainment zones, 5,000 parking spaces, plus the Artisans Village and Carnival Village.',
+      'Eng. Saud Bin Khalid AlShubaily, CEO of Al Eisaar Al Arabiya, confirmed the project is a significant economic addition supporting Vision 2030 tourism and investment goals, noting that leasing for AlShubaily Grand Mall has already begun.',
+      'AlShubaily Town is part of Al Eisaar Al Arabiya\'s portfolio of six large-scale projects across Riyadh, Makkah, Qatif, Hail, and Al Khobar — all delivered to international standards for Saudi Arabia\'s growing market.',
+    ],
+    image: mediaCenterAsset("الشبيلي-تاون.jpg"),
+    externalSources: [
+      {
+        id: "alriyadh",
+        labelAr: "جريدة الرياض",
+        labelEn: "Al Riyadh",
+        urls: ["https://www.alriyadh.com/66819"],
+      },
+      {
+        id: "sabq",
+        labelAr: "سبق",
+        labelEn: "Sabq",
+        urls: ["https://sabq.org/article/oIageF6"],
+      },
+      {
+        id: "ajel",
+        labelAr: "عاجل",
+        labelEn: "Ajel",
+        urls: ["https://ajel.sa/economy/zwgjdw073l"],
+      },
+      {
+        id: "x",
+        labelAr: "X",
+        labelEn: "X",
+        urls: [],
+      },
+      {
+        id: "snapchat",
+        labelAr: "سناب شات",
+        labelEn: "Snapchat",
+        urls: [],
+      },
+      {
+        id: "youtube",
+        labelAr: "يوتيوب",
+        labelEn: "YouTube",
+        urls: ["https://youtu.be/cUTxki_3YBs?si=O8Ar4orSsRfsMGCN"],
+      },
+    ],
+  },
   {
     id: "cn-001",
     category: "company-news",

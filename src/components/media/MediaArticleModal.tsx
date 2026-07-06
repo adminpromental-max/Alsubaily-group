@@ -1,4 +1,5 @@
 import { Calendar, ImageIcon, Layers, Play } from "lucide-react";
+import { MediaArticleSources } from "@/components/media/MediaArticleSources";
 import {
   Dialog,
   DialogContent,
@@ -151,6 +152,10 @@ export function MediaArticleModal({
                     />
                   </div>
                 </div>
+              )}
+
+              {article.externalSources && article.externalSources.length > 0 && (
+                <MediaArticleSources sources={article.externalSources} />
               )}
             </div>
           </div>
