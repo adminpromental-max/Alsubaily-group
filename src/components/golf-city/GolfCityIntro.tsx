@@ -40,15 +40,14 @@ export function GolfCityIntro() {
         </div>
 
         <div data-intro-reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#8B6914]">
+          <h2 className="font-heading text-3xl font-bold text-[#1A2E1F] md:text-4xl">
             {t(GOLF_CITY_INTRO.titleAr, GOLF_CITY_INTRO.titleEn)}
-          </p>
-          <h2 className="mt-2 font-heading text-3xl font-bold text-[#1A2E1F] md:text-4xl">
-            {t("انتظرونا.. قريباً!", "Stay tuned.. Coming Soon!")}
           </h2>
-          <p className="mt-4 text-sm leading-8 text-[#1A2E1F]/75 md:text-base">
-            {t(GOLF_CITY_INTRO.bodyAr, GOLF_CITY_INTRO.bodyEn)}
-          </p>
+          {GOLF_CITY_INTRO.bodyAr ? (
+            <p className="mt-4 text-sm leading-8 text-[#1A2E1F]/75 md:text-base">
+              {t(GOLF_CITY_INTRO.bodyAr, GOLF_CITY_INTRO.bodyEn)}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>

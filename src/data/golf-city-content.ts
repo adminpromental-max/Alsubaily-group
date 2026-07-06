@@ -47,12 +47,10 @@ export const GOLF_CITY_STATS: GolfCityStat[] = [
 ];
 
 export const GOLF_CITY_INTRO = {
-  titleAr: "نبض جديد للمنطقة",
-  titleEn: "A New Pulse for the Region",
-  bodyAr:
-    "على مساحة شاسعة تتجاوز 1,850,000 متر مربع، يولد مشروع «جولف سيتي» ليكون النبض الجديد للمنطقة — وجهة طموحة تجمع بين عصرية التصميم وهدوء الطبيعة في قلب المزاحمية.",
-  bodyEn:
-    "Across a vast area exceeding 1,850,000 square meters, Golf City emerges as the new pulse of the region — an ambitious destination blending contemporary design with the serenity of nature in the heart of Al-Muzahimiyah.",
+  titleAr: "انتظرونا.. قريباً!",
+  titleEn: "Stay tuned.. Coming Soon!",
+  bodyAr: "",
+  bodyEn: "",
   image: golfCityAsset("1.svg"),
 };
 
@@ -175,8 +173,8 @@ export const GOLF_CITY_GALLERY: GolfCityGallerySlide[] = [
 ];
 
 export const GOLF_CITY_CTA = {
-  titleAr: "جولف سيتي.. قريباً",
-  titleEn: "Golf City — Coming Soon",
+  titleAr: "انتظرونا.. قريباً!",
+  titleEn: "Stay tuned.. Coming Soon!",
   subtitleAr: "كن أول من يعرف عند إطلاق المشروع",
   subtitleEn: "Be the first to know when the project launches",
   image: golfCityAsset("hero.svg"),

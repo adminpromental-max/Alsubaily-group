@@ -204,9 +204,9 @@ export const PROJECTS: Project[] = [
     x: 53.5,
     y: 48.5,
     descriptionEn:
-      "An exceptional integrated destination coming soon in Al-Muzahimiyah — residential, hospitality, and entertainment across 1,850,000 m².",
+      "An integrated community and ambitious destination in Al-Muzahimiyah — residential, hospitality, and entertainment. Coming soon.",
     descriptionAr:
-      "وجهة متكاملة استثنائية قريباً في المزاحمية — عالم سكني وضيافة فندقية ووجهة ترفيهية على مساحة 1,850,000 م².",
+      "جولف سيتي — مجتمع متكامل ووجهة طموحة في قلب المزاحمية. عالم سكني، ضيافة فندقية، ووجهة ترفيهية — قريباً.",
     heroImage: golfCityAsset("cover.svg"),
     gallery: [
       golfCityAsset("cover.svg"),

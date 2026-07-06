@@ -17,7 +17,7 @@ export const Route = createFileRoute("/projects/golf-city")({
       {
         name: "description",
         content:
-          "جولف سيتي — وجهة متكاملة قريباً في المزاحمية. مجتمع سكني وضيافة فندقية ووجهة ترفيهية على مساحة 1,850,000 م².",
+          "جولف سيتي — مجتمع متكامل ووجهة طموحة في قلب المزاحمية. عالم سكني، ضيافة فندقية، ووجهة ترفيهية — انتظرونا قريباً!",
       },
       {
         property: "og:title",
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/projects/golf-city")({
       {
         property: "og:description",
         content:
-          "An integrated destination coming soon in Al-Muzahimiyah — residential, hospitality, and entertainment across 1.85M m².",
+          "An integrated community in Al-Muzahimiyah — residential, hospitality, and entertainment. Stay tuned, coming soon!",
       },
       {
         property: "og:image",
