@@ -221,7 +221,7 @@ export const TIDARA_GALLERY: TidaraGalleryItem[] = [
   },
   {
     id: "residential",
-    image: tidaraAsset("walkthrough-2.png"),
+    image: tidaraAsset("سكني.png"),
     tagAr: "سكني",
     tagEn: "Residential",
     altAr: "الوحدات السكنية في أبراج تيدارا",
