@@ -31,6 +31,8 @@ const MOBILE_BREAKPOINT = 1024;
 const MOBILE_COVER_OVERSCAN = 1.06;
 const REGION_ZOOM = 1.85;
 const DESKTOP_PAN_BOOST = 1.22;
+const CLICK_THRESHOLD = 8;
+const PAN_EDGE_MARGIN = 12;
 
 type MapMode = "overview" | "region" | "project";
 type Transform = { x: number; y: number; scale: number };
@@ -94,7 +96,6 @@ export function InteractiveMap({
   mapDefault = MAP_DEFAULT,
   coordinates = NEW_MAP_COORDINATES,
   pinMode = "number",
-  regionPinColors = false,
   panBoost = false,
 }: InteractiveMapProps = {}) {
   const { t, lang } = useLang();
@@ -205,19 +206,28 @@ export function InteractiveMap({
       const { w, h } = imgSizeRef.current;
       if (vw < 10 || vh < 10 || !w || !h) return;
 
-      const isMobile = vw < MOBILE_BREAKPOINT;
       const fitScale = Math.min(vw / w, vh / h);
-      const nextBase = isMobile
-        ? Math.max(vw / w, vh / h) * MOBILE_COVER_OVERSCAN
-        : panBoost
-          ? fitScale * DESKTOP_PAN_BOOST
+
+      if (panBoost) {
+        const nextBase = fitScale * DESKTOP_PAN_BOOST;
+        baseScaleRef.current = nextBase;
+        transformRef.current = {
+          scale: nextBase,
+          x: vw - w * nextBase - PAN_EDGE_MARGIN,
+          y: vh - h * nextBase - PAN_EDGE_MARGIN,
+        };
+      } else {
+        const isMobile = vw < MOBILE_BREAKPOINT;
+        const nextBase = isMobile
+          ? Math.max(vw / w, vh / h) * MOBILE_COVER_OVERSCAN
           : fitScale;
-      baseScaleRef.current = nextBase;
-      transformRef.current = {
-        x: (vw - w * nextBase) / 2,
-        y: (vh - h * nextBase) / 2,
-        scale: nextBase,
-      };
+        baseScaleRef.current = nextBase;
+        transformRef.current = {
+          x: (vw - w * nextBase) / 2,
+          y: (vh - h * nextBase) / 2,
+          scale: nextBase,
+        };
+      }
       applyTransform(animate);
       setReady(true);
     },
@@ -339,12 +349,15 @@ export function InteractiveMap({
         return;
       }
 
-      // Horizontal trackpad / mouse wheel → pan map; vertical scroll passes to the page
-      if (panBoost && Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 2) {
+      if (
+        panBoost &&
+        (Math.abs(e.deltaX) > 2 || Math.abs(e.deltaY) > 2)
+      ) {
         e.preventDefault();
         transformRef.current = {
           ...transformRef.current,
           x: transformRef.current.x - e.deltaX,
+          y: transformRef.current.y - e.deltaY,
         };
         applyTransform(false);
       }
@@ -444,8 +457,7 @@ export function InteractiveMap({
       <div
         className={cn(
           "relative w-full transition-opacity duration-300",
-          /* natural ratio of new-map.png (1392×768 ≈ 55.2%) with good minimums */
-          "h-[55vw] min-h-[340px] max-h-[760px]",
+          "h-[min(75svh,900px)] min-h-[380px] w-full",
           ready ? "opacity-100" : "opacity-40",
         )}
       >

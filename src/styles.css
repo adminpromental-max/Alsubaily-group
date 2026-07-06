@@ -360,7 +360,8 @@
 
 .map-viewport--pan {
   cursor: grab;
-  touch-action: pan-y pinch-zoom;
+  touch-action: none;
+  overscroll-behavior: contain;
 }
 
 .map-viewport--pan:active {

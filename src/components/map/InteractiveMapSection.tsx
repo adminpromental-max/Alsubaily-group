@@ -2,6 +2,11 @@ import { useState } from "react";
 import { Search, X } from "lucide-react";
 import { InteractiveMap } from "./InteractiveMap";
 import { useLang } from "@/contexts/lang-context";
+import {
+  MAP_V2_COORDINATES,
+  MAP_V2_SIZE,
+  MAP_V2_SRC,
+} from "@/data/map-v2-coordinates";
 import { PROJECTS, REGIONS, type RegionId } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -28,8 +33,8 @@ export function InteractiveMapSection() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#1A1612]/60 md:text-base">
           {t(
-            "اضغط على أي نقطة مضيئة لاستكشاف المشروع وتفاصيله.",
-            "Tap any highlighted point to explore the project and its details.",
+            "اسحبي الخريطة في كل الاتجاهات، واضغطي على أي pin لاستكشاف المشروع.",
+            "Drag the map in any direction and tap any pin to explore a project.",
           )}
         </p>
       </div>
@@ -78,7 +83,7 @@ export function InteractiveMapSection() {
         </p>
       </div>
 
-      {/* ── Full-bleed map (natural aspect ratio 1392×768) ── */}
+      {/* ── Full-bleed interactive map (new-map3.png) ── */}
       <div className="w-full">
         <InteractiveMap
           hideControls
@@ -86,6 +91,11 @@ export function InteractiveMapSection() {
           externalFilter={filter}
           onSearchChange={setSearch}
           onFilterChange={setFilter}
+          mapSrc={MAP_V2_SRC}
+          mapDefault={MAP_V2_SIZE}
+          coordinates={MAP_V2_COORDINATES}
+          pinMode="pushpin"
+          panBoost
         />
       </div>
     </section>
