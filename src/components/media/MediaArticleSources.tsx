@@ -37,6 +37,10 @@ const PLATFORM_STYLES: Record<
     active: "border-[#FF0000]/25 bg-[#FF0000]/8 hover:border-[#FF0000]/45 hover:bg-[#FF0000]/14",
     inactive: "border-[#FF0000]/15 bg-[#FF0000]/5 opacity-50",
   },
+  instagram: {
+    active: "border-[#D62976]/25 bg-[#D62976]/8 hover:border-[#D62976]/45 hover:bg-[#D62976]/14",
+    inactive: "border-[#D62976]/15 bg-[#D62976]/5 opacity-50",
+  },
 };
 
 function SourceButton({

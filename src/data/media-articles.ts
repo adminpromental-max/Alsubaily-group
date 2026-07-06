@@ -23,7 +23,8 @@ export type MediaExternalSourceId =
   | "ajel"
   | "x"
   | "snapchat"
-  | "youtube";
+  | "youtube"
+  | "instagram";
 
 export type MediaExternalSource = {
   id: MediaExternalSourceId;
@@ -95,6 +96,71 @@ export function getCategoryById(id: MediaCategoryId): MediaCategory {
 }
 
 export const MEDIA_ARTICLES: MediaArticle[] = [
+  {
+    id: "pu-005",
+    category: "project-updates",
+    layout: "image",
+    date: "2026-07-07",
+    featured: true,
+    titleAr:
+      'شبيلي جراند مول على مشارف الانطلاق.. نسبة تأجير تجاوزت 84% وعلامات عالمية تدخل الشرقية لأول مرة',
+    titleEn:
+      "AlShubaily Grand Mall nears launch — over 84% leased with global brands entering the Eastern Region for the first time",
+    excerptAr:
+      "المشروع يستعد لاستقبال الزوار خلال العام الجاري وسط إقبال واسع من العلامات التجارية المحلية والعالمية.",
+    excerptEn:
+      "The project prepares to welcome visitors this year amid strong interest from local and international retail brands.",
+    bodyParagraphsAr: [
+      'يوشك «الشبيلي جراند مول» على فتح أبوابه أمام الجمهور خلال العام الجاري، في خطوة تُترقّب باهتمام متزايد من قطاع التجزئة والاستثمار في المنطقة الشرقية، وسط مؤشرات إيجابية تعكس حجم الثقة التي يحظى بها المشروع.',
+      'وسجّل المول نسبة تأجير تجاوزت 84%، مع انضمام مجموعة متنوعة من العلامات المحلية والعالمية المرموقة، إلى جانب استقطاب علامات تُسجّل حضورها الأول في المنطقة الشرقية، ما يُثري التنوع والتجربة التي سيقدمها للزوار.',
+      'وتنعكس هذه النتائج في الجاهزية التشغيلية المتقدمة التي يشهدها المشروع حالياً، تمهيداً لإطلاق وجهة شاملة تجمع التسوق والترفيه والمطاعم في فضاء عصري واحد يلبي تطلعات الزوار والعائلات.',
+      'ومن المنتظر أن يُسهم المول في تنشيط الحركة التجارية والترفيهية بمدينة الخُبر والمنطقة الشرقية، ويصبح محطّة جذب جديدة للسكان والزوار على حدٍّ سواء.',
+    ],
+    bodyParagraphsEn: [
+      "AlShubaily Grand Mall is preparing to open its doors to the public later this year, drawing growing interest from the retail and investment sectors in the Eastern Region amid strong indicators of market confidence in the project.",
+      "The mall has surpassed 84% leasing, welcoming a diverse mix of prestigious local and international brands — including several making their debut in the Eastern Region — enriching the variety and experience it will offer visitors.",
+      "These results reflect the project's advanced operational readiness, paving the way for a comprehensive destination combining shopping, entertainment, and dining in a single contemporary space meeting visitor and family expectations.",
+      "The mall is expected to energize commercial and leisure activity in Al Khobar and the Eastern Region, becoming a new attraction for residents and visitors alike.",
+    ],
+    image: mediaCenterAsset("grand-mall.webp"),
+    externalSources: [
+      {
+        id: "alriyadh",
+        labelAr: "جريدة الرياض",
+        labelEn: "Al Riyadh",
+        urls: ["https://alriyadh.com/2193262"],
+      },
+      {
+        id: "ajel",
+        labelAr: "عاجل",
+        labelEn: "Ajel",
+        urls: [
+          "https://x.com/ajelnews24/status/2066146356075348298?s=46&t=FtbaxRAAz2xJudxwIJoBRA",
+        ],
+      },
+      {
+        id: "x",
+        labelAr: "X",
+        labelEn: "X",
+        urls: [
+          "https://x.com/saudinews50/status/2066144566009331898?s=46",
+          "https://x.com/eastprojectsksa/status/2066143866034548884?s=48",
+          "https://x.com/anas_s_alrajhi/status/2066143838968647754?s=48&t=8kHoVRAowhQwgz6_6Prd_w",
+          "https://x.com/i/status/2066145477616177384",
+          "https://x.com/Eyaaaad/status/2066487705853128869",
+          "https://x.com/whrumor/status/2066506355645518150?s=46",
+        ],
+      },
+      {
+        id: "instagram",
+        labelAr: "إنستغرام",
+        labelEn: "Instagram",
+        urls: [
+          "https://www.instagram.com/reel/DZmqZ7oI7Va/?igsh=MTV1dHduOXE0MXJsYQ==",
+        ],
+      },
+    ],
+  },
   {
     id: "pu-004",
     category: "project-updates",

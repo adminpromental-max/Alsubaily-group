@@ -84,5 +84,32 @@ export function MediaSourceIcon({ platform, className }: MediaSourceIconProps) {
           <path fill="white" d="M10 8.5v7l6-3.5-6-3.5z" />
         </svg>
       );
+    case "instagram":
+      return (
+        <svg viewBox="0 0 24 24" className={base} aria-hidden>
+          <defs>
+            <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#FEDA75" />
+              <stop offset="25%" stopColor="#FA7E1E" />
+              <stop offset="50%" stopColor="#D62976" />
+              <stop offset="75%" stopColor="#962FBF" />
+              <stop offset="100%" stopColor="#4F5BD5" />
+            </linearGradient>
+          </defs>
+          <rect width="24" height="24" rx="6" fill="url(#ig-grad)" />
+          <rect
+            x="6"
+            y="6"
+            width="12"
+            height="12"
+            rx="3"
+            fill="none"
+            stroke="white"
+            strokeWidth="1.5"
+          />
+          <circle cx="17" cy="7" r="1.2" fill="white" />
+          <circle cx="12" cy="12" r="2.8" fill="none" stroke="white" strokeWidth="1.5" />
+        </svg>
+      );
   }
 }
