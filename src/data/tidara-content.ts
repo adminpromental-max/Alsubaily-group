@@ -2,7 +2,7 @@ import { tidaraAsset } from "@/data/asset-paths";
 
 /** Cloudinary cinematic hero — preferred over local mp4 for delivery */
 export const TIDARA_VIDEO_URL =
-  "https://res.cloudinary.com/dfzaghfsv/video/upload/v1781801274/Cinematic_architectural_film__on4pal.mp4";
+  "https://res.cloudinary.com/dfzaghfsv/video/upload/v1783296845/Cinematic_architectural_film__1_xuqjhh.mp4";
 
 export const TIDARA_PDF_URL = encodeURI(
   "/assets/projects/Elshubaily Tidara Towers - Draft Plans - Cube -  ( 01-04-2026).pdf",
@@ -125,7 +125,7 @@ export type TidaraAlternatingSection = {
 export const TIDARA_ALTERNATING: TidaraAlternatingSection[] = [
   {
     id: "residential",
-    image: tidaraAsset("walkthrough-1.png"),
+    image: tidaraAsset("سكني.png"),
     imageAltAr: "وحدات سكنية فاخرة في أبراج تيدارا",
     imageAltEn: "Premium residential units at Tidara Towers",
     eyebrowAr: "سكني",

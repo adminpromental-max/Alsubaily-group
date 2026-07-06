@@ -182,8 +182,8 @@ export function TidaraIntro() {
               <div className="olympic-section-img-wrap">
                 <div className="olympic-section-img aspect-[4/5] min-h-[320px] md:min-h-[440px]">
                   <img
-                    src={tidaraAsset("3D-Tower.png")}
-                    alt={t("تصور ثلاثي الأبعاد لأبراج تيدارا", "Tidara Towers 3D visualization")}
+                    src={tidaraAsset("Masterplan.png")}
+                    alt={t("المخطط العام لأبراج تيدارا", "Tidara Towers master plan")}
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
