@@ -18,7 +18,7 @@ export const Route = createFileRoute("/projects/alshubaily-port")({
       {
         name: "description",
         content:
-          "الشبيلي بورت — وجهة واجهة بحرية متكاملة في الخبر. مارينا فاخرة، أبراج سكنية، وتجزئة عالمية على ساحل الخليج العربي.",
+          "الشبيلي بورت — مشروع ساحلي ضخم على واجهة بحرية مباشرة للخليج العربي. وحدات سكنية فاخرة، منتجعات سياحية، ومنطقة تجارية بجوار جسر الملك فهد.",
       },
       {
         property: "og:title",
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/projects/alshubaily-port")({
       {
         property: "og:description",
         content:
-          "A premium integrated waterfront destination in Khobar — luxury marina, residential towers, and global retail on the Arabian Gulf.",
+          "A vast coastal destination on the Arabian Gulf — luxury residences, international resorts, and a vibrant commercial district beside King Fahd Causeway.",
       },
       {
         property: "og:image",

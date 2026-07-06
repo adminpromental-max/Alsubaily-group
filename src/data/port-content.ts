@@ -14,12 +14,12 @@ export const PORT_HERO_COPY = {
   eyebrowEn: "Khobar · Waterfront",
   titleAr: "الشبيلي بورت",
   titleEn: "AlShubaily Port",
-  taglineAr: "أيقونة الواجهة البحرية",
-  taglineEn: "An Icon of the Waterfront",
+  taglineAr: "وجهة متكاملة ومقصداً للرفاهية",
+  taglineEn: "An Integrated Destination of Luxury",
   subtitleAr:
-    "وجهة ساحلية متكاملة تجمع المارينا الفاخرة، الأبراج السكنية، والتجزئة العالمية — على ساحل الخليج العربي بجوار جسر الملك فهد.",
+    "الشبيلي بورت وهو مشروع ساحلي ضخم يمتد على واجهة بحرية ساحرة مباشرة على الخليج العربي، صُمم المشروع ليكون وجهة متكاملة ومقصداً للرفاهية، حيث يدمج بين الوحدات السكنية الفاخرة ذات الإطلالات البحرية، والمنتجعات السياحية المستوحاة من الطراز العالمي، بالإضافة إلى منطقة تجارية نابضة بالحياة.",
   subtitleEn:
-    "An integrated coastal destination combining a luxury marina, residential towers, and global retail — on the Arabian Gulf shore beside King Fahd Causeway.",
+    "AlShubaily Port is a vast coastal project along a stunning waterfront directly on the Arabian Gulf — an integrated luxury destination combining premium sea-view residences, internationally inspired resorts, and a vibrant commercial district.",
 };
 
 export type PortStat = {
@@ -33,11 +33,11 @@ export type PortStat = {
 /** Placeholder figures — to be replaced with official project data */
 export const PORT_STATS: PortStat[] = [
   {
-    value: 1200000,
+    value: 1000000,
     suffixAr: " م²",
     suffixEn: " m²",
-    labelAr: "مساحة المشروع",
-    labelEn: "Project Area",
+    labelAr: "المساحة الإجمالية",
+    labelEn: "Total Area",
   },
   {
     value: 8,
@@ -141,27 +141,27 @@ export const PORT_VISION = {
   titleAr: "رؤية المشروع",
   titleEn: "Project Vision",
   bodyAr:
-    "الشبيلي بورت ليس مجرد مشروع عقاري — إنه وجهة حياتية متكاملة على ساحل الخليج العربي. يجمع بين الحياة البحرية الفاخرة، السكن الراقي، والتجزئة العالمية في منظومة واحدة تخدم سكان المنطقة الشرقية وزوارها من داخل المملكة وخارجها.",
+    "ويأتي هذا المشروع الطموح ليعيد تعريف مفهوم المباني الساحلية الفاخرة، مستلهماً روح ومنهجية الوجهات السياحية العالمية الكبرى، حيث يلتقي الهدوء البحري الممتد مع أرقى تفاصيل الحياة المدنية الحديثة.",
   bodyEn:
-    "AlShubaily Port is more than a real estate project — it is a complete lifestyle destination on the Arabian Gulf. It unites luxury maritime living, premium residences, and global retail in one ecosystem serving Eastern Region residents and visitors from across the Kingdom and beyond.",
+    "This ambitious project redefines luxury coastal living, inspired by the spirit and methodology of major global tourism destinations — where extended maritime tranquility meets the finest details of modern urban life.",
   highlights: [
+    {
+      labelAr: "مليون متر مربع",
+      labelEn: "One Million m²",
+      descAr: "مساحة إجمالية للمشروع",
+      descEn: "Total project area",
+    },
+    {
+      labelAr: "أكثر من 1.5 كم",
+      labelEn: "1.5+ km",
+      descAr: "واجهة بحرية مباشرة على الخليج العربي",
+      descEn: "Direct waterfront on the Arabian Gulf",
+    },
     {
       labelAr: "موقع استراتيجي",
       labelEn: "Strategic Location",
-      descAr: "جنوب الخبر — بجوار جسر الملك فهد",
-      descEn: "South Khobar — beside King Fahd Causeway",
-    },
-    {
-      labelAr: "وجهة متكاملة",
-      labelEn: "Integrated Destination",
-      descAr: "مارينا · سكن · تجزئة · ترفيه",
-      descEn: "Marina · Residential · Retail · Leisure",
-    },
-    {
-      labelAr: "مشروع رائد",
-      labelEn: "Landmark Project",
-      descAr: "أيقونة الواجهة البحرية في المنطقة الشرقية",
-      descEn: "A waterfront icon in the Eastern Region",
+      descAr: "بجوار جسر الملك فهد",
+      descEn: "Beside King Fahd Causeway",
     },
   ],
 };
@@ -170,13 +170,13 @@ export const PORT_LOCATION = {
   titleAr: "الموقع",
   titleEn: "Location",
   bodyAr:
-    "يقع الشبيلي بورت في قلب الخبر على ساحل الخليج العربي — موقع استثنائي يربط المملكة بدول الخليج عبر جسر الملك فهد، ويحيط به منظومة مشاريع مجموعة الشبيلي.",
+    "ويمتد المشروع على مساحة إجمالية تقدر بمليون متر مربع في موقع استراتيجي استثنائي بجوار جسر الملك فهد وبواجهة بحرية بامتداد مباشر بأكثر من كيلو ونصف على ساحل الخليج العربي.",
   bodyEn:
-    "AlShubaily Port sits at the heart of Khobar on the Arabian Gulf — an exceptional location linking the Kingdom to the Gulf states via King Fahd Causeway, surrounded by AlShubaily Group's project ecosystem.",
+    "The project spans one million square meters in an exceptionally strategic location beside King Fahd Causeway, with a direct seafront extending more than one and a half kilometers along the Arabian Gulf coast.",
   landmarks: [
     { labelAr: "جسر الملك فهد", labelEn: "King Fahd Causeway" },
-    { labelAr: "سلطانة الشرق", labelEn: "Sultanat Al Sharq" },
-    { labelAr: "أبراج الشبيلي", labelEn: "AlShubaily High-Rise" },
+    { labelAr: "واجهة بحرية +1.5 كم", labelEn: "1.5+ km Waterfront" },
+    { labelAr: "الخليج العربي", labelEn: "Arabian Gulf" },
     { labelAr: "الخبر · المنطقة الشرقية", labelEn: "Khobar · Eastern Region" },
   ],
 };

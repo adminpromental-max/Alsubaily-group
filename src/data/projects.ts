@@ -306,9 +306,9 @@ export const PROJECTS: Project[] = [
     x: 76.5,
     y: 53.5,
     descriptionEn:
-      "A waterfront port development combining marina, retail, and residential spaces.",
+      "A vast coastal destination on the Arabian Gulf — luxury residences, international resorts, and a vibrant commercial district beside King Fahd Causeway.",
     descriptionAr:
-      "مشروع ميناء ساحلي يجمع بين المارينا والتجزئة والمساحات السكنية.",
+      "مشروع ساحلي ضخم على واجهة بحرية مباشرة للخليج العربي — يجمع الوحدات السكنية الفاخرة، والمنتجعات السياحية، ومنطقة تجارية نابضة بالحياة.",
     heroImage: portAsset("Aerials  (11).png"),
     gallery: [
       portAsset("Aerials  (11).png"),

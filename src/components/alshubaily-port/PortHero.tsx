@@ -83,7 +83,7 @@ export function PortHero() {
         >
           <Anchor className="h-3.5 w-3.5 text-white" strokeWidth={1.5} />
           <span className="text-xs font-medium text-white">
-            {t("مارينا · سكن · تجزئة", "Marina · Residential · Retail")}
+            {t("سكن · منتجعات · تجاري", "Residential · Resorts · Retail")}
           </span>
         </div>
 
