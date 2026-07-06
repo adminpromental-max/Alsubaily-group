@@ -221,6 +221,12 @@ export function ProjectsPortfolio() {
                   {lang === "ar" ? project.regionAr : project.regionEn}
                 </span>
 
+                {project.comingSoon && (
+                  <span className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C9A962]/50 bg-[#C9A962] px-4 py-1.5 text-xs font-bold text-[#1A1612] shadow-lg">
+                    {t("قريباً", "Coming Soon")}
+                  </span>
+                )}
+
                 <span className="absolute end-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 translate-x-2">
                   <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
                 </span>

@@ -1,4 +1,4 @@
-import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset, riyadhBoulevardAsset, alshubailyResidenceAsset, townAsset, grandMallAsset } from "@/data/asset-paths";
+import { dammamAsset, beachHouseAsset, tidaraAsset, rabiaAsset, sultanatAsset, hailCornicheAsset, hailWalkwayAsset, zahraaAsset, newBeachAsset, rabiaRoadAsset, portAsset, golfCityAsset, binyanAsset, riyadhBoulevardAsset, alshubailyResidenceAsset, townAsset, grandMallAsset, highRiseAsset } from "@/data/asset-paths";
 import { NEW_MAP_COORDINATES } from "@/data/map-coordinates";
 
 export type RegionId = "all" | "mecca" | "hail" | "riyadh" | "eastern";
@@ -20,6 +20,8 @@ export type Project = {
   descriptionAr: string;
   heroImage: string;
   gallery: string[];
+  /** Shows قريباً badges and coming-soon project page */
+  comingSoon?: boolean;
 };
 
 export type Region = {
@@ -418,8 +420,9 @@ export const PROJECTS: Project[] = [
     descriptionEn:
       "The second phase of AlShubaily's landmark high-rise development.",
     descriptionAr: "المرحلة الثانية من مشروع الشبيلي الشاهق.",
-    heroImage: "/assets/hero/Hero-3.jpg",
-    gallery: DEFAULT_GALLERY,
+    heroImage: highRiseAsset("لقطه-بانوراميه.png"),
+    gallery: [highRiseAsset("لقطه-بانوراميه.png")],
+    comingSoon: true,
   },
   {
     id: 17,

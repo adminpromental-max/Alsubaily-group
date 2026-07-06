@@ -209,12 +209,12 @@ export function InteractiveMap({
       const fitScale = Math.min(vw / w, vh / h);
 
       if (panBoost) {
-        const nextBase = fitScale * DESKTOP_PAN_BOOST;
-        baseScaleRef.current = nextBase;
+        const coverScale = Math.max(vw / w, vh / h) * 1.02;
+        baseScaleRef.current = coverScale;
         transformRef.current = {
-          scale: nextBase,
-          x: vw - w * nextBase - PAN_EDGE_MARGIN,
-          y: vh - h * nextBase - PAN_EDGE_MARGIN,
+          scale: coverScale,
+          x: (vw - w * coverScale) / 2,
+          y: vh - h * coverScale - PAN_EDGE_MARGIN,
         };
       } else {
         const isMobile = vw < MOBILE_BREAKPOINT;
@@ -349,15 +349,11 @@ export function InteractiveMap({
         return;
       }
 
-      if (
-        panBoost &&
-        (Math.abs(e.deltaX) > 2 || Math.abs(e.deltaY) > 2)
-      ) {
+      if (panBoost && Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 2) {
         e.preventDefault();
         transformRef.current = {
           ...transformRef.current,
           x: transformRef.current.x - e.deltaX,
-          y: transformRef.current.y - e.deltaY,
         };
         applyTransform(false);
       }
@@ -668,6 +664,11 @@ function MapProjectPopup({
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#14110D] via-transparent to-transparent" />
+        {project.comingSoon && (
+          <span className="absolute start-3 top-3 rounded-full border border-[#C9A962]/50 bg-[#C9A962] px-3 py-1 text-[11px] font-bold text-[#1A1612]">
+            {t("قريباً", "Coming Soon")}
+          </span>
+        )}
         <span
           className="absolute end-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white shadow-lg"
           style={{ background: project.color }}
@@ -693,6 +694,11 @@ function MapProjectPopup({
         <h3 className="text-lg font-semibold text-[#FAFAF8]">
           {lang === "ar" ? project.nameAr : project.nameEn}
         </h3>
+        {project.comingSoon && (
+          <p className="text-sm font-medium text-[#C9A962]">
+            {t("قريباً — تحت الإنشاء", "Coming Soon — Under Construction")}
+          </p>
+        )}
         <p className="text-sm leading-7 text-[#FAFAF8]/65">
           {lang === "ar" ? project.descriptionAr : project.descriptionEn}
         </p>
