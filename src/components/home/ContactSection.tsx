@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Building2, Loader2, CheckCircle2, Mail, Phone } from "lucide-react";
+import { Building2, Loader2, CheckCircle2, Phone } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -109,9 +109,9 @@ export function ContactSection() {
                 </p>
               </div>
 
-              <div className="relative z-10 mt-10 space-y-3 md:mt-12">
+              <div className="relative z-10 mt-10 md:mt-12">
                 <a
-                  href="tel:+966500000000"
+                  href="tel:+966114503333"
                   className="contact-concierge-chip group"
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#C9A962]/30 bg-[#C9A962]/10 text-[#C9A962] transition-colors group-hover:bg-[#C9A962]/20">
@@ -122,23 +122,13 @@ export function ContactSection() {
                       {t("اتصل بنا", "Call us")}
                     </span>
                     <span className="text-sm font-medium text-white/90" dir="ltr">
-                      +966 50 000 0000
+                      0114503333
                     </span>
-                  </span>
-                </a>
-                <a
-                  href="mailto:info@alshubaily.com"
-                  className="contact-concierge-chip group"
-                >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#C9A962]/30 bg-[#C9A962]/10 text-[#C9A962] transition-colors group-hover:bg-[#C9A962]/20">
-                    <Mail className="h-4 w-4" strokeWidth={1.5} />
-                  </span>
-                  <span>
-                    <span className="block text-[10px] uppercase tracking-wider text-white/45">
-                      {t("راسلنا", "Email us")}
-                    </span>
-                    <span className="text-sm font-medium text-white/90" dir="ltr">
-                      info@alshubaily.com
+                    <span className="mt-0.5 block text-xs text-white/50">
+                      {t(
+                        "رقم أرضي — مكتب الرياض، مجموعة الشبيلي",
+                        "Landline — Riyadh office, AlShubaily Group",
+                      )}
                     </span>
                   </span>
                 </a>
