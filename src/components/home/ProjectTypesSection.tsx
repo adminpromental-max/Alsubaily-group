@@ -31,8 +31,10 @@ function countByCategory(id: ProjectCategoryId) {
 export function ProjectTypesSection() {
   const { t, lang } = useLang();
   const [active, setActive] = useState(0);
-  const sectionRef = useScrollReveal<HTMLElement>({ y: 40, stagger: 0.1 });
-  const isRtl = lang === "ar";
+  const sectionRef = useScrollReveal<HTMLElement>({ y: 40, stagger: 0.08 });
+
+  const activeCat = PROJECT_CATEGORIES[active];
+  const ActiveIcon = CATEGORY_ICONS[activeCat.id];
 
   return (
     <section
@@ -41,160 +43,170 @@ export function ProjectTypesSection() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C9A962]/30 to-transparent"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-[360px] w-[min(100vw,720px)] -translate-x-1/2 bg-[radial-gradient(ellipse_70%_55%_at_50%_0%,rgba(201,169,98,0.1),transparent)]"
+        className="pointer-events-none absolute -end-24 top-1/2 h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-[#C9A962]/6 blur-[100px]"
       />
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8">
-        <div data-reveal className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#9A7B3A]">
-              {t("محفظة المشاريع", "Project Portfolio")}
-            </p>
-            <h2 className="font-heading mt-3 text-3xl font-bold text-[#1A1612] md:text-5xl">
-              {t("نشاطات المجموعة", "Group Activities")}
-            </h2>
-          </div>
-          <p className="max-w-sm text-sm text-[#5C5348] md:text-end md:text-base">
-            {t(
-              "مرّري أو اضغطي على أي نشاط لاستكشاف تفاصيله",
-              "Hover or tap any activity to explore its details",
-            )}
+        <div data-reveal className="mb-10 text-center md:mb-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#9A7B3A]">
+            {t("محفظة المشاريع", "Project Portfolio")}
           </p>
+          <h2 className="font-heading mt-3 text-3xl font-bold text-[#1A1612] md:text-5xl">
+            {t("نشاطات المجموعة", "Group Activities")}
+          </h2>
         </div>
 
         <div
           data-reveal
-          className="activity-accordion flex h-[min(72svh,460px)] min-h-[340px] gap-2 sm:gap-2.5 md:h-[500px] md:gap-3"
-          role="tablist"
-          aria-label={t("نشاطات المجموعة", "Group Activities")}
+          className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-10 xl:gap-14"
         >
-          {PROJECT_CATEGORIES.map((category, i) => {
-            const isActive = active === i;
-            const Icon = CATEGORY_ICONS[category.id];
-            const count = countByCategory(category.id);
-            const name = lang === "ar" ? category.nameAr : category.nameEn;
-            const bio = lang === "ar" ? category.bioAr : category.bioEn;
+          {/* Activity index list */}
+          <div
+            className="flex flex-col rounded-2xl border border-[#E8E0D4] bg-white/70 p-2 shadow-[0_8px_40px_-12px_rgba(26,22,18,0.12)] backdrop-blur-sm md:rounded-3xl md:p-3"
+            role="tablist"
+            aria-label={t("نشاطات المجموعة", "Group Activities")}
+          >
+            {PROJECT_CATEGORIES.map((category, i) => {
+              const Icon = CATEGORY_ICONS[category.id];
+              const isActive = active === i;
+              const count = countByCategory(category.id);
+              const name = lang === "ar" ? category.nameAr : category.nameEn;
+              const bio = lang === "ar" ? category.bioAr : category.bioEn;
 
-            return (
-              <button
-                key={category.id}
-                type="button"
-                role="tab"
-                aria-selected={isActive}
-                aria-expanded={isActive}
-                className={cn(
-                  "activity-panel group relative overflow-hidden rounded-2xl outline-none md:rounded-3xl",
-                  isActive && "is-active",
-                )}
-                onClick={() => setActive(i)}
-                onMouseEnter={() => setActive(i)}
-                onFocus={() => setActive(i)}
-              >
-                <img
-                  src={category.image}
-                  alt={name}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  decoding="async"
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
                   className={cn(
-                    "activity-panel-img absolute inset-0 h-full w-full object-cover",
-                    isActive && "is-active",
+                    "group/item relative flex w-full items-start gap-4 rounded-xl px-4 py-4 text-start transition-all duration-400 md:gap-5 md:px-5 md:py-5",
+                    isActive
+                      ? "bg-[#1A1612] shadow-[0_12px_32px_-8px_rgba(26,22,18,0.35)]"
+                      : "hover:bg-[#F2EDE4]/80",
                   )}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1612]/92 via-[#1A1612]/40 to-[#1A1612]/15" />
+                  onClick={() => setActive(i)}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                >
+                  <span
+                    className={cn(
+                      "font-heading shrink-0 text-2xl font-black leading-none transition-colors duration-400 md:text-3xl",
+                      isActive ? "text-[#C9A962]/90" : "text-[#E8E0D4]",
+                    )}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
 
-                <div className="absolute inset-0 flex flex-col justify-between p-3 sm:p-4 md:p-6">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#C9A962]/40 bg-[#C9A962]/15 text-[#C9A962] backdrop-blur-sm md:h-11 md:w-11">
-                      <Icon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={1.5} />
-                    </div>
-                    <span
-                      className={cn(
-                        "font-heading text-[10px] font-bold tracking-wider text-[#C9A962]/80 transition-opacity duration-400 md:text-xs",
-                        isActive ? "opacity-100" : "opacity-60",
-                      )}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-
-                  <div className="text-start">
-                    <div
-                      className={cn(
-                        "flex flex-wrap items-center gap-2 transition-all duration-500",
-                        isActive ? "mb-2 opacity-100" : "mb-0 max-h-0 opacity-0",
-                      )}
-                    >
-                      {count > 0 ? (
-                        <span className="rounded-full bg-[#C9A962] px-2.5 py-0.5 text-[10px] font-bold text-[#1A1612] md:px-3 md:py-1 md:text-xs">
-                          {count} {t("مشروع", "projects")}
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2.5">
+                      <div
+                        className={cn(
+                          "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border transition-colors duration-400 md:h-9 md:w-9",
+                          isActive
+                            ? "border-[#C9A962]/40 bg-[#C9A962]/15 text-[#C9A962]"
+                            : "border-[#E8E0D4] bg-[#F2EDE4] text-[#9A7B3A]",
+                        )}
+                      >
+                        <Icon className="h-4 w-4" strokeWidth={1.5} />
+                      </div>
+                      <h3
+                        className={cn(
+                          "font-heading text-base font-bold leading-snug transition-colors duration-400 md:text-lg",
+                          isActive ? "text-white" : "text-[#1A1612]",
+                        )}
+                      >
+                        {name}
+                      </h3>
+                      {count > 0 && (
+                        <span
+                          className={cn(
+                            "ms-auto shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold md:text-[11px]",
+                            isActive
+                              ? "bg-[#C9A962] text-[#1A1612]"
+                              : "bg-[#E8E0D4] text-[#5C5348]",
+                          )}
+                        >
+                          {count}
                         </span>
-                      ) : null}
+                      )}
                     </div>
 
-                    <h3
+                    <p
                       className={cn(
-                        "font-heading font-bold text-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                        "mt-2 text-sm leading-relaxed transition-all duration-400",
                         isActive
-                          ? "text-lg sm:text-xl md:text-3xl"
-                          : cn(
-                              "text-sm sm:text-base md:text-xl",
-                              "activity-panel-title-collapsed",
-                              isRtl && "activity-panel-title-collapsed--rtl",
-                            ),
+                          ? "text-white/75"
+                          : "line-clamp-2 text-[#5C5348]/80",
                       )}
                     >
-                      {name}
-                    </h3>
-
-                    <div
-                      className={cn(
-                        "overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                        isActive
-                          ? "mt-2 max-h-28 opacity-100 md:mt-3 md:max-h-32"
-                          : "max-h-0 opacity-0",
-                      )}
-                    >
-                      <p className="max-w-md text-[11px] leading-relaxed text-white/85 sm:text-xs md:text-sm md:leading-relaxed">
-                        {bio}
-                      </p>
-                    </div>
+                      {bio}
+                    </p>
                   </div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
 
-        <div
-          data-reveal
-          className="mt-5 hidden items-center justify-center gap-6 border-t border-[#E8E0D4] pt-5 md:flex"
-          aria-hidden
-        >
-          {PROJECT_CATEGORIES.map((category, i) => {
-            const label = lang === "ar" ? category.nameAr : category.nameEn;
-            return (
-              <button
+                  {isActive && (
+                    <span
+                      aria-hidden
+                      className="absolute inset-y-3 start-0 w-1 rounded-full bg-[#C9A962]"
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Preview panel */}
+          <div
+            className="relative min-h-[280px] overflow-hidden rounded-2xl border border-[#E8E0D4] shadow-[0_20px_60px_-16px_rgba(26,22,18,0.2)] md:min-h-[480px] md:rounded-3xl lg:min-h-0"
+            role="tabpanel"
+            aria-label={
+              lang === "ar" ? activeCat.nameAr : activeCat.nameEn
+            }
+          >
+            {PROJECT_CATEGORIES.map((category, i) => (
+              <img
                 key={category.id}
-                type="button"
+                src={category.image}
+                alt={lang === "ar" ? category.nameAr : category.nameEn}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
                 className={cn(
-                  "text-xs font-semibold uppercase tracking-wider transition-colors",
-                  active === i
-                    ? "text-[#9A7B3A]"
-                    : "text-[#5C5348]/50 hover:text-[#5C5348]",
+                  "absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  i === active
+                    ? "scale-100 opacity-100"
+                    : "scale-105 opacity-0",
                 )}
-                onClick={() => setActive(i)}
-              >
-                <span className="me-1.5 text-[#C9A962]/70">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                {label}
-              </button>
-            );
-          })}
+              />
+            ))}
+
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1A1612]/85 via-[#1A1612]/20 to-transparent" />
+
+            <div
+              aria-hidden
+              className="pointer-events-none absolute end-4 top-4 font-heading text-[5rem] font-black leading-none text-white/[0.07] md:end-6 md:top-6 md:text-[7rem]"
+            >
+              {String(active + 1).padStart(2, "0")}
+            </div>
+
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-8">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#C9A962]/40 bg-[#C9A962]/15 text-[#C9A962]">
+                  <ActiveIcon className="h-5 w-5" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C9A962]">
+                    {t("قطاع", "Sector")} {String(active + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="font-heading text-xl font-bold text-white md:text-3xl">
+                    {lang === "ar" ? activeCat.nameAr : activeCat.nameEn}
+                  </h3>
+                </div>
+              </div>
+              <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/80 md:text-base">
+                {lang === "ar" ? activeCat.bioAr : activeCat.bioEn}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
