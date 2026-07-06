@@ -54,7 +54,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Tourism",
     bioAr: "نصمم وجهات تتجاوز التوقعات، حيث يلتقي الابتكار بالرفاهية لتجربة سياحية فريدة.",
     bioEn: "Destinations that exceed expectations — where innovation meets luxury for a unique experience.",
-    image: projectTypeAsset("سياحي.png"),
+    image: projectTypeAsset("سياحي.webp"),
   },
   {
     id: "residential",
@@ -62,7 +62,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Residential",
     bioAr: "أكثر من مجرد سكن؛ مجتمعات سكنية متكاملة تمنحك الخصوصية والرفاهية التي تستحقها.",
     bioEn: "More than housing — integrated communities offering the privacy and luxury you deserve.",
-    image: projectTypeAsset("سكني.jpeg"),
+    image: projectTypeAsset("سكني.webp"),
   },
   {
     id: "commercial",
@@ -70,7 +70,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Commercial",
     bioAr: "مولات تجارية تجمع البراندات العالمية (جراند مول).",
     bioEn: "Commercial malls bringing together international brands (Grand Mall).",
-    image: projectTypeAsset("تجاري.png"),
+    image: projectTypeAsset("تجاري.webp"),
   },
   {
     id: "office",
