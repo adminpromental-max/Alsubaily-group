@@ -96,34 +96,6 @@ export const GOLF_CITY_PILLARS = [
   },
 ] as const;
 
-export const GOLF_CITY_LOCATION = {
-  titleAr: "لماذا المزاحمية؟",
-  titleEn: "Why Al-Muzahimiyah?",
-  bodyAr:
-    "تم اختيار المزاحمية بعناية لتكون موطناً لمشروع جولف سيتي، فهي ليست مجرد موقع جغرافي، بل هي الوجهة السياحية والترفيهية الأقرب للعاصمة الرياض. تتميز المنطقة بطبيعتها الساحرة التي تجمع بين هيبة جبال طويق، ونقاء رمال النفود الذهبية، واعتدال أجوائها.",
-  bodyEn:
-    "Al-Muzahimiyah was carefully chosen as the home of Golf City — not merely a geographic location, but the closest tourism and leisure destination to the capital, Riyadh. The region captivates with the majesty of Tuwaiq mountains, the purity of golden desert sands, and its temperate climate.",
-  body2Ar:
-    "بفضل موقعها الاستراتيجي على طريق مكة المكرمة السريع، توفر المزاحمية لساكني وزوار جولف سيتي ملاذاً هادئاً ييسهل الوصول إليه، ليربطهم بنمط حياة عصري وصحي بعيداً عن صخب المدينة، وفي أحضان طبيعة لا تُنسى.",
-  body2En:
-    "Thanks to its strategic location on the Makkah Expressway, Al-Muzahimiyah offers residents and visitors of Golf City a peaceful retreat that is easy to reach — connecting them to a modern, healthy lifestyle away from the city bustle, embraced by unforgettable nature.",
-  image: golfCityAsset("2.svg"),
-  highlights: [
-    {
-      labelAr: "جبال طويق",
-      labelEn: "Tuwaiq Mountains",
-    },
-    {
-      labelAr: "طريق مكة السريع",
-      labelEn: "Makkah Expressway",
-    },
-    {
-      labelAr: "قرب الرياض",
-      labelEn: "Near Riyadh",
-    },
-  ],
-};
-
 export const GOLF_CITY_GALLERY_HEADER = {
   eyebrowAr: "معرض المشروع",
   eyebrowEn: "Project Gallery",

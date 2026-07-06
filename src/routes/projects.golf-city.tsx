@@ -3,7 +3,6 @@ import { GolfCityCTA } from "@/components/golf-city/GolfCityCTA";
 import { GolfCityGallery } from "@/components/golf-city/GolfCityGallery";
 import { GolfCityHero } from "@/components/golf-city/GolfCityHero";
 import { GolfCityIntro } from "@/components/golf-city/GolfCityIntro";
-import { GolfCityLocation } from "@/components/golf-city/GolfCityLocation";
 import { GolfCityPillars } from "@/components/golf-city/GolfCityPillars";
 import { GolfCityStats } from "@/components/golf-city/GolfCityStats";
 import { GOLF_CITY_HERO_IMAGE } from "@/data/golf-city-content";
@@ -44,7 +43,6 @@ function GolfCityPage() {
       <GolfCityStats />
       <GolfCityIntro />
       <GolfCityPillars />
-      <GolfCityLocation />
       <GolfCityGallery />
       <GolfCityCTA />
     </main>
