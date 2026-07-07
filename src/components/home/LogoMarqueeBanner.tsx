@@ -95,29 +95,37 @@ export function LogoMarqueeBanner() {
           </div>
         </div>
 
-        <ul
-          className="group-companies-grid mt-12 grid grid-cols-2 gap-4 sm:gap-5 md:mt-14 md:grid-cols-3 md:gap-6"
-          aria-label={t("شركات مجموعة الشبيلي", "AlShubaily Group Companies")}
-        >
-          {GROUP_SUBSIDIARIES.map((company) => (
-            <li key={company.id} data-group-card>
-              <article
-                className={cn(
-                  "group-companies-card group flex h-full flex-col items-center rounded-2xl border border-[#E0D3C2]/70 bg-white/90 px-4 py-6 text-center shadow-[0_8px_32px_-12px_rgba(26,22,18,0.1)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#C9A962]/45 hover:shadow-[0_20px_48px_-16px_rgba(201,169,98,0.28)] md:px-5 md:py-7",
-                )}
+        <div className="mt-12 space-y-4 sm:space-y-5 md:mt-14">
+          {[GROUP_SUBSIDIARIES.slice(0, 3), GROUP_SUBSIDIARIES.slice(3, 6)].map(
+            (row, rowIndex) => (
+              <ul
+                key={rowIndex}
+                dir={lang === "ar" ? "rtl" : "ltr"}
+                className="group-companies-grid grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 md:gap-6"
+                aria-label={t("شركات مجموعة الشبيلي", "AlShubaily Group Companies")}
               >
-                <div className="flex h-20 w-full items-center justify-center md:h-24">
-                  <img
-                    src={company.logo}
-                    alt={lang === "ar" ? company.nameAr : company.nameEn}
-                    className="max-h-full max-w-[90%] object-contain transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              </article>
-            </li>
-          ))}
-        </ul>
+                {row.map((company) => (
+                  <li key={company.id} data-group-card>
+                    <article
+                      className={cn(
+                        "group-companies-card group flex h-full flex-col items-center rounded-2xl border border-[#E0D3C2]/70 bg-white/90 px-4 py-6 text-center shadow-[0_8px_32px_-12px_rgba(26,22,18,0.1)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#C9A962]/45 hover:shadow-[0_20px_48px_-16px_rgba(201,169,98,0.28)] md:px-5 md:py-7",
+                      )}
+                    >
+                      <div className="flex h-20 w-full items-center justify-center md:h-24">
+                        <img
+                          src={company.logo}
+                          alt={lang === "ar" ? company.nameAr : company.nameEn}
+                          className="max-h-full max-w-[90%] object-contain transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                    </article>
+                  </li>
+                ))}
+              </ul>
+            ),
+          )}
+        </div>
       </div>
     </section>
   );

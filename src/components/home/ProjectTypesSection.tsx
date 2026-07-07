@@ -48,6 +48,7 @@ export function ProjectTypesSection() {
 
         <div
           data-reveal
+          dir={lang === "ar" ? "rtl" : "ltr"}
           className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-5"
         >
           {PROJECT_CATEGORIES.map((category, i) => {

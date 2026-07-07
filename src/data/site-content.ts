@@ -46,7 +46,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Residential Neighborhoods",
     bioAr: "نخطط وننفّذ أحياء سكنية متكاملة تجمع بين التصميم العمراني الراقي وجودة الحياة.",
     bioEn: "We plan and develop integrated residential neighborhoods that blend refined urban design with quality of life.",
-    image: projectTypeAsset("احياء سكنية.webp"),
+    image: projectTypeAsset("احياء سكنية.png"),
   },
   {
     id: "tourism",
@@ -54,7 +54,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Tourism",
     bioAr: "نصمم وجهات تتجاوز التوقعات، حيث يلتقي الابتكار بالرفاهية لتجربة سياحية فريدة.",
     bioEn: "Destinations that exceed expectations — where innovation meets luxury for a unique experience.",
-    image: projectTypeAsset("سياحي.webp"),
+    image: projectTypeAsset("سياحي.jpeg"),
   },
   {
     id: "residential",
@@ -70,7 +70,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Commercial",
     bioAr: "مولات تجارية تجمع البراندات العالمية (جراند مول).",
     bioEn: "Commercial malls bringing together international brands (Grand Mall).",
-    image: projectTypeAsset("تجاري.webp"),
+    image: projectTypeAsset("تجاري.png"),
   },
   {
     id: "office",
