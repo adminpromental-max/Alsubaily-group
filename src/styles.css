@@ -5390,7 +5390,7 @@ body.has-custom-cursor button {
 
 .about-chairman-frame {
   position: relative;
-  width: min(100%, 320px);
+  width: min(100%, 340px);
   padding: 6px;
   background: linear-gradient(
     145deg,

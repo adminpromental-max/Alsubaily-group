@@ -39,8 +39,8 @@ export function AboutChairman() {
         <div
           data-chair-reveal
           className={cn(
-            "relative",
-            lang === "ar" ? "md:order-1" : "md:order-2",
+            "relative max-w-xl",
+            lang === "ar" ? "md:order-1 md:ms-auto" : "md:order-2 md:me-auto",
           )}
         >
           <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#9A7B3A]">
@@ -77,7 +77,7 @@ export function AboutChairman() {
               <img
                 src={ABOUT_CHAIRMAN.image}
                 alt={t(ABOUT_CHAIRMAN.nameAr, ABOUT_CHAIRMAN.nameEn)}
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-cover object-center"
                 loading="lazy"
               />
             </div>

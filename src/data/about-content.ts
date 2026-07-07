@@ -18,13 +18,13 @@ export const ABOUT_GROUP = {
 export const ABOUT_CHAIRMAN = {
   eyebrowAr: "كلمة رئيس مجلس الإدارة",
   eyebrowEn: "Chairman's Message",
-  quoteLeadAr: "خلق الله الإنسان ليعمر في الأرض",
-  quoteLeadEn: "God created mankind to inhabit the earth",
+  quoteLeadAr: "«خلق الله الإنسان ليعمر في الأرض»",
+  quoteLeadEn: "\"God created mankind to inhabit the earth\"",
   bodyAr:
-    "وهذا ما أنجزناه ولا زلنا، فقد أنشأنا هذه المجموعة لتسهم في زيادة حركة العمران والتطور من خلال ما قدمناه من مشاريع وأعمال تجارية نفخر بها على مدار 30 عاماً. واستكمالاً لمسيرة العطاء، فإننا سنواصل ما بدأنا فيه ونطمح للوصول إلى مزيد من النجاح والتقدم لتحقيق الإنجازات الكبرى، والمضي في استراتيجية عمل مستمدة من رؤية المملكة 2030.",
+    "من هذا المبدإ انطلقت رحلة المجموعة؛ أنشأنا كياناً يساهم في تعزيز حركة العمران والتطوير، عبر مشاريع وأعمال تجارية نفتخر بها منذ أكثر من ثلاثين عاماً. واستكمالاً لمسيرة العطاء، نواصل ما بدأنا ونسعى لمزيد من النجاح والتقدم — لتحقيق إنجازات أكبر، وباستراتيجية عمل مستمدة من رؤية المملكة 2030.",
   bodyEn:
-    "This is what we have achieved and continue to achieve. We established this group to contribute to urban growth and development through projects and commercial ventures we have been proud of for over 30 years. As we continue our journey of giving, we will carry forward what we began and aspire to greater success and progress — achieving major milestones and advancing a strategy aligned with Saudi Vision 2030.",
-  image: "/assets/khaled-alshubaily.png",
+    "From this principle, our group's journey began. We built an organization that contributes to urban growth and development through projects and commercial ventures we have proudly delivered for over thirty years. As we continue our path of giving, we remain committed to greater success and progress — achieving major milestones through a strategy aligned with Saudi Vision 2030.",
+  image: "/assets/khaled-alshubaily.jpeg",
   nameAr: "خالد بن سعود الشبيلي",
   nameEn: "Khalid Bin Saud AlShubaily",
   roleAr: "رئيس مجلس الإدارة",
