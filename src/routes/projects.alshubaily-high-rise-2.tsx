@@ -10,7 +10,7 @@ export const Route = createFileRoute("/projects/alshubaily-high-rise-2")({
       },
       {
         name: "description",
-        content: "الشبيلي هاي رايز (2) — المشروع تحت الإنشاء. قريباً.",
+        content: "الشبيلي هاي رايز (2) — المشروع تحت الإنشاء. انتظرونا قريباً.",
       },
       {
         property: "og:title",

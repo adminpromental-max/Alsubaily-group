@@ -56,6 +56,12 @@ export function highRiseAsset(file: string) {
   return projectAsset(HIGH_RISE_DIR, file);
 }
 
+export const HIGH_RISE_2_DIR = "alshubaily-high-rise-2";
+
+export function highRise2Asset(file: string) {
+  return projectAsset(HIGH_RISE_2_DIR, file);
+}
+
 export const SULTANAT_DIR = "سلطانه-الشرق";
 
 export function sultanatAsset(file: string) {
