@@ -124,12 +124,6 @@ export function ContactSection() {
                     <span className="text-sm font-medium text-white/90" dir="ltr">
                       0114503333
                     </span>
-                    <span className="mt-0.5 block text-xs text-white/50">
-                      {t(
-                        "رقم أرضي — مكتب الرياض، مجموعة الشبيلي",
-                        "Landline — Riyadh office, AlShubaily Group",
-                      )}
-                    </span>
                   </span>
                 </a>
               </div>

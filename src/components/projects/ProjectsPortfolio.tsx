@@ -29,6 +29,10 @@ function matchesSearch(project: Project, query: string, lang: string) {
   return haystack.includes(q);
 }
 
+function isTemporaryProject(project: Project) {
+  return project.heroImage.includes("cover.svg");
+}
+
 export function ProjectsPortfolio() {
   const { t, lang } = useLang();
   const [search, setSearch] = useState("");
@@ -37,10 +41,16 @@ export function ProjectsPortfolio() {
   const headerRef = useRef<HTMLDivElement>(null);
 
   const filtered = useMemo(() => {
-    return PROJECTS.filter((project) => {
+    const list = PROJECTS.filter((project) => {
       const regionOk = filter === "all" || project.region === filter;
       const searchOk = matchesSearch(project, search, lang);
       return regionOk && searchOk;
+    });
+    return [...list].sort((a, b) => {
+      const aTemp = isTemporaryProject(a);
+      const bTemp = isTemporaryProject(b);
+      if (aTemp === bTemp) return 0;
+      return aTemp ? 1 : -1;
     });
   }, [filter, search, lang]);
 

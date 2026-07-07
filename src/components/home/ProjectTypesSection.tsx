@@ -116,18 +116,6 @@ export function ProjectTypesSection() {
                   >
                     {bio}
                   </p>
-
-                  <span
-                    className={cn(
-                      "mt-3 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[#C9A962] transition-opacity duration-400 md:text-[11px]",
-                      isExpanded ? "opacity-100" : "opacity-0 group-hover:opacity-100",
-                    )}
-                  >
-                    {t("اقرأ المزيد", "Read more")}
-                    <span aria-hidden className="text-xs">
-                      {lang === "ar" ? "←" : "→"}
-                    </span>
-                  </span>
                 </div>
 
                 <div
