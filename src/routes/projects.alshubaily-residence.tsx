@@ -17,7 +17,7 @@ export const Route = createFileRoute("/projects/alshubaily-residence")({
       {
         name: "description",
         content:
-          "الشبيلي ريزيدنس — عنوان الفخامة قريباً على طريق تركي الأول. مجتمع سكني خاص وبوابة تجارية حيوية على 24,000 م².",
+          "الشبيلي ريزيدنس — عنوان الفخامة على طريق تركي الأول. مجتمع سكني خاص وبوابة تجارية حيوية على 24,000 م².",
       },
       {
         property: "og:title",
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/projects/alshubaily-residence")({
       {
         property: "og:description",
         content:
-          "Luxury living coming soon on Turki Al-Awwal Road — a private compound and vibrant promenade across 24,000 m².",
+          "Luxury living on Turki Al-Awwal Road — a private compound and vibrant promenade across 24,000 m².",
       },
       {
         property: "og:image",

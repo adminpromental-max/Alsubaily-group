@@ -39,12 +39,12 @@ export const RESIDENCE_HERO = {
   eyebrowEn: "Riyadh · Turki Al-Awwal Road",
   titleAr: "الشبيلي ريزيدنس",
   titleEn: "Al Shabili Residence",
-  taglineAr: "انتظرونا.. قريباً!",
-  taglineEn: "Stay tuned.. Coming Soon!",
+  taglineAr: "مجتمع سكني وتجاري متكامل",
+  taglineEn: "Integrated Residential & Commercial Community",
   subtitleAr:
-    "عنوان الفخامة، الشبيلي ريزيدنس قريباً على طريق تركي الأول",
+    "عنوان الفخامة على طريق تركي الأول — مجتمع سكني خاص وبوابة تجارية حيوية",
   subtitleEn:
-    "An address of luxury — Al Shabili Residence, coming soon on Turki Al-Awwal Road",
+    "An address of luxury on Turki Al-Awwal Road — a private compound and vibrant promenade",
 };
 
 export type ResidenceStat = {
@@ -80,8 +80,10 @@ export const RESIDENCE_STATS: ResidenceStat[] = [
 ];
 
 export const RESIDENCE_INTRO = {
-  titleAr: "عنوان الفخامة",
-  titleEn: "An Address of Luxury",
+  eyebrowAr: "نبذة عن المشروع",
+  eyebrowEn: "About the Project",
+  titleAr: "عنوان الفخامة على طريق تركي الأول",
+  titleEn: "An Address of Luxury on Turki Al-Awwal Road",
   bodyAr:
     "على مساحة 24,000 متر مربع في قلب أكثر شوارع العاصمة حيوية ورقيّاً، يولد مشروع «الشبيلي ريزيدنس» ليقدم تجربة سكنية واستثمارية فريدة من نوعها. مفهوم جديد يوازن بدقة بين الخصوصية التامة للمجتمع السكني، والأنشطة الاجتماعية العصرية.",
   bodyEn:
@@ -323,9 +325,11 @@ export const RESIDENCE_GALLERY: ResidenceGallerySlide[] = GALLERY_FILES.map(
 );
 
 export const RESIDENCE_CTA = {
-  titleAr: "الشبيلي ريزيدنس.. قريباً",
-  titleEn: "Al Shabili Residence — Coming Soon",
-  subtitleAr: "كن أول من يعرف عند إطلاق المشروع",
-  subtitleEn: "Be the first to know when the project launches",
+  eyebrowAr: "تواصل معنا",
+  eyebrowEn: "Get in Touch",
+  titleAr: "اكتشف الشبيلي ريزيدنس",
+  titleEn: "Discover Al Shabili Residence",
+  subtitleAr: "للاستفسارات والمزيد من المعلومات عن المشروع",
+  subtitleEn: "For inquiries and more information about the project",
   image: residencePhoto("hero.png"),
 };

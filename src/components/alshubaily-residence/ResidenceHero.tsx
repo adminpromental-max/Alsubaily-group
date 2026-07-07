@@ -12,7 +12,8 @@ import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SLIDE_INTERVAL_MS = 180;
+const SLIDE_INTERVAL_MS = 4000;
+const SLIDE_FADE_MS = 1200;
 
 function HeroSlideshow({ images }: { images: string[] }) {
   const [active, setActive] = useState(0);
@@ -41,9 +42,10 @@ function HeroSlideshow({ images }: { images: string[] }) {
           alt=""
           fetchPriority={i === 0 ? "high" : "low"}
           className={cn(
-            "absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-75",
+            "absolute inset-0 h-full w-full object-cover object-center transition-opacity ease-in-out",
             i === active ? "opacity-100" : "opacity-0",
           )}
+          style={{ transitionDuration: `${SLIDE_FADE_MS}ms` }}
         />
       ))}
     </>

@@ -21,7 +21,7 @@ export function ResidenceCTA() {
       <div className="relative mx-auto flex min-h-[60vh] max-w-lg items-center px-6 py-20 md:px-8">
         <div className="w-full rounded-3xl border border-[#C9A962]/25 bg-[#1A1624]/55 p-8 text-center backdrop-blur-xl md:p-10">
           <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#C9A962]">
-            {t("قريباً", "Coming Soon")}
+            {t(RESIDENCE_CTA.eyebrowAr, RESIDENCE_CTA.eyebrowEn)}
           </p>
           <h2 className="mt-3 font-heading text-3xl font-bold text-white md:text-4xl">
             {t(RESIDENCE_CTA.titleAr, RESIDENCE_CTA.titleEn)}

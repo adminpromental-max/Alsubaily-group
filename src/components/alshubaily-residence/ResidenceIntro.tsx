@@ -33,7 +33,7 @@ export function ResidenceIntro() {
         <div data-intro-reveal className="relative overflow-hidden rounded-2xl shadow-xl md:rounded-3xl">
           <img
             src={RESIDENCE_INTRO.image}
-            alt={t("قريباً", "Coming Soon")}
+            alt={t(RESIDENCE_INTRO.titleAr, RESIDENCE_INTRO.titleEn)}
             className="aspect-[4/3] w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1A1624]/30 via-transparent to-transparent" />
@@ -41,10 +41,10 @@ export function ResidenceIntro() {
 
         <div data-intro-reveal>
           <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#6B5B7B]">
-            {t(RESIDENCE_INTRO.titleAr, RESIDENCE_INTRO.titleEn)}
+            {t(RESIDENCE_INTRO.eyebrowAr, RESIDENCE_INTRO.eyebrowEn)}
           </p>
           <h2 className="mt-2 font-heading text-3xl font-bold text-[#2A2438] md:text-4xl">
-            {t("انتظرونا.. قريباً!", "Stay tuned.. Coming Soon!")}
+            {t(RESIDENCE_INTRO.titleAr, RESIDENCE_INTRO.titleEn)}
           </h2>
           <p className="mt-4 text-sm leading-8 text-[#2A2438]/75 md:text-base">
             {t(RESIDENCE_INTRO.bodyAr, RESIDENCE_INTRO.bodyEn)}
