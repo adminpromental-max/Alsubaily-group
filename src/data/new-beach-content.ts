@@ -1,6 +1,6 @@
 import { newBeachAsset } from "@/data/asset-paths";
 
-export const NEW_BEACH_HERO_IMAGE = newBeachAsset("hero.jpeg");
+export const NEW_BEACH_HERO_IMAGE = newBeachAsset("1.jpeg");
 
 export const NEW_BEACH_HERO = {
   eyebrowAr: "الخبر · على الشاطئ مباشرة",
@@ -110,7 +110,7 @@ export const NEW_BEACH_ZONES = [
   },
 ] as const;
 
-export const NEW_BEACH_ZONES_IMAGE = newBeachAsset("6.jpeg");
+export const NEW_BEACH_ZONES_IMAGE = newBeachAsset("2.jpeg");
 
 export const NEW_BEACH_INFRASTRUCTURE = {
   titleAr: "التطوير المتكامل",
@@ -119,7 +119,7 @@ export const NEW_BEACH_INFRASTRUCTURE = {
     "من أول المعايير الراقية لأسلوب التطوير — اهتمام كبير بتطوير الطريق الرئيسي داخل المشروع مع كافة أعمال البنية التحتية المتكاملة والعلوية الراقية.",
   bodyEn:
     "Among the highest standards of development — major focus on the project's main road with fully integrated infrastructure and premium superstructure.",
-  image: newBeachAsset("5.jpeg"),
+  image: newBeachAsset("3.jpeg"),
 };
 
 export const NEW_BEACH_INVESTMENT = {
@@ -131,7 +131,7 @@ export const NEW_BEACH_INVESTMENT = {
     "مركزاً لأهم المشاريع السكنية والتجارية والفندقية على مستوى المنطقة الشرقية — القاعدة الرئيسية لاستقطاب الاستثمار.",
   bodyEn:
     "A hub for the Eastern Region's premier residential, commercial, and hotel projects — the main base for investment attraction.",
-  image: newBeachAsset("8.jpeg"),
+  image: newBeachAsset("4.jpeg"),
   sectors: [
     { labelAr: "فنادق", labelEn: "Hotels" },
     { labelAr: "منتجعات سياحية", labelEn: "Tourism Resorts" },
@@ -144,22 +144,22 @@ export const NEW_BEACH_INVESTMENT = {
 
 export const NEW_BEACH_GALLERY = [
   {
+    src: newBeachAsset("1.jpeg"),
+    titleAr: "الموقع الاستراتيجي",
+    titleEn: "Strategic Location",
+  },
+  {
     src: newBeachAsset("2.jpeg"),
     titleAr: "إطلالة ساحلية",
     titleEn: "Coastal View",
   },
   {
     src: newBeachAsset("3.jpeg"),
-    titleAr: "المخطط العام",
-    titleEn: "Master Plan",
+    titleAr: "التطوير المتكامل",
+    titleEn: "Integrated Development",
   },
   {
     src: newBeachAsset("4.jpeg"),
-    titleAr: "تفاصيل التطوير",
-    titleEn: "Development Details",
-  },
-  {
-    src: newBeachAsset("9.jpeg"),
     titleAr: "وجهة استثمارية",
     titleEn: "Investment Destination",
   },
@@ -170,17 +170,12 @@ export const NEW_BEACH_CTA = {
   titleEn: "Be Part of New Beach",
   subtitleAr: "استثمر في أول مشروع ساحلي استراتيجي في الخبر",
   subtitleEn: "Invest in Al Khobar's first strategic beachfront project",
-  image: newBeachAsset("9.jpeg"),
+  image: newBeachAsset("4.jpeg"),
 };
 
 export const NEW_BEACH_ALL_IMAGES = [
-  newBeachAsset("hero.jpeg"),
   newBeachAsset("1.jpeg"),
   newBeachAsset("2.jpeg"),
   newBeachAsset("3.jpeg"),
   newBeachAsset("4.jpeg"),
-  newBeachAsset("5.jpeg"),
-  newBeachAsset("6.jpeg"),
-  newBeachAsset("8.jpeg"),
-  newBeachAsset("9.jpeg"),
 ];

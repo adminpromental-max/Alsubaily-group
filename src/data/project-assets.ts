@@ -1,5 +1,5 @@
 /** Real asset paths for projects with uploaded media */
-import { dammamAsset, beachAsset, tidaraAsset } from "@/data/asset-paths";
+import { dammamAsset, beachAsset, tidaraAsset, highRiseAsset, newBeachAsset } from "@/data/asset-paths";
 
 export const REAL_PROJECT_ASSETS: Record<
   string,
@@ -19,15 +19,14 @@ export const REAL_PROJECT_ASSETS: Record<
     ],
   },
   "alshubaily-high-rise": {
-    hero: "/assets/projects/High-rise/لقطه-بانوراميه.png",
+    hero: highRiseAsset("hero.jpeg"),
     gallery: [
-      "/assets/projects/High-rise/لقطه-بانوراميه.png",
-      "/assets/projects/High-rise/السياق-الجغرافي.png",
-      "/assets/projects/High-rise/المارينا.png",
-      "/assets/projects/High-rise/فلل.png",
-      "/assets/projects/High-rise/جراند-مول.png",
-      "/assets/projects/High-rise/مكاتب.png",
-      "/assets/projects/High-rise/النهر-الصناعي.png",
+      highRiseAsset("hero.jpeg"),
+      highRiseAsset("WhatsApp Image 2026-07-07 at 6.32.36 PM.jpeg"),
+      highRiseAsset("5.jpeg"),
+      highRiseAsset("6.jpeg"),
+      highRiseAsset("8.jpeg"),
+      highRiseAsset("9.jpeg"),
     ],
   },
   "sultanat-al-sharq": {
@@ -70,17 +69,12 @@ export const REAL_PROJECT_ASSETS: Record<
     ],
   },
   "alshubaily-new-beach": {
-    hero: "/assets/projects/New-beach/hero.jpeg",
+    hero: newBeachAsset("1.jpeg"),
     gallery: [
-      "/assets/projects/New-beach/hero.jpeg",
-      "/assets/projects/New-beach/1.jpeg",
-      "/assets/projects/New-beach/2.jpeg",
-      "/assets/projects/New-beach/3.jpeg",
-      "/assets/projects/New-beach/4.jpeg",
-      "/assets/projects/New-beach/5.jpeg",
-      "/assets/projects/New-beach/6.jpeg",
-      "/assets/projects/New-beach/8.jpeg",
-      "/assets/projects/New-beach/9.jpeg",
+      newBeachAsset("1.jpeg"),
+      newBeachAsset("2.jpeg"),
+      newBeachAsset("3.jpeg"),
+      newBeachAsset("4.jpeg"),
     ],
   },
   "rabia-makkah": {

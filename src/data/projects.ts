@@ -393,15 +393,14 @@ export const PROJECTS: Project[] = [
       "The beating heart of Khobar — a 2 km seafront investment and tourism destination integrating marina, grand mall, towers, and an artificial river.",
     descriptionAr:
       "القلب النابض لمدينة الخبر — وجهة استثمارية وسياحية بطول 2 كم تجمع المارينا والجراند مول والأبراج والنهر الصناعي.",
-    heroImage: "/assets/projects/High-rise/لقطه-بانوراميه.png",
+    heroImage: highRiseAsset("hero.jpeg"),
     gallery: [
-      "/assets/projects/High-rise/لقطه-بانوراميه.png",
-      "/assets/projects/High-rise/السياق-الجغرافي.png",
-      "/assets/projects/High-rise/المارينا.png",
-      "/assets/projects/High-rise/فلل.png",
-      "/assets/projects/High-rise/جراند-مول.png",
-      "/assets/projects/High-rise/مكاتب.png",
-      "/assets/projects/High-rise/النهر-الصناعي.png",
+      highRiseAsset("hero.jpeg"),
+      highRiseAsset("WhatsApp Image 2026-07-07 at 6.32.36 PM.jpeg"),
+      highRiseAsset("5.jpeg"),
+      highRiseAsset("6.jpeg"),
+      highRiseAsset("8.jpeg"),
+      highRiseAsset("9.jpeg"),
     ],
   },
   {
@@ -470,17 +469,12 @@ export const PROJECTS: Project[] = [
       "Al Khobar's first and foremost beachfront — 2.9M m² between King Fahd Causeway and Sultanat Al Sharq with coastal, investment, and entertainment zones.",
     descriptionAr:
       "الأول والأهم في الخبر على الشاطئ — 2,909,000 م² بين جسر الملك فهد وسلطانة الشرق، بثلاث مناطق ساحلية واستثمارية وترفيهية.",
-    heroImage: newBeachAsset("hero.jpeg"),
+    heroImage: newBeachAsset("1.jpeg"),
     gallery: [
-      newBeachAsset("hero.jpeg"),
       newBeachAsset("1.jpeg"),
       newBeachAsset("2.jpeg"),
       newBeachAsset("3.jpeg"),
       newBeachAsset("4.jpeg"),
-      newBeachAsset("5.jpeg"),
-      newBeachAsset("6.jpeg"),
-      newBeachAsset("8.jpeg"),
-      newBeachAsset("9.jpeg"),
     ],
   },
   {

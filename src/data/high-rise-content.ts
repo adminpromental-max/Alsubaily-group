@@ -1,6 +1,10 @@
 import { highRiseAsset } from "@/data/asset-paths";
 
-export const HIGH_RISE_HERO_IMAGE = highRiseAsset("لقطه-بانوراميه.png");
+const HIGH_RISE_DETAIL_IMAGE = highRiseAsset(
+  "WhatsApp Image 2026-07-07 at 6.32.36 PM.jpeg",
+);
+
+export const HIGH_RISE_HERO_IMAGE = highRiseAsset("hero.jpeg");
 
 export type HighRiseStat = {
   value: number;
@@ -61,7 +65,7 @@ export const HIGH_RISE_LOCATION = {
     "نقطة التقاء حيوية تربط العاصمة السعودية بدول الخليج العربي — موقع نادر لا يتكرر. يرتبط المشروع بمنظومة الشبيلي بورت وجسر الملك فهد المؤدي إلى البحرين.",
   bodyEn:
     "A vibrant meeting point linking the Saudi capital to the Gulf nations — a rare location. Connected to AlShubaily Port and the King Fahd Causeway to Bahrain.",
-  image: highRiseAsset("السياق-الجغرافي.png"),
+  image: HIGH_RISE_DETAIL_IMAGE,
   pins: [
     { labelAr: "الشبيلي بورت", labelEn: "AlShubaily Port" },
     { labelAr: "جسر الملك فهد", labelEn: "King Fahd Causeway" },
@@ -78,8 +82,8 @@ export const HIGH_RISE_ZONES = [
     featuresEn: "Marina · Suspended Villas (first of their kind)",
     vibeAr: "ترفيهي واستجمام على الواجهة البحرية المباشرة",
     vibeEn: "Leisure and recreation on the direct seafront",
-    image: highRiseAsset("المارينا.png"),
-    accent: highRiseAsset("فلل.png"),
+    image: highRiseAsset("5.jpeg"),
+    accent: highRiseAsset("6.jpeg"),
   },
   {
     id: "commercial",
@@ -89,7 +93,8 @@ export const HIGH_RISE_ZONES = [
     featuresEn: "Grand Mall",
     vibeAr: "الوجهة التسويقية الأضخم في الشرق الأوسط على مياه البحر",
     vibeEn: "The largest retail destination in the Middle East on the sea",
-    image: highRiseAsset("جراند-مول.png"),
+    image: highRiseAsset("8.jpeg"),
+    accent: highRiseAsset("9.jpeg"),
   },
   {
     id: "business",
@@ -99,7 +104,8 @@ export const HIGH_RISE_ZONES = [
     featuresEn: "6 towers rising 16 floors",
     vibeAr: "مركز أعمال حيوي لتلبية طلبات الشركات الكبرى",
     vibeEn: "A dynamic business hub for major corporations",
-    image: highRiseAsset("مكاتب.png"),
+    image: highRiseAsset("6.jpeg"),
+    accent: highRiseAsset("5.jpeg"),
   },
   {
     id: "central",
@@ -109,7 +115,8 @@ export const HIGH_RISE_ZONES = [
     featuresEn: "Artificial River (3 km long)",
     vibeAr: "القلب الجمالي الذي يربط جميع أجزاء المشروع",
     vibeEn: "The aesthetic heart connecting every part of the project",
-    image: highRiseAsset("النهر-الصناعي.png"),
+    image: highRiseAsset("9.jpeg"),
+    accent: highRiseAsset("8.jpeg"),
   },
 ] as const;
 
@@ -144,53 +151,46 @@ export type HighRiseGallerySlide = {
 
 export const HIGH_RISE_GALLERY: HighRiseGallerySlide[] = [
   {
-    src: highRiseAsset("لقطه-بانوراميه.png"),
+    src: highRiseAsset("hero.jpeg"),
     titleAr: "بانوراما الخبر",
     titleEn: "Khobar Panorama",
     descAr: "واجهة بحرية واسعة",
     descEn: "Expansive seafront",
   },
   {
-    src: highRiseAsset("السياق-الجغرافي.png"),
+    src: HIGH_RISE_DETAIL_IMAGE,
     titleAr: "السياق الجغرافي",
     titleEn: "Geographic Context",
     descAr: "موقع استراتيجي نادر",
     descEn: "Rare strategic location",
   },
   {
-    src: highRiseAsset("المارينا.png"),
-    titleAr: "المارينا",
-    titleEn: "The Marina",
-    descAr: "ترفيه بحري فاخر",
-    descEn: "Luxury marine leisure",
+    src: highRiseAsset("5.jpeg"),
+    titleAr: "المنطقة السكنية",
+    titleEn: "Residential District",
+    descAr: "حياة على الواجهة البحرية",
+    descEn: "Life on the waterfront",
   },
   {
-    src: highRiseAsset("فلل.png"),
-    titleAr: "الفلل المعلقة",
-    titleEn: "Suspended Villas",
-    descAr: "الأولى من نوعها",
-    descEn: "First of their kind",
+    src: highRiseAsset("6.jpeg"),
+    titleAr: "المنطقة السياحية",
+    titleEn: "Tourism District",
+    descAr: "ترفيه واستجمام",
+    descEn: "Leisure and recreation",
   },
   {
-    src: highRiseAsset("جراند-مول.png"),
-    titleAr: "الجراند مول",
-    titleEn: "Grand Mall",
+    src: highRiseAsset("8.jpeg"),
+    titleAr: "المنطقة التجارية",
+    titleEn: "Commercial District",
     descAr: "وجهة تسوّق على البحر",
     descEn: "Shopping on the sea",
   },
   {
-    src: highRiseAsset("مكاتب.png"),
-    titleAr: "الأبراج الإدارية",
-    titleEn: "Office Towers",
-    descAr: "16 دوراً من الأعمال",
-    descEn: "16 floors of business",
-  },
-  {
-    src: highRiseAsset("النهر-الصناعي.png"),
-    titleAr: "النهر الصناعي",
-    titleEn: "Artificial River",
-    descAr: "3 كم يربط المشروع",
-    descEn: "3 km connecting the project",
+    src: highRiseAsset("9.jpeg"),
+    titleAr: "المنطقة المركزية",
+    titleEn: "Central District",
+    descAr: "قلب المشروع",
+    descEn: "Heart of the project",
   },
 ];
 
@@ -202,3 +202,12 @@ export const HIGH_RISE_CTA = {
   subtitleEn:
     "Contact us today to discover exceptional investment opportunities at AlShubaily High Rise",
 };
+
+export const HIGH_RISE_ALL_IMAGES = [
+  highRiseAsset("hero.jpeg"),
+  HIGH_RISE_DETAIL_IMAGE,
+  highRiseAsset("5.jpeg"),
+  highRiseAsset("6.jpeg"),
+  highRiseAsset("8.jpeg"),
+  highRiseAsset("9.jpeg"),
+];
