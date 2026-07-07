@@ -77,7 +77,7 @@ export function AboutChairman() {
               <img
                 src={ABOUT_CHAIRMAN.image}
                 alt={t(ABOUT_CHAIRMAN.nameAr, ABOUT_CHAIRMAN.nameEn)}
-                className="h-full w-full object-cover object-center"
+                className="about-chairman-photo"
                 loading="lazy"
               />
             </div>

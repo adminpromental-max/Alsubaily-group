@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
+import { ArrowUpRight, Search, X } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
 import { MediaArticleModal } from "@/components/media/MediaArticleModal";
-import { MediaNewsTicker } from "@/components/media/MediaNewsTicker";
+import { MediaFeaturedSlider } from "@/components/media/MediaFeaturedSlider";
 import {
   MEDIA_ARTICLES,
   MEDIA_CATEGORIES,
+  MEDIA_HERO,
   MEDIA_HERO_BANNER,
-  MEDIA_TAGLINE,
   getCategoryById,
   type MediaArticle,
   type MediaCategoryId,
@@ -20,173 +21,28 @@ function formatDateShort(date: string, lang: string) {
   return new Intl.DateTimeFormat(lang === "ar" ? "ar-SA" : "en-GB", {
     day: "numeric",
     month: "short",
+    year: "numeric",
   }).format(new Date(date));
 }
 
-function formatDateFull(date: string, lang: string) {
-  return new Intl.DateTimeFormat(lang === "ar" ? "ar-SA" : "en-GB", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(new Date());
-}
-
-function HeadlineRail({
-  articles,
-  activeId,
-  onSelect,
-}: {
-  articles: MediaArticle[];
-  activeId?: string;
-  onSelect: (a: MediaArticle) => void;
-}) {
-  const { lang, t } = useLang();
-
-  return (
-    <aside className="media-headline-rail flex flex-col border-[#1A1612]/12 bg-[#EDE8DE] lg:border-e">
-      <div className="border-b border-[#1A1612]/12 px-4 py-3">
-        <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#9A7B3A]">
-          {t("عناوين", "Headlines")}
-        </p>
-      </div>
-      <ul className="flex flex-1 flex-col divide-y divide-[#1A1612]/10">
-        {articles.map((article, i) => {
-          const title = lang === "ar" ? article.titleAr : article.titleEn;
-          const cat = getCategoryById(article.category);
-          return (
-            <li key={article.id}>
-              <button
-                type="button"
-                onClick={() => onSelect(article)}
-                className={cn(
-                  "group flex w-full flex-col gap-1.5 px-4 py-4 text-start transition-colors hover:bg-[#E5DFD3]",
-                  activeId === article.id && "bg-[#E5DFD3]",
-                )}
-              >
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#9A7B3A]">
-                  {String(i + 1).padStart(2, "0")} ·{" "}
-                  {lang === "ar" ? cat.nameAr : cat.nameEn}
-                </span>
-                <span className="font-heading text-[13px] font-semibold leading-snug text-[#1A1612] transition-colors group-hover:text-[#8A6A2E] lg:text-sm">
-                  {title}
-                </span>
-                <span className="text-[10px] text-[#5C5348]/80">
-                  {formatDateShort(article.date, lang)}
-                </span>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </aside>
-  );
-}
-
-function LeadStory({
-  article,
-  onOpen,
-}: {
-  article: MediaArticle;
-  onOpen: () => void;
-}) {
-  const { lang, t } = useLang();
-  const title = lang === "ar" ? article.titleAr : article.titleEn;
-  const excerpt = lang === "ar" ? article.excerptAr : article.excerptEn;
+function matchesSearch(article: MediaArticle, query: string) {
+  if (!query.trim()) return true;
+  const q = query.trim().toLowerCase();
   const cat = getCategoryById(article.category);
-
-  return (
-    <button
-      type="button"
-      onClick={onOpen}
-      className="group flex h-full flex-col text-start"
-    >
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#1A1612] lg:aspect-auto lg:min-h-[280px] lg:flex-1">
-        {article.image ? (
-          <img
-            src={article.image}
-            alt=""
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-          />
-        ) : (
-          <div
-            className="h-full w-full bg-cover bg-center"
-            style={{ backgroundImage: `url('${MEDIA_HERO_BANNER}')` }}
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1612]/90 via-[#1A1612]/25 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">
-          <span className="inline-block border border-[#C9A962]/50 bg-[#C9A962]/15 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#C9A962]">
-            {lang === "ar" ? cat.nameAr : cat.nameEn}
-          </span>
-          <h2 className="mt-3 font-heading text-xl font-bold leading-snug text-white md:text-2xl lg:text-[1.65rem]">
-            {title}
-          </h2>
-        </div>
-      </div>
-      <div className="border-b border-[#1A1612]/10 bg-white px-5 py-4 md:px-7">
-        <p className="text-sm leading-relaxed text-[#5C5348] md:text-[15px]">
-          {excerpt}
-        </p>
-        <span className="mt-3 inline-block text-xs font-semibold uppercase tracking-wider text-[#C9A962]">
-          {t("اقرأ التقرير الكامل ←", "Read full story →")}
-        </span>
-      </div>
-    </button>
-  );
+  const haystack = [
+    article.titleAr,
+    article.titleEn,
+    article.excerptAr,
+    article.excerptEn,
+    cat.nameAr,
+    cat.nameEn,
+  ]
+    .join(" ")
+    .toLowerCase();
+  return haystack.includes(q);
 }
 
-function SideBriefs({
-  articles,
-  onSelect,
-}: {
-  articles: MediaArticle[];
-  onSelect: (a: MediaArticle) => void;
-}) {
-  const { lang, t } = useLang();
-
-  return (
-    <aside className="flex flex-col border-[#1A1612]/12 bg-[#F7F4EE] lg:border-s">
-      <div className="border-b border-[#1A1612]/12 px-4 py-3">
-        <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#9A7B3A]">
-          {t("مختصرات", "Briefs")}
-        </p>
-      </div>
-      <ul className="divide-y divide-[#1A1612]/10">
-        {articles.map((article) => {
-          const title = lang === "ar" ? article.titleAr : article.titleEn;
-          return (
-            <li key={article.id}>
-              <button
-                type="button"
-                onClick={() => onSelect(article)}
-                className="group flex gap-3 px-4 py-3.5 text-start transition-colors hover:bg-[#EDE8DE]"
-              >
-                {article.image && (
-                  <img
-                    src={article.image}
-                    alt=""
-                    className="h-14 w-14 shrink-0 object-cover"
-                  />
-                )}
-                <div className="min-w-0">
-                  <p className="line-clamp-3 font-heading text-xs font-semibold leading-snug text-[#1A1612] group-hover:text-[#8A6A2E]">
-                    {title}
-                  </p>
-                  <p className="mt-1 text-[10px] text-[#5C5348]">
-                    {formatDateShort(article.date, lang)}
-                  </p>
-                </div>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </aside>
-  );
-}
-
-function NewspaperRow({
+function MediaArticleCard({
   article,
   onOpen,
 }: {
@@ -195,59 +51,57 @@ function NewspaperRow({
 }) {
   const { lang } = useLang();
   const title = lang === "ar" ? article.titleAr : article.titleEn;
-  const excerpt = lang === "ar" ? article.excerptAr : article.excerptEn;
   const cat = getCategoryById(article.category);
 
   return (
-    <article
-      data-media-row
-      className="group grid gap-4 border-b border-[#1A1612]/12 py-7 md:grid-cols-[140px_1fr] md:gap-6 lg:grid-cols-[180px_1fr]"
+    <button
+      type="button"
+      data-media-card
+      onClick={onOpen}
+      className="projects-cinema-card group relative block w-full overflow-hidden rounded-2xl text-start"
     >
-      <button
-        type="button"
-        onClick={onOpen}
-        className="relative aspect-[4/3] overflow-hidden bg-[#1A1612] md:aspect-square"
-      >
-        {article.image ? (
-          <img
-            src={article.image}
-            alt=""
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        ) : (
-          <div
-            className="h-full w-full bg-cover bg-center opacity-80"
-            style={{ backgroundImage: `url('${MEDIA_HERO_BANNER}')` }}
-          />
-        )}
-      </button>
-      <button type="button" onClick={onOpen} className="text-start">
-        <div className="flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-wider text-[#9A7B3A]">
-          <span>{lang === "ar" ? cat.nameAr : cat.nameEn}</span>
-          <span aria-hidden>·</span>
-          <span className="text-[#5C5348]">
+      <div className="relative aspect-[4/5] overflow-hidden">
+        <img
+          src={article.image ?? MEDIA_HERO_BANNER}
+          alt=""
+          className="projects-cinema-img h-full w-full object-cover"
+          loading="lazy"
+        />
+        <div className="projects-cinema-vignette pointer-events-none absolute inset-0" />
+        <div className="projects-cinema-shine pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+        <span
+          className="absolute start-4 top-4 z-10 rounded-full border border-[#C9A962]/35 bg-[#C9A962]/15 px-3 py-1 text-[10px] font-semibold tracking-wide text-[#E8D5A3] backdrop-blur-md"
+        >
+          {lang === "ar" ? cat.nameAr : cat.nameEn}
+        </span>
+
+        <span className="absolute end-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 translate-x-2">
+          <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
+        </span>
+
+        <div className="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6">
+          <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#C9A962]/90">
             {formatDateShort(article.date, lang)}
-          </span>
+          </p>
+          <h3 className="mt-2 font-heading text-xl font-bold leading-snug text-white md:text-2xl">
+            {title}
+          </h3>
+          <div className="mt-4 h-px w-0 bg-gradient-to-r from-[#C9A962] to-transparent transition-all duration-500 group-hover:w-16" />
         </div>
-        <h3 className="mt-2 font-heading text-lg font-bold leading-snug text-[#1A1612] transition-colors group-hover:text-[#8A6A2E] md:text-xl">
-          {title}
-        </h3>
-        <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-[#5C5348] md:text-[15px]">
-          {excerpt}
-        </p>
-      </button>
-    </article>
+      </div>
+    </button>
   );
 }
 
 export function MediaCenterPage() {
   const { t, lang } = useLang();
   const [filter, setFilter] = useState<FilterId>("all");
+  const [search, setSearch] = useState("");
   const [activeArticle, setActiveArticle] = useState<MediaArticle | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [leadId, setLeadId] = useState<string | undefined>();
-  const feedRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const sorted = useMemo(
     () =>
@@ -258,148 +112,143 @@ export function MediaCenterPage() {
   );
 
   const filtered = useMemo(() => {
-    const list =
-      filter === "all"
-        ? sorted
-        : sorted.filter((a) => a.category === filter);
-    return list;
-  }, [filter, sorted]);
+    return sorted.filter((article) => {
+      const categoryOk = filter === "all" || article.category === filter;
+      const searchOk = matchesSearch(article, search);
+      return categoryOk && searchOk;
+    });
+  }, [filter, search, sorted]);
 
-  const lead = filtered.find((a) => a.id === leadId) ?? filtered[0];
-  const headlineRail = filtered.slice(0, 6);
-  const sideBriefs = filtered.slice(1, 5);
-  const feedArticles = filtered.filter((a) => a.id !== lead?.id);
+  const featuredArticles = filtered.slice(0, 3);
+  const gridArticles = filtered.slice(3);
 
   useEffect(() => {
-    setLeadId(undefined);
-  }, [filter]);
-
-  useEffect(() => {
-    const feed = feedRef.current;
-    if (!feed) return;
-    const rows = feed.querySelectorAll("[data-media-row]");
-    gsap.killTweensOf(rows);
+    const hero = heroRef.current;
+    if (!hero) return;
     gsap.fromTo(
-      rows,
-      { y: 16, opacity: 0 },
+      hero.querySelectorAll("[data-media-hero-reveal]"),
+      { y: 28, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 0.5,
-        ease: "power2.out",
-        stagger: 0.05,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.08,
+        delay: 0.1,
       },
     );
-  }, [filter]);
+  }, []);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    const cards = grid.querySelectorAll("[data-media-card]");
+    gsap.killTweensOf(cards);
+    gsap.fromTo(
+      cards,
+      { y: 32, opacity: 0, scale: 0.96 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.65,
+        ease: "power3.out",
+        stagger: 0.06,
+        clearProps: "transform",
+      },
+    );
+  }, [filtered]);
 
   const openArticle = (article: MediaArticle) => {
     setActiveArticle(article);
     setModalOpen(true);
   };
 
-  const today = formatDateFull(new Date().toISOString().slice(0, 10), lang);
-
   return (
-    <div className="media-newspaper min-h-screen bg-[#F2EDE4]">
-      {/* Masthead */}
-      <header className="border-b-2 border-[#1A1612] px-6 pt-28 pb-5 md:px-8">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="text-[11px] tracking-[0.35em] text-[#5C5348]">{today}</p>
-          <div className="my-3 flex items-center justify-center gap-4">
-            <span className="hidden h-px flex-1 bg-[#1A1612]/25 sm:block" />
-            <h1 className="font-heading text-3xl font-black tracking-tight text-[#1A1612] md:text-5xl">
-              {t("المركز الإعلامي", "Media Center")}
-            </h1>
-            <span className="hidden h-px flex-1 bg-[#1A1612]/25 sm:block" />
-          </div>
-          <p className="text-[10px] uppercase tracking-[0.45em] text-[#9A7B3A]">
-            {t("مجموعة خالد بن سعود الشبيلي", "Khalid Bin Saud AlShubaily Group")}
-          </p>
-        </div>
-      </header>
+    <div className="media-center relative">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[620px] bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(201,169,98,0.14),transparent)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_15%,rgba(107,74,90,0.1),transparent)]"
+      />
 
-      <MediaNewsTicker articles={sorted.slice(0, 8)} onSelect={openArticle} />
-
-      {/* Newspaper spread: headlines | banner + lead | briefs */}
-      <section className="mx-auto max-w-7xl border-b-2 border-[#1A1612]/20 px-0">
+      <section ref={heroRef} className="media-center-hero relative overflow-hidden">
         <div
-          className="grid grid-cols-1 lg:grid-cols-[minmax(13rem,16rem)_1fr_minmax(11rem,14rem)]"
-          dir="ltr"
-        >
-          <div dir={lang === "ar" ? "rtl" : "ltr"} className="hidden lg:block">
-            <HeadlineRail
-              articles={headlineRail}
-              activeId={lead?.id}
-              onSelect={(a) => setLeadId(a.id)}
-            />
+          aria-hidden
+          className="absolute inset-0 bg-cover bg-center opacity-25"
+          style={{ backgroundImage: `url('${MEDIA_HERO_BANNER}')` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0C0A08]/30 via-[#0C0A08]/85 to-[#0C0A08]" />
+
+        <div className="relative">
+          <div data-media-hero-reveal className="max-w-3xl">
+            <p className="text-[11px] uppercase tracking-[0.4em] text-[#C9A962]">
+              {t(MEDIA_HERO.eyebrowAr, MEDIA_HERO.eyebrowEn)}
+            </p>
+            <h1 className="mt-3 font-heading text-3xl font-semibold leading-tight text-white md:text-5xl">
+              {t(MEDIA_HERO.titleAr, MEDIA_HERO.titleEn)}
+            </h1>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/60 md:text-base">
+              {t(MEDIA_HERO.bodyAr, MEDIA_HERO.bodyEn)}
+            </p>
           </div>
 
-          <div dir={lang === "ar" ? "rtl" : "ltr"} className="flex flex-col">
-            {/* Two-word banner */}
-            <div className="relative overflow-hidden border-b border-[#1A1612]/12">
+          <div
+            data-media-hero-reveal
+            className="mt-8 grid max-w-3xl grid-cols-3 gap-3 md:gap-5"
+          >
+            {MEDIA_HERO.stats.map((stat) => (
               <div
-                aria-hidden
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('${MEDIA_HERO_BANNER}')` }}
-              />
-              <div className="absolute inset-0 bg-[#1A1612]/78" />
-              <div className="relative flex min-h-[120px] items-center justify-center gap-4 px-6 py-8 md:min-h-[140px] md:gap-8">
-                <span className="font-heading text-4xl font-black text-[#C9A962] md:text-6xl">
-                  {lang === "ar" ? MEDIA_TAGLINE.word1Ar : MEDIA_TAGLINE.word1En}
-                </span>
-                <span
-                  className="h-12 w-px bg-[#C9A962]/50 md:h-16"
-                  aria-hidden
-                />
-                <span className="font-heading text-4xl font-black text-white md:text-6xl">
-                  {lang === "ar" ? MEDIA_TAGLINE.word2Ar : MEDIA_TAGLINE.word2En}
-                </span>
+                key={stat.labelEn}
+                className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 backdrop-blur-sm md:px-5 md:py-5"
+              >
+                <p className="font-heading text-2xl font-bold text-[#E8D5A3] md:text-3xl">
+                  {lang === "ar" ? stat.valueAr : stat.valueEn}
+                </p>
+                <p className="mt-1 text-[11px] leading-5 text-white/45 md:text-xs">
+                  {t(stat.labelAr, stat.labelEn)}
+                </p>
               </div>
-            </div>
-
-            {lead && (
-              <LeadStory article={lead} onOpen={() => openArticle(lead)} />
-            )}
-          </div>
-
-          <div dir={lang === "ar" ? "rtl" : "ltr"} className="hidden lg:block">
-            <SideBriefs articles={sideBriefs} onSelect={openArticle} />
-          </div>
-        </div>
-
-        {/* Mobile headlines scroll */}
-        <div className="border-t border-[#1A1612]/12 lg:hidden" dir={lang === "ar" ? "rtl" : "ltr"}>
-          <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory">
-            {headlineRail.map((article) => {
-              const title = lang === "ar" ? article.titleAr : article.titleEn;
-              return (
-                <button
-                  key={article.id}
-                  type="button"
-                  onClick={() => openArticle(article)}
-                  className="min-w-[75vw] shrink-0 snap-start border-e border-[#1A1612]/10 px-4 py-4 text-start sm:min-w-[50vw]"
-                >
-                  <p className="line-clamp-2 font-heading text-sm font-semibold text-[#1A1612]">
-                    {title}
-                  </p>
-                </button>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Section rubrics */}
-      <nav className="sticky top-[72px] z-30 border-b border-[#1A1612]/15 bg-[#F2EDE4]/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl flex-wrap gap-0 px-6 md:px-8">
+      <section className="relative z-10 mt-8 space-y-3 md:mt-10">
+        <label className="map-search-bar max-w-2xl">
+          <Search className="h-4 w-4 shrink-0 text-[#8A8175]" />
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder={t(
+              "ابحث في الأخبار أو التصنيف",
+              "Search news or category",
+            )}
+            className="min-w-0 flex-1 bg-transparent text-sm text-[#1A1612] outline-none placeholder:text-[#8A8175]"
+          />
+          {search && (
+            <button
+              type="button"
+              onClick={() => setSearch("")}
+              className="text-[#8A8175] transition hover:text-[#1A1612]"
+              aria-label={t("مسح", "Clear")}
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </label>
+
+        <div className="map-filter-scroll flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <button
             type="button"
             onClick={() => setFilter("all")}
             className={cn(
-              "border-b-2 px-4 py-3 text-xs font-bold uppercase tracking-wider transition-colors md:text-[13px]",
-              filter === "all"
-                ? "border-[#C9A962] text-[#1A1612]"
-                : "border-transparent text-[#5C5348] hover:text-[#1A1612]",
+              "map-filter-chip shrink-0",
+              filter === "all" && "is-active",
             )}
           >
             {t("الكل", "All")}
@@ -410,52 +259,96 @@ export function MediaCenterPage() {
               type="button"
               onClick={() => setFilter(cat.id)}
               className={cn(
-                "border-b-2 px-4 py-3 text-xs font-bold uppercase tracking-wider transition-colors md:text-[13px]",
-                filter === cat.id
-                  ? "border-[#C9A962] text-[#1A1612]"
-                  : "border-transparent text-[#5C5348] hover:text-[#1A1612]",
+                "map-filter-chip shrink-0",
+                filter === cat.id && "is-active",
               )}
             >
               {lang === "ar" ? cat.nameAr : cat.nameEn}
             </button>
           ))}
         </div>
-      </nav>
 
-      {/* Main feed — newspaper columns */}
-      <section className="px-6 py-8 md:px-8 md:py-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-8 flex items-end justify-between border-b border-[#1A1612] pb-2">
-            <h2 className="font-heading text-xl font-black uppercase tracking-wide text-[#1A1612] md:text-2xl">
-              {filter === "all"
-                ? t("أرشيف الأخبار", "News Archive")
-                : lang === "ar"
-                  ? getCategoryById(filter).nameAr
-                  : getCategoryById(filter).nameEn}
-            </h2>
-            <span className="text-[11px] text-[#5C5348]">
-              {filtered.length} {t("تقرير", "reports")}
-            </span>
-          </div>
+        <p className="text-xs font-medium tracking-wide text-white/40">
+          {t(
+            `${filtered.length} خبر`,
+            `${filtered.length} article${filtered.length === 1 ? "" : "s"}`,
+          )}
+        </p>
+      </section>
 
-          {feedArticles.length === 0 ? (
-            <p className="py-12 text-center text-[#5C5348]">
-              {t("لا توجد مقالات إضافية.", "No additional articles.")}
-            </p>
-          ) : (
-            <div ref={feedRef} className="lg:columns-2 lg:gap-10">
-              {feedArticles.map((article) => (
-                <div key={article.id} className="break-inside-avoid">
-                  <NewspaperRow
+      {filtered.length === 0 ? (
+        <div className="relative mt-16 rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-16 text-center backdrop-blur-sm">
+          <p className="text-lg font-medium text-white/70">
+            {t("لا توجد أخبار مطابقة", "No matching articles")}
+          </p>
+          <p className="mt-2 text-sm text-white/40">
+            {t(
+              "جرّب تغيير التصنيف أو كلمات البحث",
+              "Try changing the category or search terms",
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setSearch("");
+              setFilter("all");
+            }}
+            className="mt-6 rounded-full border border-[#C9A962]/40 bg-[#C9A962]/10 px-5 py-2 text-sm font-medium text-[#E8D5A3] transition hover:bg-[#C9A962]/20"
+          >
+            {t("عرض جميع الأخبار", "Show all articles")}
+          </button>
+        </div>
+      ) : (
+        <>
+          {featuredArticles.length > 0 && (
+            <div className="relative z-10 mt-10 md:mt-12">
+              <MediaFeaturedSlider
+                articles={featuredArticles}
+                onSelect={openArticle}
+              />
+            </div>
+          )}
+
+          {gridArticles.length > 0 && (
+            <section className="relative z-10 mt-14 md:mt-16">
+              <div className="mb-6 flex items-end justify-between gap-4">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#C9A962]">
+                    {t("أرشيف الأخبار", "News Archive")}
+                  </p>
+                  <h2 className="mt-2 font-heading text-2xl font-semibold text-white md:text-3xl">
+                    {t("المزيد من الأخبار", "More News")}
+                  </h2>
+                </div>
+              </div>
+
+              <div
+                ref={gridRef}
+                className="hidden gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
+              >
+                {gridArticles.map((article) => (
+                  <MediaArticleCard
+                    key={article.id}
                     article={article}
                     onOpen={() => openArticle(article)}
                   />
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+
+              <div className="media-articles-track flex gap-4 overflow-x-auto pb-2 sm:hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                {gridArticles.map((article) => (
+                  <div key={article.id} className="w-[min(82vw,320px)] shrink-0">
+                    <MediaArticleCard
+                      article={article}
+                      onOpen={() => openArticle(article)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
           )}
-        </div>
-      </section>
+        </>
+      )}
 
       <MediaArticleModal
         article={activeArticle}
