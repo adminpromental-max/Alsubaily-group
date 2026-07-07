@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ResidenceBanner } from "@/components/alshubaily-residence/ResidenceBanner";
 import { ResidenceCTA } from "@/components/alshubaily-residence/ResidenceCTA";
 import { ResidenceGallery } from "@/components/alshubaily-residence/ResidenceGallery";
 import { ResidenceHero } from "@/components/alshubaily-residence/ResidenceHero";
@@ -16,7 +17,7 @@ export const Route = createFileRoute("/projects/alshubaily-residence")({
       {
         name: "description",
         content:
-          "الشبيلي ريزيدنس — عنوان الفخامة قريباً على طريق تركي الأول. مجتمع سكني خاص وبوابة تجارية حيوية على 66,000 م².",
+          "الشبيلي ريزيدنس — عنوان الفخامة قريباً على طريق تركي الأول. مجتمع سكني خاص وبوابة تجارية حيوية على 24,000 م².",
       },
       {
         property: "og:title",
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/projects/alshubaily-residence")({
       {
         property: "og:description",
         content:
-          "Luxury living coming soon on Turki Al-Awwal Road — a private compound and vibrant promenade across 66,000 m².",
+          "Luxury living coming soon on Turki Al-Awwal Road — a private compound and vibrant promenade across 24,000 m².",
       },
       {
         property: "og:image",
@@ -43,6 +44,7 @@ function ResidencePage() {
       <ResidenceStats />
       <ResidenceIntro />
       <ResidencePillars />
+      <ResidenceBanner />
       <ResidenceGallery />
       <ResidenceCTA />
     </main>

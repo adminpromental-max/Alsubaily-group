@@ -39,6 +39,117 @@ function useSlideSpacing() {
   return spacing;
 }
 
+function FeaturedSlider({
+  active,
+  onSelect,
+  auto,
+  onAutoChange,
+}: {
+  active: number;
+  onSelect: (i: number) => void;
+  auto: boolean;
+  onAutoChange: (v: boolean) => void;
+}) {
+  const { t } = useLang();
+  const next = useCallback(
+    () => onSelect((active + 1) % slides.length),
+    [active, onSelect],
+  );
+  const prev = useCallback(
+    () => onSelect((active - 1 + slides.length) % slides.length),
+    [active, onSelect],
+  );
+
+  useEffect(() => {
+    if (!auto) return;
+    const id = setInterval(next, 5000);
+    return () => clearInterval(id);
+  }, [auto, next]);
+
+  const slide = slides[active];
+
+  return (
+    <div
+      className="relative overflow-hidden rounded-2xl shadow-2xl md:rounded-3xl"
+      onMouseEnter={() => onAutoChange(false)}
+      onMouseLeave={() => onAutoChange(true)}
+    >
+      <div className="relative aspect-[21/9] w-full bg-[#1A1624] sm:aspect-[16/7]">
+        {slides.map((s, i) => (
+          <img
+            key={s.src}
+            src={s.src}
+            alt={t(s.titleAr, s.titleEn)}
+            className={cn(
+              "absolute inset-0 h-full w-full object-cover transition-opacity duration-700",
+              i === active ? "opacity-100" : "opacity-0",
+            )}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1624]/80 via-transparent to-[#1A1624]/20" />
+
+        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-8">
+          <div className="min-w-0">
+            <h3 className="font-heading text-xl font-bold text-white md:text-2xl">
+              {t(slide.titleAr, slide.titleEn)}
+            </h3>
+            <p className="mt-1 text-sm text-[#C9A962]">
+              {t(slide.descAr, slide.descEn)}
+            </p>
+            <p className="mt-2 text-xs text-white/50">
+              {active + 1} / {slides.length}
+            </p>
+          </div>
+
+          <div className="flex shrink-0 gap-2">
+            <button
+              type="button"
+              onClick={prev}
+              aria-label={t("السابق", "Previous")}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-md transition hover:bg-black/50"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              aria-label={t("التالي", "Next")}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-md transition hover:bg-black/50"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex gap-2 overflow-x-auto bg-[#1A1624] p-3 scrollbar-thin">
+        {slides.map((s, i) => (
+          <button
+            key={s.src}
+            type="button"
+            onClick={() => onSelect(i)}
+            aria-label={t(s.titleAr, s.titleEn)}
+            className={cn(
+              "relative h-14 w-20 shrink-0 overflow-hidden rounded-lg transition-all md:h-16 md:w-24",
+              active === i
+                ? "ring-2 ring-[#C9A962] ring-offset-1 ring-offset-[#1A1624]"
+                : "opacity-60 hover:opacity-100",
+            )}
+          >
+            <img
+              src={s.src}
+              alt=""
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function ResidenceGallery() {
   const { t, lang } = useLang();
   const [active, setActive] = useState(0);
@@ -81,6 +192,7 @@ export function ResidenceGallery() {
   return (
     <section
       ref={sectionRef}
+      id="residence-gallery"
       className="relative overflow-hidden bg-[#FAF8FC] py-16 md:py-24"
       onMouseEnter={() => setAuto(false)}
       onMouseLeave={() => setAuto(true)}
@@ -107,6 +219,15 @@ export function ResidenceGallery() {
           </p>
         </div>
 
+        <div data-gallery-reveal className="mb-12">
+          <FeaturedSlider
+            active={active}
+            onSelect={setActive}
+            auto={auto}
+            onAutoChange={setAuto}
+          />
+        </div>
+
         <div
           data-gallery-reveal
           className="relative mx-auto h-[320px] max-w-5xl sm:h-[380px] md:h-[440px]"
@@ -116,7 +237,7 @@ export function ResidenceGallery() {
             const isActive = offset === 0;
             return (
               <div
-                key={slide.titleEn}
+                key={slide.src}
                 className="absolute start-1/2 top-1/2 w-[min(88vw,380px)] -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:w-[420px]"
                 style={{
                   transform: `translate(calc(-50% + ${offset * spacing}px), -50%) scale(${isActive ? 1 : 0.82})`,
@@ -135,6 +256,7 @@ export function ResidenceGallery() {
                     src={slide.src}
                     alt={t(slide.titleAr, slide.titleEn)}
                     className="aspect-[4/3] w-full object-cover"
+                    loading="lazy"
                   />
                   <div className="bg-[#1A1624] px-5 py-4 text-center">
                     <h3 className="font-heading text-lg font-bold text-white">
@@ -164,7 +286,7 @@ export function ResidenceGallery() {
               className={cn("h-5 w-5", lang === "en" && "rotate-180")}
             />
           </button>
-          <div className="flex gap-2">
+          <div className="flex max-w-xs flex-wrap justify-center gap-2">
             {slides.map((_, i) => (
               <button
                 key={i}

@@ -1,12 +1,54 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MapPin, Sparkles } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import { RESIDENCE_HERO, RESIDENCE_HERO_IMAGE } from "@/data/alshubaily-residence-content";
+import {
+  RESIDENCE_HERO,
+  RESIDENCE_HERO_SLIDESHOW,
+} from "@/data/alshubaily-residence-content";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const SLIDE_INTERVAL_MS = 180;
+
+function HeroSlideshow({ images }: { images: string[] }) {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [images]);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % images.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, [images.length]);
+
+  return (
+    <>
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt=""
+          fetchPriority={i === 0 ? "high" : "low"}
+          className={cn(
+            "absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-75",
+            i === active ? "opacity-100" : "opacity-0",
+          )}
+        />
+      ))}
+    </>
+  );
+}
 
 export function ResidenceHero() {
   const { t } = useLang();
@@ -83,11 +125,7 @@ export function ResidenceHero() {
         ref={bgRef}
         className="absolute inset-x-0 -top-[12%] -bottom-[12%] will-change-transform"
       >
-        <img
-          src={RESIDENCE_HERO_IMAGE}
-          alt=""
-          className="h-full w-full object-cover object-center"
-        />
+        <HeroSlideshow images={RESIDENCE_HERO_SLIDESHOW} />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A1624]/50 via-[#3D3450]/25 to-[#1A1624]/92" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_75%,rgba(201,169,98,0.12),transparent)]" />
       </div>

@@ -3,6 +3,8 @@
  * Used by the Leaflet night map on the About page.
  */
 
+import { alshubailyResidenceAsset } from "@/data/asset-paths";
+
 export type GeoRegion = {
   id: "mecca" | "hail" | "riyadh" | "eastern";
   nameAr: string;
@@ -151,7 +153,7 @@ export const GEO_PROJECTS: GeoProject[] = [
     region: "riyadh",
     lat: 24.7136,
     lng: 46.6753,
-    heroImage: "/assets/projects/alshubaily-residence/cover.svg",
+    heroImage: alshubailyResidenceAsset("الشبيلي ريزيدنس صور /hero.png"),
   },
   {
     id: 7,

@@ -159,14 +159,14 @@ export const PROJECTS: Project[] = [
     x: 49.5,
     y: 46.5,
     descriptionEn:
-      "An address of luxury coming soon on Turki Al-Awwal Road — a private compound and vibrant promenade across 66,000 m².",
+      "An address of luxury coming soon on Turki Al-Awwal Road — a private compound and vibrant promenade across 24,000 m².",
     descriptionAr:
-      "عنوان الفخامة قريباً على طريق تركي الأول — مجتمع سكني خاص وبوابة تجارية حيوية على 66,000 م².",
-    heroImage: alshubailyResidenceAsset("cover.svg"),
+      "عنوان الفخامة قريباً على طريق تركي الأول — مجتمع سكني خاص وبوابة تجارية حيوية على 24,000 م².",
+    heroImage: alshubailyResidenceAsset("الشبيلي ريزيدنس صور /hero.png"),
     gallery: [
-      alshubailyResidenceAsset("cover.svg"),
-      alshubailyResidenceAsset("1.svg"),
-      alshubailyResidenceAsset("2.svg"),
+      alshubailyResidenceAsset("الشبيلي ريزيدنس صور /hero.png"),
+      alshubailyResidenceAsset("الشبيلي ريزيدنس صور /1.png"),
+      alshubailyResidenceAsset("الشبيلي ريزيدنس صور /7.png"),
     ],
   },
   {
