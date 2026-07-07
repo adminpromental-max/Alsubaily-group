@@ -6,11 +6,8 @@ import {
   Palmtree,
   Store,
 } from "lucide-react";
-import { PROJECTS } from "@/data/projects";
 import {
   PROJECT_CATEGORIES,
-  PROJECT_CATEGORY_BY_SLUG,
-  type ProjectCategoryId,
 } from "@/data/site-content";
 import { useLang } from "@/contexts/lang-context";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -23,10 +20,6 @@ const CATEGORY_ICONS = {
   commercial: Store,
   office: Building2,
 } as const;
-
-function countByCategory(id: ProjectCategoryId) {
-  return PROJECTS.filter((p) => PROJECT_CATEGORY_BY_SLUG[p.slug] === id).length;
-}
 
 export function ProjectTypesSection() {
   const { t, lang } = useLang();
@@ -59,7 +52,6 @@ export function ProjectTypesSection() {
         >
           {PROJECT_CATEGORIES.map((category, i) => {
             const Icon = CATEGORY_ICONS[category.id];
-            const count = countByCategory(category.id);
             const name = lang === "ar" ? category.nameAr : category.nameEn;
             const bio = lang === "ar" ? category.bioAr : category.bioEn;
             const isExpanded = expanded === i;
@@ -111,16 +103,9 @@ export function ProjectTypesSection() {
                 </div>
 
                 <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="font-heading text-lg font-bold text-white md:text-xl">
-                      {name}
-                    </h3>
-                    {count > 0 && (
-                      <span className="rounded-full bg-[#C9A962] px-2.5 py-0.5 text-[10px] font-bold text-[#1A1612]">
-                        {count} {t("مشروع", "projects")}
-                      </span>
-                    )}
-                  </div>
+                  <h3 className="font-heading text-lg font-bold text-white md:text-xl">
+                    {name}
+                  </h3>
 
                   <p
                     className={cn(

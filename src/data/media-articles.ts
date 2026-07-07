@@ -62,16 +62,16 @@ export const MEDIA_HERO_BANNER = dammamAsset("City-landscape.png");
 export const MEDIA_HERO = {
   eyebrowAr: "المركز الإعلامي",
   eyebrowEn: "Media Center",
-  titleAr: "أخبار وإنجازات مجموعة الشبيلي",
-  titleEn: "AlShubaily News & Highlights",
+  titleAr: "أخبار وإنجازات مجموعة خالد سعود الشبيلي",
+  titleEn: "News & Achievements — Khalid Saud AlShubaily Group",
   bodyAr:
     "تابعوا آخر مستجدات مجموعة خالد بن سعود الشبيلي — تطورات المشاريع، التغطية الإعلامية، والفعاليات في مختلف مناطق المملكة. مركز إعلامي يعكس مسيرة عقارية واستثمارية تمتد لأكثر من ثلاثين عاماً.",
   bodyEn:
     "Follow the latest from Khalid Bin Saud AlShubaily Group — project milestones, media coverage, and events across the Kingdom. A media hub reflecting more than thirty years of real estate and investment excellence.",
   stats: [
     {
-      valueAr: "+30",
-      valueEn: "30+",
+      valueAr: "+37",
+      valueEn: "37+",
       labelAr: "عاماً من العطاء",
       labelEn: "Years of Excellence",
     },
@@ -82,8 +82,8 @@ export const MEDIA_HERO = {
       labelEn: "Strategic Regions",
     },
     {
-      valueAr: "+15",
-      valueEn: "15+",
+      valueAr: "40",
+      valueEn: "40",
       labelAr: "مشروع نوعي",
       labelEn: "Landmark Projects",
     },

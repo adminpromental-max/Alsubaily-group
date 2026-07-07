@@ -4,7 +4,6 @@ import { useLang } from "@/contexts/lang-context";
 import { ABOUT_COMPANIES } from "@/data/about-content";
 import {
   GROUP_SUBSIDIARIES,
-  type GroupSubsidiary,
 } from "@/data/group-logos";
 import { cn } from "@/lib/utils";
 
@@ -42,8 +41,6 @@ export function GroupCompaniesOrbit() {
   const dragRef = useRef({ active: false, startX: 0, startRot: 0 });
 
   const activeIndex = pinned ?? hovered;
-  const activeCompany: GroupSubsidiary | undefined =
-    activeIndex !== null ? COMPANIES[activeIndex] : undefined;
 
   const spin = useCallback((dir: number) => {
     setRotation((r) => r + STEP * dir);
@@ -96,37 +93,17 @@ export function GroupCompaniesOrbit() {
         style={{ height: ring + size }}
       >
         <div className="pointer-events-none absolute z-20 mx-auto max-w-[min(88vw,320px)] px-4 text-center md:max-w-sm">
-          {activeCompany ? (
-            <div className="projects-orbit-detail">
-              <h3 className="font-heading text-lg font-bold leading-snug text-[#1A1612] md:text-xl">
-                {lang === "ar"
-                  ? activeCompany.nameAr
-                  : activeCompany.nameEn}
-              </h3>
-              <span
-                className={cn(
-                  "mt-3 inline-flex items-center rounded-full border px-3 py-1 text-[10px] font-semibold tracking-wide",
-                  activeCompany.chipClass,
-                )}
-              >
-                {lang === "ar"
-                  ? activeCompany.nameAr
-                  : activeCompany.nameEn}
-              </span>
-            </div>
-          ) : (
-            <div>
-              <p className="font-heading text-2xl font-bold text-[#1A1612] md:text-3xl">
-                {COMPANIES.length}
-              </p>
-              <p className="mt-1 text-[10px] uppercase tracking-[0.35em] text-[#9A7B3A]">
-                {t("شركة", "Companies")}
-              </p>
-              <p className="mt-2 text-xs text-[#5C5348]/80">
-                {t("اسحب للاستكشاف", "Drag to explore")}
-              </p>
-            </div>
-          )}
+          <div>
+            <p className="font-heading text-2xl font-bold text-[#1A1612] md:text-3xl">
+              {COMPANIES.length}
+            </p>
+            <p className="mt-1 text-[10px] uppercase tracking-[0.35em] text-[#9A7B3A]">
+              {t("شركة", "Companies")}
+            </p>
+            <p className="mt-2 text-xs text-[#5C5348]/80">
+              {t("اسحب للاستكشاف", "Drag to explore")}
+            </p>
+          </div>
         </div>
 
         <div
