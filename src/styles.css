@@ -455,43 +455,52 @@
 
 /* Small glowing pulse dots (homepage map) */
 .map-hit-target--glow {
-  width: 0.55rem;
-  height: 0.55rem;
+  width: 2.75rem;
+  height: 2.75rem;
 }
 
 .map-hit-target--glow:hover {
-  transform: translate(-50%, -50%) scale(1.15);
+  transform: translate(-50%, -50%) scale(1.08);
   z-index: 20;
 }
 
 .map-hit-target--glow.is-active {
-  transform: translate(-50%, -50%) scale(1.25);
+  transform: translate(-50%, -50%) scale(1.12);
   z-index: 40;
 }
 
 .map-glow-core {
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  transform: translate(-50%, -50%);
   border-radius: 9999px;
   background: var(--pin-color, #c9a962);
   box-shadow:
-    0 0 0 1.5px rgba(255, 255, 255, 0.85),
-    0 0 8px color-mix(in srgb, var(--pin-color, #c9a962) 75%, transparent),
-    0 0 14px color-mix(in srgb, var(--pin-color, #c9a962) 45%, transparent);
+    0 0 0 2px rgba(255, 255, 255, 0.85),
+    0 0 10px color-mix(in srgb, var(--pin-color, #c9a962) 75%, transparent),
+    0 0 18px color-mix(in srgb, var(--pin-color, #c9a962) 45%, transparent);
 }
 
 .map-glow-ring {
   position: absolute;
-  inset: -5px;
+  top: 50%;
+  left: 50%;
+  width: 1.55rem;
+  height: 1.55rem;
+  transform: translate(-50%, -50%);
   border-radius: 9999px;
-  border: 1px solid color-mix(in srgb, var(--pin-color, #c9a962) 70%, transparent);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--pin-color, #c9a962) 35%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--pin-color, #c9a962) 70%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--pin-color, #c9a962) 35%, transparent);
   animation: map-glow-pulse 2.2s ease-in-out infinite;
   pointer-events: none;
 }
 
 .map-hit-target--glow.is-active .map-glow-ring {
-  inset: -7px;
+  width: 1.85rem;
+  height: 1.85rem;
   animation: map-glow-active 1.3s ease-in-out infinite;
 }
 

@@ -33,7 +33,7 @@ export function InteractiveMapSection() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#1A1612]/60 md:text-base">
           {t(
-            "اسحبي الخريطة في كل الاتجاهات، واضغطي على أي pin لاستكشاف المشروع.",
+            "اسحب الخريطة في كل الاتجاهات، واضغط على أي نقطة لاستكشاف المشروع.",
             "Drag the map in any direction and tap any pin to explore a project.",
           )}
         </p>
