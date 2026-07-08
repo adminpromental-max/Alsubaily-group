@@ -57,7 +57,9 @@ export type MediaArticle = {
   externalSources?: MediaExternalSource[];
 };
 
-export const MEDIA_HERO_BANNER = dammamAsset("City-landscape.png");
+export const MEDIA_HERO_BANNER = dammamAsset(
+  "WORLD STADIUMS FOOTBALL STADIUM/MAIN MASTER PLAN.png",
+);
 
 export const MEDIA_HERO = {
   eyebrowAr: "المركز الإعلامي",
@@ -350,7 +352,7 @@ export const MEDIA_ARTICLES: MediaArticle[] = [
       "The project includes multi-purpose stadiums, training zones, and hospitality and entertainment facilities within a vision for a modern sports city serving local communities and visitors.",
       "Site footage shows ongoing land preparation and utility networks, confirming the Group's commitment to delivering the project to the highest engineering standards.",
     ],
-    image: dammamAsset("City-landscape.png"),
+    image: dammamAsset("WORLD STADIUMS FOOTBALL STADIUM/MAIN MASTER PLAN.png"),
   },
   {
     id: "pu-003",

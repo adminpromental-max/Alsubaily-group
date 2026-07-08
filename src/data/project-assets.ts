@@ -6,16 +6,15 @@ export const REAL_PROJECT_ASSETS: Record<
   { hero: string; gallery: string[] }
 > = {
   "dammam-olympic-city": {
-    hero: dammamAsset("City-landscape.png"),
+    hero: dammamAsset("WORLD STADIUMS FOOTBALL STADIUM/MAIN MASTER PLAN.png"),
     gallery: [
-      dammamAsset("City-landscape.png"),
-      dammamAsset("Football-studium.jpg"),
-      dammamAsset("Ball-Area.png"),
-      dammamAsset("Polo.png"),
-      dammamAsset("Runner's-zone..png"),
-      dammamAsset("Bike-ride.png"),
-      dammamAsset("Walway.png"),
-      dammamAsset("Gulf.png"),
+      dammamAsset("WORLD STADIUMS FOOTBALL STADIUM/MAIN MASTER PLAN.png"),
+      dammamAsset("PLAY BALL SQUARE/PLAY BALL SQUARE.png"),
+      dammamAsset("POLO SIDE SQUARE/POLO SIDE SQUARE.png"),
+      dammamAsset("RUNNER SQUARE/RUNNER SQUARE.png"),
+      dammamAsset("BIKE RIDE SQUARE/BIKE RIDE SQUARE.png"),
+      dammamAsset("GOLF ICE SQUARE/GOLF ICE SQUARE.png"),
+      dammamAsset("dammam-City-landscape.png"),
     ],
   },
   "alshubaily-high-rise": {

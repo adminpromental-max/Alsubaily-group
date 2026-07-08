@@ -94,7 +94,7 @@ const CHAPTERS = [
 const STATS = [
   { value: "+45,000", labelAr: "مقعد", labelEn: "Seats" },
   { value: "+30", labelAr: "منشأة رياضية", labelEn: "Sports Venues" },
-  { value: "2.4M m²", labelAr: "مساحة إجمالية", labelEn: "Total Area" },
+  { value: "1M m²", labelAr: "مساحة إجمالية", labelEn: "Total Area" },
   { value: "2030", labelAr: "الاكتمال المتوقع", labelEn: "Est. Completion" },
 ];
 
@@ -188,7 +188,7 @@ export function DammamSplitScreen() {
                 className={`dss-img-slide ${i === activeIdx ? "dss-img-slide--active" : ""}`}
               >
                 <img
-                  src={IMG(ch.file)}
+                  src={IMG(ch.files[0])}
                   alt=""
                   className="absolute inset-0 h-full w-full object-contain"
                 />
@@ -232,7 +232,7 @@ export function DammamSplitScreen() {
 
               <div className="dss-mobile-img">
                 <img
-                  src={IMG(ch.file)}
+                  src={IMG(ch.files[0])}
                   alt={t(ch.titleAr, ch.titleEn)}
                   className="absolute inset-0 h-full w-full object-contain"
                 />

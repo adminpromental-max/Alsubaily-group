@@ -9,7 +9,7 @@ export const Route = createFileRoute("/projects/dammam-olympic-city")({
       {
         name: "description",
         content:
-          "مدينة الدمام الأولمبية — مدينة رياضية وصحية عالمية المستوى في قلب الدمام. +45,000 مقعد · +30 منشأة رياضية · 2.4M m².",
+          "مدينة الدمام الأولمبية — مدينة رياضية وصحية عالمية المستوى في قلب الدمام. +45,000 مقعد · +30 منشأة رياضية · 1M m².",
       },
       {
         property: "og:title",
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/projects/dammam-olympic-city")({
       },
       {
         property: "og:image",
-        content: dammamAsset("City-landscape.png"),
+        content: dammamAsset("WORLD STADIUMS FOOTBALL STADIUM/MAIN MASTER PLAN.png"),
       },
     ],
   }),

@@ -1,7 +1,7 @@
 import { dammamAsset } from "@/data/asset-paths";
 
 export type DammamHighlight = {
-  file: string;
+  files: string[];
   side: "left" | "right";
   eyebrowAr: string;
   eyebrowEn: string;
@@ -11,12 +11,18 @@ export type DammamHighlight = {
   bodyEn: string;
 };
 
-export const DAMMAM_HERO_POSTER = dammamAsset("City-landscape.png");
-export const DAMMAM_BANNER = dammamAsset("banner.png");
+export const DAMMAM_HERO_POSTER = dammamAsset(
+  "WORLD STADIUMS FOOTBALL STADIUM/MAIN MASTER PLAN.png",
+);
+export const DAMMAM_BANNER = dammamAsset("dammam-City-landscape.png");
 
 export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
   {
-    file: "Football-studium.jpg",
+    files: [
+      "WORLD STADIUMS FOOTBALL STADIUM/WORLD STADIUMS FOOTBALL STADIUM.png",
+      "WORLD STADIUMS FOOTBALL STADIUM/WORLD STADIUMS FOOTBALL STADIUM2.png",
+      "WORLD STADIUMS FOOTBALL STADIUM/MAIN MASTER PLAN.png",
+    ],
     side: "right",
     eyebrowAr: "استاد رياضي عالمي",
     eyebrowEn: "World-Class Stadium",
@@ -28,7 +34,11 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "Accommodating over 45,000 spectators, designed to the highest international standards for major championships and multi-discipline events, with advanced broadcast technology at the heart of Dammam.",
   },
   {
-    file: "Ball-Area.png",
+    files: [
+      "PLAY BALL SQUARE/PLAY BALL SQUARE.png",
+      "PLAY BALL SQUARE/PLAY BALL SQUARE2.png",
+      "PLAY BALL SQUARE/PLAY BALL SQUARE3.png",
+    ],
     side: "left",
     eyebrowAr: "ملاعب متعددة",
     eyebrowEn: "Multi-Sport Courts",
@@ -40,7 +50,11 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "A vibrant sports cluster with football, basketball, and volleyball courts in an open urban layout — serving the local community and visitors as a year-round training and competition destination.",
   },
   {
-    file: "Polo.png",
+    files: [
+      "POLO SIDE SQUARE/POLO SIDE SQUARE.png",
+      "POLO SIDE SQUARE/POLO SIDE SQUARE2.png",
+      "POLO SIDE SQUARE/POLO SIDE SQUARE3.png",
+    ],
     side: "right",
     eyebrowAr: "رياضة فاخرة",
     eyebrowEn: "Elite Sport",
@@ -52,7 +66,11 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "A world-class polo field blending heritage and modernity — designed to host international tournaments and premium events within expansive green surroundings befitting the Olympic city.",
   },
   {
-    file: "Runner's-zone..png",
+    files: [
+      "RUNNER SQUARE/RUNNER SQUARE.png",
+      "RUNNER SQUARE/RUNNER SQUARE2.png",
+      "RUNNER SQUARE/RUNNER SQUARE3.png",
+    ],
     side: "left",
     eyebrowAr: "ألعاب القوى",
     eyebrowEn: "Athletics",
@@ -64,7 +82,11 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "Dedicated tracks and lanes for running, marathons, and daily training — built to international standards supporting elite athletes and enthusiasts alike toward an active lifestyle.",
   },
   {
-    file: "Bike-ride.png",
+    files: [
+      "BIKE RIDE SQUARE/BIKE RIDE SQUARE.png",
+      "BIKE RIDE SQUARE/BIKE RIDE SQUARE2.png",
+      "BIKE RIDE SQUARE/BIKE RIDE SQUARE3.png",
+    ],
     side: "right",
     eyebrowAr: "تنقل مستدام",
     eyebrowEn: "Sustainable Mobility",
@@ -76,7 +98,11 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "A network of walkways and cycling paths connecting the Olympic city's facilities — promoting active mobility and sustainability in an integrated urban experience for families and visitors.",
   },
   {
-    file: "Walway.png",
+    files: [
+      "GOLF ICE SQUARE/GOLF ICE SQUARE.png",
+      "GOLF ICE SQUARE/GOLF ICE SQUARE2.png",
+      "GOLF ICE SQUARE/GOLF ICE SQUARE3.png",
+    ],
     side: "left",
     eyebrowAr: "فضاءات عامة",
     eyebrowEn: "Public Realm",
@@ -88,19 +114,7 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "An elegant urban promenade linking sports and commercial zones — offering a comfortable walking experience with green views and seating areas that bring the city to life throughout the day.",
   },
   {
-    file: "Gulf.png",
-    side: "right",
-    eyebrowAr: "واجهة بحرية",
-    eyebrowEn: "Waterfront",
-    titleAr: "الواجهة البحرية",
-    titleEn: "Gulf Waterfront",
-    bodyAr:
-      "كورنيش بحري استثنائي يطل على الخليج العربي، يجمع بين المطاعم والممشيات والأنشطة البحرية في تجربة فريدة تكمل هوية المدينة الرياضية الساحلية.",
-    bodyEn:
-      "An exceptional corniche overlooking the Arabian Gulf — combining dining, promenades, and waterfront activities in a distinctive experience completing the coastal sports city identity.",
-  },
-  {
-    file: "City-landscape.png",
+    files: ["dammam-City-landscape.png"],
     side: "left",
     eyebrowAr: "رؤية شاملة",
     eyebrowEn: "Master Vision",
@@ -115,4 +129,8 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
 
 export function dammamImage(file: string) {
   return dammamAsset(file);
+}
+
+export function dammamHighlightThumb(highlight: DammamHighlight) {
+  return dammamAsset(highlight.files[0]);
 }

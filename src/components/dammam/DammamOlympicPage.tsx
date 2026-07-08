@@ -1,14 +1,18 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { dammamAsset } from "@/data/asset-paths";
-import { DAMMAM_HIGHLIGHTS, DAMMAM_HERO_POSTER, DAMMAM_BANNER } from "@/data/dammam-content";
+import {
+  DAMMAM_HIGHLIGHTS,
+  DAMMAM_HERO_POSTER,
+  DAMMAM_BANNER,
+  dammamHighlightThumb,
+} from "@/data/dammam-content";
 import { useLang } from "@/contexts/lang-context";
 import { OlympicCircleGallery } from "./OlympicCircleGallery";
+import { RegionImageSlider } from "./RegionImageSlider";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const IMG = (f: string) => dammamAsset(f);
 const VIDEO_URL =
   "https://res.cloudinary.com/dfzaghfsv/video/upload/q_auto,f_mp4/v1781634357/Dammam_Olympic_n4rvqh.mov";
 
@@ -202,7 +206,7 @@ export function DammamOlympicPage() {
   }, []);
 
   const allGallery = SECTIONS.map((sec) => ({
-    src: IMG(sec.file),
+    src: dammamHighlightThumb(sec),
     labelAr: sec.titleAr,
     labelEn: sec.titleEn,
     descriptionAr: sec.bodyAr,
@@ -255,7 +259,7 @@ export function DammamOlympicPage() {
             </div>
             <div className="olympic-hero-stat-sep" />
             <div className="olympic-hero-stat">
-              <span className="olympic-hero-stat-val">2.4M m²</span>
+              <span className="olympic-hero-stat-val">1M m²</span>
               <span className="olympic-hero-stat-lbl">{t("مساحة إجمالية", "Total Area")}</span>
             </div>
             <div className="olympic-hero-stat-sep" />
@@ -319,7 +323,7 @@ export function DammamOlympicPage() {
                     </div>
                     <div className="olympic-pitch-item">
                       <span className="olympic-pitch-label">{t("المساحة الكلية", "Total Area")}</span>
-                      <span className="olympic-pitch-value">2,400,000 m²</span>
+                      <span className="olympic-pitch-value">1,000,000 m²</span>
                     </div>
                     <div className="olympic-pitch-item">
                       <span className="olympic-pitch-label">{t("النوع", "Type")}</span>
@@ -356,11 +360,10 @@ export function DammamOlympicPage() {
               >
                 <div className="olympic-section-img-wrap">
                   <div className="olympic-section-img">
-                    <img
-                      src={IMG(sec.file)}
-                      alt={t(sec.titleAr, sec.titleEn)}
-                      className="absolute inset-0 h-full w-full object-cover object-center"
-                      loading="lazy"
+                    <RegionImageSlider
+                      files={sec.files}
+                      altAr={sec.titleAr}
+                      altEn={sec.titleEn}
                     />
                     <div className="olympic-img-corner olympic-img-corner--tl" />
                     <div className="olympic-img-corner olympic-img-corner--br" />
