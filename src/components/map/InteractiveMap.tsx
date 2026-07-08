@@ -583,10 +583,10 @@ export function InteractiveMap({
                       <span className="map-pushpin-stick" />
                     </span>
                   ) : isGlow ? (
-                    <>
-                      <span className="map-glow-ring" aria-hidden />
-                      <span className="map-glow-core" aria-hidden />
-                    </>
+                    <span className="map-glow-pin" aria-hidden>
+                      <span className="map-glow-ring" />
+                      <span className="map-glow-core" />
+                    </span>
                   ) : isLabel ? (
                     <>
                       <span className="map-hit-dot" aria-hidden />
