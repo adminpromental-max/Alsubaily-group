@@ -80,13 +80,13 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "site-header fixed inset-x-0 top-0 z-40 transition-all duration-500 ease-out",
+        "site-header fixed inset-x-0 top-0 z-40 w-full max-w-full transition-all duration-500 ease-out",
         onHero
           ? "border-b border-white/10 bg-transparent shadow-none backdrop-blur-none"
           : "border-b border-[#E0D3C2]/60 bg-white/92 shadow-[0_4px_24px_-8px_rgba(26,22,18,0.12)] backdrop-blur-xl",
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-8 md:py-4">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-5 md:px-8 md:py-4">
         <Link to="/" className="flex min-w-0 items-center">
           <img
             src={ALSHUBAILY_LOGO}

@@ -45,22 +45,17 @@ function GalleryItem({
   return (
     <button
       type="button"
-      className="ocg-item tidara-ocg-item"
-      aria-label={t(item.altAr, item.altEn)}
+      className="ocg-item tidara-ocg-item tidara-ocg-item--no-text"
+      aria-label={t("صورة من أبراج تيدارا", "Tidara Towers image")}
       onClick={handleClick}
     >
       <img
         src={item.image}
-        alt={t(item.altAr, item.altEn)}
-        className="ocg-img absolute inset-0 h-full w-full"
+        alt=""
+        className="ocg-img absolute inset-0 h-full w-full object-cover"
         loading="lazy"
         draggable={false}
       />
-      <span className="ocg-tag">{t(item.tagAr, item.tagEn)}</span>
-      <div className="ocg-caption">
-        <p className="ocg-caption-tag">{t(item.tagAr, item.tagEn)}</p>
-        <p className="ocg-caption-desc">{t(item.descAr, item.descEn)}</p>
-      </div>
       <span className="ocg-ring" aria-hidden />
       <span className="ocg-shine" aria-hidden />
       <span className="ocg-corner" aria-hidden />
@@ -218,17 +213,9 @@ export function TidaraCircleGallery() {
             <div className="tidara-ocg-lightbox-media">
               <img
                 src={lightboxItem.image}
-                alt={t(lightboxItem.altAr, lightboxItem.altEn)}
+                alt=""
                 className="tidara-ocg-lightbox-img"
               />
-            </div>
-            <div className="tidara-ocg-lightbox-caption">
-              <span className="tidara-ocg-lightbox-tag">
-                {t(lightboxItem.tagAr, lightboxItem.tagEn)}
-              </span>
-              <p className="tidara-ocg-lightbox-desc">
-                {t(lightboxItem.descAr, lightboxItem.descEn)}
-              </p>
             </div>
           </div>
         </>

@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <div className="relative min-h-screen bg-plain-cream text-[#1A1612]">
+    <div className="relative min-h-screen w-full overflow-x-clip bg-plain-cream text-[#1A1612]">
       <main className="stacked-sections relative z-[2]">
         <StackedSection index={0} total={5} surface="stone-dark">
           <HeroChairman />

@@ -35,7 +35,7 @@ export const Route = createFileRoute("/projects/tidara-towers")({
 
 function TidaraTowersPage() {
   return (
-    <main className="min-h-screen bg-[#FAF8F4]">
+    <main className="min-h-screen w-full overflow-x-clip bg-[#FAF8F4]">
       <TidaraHero />
       <TidaraIntro />
       <TidaraAlternatingSections />

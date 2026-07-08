@@ -82,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { title: "AlShubaily | مجموعة خالد سعود الشبيلي" },
       {
         name: "description",
@@ -126,7 +126,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="min-h-full bg-plain-cream font-sans text-foreground antialiased">
+      <body className="min-h-full w-full overflow-x-clip bg-plain-cream font-sans text-foreground antialiased">
         {children}
         <Scripts />
       </body>
@@ -141,8 +141,10 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <LangProvider>
         <SiteHeader />
-        <Outlet />
-        <SiteFooter />
+        <div className="site-shell">
+          <Outlet />
+          <SiteFooter />
+        </div>
       </LangProvider>
     </QueryClientProvider>
   );

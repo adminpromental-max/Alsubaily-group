@@ -277,8 +277,58 @@
     border-color: var(--color-border);
   }
 
+  html {
+    overflow-x: clip;
+    width: 100%;
+  }
+
   body {
     color: var(--color-foreground);
+    overflow-x: clip;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.site-header {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.site-shell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+.site-shell main {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .site-header > div {
+    padding-inline: max(1rem, env(safe-area-inset-left, 0px))
+      max(1rem, env(safe-area-inset-right, 0px));
+  }
+
+  .olympic-gallery {
+    padding-inline: 1rem;
+  }
+
+  .projects-portfolio {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .ocg-track {
+    padding-inline: 0.75rem;
+    scroll-padding-inline: 0.75rem;
   }
 }
 
@@ -3694,6 +3744,15 @@ body.has-custom-cursor button {
 }
 
 /* ── Tidara gallery: tags, captions, responsive lightbox ── */
+.tidara-ocg-item--no-text .ocg-tag,
+.tidara-ocg-item--no-text .ocg-caption {
+  display: none !important;
+}
+
+.tidara-ocg-lightbox-caption {
+  display: none !important;
+}
+
 .tidara-ocg-hint {
   margin-top: 0.75rem;
   font-size: 0.8rem;
@@ -3817,7 +3876,7 @@ body.has-custom-cursor button {
 
   .tidara-ocg .ocg-wrap {
     margin-inline: 0;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .tidara-ocg-track {
@@ -5465,9 +5524,9 @@ body.has-custom-cursor button {
 
 /* ── About page — chairman golden frame ─────────────────────── */
 .about-group-banner {
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
 }
 
 .about-chairman-frame {
