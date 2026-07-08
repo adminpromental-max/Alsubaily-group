@@ -29,7 +29,7 @@ export type RabiaRoadStat = {
 
 export const RABIA_ROAD_STATS: RabiaRoadStat[] = [
   {
-    value: 2450000,
+    value: 752000,
     suffixAr: " م²",
     suffixEn: " m²",
     labelAr: "مساحة المشروع",

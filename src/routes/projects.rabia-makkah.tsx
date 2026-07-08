@@ -18,7 +18,7 @@ export const Route = createFileRoute("/projects/rabia-makkah")({
       {
         name: "description",
         content:
-          "رابية مكة — واجهة مكة الغربية على طريق مكة جدة السريع. 2,450,000 م² على بعد دقائق من الحرم المكي الشريف.",
+          "رابية مكة — واجهة مكة الغربية على طريق مكة جدة السريع. 752,000 م² على بعد دقائق من الحرم المكي الشريف.",
       },
       {
         property: "og:title",
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/projects/rabia-makkah")({
       {
         property: "og:description",
         content:
-          "Makkah's western facade on the Mecca–Jeddah Expressway — 2.45M m² minutes from the Holy Mosque.",
+          "Makkah's western facade on the Mecca–Jeddah Expressway — 752,000 m² minutes from the Holy Mosque.",
       },
       {
         property: "og:image",

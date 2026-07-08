@@ -106,7 +106,7 @@ export function RabiaRoadLocation() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F0A]/65 via-transparent to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-6">
             <span className="inline-block rounded-full border border-[#C4A574]/40 bg-[#C4A574]/15 px-3 py-1 text-xs text-[#E8D5B5]">
-              2,450,000 m²
+              752,000 m²
             </span>
           </div>
         </div>

@@ -491,9 +491,9 @@ export const PROJECTS: Project[] = [
     x: 30,
     y: 60.5,
     descriptionEn:
-      "Makkah's western facade on the Mecca–Jeddah Expressway — 2.45M m² on the Third Ring Road, minutes from the Holy Mosque.",
+      "Makkah's western facade on the Mecca–Jeddah Expressway — 752,000 m² on the Third Ring Road, minutes from the Holy Mosque.",
     descriptionAr:
-      "واجهة مكة الغربية على طريق مكة جدة السريع — 2,450,000 م² على الطريق الدائري الثالث، على بعد دقائق من الحرم المكي الشريف.",
+      "واجهة مكة الغربية على طريق مكة جدة السريع — 752,000 م² على الطريق الدائري الثالث، على بعد دقائق من الحرم المكي الشريف.",
     heroImage: rabiaRoadAsset("WhatsApp Image 2026-06-25 at 3.27.46 PM.jpeg"),
     gallery: [
       rabiaRoadAsset("WhatsApp Image 2026-06-25 at 3.27.46 PM.jpeg"),
