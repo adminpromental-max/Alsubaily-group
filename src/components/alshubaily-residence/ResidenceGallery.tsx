@@ -87,7 +87,7 @@ export function ResidenceGallery() {
       onMouseLeave={() => setAuto(true)}
     >
       <div className="mx-auto max-w-6xl px-6 md:px-8">
-        <div data-gallery-reveal className="relative z-10 mb-14 text-center md:mb-20">
+        <div data-gallery-reveal className="relative z-30 mb-16 text-center md:mb-24">
           <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#6B5B7B]">
             {t(
               RESIDENCE_GALLERY_HEADER.eyebrowAr,
@@ -100,7 +100,7 @@ export function ResidenceGallery() {
               RESIDENCE_GALLERY_HEADER.titleEn,
             )}
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-[#2A2438]/65">
+          <p className="mx-auto mt-3 max-w-xl pb-6 text-sm text-[#2A2438]/65 md:pb-8">
             {t(
               RESIDENCE_GALLERY_HEADER.subtitleAr,
               RESIDENCE_GALLERY_HEADER.subtitleEn,
@@ -110,7 +110,7 @@ export function ResidenceGallery() {
 
         <div
           data-gallery-reveal
-          className="relative mx-auto mt-6 h-[340px] max-w-5xl sm:mt-8 sm:h-[400px] md:mt-10 md:h-[460px]"
+          className="relative z-0 mx-auto mt-4 h-[360px] max-w-5xl sm:mt-6 sm:h-[420px] md:mt-8 md:h-[480px]"
         >
           {slides.map((slide, i) => {
             const offset = getOffset(i, active, slides.length);
@@ -118,10 +118,10 @@ export function ResidenceGallery() {
             return (
               <div
                 key={slide.src}
-                className="absolute start-1/2 top-[58%] w-[min(88vw,380px)] -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:w-[420px]"
+                className="absolute start-1/2 top-[72%] w-[min(88vw,380px)] -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:w-[420px]"
                 style={{
                   transform: `translate(calc(-50% + ${offset * spacing}px), -50%) scale(${isActive ? 1 : 0.82})`,
-                  zIndex: isActive ? 20 : 10 - Math.abs(offset),
+                  zIndex: isActive ? 10 : 5 - Math.abs(offset),
                   opacity: Math.abs(offset) > 2 ? 0 : 1 - Math.abs(offset) * 0.25,
                   pointerEvents: isActive ? "auto" : "none",
                 }}
