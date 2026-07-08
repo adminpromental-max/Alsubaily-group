@@ -87,7 +87,7 @@ export function ResidenceGallery() {
       onMouseLeave={() => setAuto(true)}
     >
       <div className="mx-auto max-w-6xl px-6 md:px-8">
-        <div data-gallery-reveal className="mb-10 text-center md:mb-12">
+        <div data-gallery-reveal className="relative z-10 mb-14 text-center md:mb-20">
           <p className="text-xs font-medium uppercase tracking-[0.35em] text-[#6B5B7B]">
             {t(
               RESIDENCE_GALLERY_HEADER.eyebrowAr,
@@ -110,7 +110,7 @@ export function ResidenceGallery() {
 
         <div
           data-gallery-reveal
-          className="relative mx-auto h-[320px] max-w-5xl sm:h-[380px] md:h-[440px]"
+          className="relative mx-auto mt-6 h-[340px] max-w-5xl sm:mt-8 sm:h-[400px] md:mt-10 md:h-[460px]"
         >
           {slides.map((slide, i) => {
             const offset = getOffset(i, active, slides.length);
@@ -118,7 +118,7 @@ export function ResidenceGallery() {
             return (
               <div
                 key={slide.src}
-                className="absolute start-1/2 top-1/2 w-[min(88vw,380px)] -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:w-[420px]"
+                className="absolute start-1/2 top-[58%] w-[min(88vw,380px)] -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:w-[420px]"
                 style={{
                   transform: `translate(calc(-50% + ${offset * spacing}px), -50%) scale(${isActive ? 1 : 0.82})`,
                   zIndex: isActive ? 20 : 10 - Math.abs(offset),
@@ -154,7 +154,7 @@ export function ResidenceGallery() {
 
         <div
           data-gallery-reveal
-          className="mt-8 flex items-center justify-center gap-4"
+          className="mt-10 flex items-center justify-center gap-4 md:mt-12"
         >
           <button
             type="button"
