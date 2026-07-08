@@ -104,14 +104,14 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
       "GOLF ICE SQUARE/GOLF ICE SQUARE3.png",
     ],
     side: "left",
-    eyebrowAr: "فضاءات عامة",
-    eyebrowEn: "Public Realm",
-    titleAr: "الممشى",
-    titleEn: "Walkway",
+    eyebrowAr: "جولف وثلج",
+    eyebrowEn: "Golf & Ice",
+    titleAr: "منطقة الجولف والثلج",
+    titleEn: "Golf & Ice Square",
     bodyAr:
-      "ممشى حضري أنيق يمتد بين المناطق الرياضية والتجارية، يوفر تجربة مشي مريحة مع إطلالات خضراء ومناطق جلوس تُحيي المدينة على مدار اليوم.",
+      "وجهة رياضية متكاملة تجمع بين ملعب جولف عالمي ومنشآت تزلج على الجليد، في مساحات خضراء واسعة تُقدّم تجربة فاخرة للرياضيين والزوار وتُثري منظومة المدينة الأولمبية برياضات مميزة على مدار العام.",
     bodyEn:
-      "An elegant urban promenade linking sports and commercial zones — offering a comfortable walking experience with green views and seating areas that bring the city to life throughout the day.",
+      "An integrated sports destination combining a world-class golf course with ice skating facilities — set within expansive green spaces offering a premium experience for athletes and visitors, enriching the Olympic city with distinctive year-round sports.",
   },
   {
     files: ["dammam-City-landscape.png"],
