@@ -127,6 +127,18 @@ export const DAMMAM_HIGHLIGHTS: DammamHighlight[] = [
   },
 ];
 
+export const DAMMAM_GALLERY = [
+  "img-058_enhanced.jpg",
+  "img-059_enhanced.jpg",
+  "img-060_enhanced.jpg",
+  "img-063_enhanced.jpg",
+  "img-094_enhanced.jpg",
+  "img-095_enhanced.jpg",
+  "img-099_enhanced.jpg",
+  "img-110_enhanced.jpg",
+  "img-111_enhanced.jpg",
+].map((file) => dammamAsset(file));
+
 export function dammamImage(file: string) {
   return dammamAsset(file);
 }

@@ -5,7 +5,7 @@ import {
   DAMMAM_HIGHLIGHTS,
   DAMMAM_HERO_POSTER,
   DAMMAM_BANNER,
-  dammamHighlightThumb,
+  DAMMAM_GALLERY,
 } from "@/data/dammam-content";
 import { useLang } from "@/contexts/lang-context";
 import { OlympicCircleGallery } from "./OlympicCircleGallery";
@@ -205,13 +205,7 @@ export function DammamOlympicPage() {
     return () => ctx.revert();
   }, []);
 
-  const allGallery = SECTIONS.map((sec) => ({
-    src: dammamHighlightThumb(sec),
-    labelAr: sec.titleAr,
-    labelEn: sec.titleEn,
-    descriptionAr: sec.bodyAr,
-    descriptionEn: sec.bodyEn,
-  }));
+  const galleryImages = DAMMAM_GALLERY.map((src) => ({ src }));
 
   return (
     <div className="olympic-page min-h-screen overflow-x-hidden bg-[#FAF8F4] text-[#1A1612]">
@@ -396,7 +390,7 @@ export function DammamOlympicPage() {
           <p className="olympic-gallery-eyebrow">{t("معرض الصور", "Gallery")}</p>
           <h2 className="olympic-gallery-title">{t("لحظات من المشروع", "Project Moments")}</h2>
         </div>
-        <OlympicCircleGallery images={allGallery} />
+        <OlympicCircleGallery images={galleryImages} />
       </div>
 
       <section className="olympic-cta">
