@@ -1,15 +1,15 @@
 import { tidaraAsset } from "@/data/asset-paths";
 
-export const TIDARA_COVER = tidaraAsset("1.png");
+export const TIDARA_COVER = tidaraAsset("cover.png");
 
 /** Cinematic hero — slow crossfade slideshow (replaces hero video) */
 export const TIDARA_HERO_SLIDESHOW = [
   tidaraAsset("1.png"),
   tidaraAsset("2.png"),
-  tidaraAsset("3.png"),
   tidaraAsset("4.png"),
   tidaraAsset("5.png"),
   tidaraAsset("6.png"),
+  tidaraAsset("7.png"),
 ];
 
 export const TIDARA_PDF_URL = encodeURI(
@@ -221,16 +221,6 @@ export const TIDARA_GALLERY: TidaraGalleryItem[] = [
     descEn: "Parametric design linking podium, tower, and marina",
   },
   {
-    id: "img-3",
-    image: tidaraAsset("3.png"),
-    tagAr: "منظور جوي",
-    tagEn: "Aerial View",
-    altAr: "أبراج تيدارا — منظور جوي",
-    altEn: "Tidara Towers — aerial view",
-    descAr: "كتلة المشروع وعلاقتها بالواجهة البحرية",
-    descEn: "Project massing and its waterfront relationship",
-  },
-  {
     id: "img-4",
     image: tidaraAsset("4.png"),
     tagAr: "الممشى الساحلي",
@@ -319,16 +309,6 @@ export const TIDARA_GALLERY: TidaraGalleryItem[] = [
     altEn: "Tidara Towers — architectural details",
     descAr: "تفاصيل الواجهة والمواد في الإضاءة الطبيعية",
     descEn: "Façade details and materials in natural light",
-  },
-  {
-    id: "img-12",
-    image: tidaraAsset("12.png"),
-    tagAr: "بوابة ساحلية",
-    tagEn: "Coastal Gateway",
-    altAr: "أبراج تيدارا — بوابة ساحلية",
-    altEn: "Tidara Towers — coastal gateway",
-    descAr: "حافة حية بين المدينة والبحر",
-    descEn: "A living edge between city and sea",
   },
   {
     id: "panorama",

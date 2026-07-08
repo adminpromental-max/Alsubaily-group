@@ -404,11 +404,11 @@ export const PROJECTS: Project[] = [
       "A fluid waterfront gateway on Al Khobar marina — hotel, admin, and residential towers linked by a public podium and central landmark.",
     descriptionAr:
       "بوابة ساحلية متكاملة على مارينا الخبر — أبراج فندقية وإدارية وسكنية مرتبطة ببوديوم عام وبرج مركزي.",
-    heroImage: tidaraAsset("1.png"),
+    heroImage: tidaraAsset("cover.png"),
     gallery: [
+      tidaraAsset("cover.png"),
       tidaraAsset("1.png"),
       tidaraAsset("2.png"),
-      tidaraAsset("3.png"),
       tidaraAsset("4.png"),
       tidaraAsset("5.png"),
       tidaraAsset("6.png"),
@@ -417,7 +417,6 @@ export const PROJECTS: Project[] = [
       tidaraAsset("9.png"),
       tidaraAsset("10.png"),
       tidaraAsset("11.png"),
-      tidaraAsset("12.png"),
       tidaraAsset("Hotel.png"),
       tidaraAsset("panorama.png"),
     ],
