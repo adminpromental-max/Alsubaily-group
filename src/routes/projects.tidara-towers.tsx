@@ -4,7 +4,7 @@ import { TidaraBanner } from "@/components/tidara/TidaraBanner";
 import { TidaraCircleGallery } from "@/components/tidara/TidaraCircleGallery";
 import { TidaraHero } from "@/components/tidara/TidaraHero";
 import { TidaraIntro } from "@/components/tidara/TidaraIntro";
-import { tidaraAsset } from "@/data/asset-paths";
+import { TIDARA_COVER } from "@/data/tidara-content";
 
 export const Route = createFileRoute("/projects/tidara-towers")({
   head: () => ({
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/projects/tidara-towers")({
       },
       {
         property: "og:image",
-        content: tidaraAsset("Hero.png"),
+        content: TIDARA_COVER,
       },
     ],
   }),

@@ -3,16 +3,17 @@ import { Link } from "@tanstack/react-router";
 import gsap from "gsap";
 import { ArrowUp, Building2, Home, Layers } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import { tidaraAsset } from "@/data/asset-paths";
 import {
   TIDARA_HERO,
+  TIDARA_HERO_SLIDESHOW,
   TIDARA_STATS,
-  TIDARA_VIDEO_URL,
   type TidaraStat,
 } from "@/data/tidara-content";
 import { cn } from "@/lib/utils";
 
 const STAT_ICONS = [Building2, Layers, ArrowUp, Home] as const;
+const SLIDE_INTERVAL_MS = 5500;
+const SLIDE_FADE_MS = 1800;
 
 function CountUp({
   target,
@@ -103,42 +104,82 @@ function TidaraHeroStats() {
   );
 }
 
-function TidaraHeroVideo() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [canPlay, setCanPlay] = useState(false);
-  const poster = tidaraAsset("Hero.png");
+function TidaraHeroSlideshow({ images }: { images: string[] }) {
+  const [active, setActive] = useState(0);
+  const imgRefs = useRef<(HTMLImageElement | null)[]>([]);
+  const tweenRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    const onPlay = () => setCanPlay(true);
-    v.addEventListener("playing", onPlay, { once: true });
-    v.play().catch(() => {});
-    return () => v.removeEventListener("playing", onPlay);
-  }, []);
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [images]);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % images.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, [images.length]);
+
+  useEffect(() => {
+    tweenRef.current?.kill();
+    imgRefs.current.forEach((img, i) => {
+      if (!img) return;
+      gsap.set(img, { scale: i === active ? 1.04 : 1.04 });
+    });
+
+    const current = imgRefs.current[active];
+    if (!current) return;
+
+    tweenRef.current = gsap.fromTo(
+      current,
+      { scale: 1.04 },
+      {
+        scale: 1.14,
+        duration: SLIDE_INTERVAL_MS / 1000,
+        ease: "none",
+      },
+    );
+
+    return () => {
+      tweenRef.current?.kill();
+    };
+  }, [active]);
 
   return (
+    <>
+      {images.map((src, i) => (
+        <div
+          key={src}
+          className={cn(
+            "absolute inset-0 overflow-hidden transition-opacity ease-in-out",
+            i === active ? "opacity-100" : "opacity-0",
+          )}
+          style={{ transitionDuration: `${SLIDE_FADE_MS}ms` }}
+          aria-hidden={i !== active}
+        >
+          <img
+            ref={(el) => {
+              imgRefs.current[i] = el;
+            }}
+            src={src}
+            alt=""
+            fetchPriority={i === 0 ? "high" : "low"}
+            className="absolute inset-0 h-full w-full origin-center object-cover will-change-transform"
+          />
+        </div>
+      ))}
+    </>
+  );
+}
+
+function TidaraHeroBackground() {
+  return (
     <div className="absolute inset-0 overflow-hidden">
-      <img
-        src={poster}
-        alt=""
-        aria-hidden
-        className={cn(
-          "absolute inset-0 h-full w-full object-cover transition-opacity duration-700",
-          canPlay ? "opacity-0" : "opacity-100",
-        )}
-      />
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
-        src={TIDARA_VIDEO_URL}
-        poster={poster}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-      />
+      <TidaraHeroSlideshow images={TIDARA_HERO_SLIDESHOW} />
       <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/35 to-black/88" />
     </div>
   );
@@ -152,7 +193,7 @@ export function TidaraHero() {
       id="tidara-hero"
       className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-black"
     >
-      <TidaraHeroVideo />
+      <TidaraHeroBackground />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-12 pt-28 md:px-8 md:pb-16 md:pt-32">
         <Link to="/" hash="map" className="olympic-back-link">
@@ -172,10 +213,7 @@ export function TidaraHero() {
         <TidaraHeroStats />
       </div>
 
-      <div
-        className="olympic-hero-scroll pointer-events-none"
-        aria-hidden
-      >
+      <div className="olympic-hero-scroll pointer-events-none" aria-hidden>
         <div className="olympic-scroll-line" />
       </div>
     </section>

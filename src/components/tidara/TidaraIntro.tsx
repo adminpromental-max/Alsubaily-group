@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Anchor, MapPin, Sparkles, Waves } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import { tidaraAsset } from "@/data/asset-paths";
 import {
   TIDARA_INTRO,
   TIDARA_INTRO_HIGHLIGHTS,
@@ -182,8 +181,8 @@ export function TidaraIntro() {
               <div className="olympic-section-img-wrap">
                 <div className="olympic-section-img aspect-[4/5] min-h-[320px] md:min-h-[440px]">
                   <img
-                    src={tidaraAsset("Masterplan.png")}
-                    alt={t("المخطط العام لأبراج تيدارا", "Tidara Towers master plan")}
+                    src={TIDARA_INTRO.image}
+                    alt={t(TIDARA_INTRO.imageAltAr, TIDARA_INTRO.imageAltEn)}
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
