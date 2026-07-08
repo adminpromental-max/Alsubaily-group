@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CircleDot, Route, Waypoints } from "lucide-react";
 import { useLang } from "@/contexts/lang-context";
-import { RABIA_ROAD_LOCATION } from "@/data/rabia-road-content";
+import { RABIA_MAKKAH_AREA_SQ_M, RABIA_ROAD_LOCATION } from "@/data/rabia-road-content";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,7 +106,7 @@ export function RabiaRoadLocation() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F0A]/65 via-transparent to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-6">
             <span className="inline-block rounded-full border border-[#C4A574]/40 bg-[#C4A574]/15 px-3 py-1 text-xs text-[#E8D5B5]">
-              752,000 m²
+              {RABIA_MAKKAH_AREA_SQ_M.toLocaleString()} m²
             </span>
           </div>
         </div>

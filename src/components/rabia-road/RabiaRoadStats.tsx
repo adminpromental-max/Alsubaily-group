@@ -83,7 +83,7 @@ export function RabiaRoadStats() {
             ? t(stat.suffixAr, stat.suffixEn ?? "")
             : undefined;
           const format =
-            stat.value >= 1000000 ? (n: number) => n.toLocaleString() : undefined;
+            stat.value >= 1000 ? (n: number) => n.toLocaleString() : undefined;
           return (
             <div
               key={stat.labelEn}

@@ -1,5 +1,7 @@
 import { rabiaRoadAsset } from "@/data/asset-paths";
 
+export const RABIA_MAKKAH_AREA_SQ_M = 752000;
+
 export const RABIA_ROAD_HERO_IMAGE = rabiaRoadAsset(
   "WhatsApp Image 2026-06-25 at 3.27.46 PM.jpeg",
 );
@@ -12,9 +14,9 @@ export const RABIA_ROAD_HERO = {
   taglineAr: "على بعد دقائق من الحرم",
   taglineEn: "Minutes from the Holy Mosque",
   subtitleAr:
-    "واجهة مكة المكرمة الغربية على طريق مكة جدة السريع — أهم الشرايين المؤدية إلى الحرم المكي الشريف، وعلى الطريق الدائري الثالث في أرقى مناطق المدينة",
+    "واجهة مكة المكرمة الغربية على طريق مكة جدة السريع — مساحة 752,000 م² على الطريق الدائري الثالث في أرقى مناطق المدينة",
   subtitleEn:
-    "Makkah's western facade on the Mecca–Jeddah Expressway — a key artery to the Holy Mosque, on the Third Ring Road in the city's finest district",
+    "Makkah's western facade on the Mecca–Jeddah Expressway — 752,000 m² on the Third Ring Road in the city's finest district",
 };
 
 export type RabiaRoadStat = {
@@ -29,7 +31,7 @@ export type RabiaRoadStat = {
 
 export const RABIA_ROAD_STATS: RabiaRoadStat[] = [
   {
-    value: 752000,
+    value: RABIA_MAKKAH_AREA_SQ_M,
     suffixAr: " م²",
     suffixEn: " m²",
     labelAr: "مساحة المشروع",
