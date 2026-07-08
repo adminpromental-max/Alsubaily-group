@@ -6,7 +6,6 @@ export const DEDICATED_PROJECT_PATHS = {
   "dammam-olympic-city": "/projects/dammam-olympic-city",
   "hail-walkway": "/projects/hail-walkway",
   "alshubaily-high-rise": "/projects/alshubaily-high-rise",
-  "alshubaily-high-rise-2": "/projects/alshubaily-high-rise-2",
   "sultanat-al-sharq": "/projects/sultanat-al-sharq",
   "hail-corniche": "/projects/hail-corniche",
   "al-zahraa": "/projects/al-zahraa",

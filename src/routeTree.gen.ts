@@ -30,7 +30,6 @@ import { Route as ProjectsAlshubailyTownRouteImport } from './routes/projects.al
 import { Route as ProjectsAlshubailyResidenceRouteImport } from './routes/projects.alshubaily-residence'
 import { Route as ProjectsAlshubailyPortRouteImport } from './routes/projects.alshubaily-port'
 import { Route as ProjectsAlshubailyNewBeachRouteImport } from './routes/projects.alshubaily-new-beach'
-import { Route as ProjectsAlshubailyHighRise2RouteImport } from './routes/projects.alshubaily-high-rise-2'
 import { Route as ProjectsAlshubailyHighRiseRouteImport } from './routes/projects.alshubaily-high-rise'
 import { Route as ProjectsAlshubailyGrandMallRouteImport } from './routes/projects.alshubaily-grand-mall'
 import { Route as ProjectsAlshubailyAhlAlbaytRouteImport } from './routes/projects.alshubaily-ahl-albayt'
@@ -148,12 +147,6 @@ const ProjectsAlshubailyNewBeachRoute =
     path: '/projects/alshubaily-new-beach',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ProjectsAlshubailyHighRise2Route =
-  ProjectsAlshubailyHighRise2RouteImport.update({
-    id: '/projects/alshubaily-high-rise-2',
-    path: '/projects/alshubaily-high-rise-2',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const ProjectsAlshubailyHighRiseRoute =
   ProjectsAlshubailyHighRiseRouteImport.update({
     id: '/projects/alshubaily-high-rise',
@@ -207,7 +200,6 @@ export interface FileRoutesByFullPath {
   '/projects/alshubaily-ahl-albayt': typeof ProjectsAlshubailyAhlAlbaytRoute
   '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
-  '/projects/alshubaily-high-rise-2': typeof ProjectsAlshubailyHighRise2Route
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
   '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/alshubaily-residence': typeof ProjectsAlshubailyResidenceRoute
@@ -238,7 +230,6 @@ export interface FileRoutesByTo {
   '/projects/alshubaily-ahl-albayt': typeof ProjectsAlshubailyAhlAlbaytRoute
   '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
-  '/projects/alshubaily-high-rise-2': typeof ProjectsAlshubailyHighRise2Route
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
   '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/alshubaily-residence': typeof ProjectsAlshubailyResidenceRoute
@@ -270,7 +261,6 @@ export interface FileRoutesById {
   '/projects/alshubaily-ahl-albayt': typeof ProjectsAlshubailyAhlAlbaytRoute
   '/projects/alshubaily-grand-mall': typeof ProjectsAlshubailyGrandMallRoute
   '/projects/alshubaily-high-rise': typeof ProjectsAlshubailyHighRiseRoute
-  '/projects/alshubaily-high-rise-2': typeof ProjectsAlshubailyHighRise2Route
   '/projects/alshubaily-new-beach': typeof ProjectsAlshubailyNewBeachRoute
   '/projects/alshubaily-port': typeof ProjectsAlshubailyPortRoute
   '/projects/alshubaily-residence': typeof ProjectsAlshubailyResidenceRoute
@@ -303,7 +293,6 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-ahl-albayt'
     | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
-    | '/projects/alshubaily-high-rise-2'
     | '/projects/alshubaily-new-beach'
     | '/projects/alshubaily-port'
     | '/projects/alshubaily-residence'
@@ -334,7 +323,6 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-ahl-albayt'
     | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
-    | '/projects/alshubaily-high-rise-2'
     | '/projects/alshubaily-new-beach'
     | '/projects/alshubaily-port'
     | '/projects/alshubaily-residence'
@@ -365,7 +353,6 @@ export interface FileRouteTypes {
     | '/projects/alshubaily-ahl-albayt'
     | '/projects/alshubaily-grand-mall'
     | '/projects/alshubaily-high-rise'
-    | '/projects/alshubaily-high-rise-2'
     | '/projects/alshubaily-new-beach'
     | '/projects/alshubaily-port'
     | '/projects/alshubaily-residence'
@@ -397,7 +384,6 @@ export interface RootRouteChildren {
   ProjectsAlshubailyAhlAlbaytRoute: typeof ProjectsAlshubailyAhlAlbaytRoute
   ProjectsAlshubailyGrandMallRoute: typeof ProjectsAlshubailyGrandMallRoute
   ProjectsAlshubailyHighRiseRoute: typeof ProjectsAlshubailyHighRiseRoute
-  ProjectsAlshubailyHighRise2Route: typeof ProjectsAlshubailyHighRise2Route
   ProjectsAlshubailyNewBeachRoute: typeof ProjectsAlshubailyNewBeachRoute
   ProjectsAlshubailyPortRoute: typeof ProjectsAlshubailyPortRoute
   ProjectsAlshubailyResidenceRoute: typeof ProjectsAlshubailyResidenceRoute
@@ -565,13 +551,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsAlshubailyNewBeachRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects/alshubaily-high-rise-2': {
-      id: '/projects/alshubaily-high-rise-2'
-      path: '/projects/alshubaily-high-rise-2'
-      fullPath: '/projects/alshubaily-high-rise-2'
-      preLoaderRoute: typeof ProjectsAlshubailyHighRise2RouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/projects/alshubaily-high-rise': {
       id: '/projects/alshubaily-high-rise'
       path: '/projects/alshubaily-high-rise'
@@ -637,7 +616,6 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsAlshubailyAhlAlbaytRoute: ProjectsAlshubailyAhlAlbaytRoute,
   ProjectsAlshubailyGrandMallRoute: ProjectsAlshubailyGrandMallRoute,
   ProjectsAlshubailyHighRiseRoute: ProjectsAlshubailyHighRiseRoute,
-  ProjectsAlshubailyHighRise2Route: ProjectsAlshubailyHighRise2Route,
   ProjectsAlshubailyNewBeachRoute: ProjectsAlshubailyNewBeachRoute,
   ProjectsAlshubailyPortRoute: ProjectsAlshubailyPortRoute,
   ProjectsAlshubailyResidenceRoute: ProjectsAlshubailyResidenceRoute,

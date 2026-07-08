@@ -98,7 +98,7 @@ export function GroupCompaniesOrbit() {
               {COMPANIES.length}
             </p>
             <p className="mt-1 text-[10px] uppercase tracking-[0.35em] text-[#9A7B3A]">
-              {t("شركة", "Companies")}
+              {t("شركات", "Companies")}
             </p>
             <p className="mt-2 text-xs text-[#5C5348]/80">
               {t("اسحب للاستكشاف", "Drag to explore")}

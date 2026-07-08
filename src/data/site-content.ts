@@ -32,7 +32,6 @@ export const PROJECT_CATEGORY_BY_SLUG: Record<string, ProjectCategoryId> = {
   "dammam-olympic-city": "tourism",
   "al-zahraa": "residential",
   "alshubaily-high-rise": "office",
-  "alshubaily-high-rise-2": "office",
   "sultanat-al-sharq": "commercial",
   "alshubaily-new-beach": "tourism",
   "rabia-makkah": "commercial",
@@ -62,7 +61,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     nameEn: "Residential",
     bioAr: "أكثر من مجرد سكن؛ مجتمعات سكنية متكاملة تمنحك الخصوصية والرفاهية التي تستحقها.",
     bioEn: "More than housing — integrated communities offering the privacy and luxury you deserve.",
-    image: projectTypeAsset("سكني.png"),
+    image: projectTypeAsset("سكني .png"),
   },
   {
     id: "commercial",
