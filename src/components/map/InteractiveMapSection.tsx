@@ -94,7 +94,7 @@ export function InteractiveMapSection() {
           mapSrc={MAP_V2_SRC}
           mapDefault={MAP_V2_SIZE}
           coordinates={MAP_V2_COORDINATES}
-          pinMode="pushpin"
+          pinMode="glow"
           panBoost
         />
       </div>

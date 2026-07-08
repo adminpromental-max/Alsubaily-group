@@ -79,7 +79,7 @@ interface InteractiveMapProps {
   mapSrc?: string;
   mapDefault?: { w: number; h: number };
   coordinates?: Record<number, { x: number; y: number }>;
-  pinMode?: "number" | "label" | "pushpin";
+  pinMode?: "number" | "label" | "pushpin" | "glow";
   /** Slightly zoom in on load so the map can be dragged; vertical page scroll stays natural */
   panBoost?: boolean;
 }
@@ -214,7 +214,7 @@ export function InteractiveMap({
         transformRef.current = {
           scale: coverScale,
           x: (vw - w * coverScale) / 2,
-          y: vh - h * coverScale - PAN_EDGE_MARGIN,
+          y: (vh - h * coverScale) / 2,
         };
       } else {
         const isMobile = vw < MOBILE_BREAKPOINT;
@@ -453,7 +453,7 @@ export function InteractiveMap({
       <div
         className={cn(
           "relative w-full transition-opacity duration-300",
-          "h-[min(75svh,900px)] min-h-[380px] w-full",
+          "h-[min(85svh,980px)] min-h-[420px] w-full",
           ready ? "opacity-100" : "opacity-40",
         )}
       >
@@ -540,6 +540,7 @@ export function InteractiveMap({
                 const pinColor = project.color;
                 const isPushpin = pinMode === "pushpin";
                 const isLabel = pinMode === "label";
+                const isGlow = pinMode === "glow";
                 const projectName = lang === "ar" ? project.nameAr : project.nameEn;
                 const anchorTransform = isPushpin
                   ? "translate(-50%, -100%)"
@@ -560,6 +561,7 @@ export function InteractiveMap({
                     "map-hit-target absolute",
                     isLabel && "map-hit-target--label",
                     isPushpin && "map-hit-target--pushpin",
+                    isGlow && "map-hit-target--glow",
                     activeId === project.id && "is-active",
                     activeId && activeId !== project.id && "is-dimmed",
                   )}
@@ -580,6 +582,11 @@ export function InteractiveMap({
                       </span>
                       <span className="map-pushpin-stick" />
                     </span>
+                  ) : isGlow ? (
+                    <>
+                      <span className="map-glow-ring" aria-hidden />
+                      <span className="map-glow-core" aria-hidden />
+                    </>
                   ) : isLabel ? (
                     <>
                       <span className="map-hit-dot" aria-hidden />

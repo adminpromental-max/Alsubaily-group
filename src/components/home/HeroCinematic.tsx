@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const VIDEO_URL =
-  "https://res.cloudinary.com/dfzaghfsv/video/upload/v1783350304/home_intro_e76bfd.mov";
+  "https://res.cloudinary.com/dfzaghfsv/video/upload/v1783472047/Hero-home-page_by6iui.mov";
 const POSTER_URL = "/assets/hero/Hero-1.jpg";
 
 /**
